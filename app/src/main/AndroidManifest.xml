@@ -36,12 +36,14 @@
             android:theme="@style/AppThemeEnglish1"
             android:windowSoftInputMode="adjustResize" />
 
+
         <activity
             android:name=".ui.sections.SectionAActivity"
             android:label="@string/section01lhwinformation_mainheading"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
             android:windowSoftInputMode="adjustResize" />
+
 
         <activity
             android:name=".ui.sections.SectionBActivity"
@@ -50,12 +52,14 @@
             android:theme="@style/AppThemeEnglish1"
             android:windowSoftInputMode="adjustResize" />
 
+
         <activity
             android:name=".ui.sections.SectionB2Activity"
             android:label="@string/section01lhwinformation_mainheading"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
             android:windowSoftInputMode="adjustResize" />
+
 
         <activity
             android:name=".ui.sections.SectionCActivity"
@@ -64,9 +68,18 @@
             android:theme="@style/AppThemeEnglish1"
             android:windowSoftInputMode="adjustResize" />
 
+
         <activity
             android:name=".ui.sections.SectionH1Activity"
-            android:label="@string/sec04title"
+            android:label="@string/sec05title"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeEnglish1"
+            android:windowSoftInputMode="adjustResize" />
+
+
+        <activity
+            android:name=".ui.sections.SectionH2Activity"
+            android:label="@string/sec06title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
             android:windowSoftInputMode="adjustResize" />
@@ -125,6 +138,7 @@
             android:label="Forms Report"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+
 
     </application>
 
