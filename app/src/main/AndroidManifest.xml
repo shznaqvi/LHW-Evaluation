@@ -118,6 +118,14 @@
 
 
         <activity
+            android:name=".ui.sections.SectionW4Activity"
+            android:label="@string/secw4title"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeEnglish1"
+            android:windowSoftInputMode="adjustResize" />
+
+
+        <activity
             android:name=".ui.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.splashscreen"
