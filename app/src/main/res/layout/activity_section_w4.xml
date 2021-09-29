@@ -6398,7 +6398,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <!-- w419  CheckBox   -->
-                <androidx.cardview.widget.CardView
+                <!--<androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw419"
                     style="@style/cardView">
 
@@ -6468,7 +6468,7 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <!-- w420  Radio   -->
+                &lt;!&ndash; w420  Radio   &ndash;&gt;
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw420"
                     style="@style/cardView">
@@ -6561,7 +6561,7 @@
                                 android:visibility='@{w42096.checked? View.VISIBLE : View.GONE}' />
                         </RadioGroup>
                     </LinearLayout>
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
 
 
                 <!--EndButton LinearLayout-->
