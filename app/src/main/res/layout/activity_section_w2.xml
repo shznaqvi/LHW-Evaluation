@@ -12,7 +12,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW1Activity" />
+            type="edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW2Activity" />
 
     </data>
 
@@ -53,7 +53,6 @@
 
                 <!-- secw2inst  TextArea   -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/fldGrpCVsecw2inst"
                     style="@style/cardView">
 
                     <LinearLayout
@@ -61,26 +60,16 @@
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
-                        <LinearLayout
+                        <TextView
+                            style="@style/sub_labels"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/bottom"
-                            android:orientation="horizontal">
+                            android:text="@string/secw2inst" />
 
-                            <TextView
-                                style="@style/quesNum"
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:text="@string/Q_secw2inst" />
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:text="@string/secw2inst" />
-                        </LinearLayout>
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- w201  Radio   -->
                 <androidx.cardview.widget.CardView
