@@ -20,11 +20,16 @@ import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportCluster;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportDate;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportPending;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionAActivity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionB1Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionB2Activity;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionBActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionCActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH1Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH2Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH3Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW1Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW2Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW3Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW4Activity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -70,20 +75,19 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
 
             case R.id.openForm:
-            case R.id.openAnthro:
             case R.id.updateBlood:
             case R.id.updateStool:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, IdentificationActivity.class));
                 break;
-            case R.id.seca:
+            case R.id.openAnthro:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionAActivity.class));
                 break;
 
-            case R.id.secb:
+            case R.id.secb1:
                 MainApp.form = new Form();
-                startActivity(new Intent(this, SectionBActivity.class));
+                startActivity(new Intent(this, SectionB1Activity.class));
                 break;
 
             case R.id.secb2:
@@ -91,19 +95,44 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, SectionB2Activity.class));
                 break;
 
-            case R.id.sech1:
+            case R.id.secc:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionCActivity.class));
                 break;
 
-            case R.id.sech2:
+            case R.id.sech1:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionH1Activity.class));
                 break;
 
-            case R.id.sech3:
+            case R.id.sech2:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionH2Activity.class));
+                break;
+
+            case R.id.sech3:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionH3Activity.class));
+                break;
+
+            case R.id.secw1:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionW1Activity.class));
+                break;
+
+            case R.id.secw2:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionW2Activity.class));
+                break;
+
+            case R.id.secw3:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionW3Activity.class));
+                break;
+
+            case R.id.secw4:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionW4Activity.class));
                 break;
 
             case R.id.dbManager:

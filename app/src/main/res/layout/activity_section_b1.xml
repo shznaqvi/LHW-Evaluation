@@ -12,7 +12,7 @@
 
         <variable
             name="callback"
-            type="edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionBActivity" />
+            type="edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionB1Activity" />
 
     </data>
 

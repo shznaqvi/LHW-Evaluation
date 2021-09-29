@@ -46,7 +46,7 @@
 
 
         <activity
-            android:name=".ui.sections.SectionBActivity"
+            android:name=".ui.sections.SectionB1Activity"
             android:label="@string/section01lhwinformation_mainheading"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
