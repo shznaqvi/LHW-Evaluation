@@ -21,6 +21,7 @@ import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportDate;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportPending;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionAActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionBActivity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionCActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.secc:
                 MainApp.form = new Form();
-                startActivity(new Intent(this, SectionAActivity.class));
+                startActivity(new Intent(this, SectionCActivity.class));
                 break;
 
             case R.id.dbManager:
