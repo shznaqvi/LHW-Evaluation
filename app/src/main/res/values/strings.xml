@@ -1619,5 +1619,18 @@ she should be available during the interview, One MWRA per household will be sel
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="Q_istatus"> status </string>
+    <string name="istatus"> Result of Household Questionnaire interview </string>
+    <string name="istatusi"> Discuss any result not completed with team leader </string>
+    <string name="istatus01"> Completed </string>
+    <string name="istatus02"> No household member at home or no competent respondent at home at time of visit </string>
+    <string name="istatus03"> Entire household is absent for extended period </string>
+    <string name="istatus04"> Refused </string>
+    <string name="istatus05"> Dwelling vacant or address not a dwelling </string>
+    <string name="istatus06"> Dwelling not found </string>
+    <string name="istatus07"> No Child or adolescent 18 years or below present in the HH </string>
+    <string name="istatus08"> No MWRA 18 or above of age live in this household ? </string>
+    <string name="istatus96"> Other (Specify) </string>
+
 
 </resources>

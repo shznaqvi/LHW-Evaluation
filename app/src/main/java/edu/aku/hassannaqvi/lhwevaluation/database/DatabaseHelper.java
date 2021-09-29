@@ -110,34 +110,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_HHID, form.getHhid());
         values.put(FormsTable.COLUMN_USERNAME, form.getUserName());
         values.put(FormsTable.COLUMN_SYSDATE, form.getSysDate());
-        values.put(FormsTable.COLUMN_SA, form.sAtoString());
 
-        /* values.put(FormsTable.COLUMN_SH2A, form.getsH2a());*/
+        values.put(FormsTable.COLUMN_SA, form.sAtoString());
         values.put(FormsTable.COLUMN_SB, form.sBtoString());
-/*
-        values.put(FormsTable.COLUMN_SH2d, form.getsH2d());
-        values.put(FormsTable.COLUMN_SH2c, form.getsH2c());
-*/
         values.put(FormsTable.COLUMN_SC, form.sCtoString());
         values.put(FormsTable.COLUMN_SH1, form.sH1toString());
         values.put(FormsTable.COLUMN_SH2, form.sH2toString());
         values.put(FormsTable.COLUMN_SH3, form.sH3toString());
-        values.put(FormsTable.COLUMN_SAB, form.sABtoString());
-        values.put(FormsTable.COLUMN_SM, form.sMtoString());
-
         values.put(FormsTable.COLUMN_SW1, form.sW1toString());
-        /*values.put(FormsTable.COLUMN_SW1B, form.sW1b());*/
         values.put(FormsTable.COLUMN_SW2, form.sW2toString());
         values.put(FormsTable.COLUMN_SW3, form.sW3toString());
         values.put(FormsTable.COLUMN_SW4, form.sW4toString());
-
-        values.put(FormsTable.COLUMN_SC1, form.sC1toString());
-        values.put(FormsTable.COLUMN_SC2, form.sC2toString());
-        values.put(FormsTable.COLUMN_SC3, form.sC3toString());
-
+        values.put(FormsTable.COLUMN_SAB, form.sABtoString());
+        values.put(FormsTable.COLUMN_SM, form.sMtoString());
 
         values.put(FormsTable.COLUMN_ISTATUS, form.getiStatus());
-
         values.put(FormsTable.COLUMN_DEVICETAGID, form.getDeviceTag());
         values.put(FormsTable.COLUMN_DEVICEID, form.getDeviceId());
         values.put(FormsTable.COLUMN_APPVERSION, form.getAppver());
@@ -1177,13 +1164,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.close();
             }
         }
-        return form.getW100Name();
+        return form.getA101();
     }
 
     public String getChildName(String uid) throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
-        String[] columns = {FormsTable.COLUMN_SC1};
+        String[] columns = {FormsTable.COLUMN_SA};
 
         String whereClause;
         whereClause = FormsTable.COLUMN_UID + "=?  ";
@@ -1208,7 +1195,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 form = new Form();
-                form.sC1Hydrate(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_SC1)));
+                form.sAHydrate(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_SA)));
 
 
             }
@@ -1220,7 +1207,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.close();
             }
         }
-        return form.getC100Name();
+        return form.getA101();
     }
 
 }
