@@ -28,6 +28,7 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
 
+
         <activity
             android:name=".ui.IdentificationActivity"
             android:label="@string/sec04title"
@@ -63,6 +64,13 @@
             android:theme="@style/AppThemeEnglish1"
             android:windowSoftInputMode="adjustResize" />
 
+        <activity
+            android:name=".ui.sections.SectionH1Activity"
+            android:label="@string/sec04title"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeEnglish1"
+            android:windowSoftInputMode="adjustResize" />
+
 
         <activity
             android:name=".ui.LoginActivity"
@@ -86,7 +94,6 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
-
 
         <activity
             android:name=".ui.EndingActivity"
@@ -118,7 +125,6 @@
             android:label="Forms Report"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
-
 
     </application>
 

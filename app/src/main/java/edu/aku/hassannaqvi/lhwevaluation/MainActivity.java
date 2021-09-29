@@ -23,6 +23,7 @@ import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionAActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionB2Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionBActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionCActivity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH1Activity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -92,6 +93,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.sech1:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionCActivity.class));
+                break;
+
+            case R.id.sech2:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionH1Activity.class));
                 break;
 
             case R.id.dbManager:
