@@ -115,6 +115,18 @@
                                 android:text="@string/istatusf" />
 
                             <RadioButton
+                                android:id="@+id/istatusg"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/istatusg" />
+
+                            <RadioButton
+                                android:id="@+id/istatush"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/istatush" />
+
+                            <RadioButton
                                 android:id="@+id/istatus96"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"

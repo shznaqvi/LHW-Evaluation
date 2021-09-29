@@ -310,10 +310,56 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/sech1"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/seca"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
+                            android:gravity="center"
+                            android:background="@color/colorPrimary"
+                            android:elevation="1dp"
+                            android:onClick="sectionPress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="A"
+                            android:textColor="@color/colorAccentLight"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/secb"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:gravity="center"
+                            android:background="@color/colorPrimary"
+                            android:elevation="1dp"
+                            android:onClick="sectionPress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="B"
+                            android:textColor="@color/colorAccentLight"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/secc"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:gravity="center"
+                            android:background="@color/colorPrimary"
+                            android:elevation="1dp"
+                            android:onClick="sectionPress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="C"
+                            android:textColor="@color/colorAccentLight"
+                            android:textSize="14sp" />
+
+                        <TextView
+                            android:id="@+id/sech1"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:gravity="center"
                             android:background="@color/colorPrimary"
                             android:elevation="1dp"
                             android:onClick="sectionPress"
@@ -323,104 +369,6 @@
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
-                        <TextView
-                            android:id="@+id/sech2a"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@color/colorPrimary"
-                            android:elevation="1dp"
-                            android:onClick="sectionPress"
-                            android:padding="8dp"
-                            android:shadowRadius="8"
-                            android:text="H2a"
-                            android:textColor="@color/colorAccentLight"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/sech2b"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@color/colorPrimary"
-                            android:elevation="1dp"
-                            android:onClick="sectionPress"
-                            android:padding="8dp"
-                            android:shadowRadius="8"
-                            android:text="H2b"
-                            android:textColor="@color/colorAccentLight"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/sech2c"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@color/colorPrimary"
-                            android:elevation="1dp"
-                            android:onClick="sectionPress"
-                            android:padding="8dp"
-                            android:shadowRadius="8"
-                            android:text="H2c"
-                            android:textColor="@color/colorAccentLight"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/sech2d"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@color/colorPrimary"
-                            android:elevation="1dp"
-                            android:onClick="sectionPress"
-                            android:padding="8dp"
-                            android:shadowRadius="8"
-                            android:text="H2d"
-                            android:textColor="@color/colorAccentLight"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/sech3a"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@color/colorPrimary"
-                            android:elevation="1dp"
-                            android:onClick="sectionPress"
-                            android:padding="8dp"
-                            android:shadowRadius="8"
-                            android:text="H3a"
-                            android:textColor="@color/colorAccentLight"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/sech3b"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@color/colorPrimary"
-                            android:elevation="1dp"
-                            android:onClick="sectionPress"
-                            android:padding="8dp"
-                            android:shadowRadius="8"
-                            android:text="H3b"
-                            android:textColor="@color/colorAccentLight"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/sech4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@color/colorPrimary"
-                            android:elevation="1dp"
-                            android:onClick="sectionPress"
-                            android:padding="8dp"
-                            android:shadowRadius="8"
-                            android:text="H4"
-                            android:textColor="@color/colorAccentLight"
-                            android:textSize="14sp" />
-
 
                     </LinearLayout>
 
@@ -431,80 +379,56 @@
                         android:orientation="horizontal">
 
                         <TextView
-                            android:id="@+id/sech5"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/sech2"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
+                            android:gravity="center"
                             android:background="@color/colorPrimary"
                             android:elevation="1dp"
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="H5"
+                            android:text="H2"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
                         <TextView
-                            android:id="@+id/sech6"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/sech3"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
+                            android:gravity="center"
                             android:background="@color/colorPrimary"
                             android:elevation="1dp"
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="H6"
+                            android:text="H3"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
                         <TextView
-                            android:id="@+id/sech7"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/secw1"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
+                            android:gravity="center"
                             android:background="@color/colorPrimary"
                             android:elevation="1dp"
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="H7"
-                            android:textColor="@color/colorAccentLight"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/secw1a"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@color/colorPrimary"
-                            android:elevation="1dp"
-                            android:onClick="sectionPress"
-                            android:padding="8dp"
-                            android:shadowRadius="8"
-                            android:text="W1a"
-                            android:textColor="@color/colorAccentLight"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/secw1b"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@color/colorPrimary"
-                            android:elevation="1dp"
-                            android:onClick="sectionPress"
-                            android:padding="8dp"
-                            android:shadowRadius="8"
-                            android:text="W1b"
+                            android:text="W1"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
                         <TextView
                             android:id="@+id/secw2"
-                            android:layout_width="wrap_content"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
+                            android:gravity="center"
                             android:background="@color/colorPrimary"
                             android:elevation="1dp"
                             android:onClick="sectionPress"
@@ -514,34 +438,6 @@
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
-                        <TextView
-                            android:id="@+id/secw3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@color/colorPrimary"
-                            android:elevation="1dp"
-                            android:onClick="sectionPress"
-                            android:padding="8dp"
-                            android:shadowRadius="8"
-                            android:text="W3"
-                            android:textColor="@color/colorAccentLight"
-                            android:textSize="14sp" />
-
-                        <TextView
-                            android:id="@+id/secw4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="4dp"
-                            android:background="@color/colorPrimary"
-                            android:elevation="1dp"
-                            android:onClick="sectionPress"
-                            android:padding="8dp"
-                            android:shadowRadius="8"
-                            android:text="W4"
-                            android:textColor="@color/colorAccentLight"
-                            android:textSize="14sp" />
-
                     </LinearLayout>
 
 
@@ -551,46 +447,64 @@
                         android:gravity="center_horizontal"
                         android:orientation="horizontal">
 
-
                         <TextView
-                            android:id="@+id/secc1"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/secw3"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
+                            android:background="@color/colorPrimary"
+                            android:elevation="1dp"
+                            android:gravity="center"
+                            android:onClick="sectionPress"
+                            android:padding="8dp"
+                            android:shadowRadius="8"
+                            android:text="W3"
+                            android:textColor="@color/colorAccentLight"
+                            android:textSize="14sp" />
+
+
+                        <TextView
+                            android:id="@+id/secw4"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:gravity="center"
                             android:background="@color/colorPrimary"
                             android:elevation="1dp"
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="C1"
+                            android:text="W4"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
                         <TextView
-                            android:id="@+id/secc2"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/secab"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
+                            android:gravity="center"
                             android:background="@color/colorPrimary"
                             android:elevation="1dp"
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="C2"
+                            android:text="AB"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 
                         <TextView
-                            android:id="@+id/secc3"
-                            android:layout_width="wrap_content"
+                            android:id="@+id/secm"
+                            android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
+                            android:gravity="center"
                             android:background="@color/colorPrimary"
                             android:elevation="1dp"
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="C3"
+                            android:text="M"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 

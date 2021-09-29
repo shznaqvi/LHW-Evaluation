@@ -19,9 +19,8 @@ import edu.aku.hassannaqvi.lhwevaluation.ui.SyncActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportCluster;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportDate;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportPending;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionC1Activity;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH1Activity;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH2aActivity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionAActivity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionBActivity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -73,19 +72,19 @@ public class MainActivity extends AppCompatActivity {
                 MainApp.form = new Form();
                 startActivity(new Intent(this, IdentificationActivity.class));
                 break;
-            case R.id.sech1:
+            case R.id.seca:
                 MainApp.form = new Form();
-                startActivity(new Intent(this, SectionH1Activity.class));
+                startActivity(new Intent(this, SectionAActivity.class));
                 break;
 
-            case R.id.sech2a:
+            case R.id.secb:
                 MainApp.form = new Form();
-                startActivity(new Intent(this, SectionH2aActivity.class));
+                startActivity(new Intent(this, SectionBActivity.class));
                 break;
 
-            case R.id.secc1:
+            case R.id.secc:
                 MainApp.form = new Form();
-                startActivity(new Intent(this, SectionC1Activity.class));
+                startActivity(new Intent(this, SectionAActivity.class));
                 break;
 
             case R.id.dbManager:

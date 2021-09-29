@@ -26,25 +26,16 @@ object CreateTable {
             + FormsTable.COLUMN_APPVERSION + " TEXT,"
             + FormsTable.COLUMN_SA + " TEXT,"
             + FormsTable.COLUMN_SB + " TEXT,"
-            /*
-            + FormsTable.COLUMN_SH2c + " TEXT,"
-            + FormsTable.COLUMN_SH2d + " TEXT,"
-            */
             + FormsTable.COLUMN_SC + " TEXT,"
             + FormsTable.COLUMN_SH1 + " TEXT,"
             + FormsTable.COLUMN_SH2 + " TEXT,"
             + FormsTable.COLUMN_SH3 + " TEXT,"
-            + FormsTable.COLUMN_SAB + " TEXT,"
-            + FormsTable.COLUMN_SM + " TEXT,"
-
-            // MWRA
             + FormsTable.COLUMN_SW1 + " TEXT,"
             + FormsTable.COLUMN_SW2 + " TEXT,"
             + FormsTable.COLUMN_SW3 + " TEXT,"
             + FormsTable.COLUMN_SW4 + " TEXT,"
-            + FormsTable.COLUMN_SC1 + " TEXT,"
-            + FormsTable.COLUMN_SC2 + " TEXT,"
-            + FormsTable.COLUMN_SC3 + " TEXT"
+            + FormsTable.COLUMN_SAB + " TEXT,"
+            + FormsTable.COLUMN_SM + " TEXT"
             + " );"
             )
 

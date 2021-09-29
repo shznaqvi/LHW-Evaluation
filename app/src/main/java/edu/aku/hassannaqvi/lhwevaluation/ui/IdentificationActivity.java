@@ -31,7 +31,7 @@ import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityIdentificationBindi
 import edu.aku.hassannaqvi.lhwevaluation.models.Clusters;
 import edu.aku.hassannaqvi.lhwevaluation.models.Form;
 import edu.aku.hassannaqvi.lhwevaluation.models.RandomHH;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH1Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionAActivity;
 
 
 public class IdentificationActivity extends AppCompatActivity {
@@ -58,7 +58,7 @@ public class IdentificationActivity extends AppCompatActivity {
             case 1:
                 bi.btnContinue.setText(R.string.open_hh_form);
                 MainApp.form = new Form();
-                openIntent = new Intent(this, SectionH1Activity.class);
+                openIntent = new Intent(this, SectionAActivity.class);
                 break;
          /*   case 2:
                 bi.btnContinue.setText(R.string.open_anhtro_form);
@@ -251,7 +251,7 @@ public class IdentificationActivity extends AppCompatActivity {
         MainApp.form.setH101(districtCodes.get(bi.h101.getSelectedItemPosition()));
         MainApp.form.setH102(cityCodes.get(bi.h102.getSelectedItemPosition()));
         MainApp.form.setH103(bi.h103.getText().toString());
-        MainApp.form.setH104(bi.h104.getText().toString());
+        MainApp.form.setH104a(bi.h104.getText().toString());
 
     }
 
@@ -333,11 +333,11 @@ public class IdentificationActivity extends AppCompatActivity {
                         MainApp.subjectNames.add("...");
 
                         // Add woman if exist
-                        if (!MainApp.form.getW100Name().equals("")) {
-                            MainApp.subjectNames.add(MainApp.form.getW100Name() + " (" + MainApp.form.getW102() + ")");
+                        if (!MainApp.form.getA104n().equals("")) {
+                            MainApp.subjectNames.add(MainApp.form.getA104n() + " (" + MainApp.form.getW102() + ")");
                             // Add child if both woman and child exist
-                            if (!MainApp.form.getC100Name().equals("")) {
-                                MainApp.subjectNames.add(MainApp.form.getC100Name());
+                            if (!MainApp.form.getA104n().equals("")) {
+                                MainApp.subjectNames.add(MainApp.form.getA104n());
                             } else {
                                 Toast.makeText(this, R.string.child_info_missing, Toast.LENGTH_SHORT).show();
                                 return false;
