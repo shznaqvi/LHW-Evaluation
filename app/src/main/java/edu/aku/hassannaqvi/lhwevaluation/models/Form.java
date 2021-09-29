@@ -141,7 +141,7 @@ public class Form extends BaseObservable implements Observable {
     private String c118m = StringUtils.EMPTY;
     private String c119s = StringUtils.EMPTY;
     private String c119m = StringUtils.EMPTY;
-    private String c10s = StringUtils.EMPTY;
+    private String c120s = StringUtils.EMPTY;
     private String c120m = StringUtils.EMPTY;
     private String c121s = StringUtils.EMPTY;
     private String c121m = StringUtils.EMPTY;
@@ -1692,13 +1692,13 @@ public class Form extends BaseObservable implements Observable {
     }
 
     @Bindable
-    public String getC10s() {
-        return c10s;
+    public String getC120s() {
+        return c120s;
     }
 
-    public void setC10s(String c10s) {
-        this.c10s = c10s;
-        notifyPropertyChanged(BR.c10s);
+    public void setC120s(String c120s) {
+        this.c120s = c120s;
+        notifyPropertyChanged(BR.c120s);
     }
 
     @Bindable
@@ -2108,6 +2108,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setC141(String c141) {
         this.c141 = c141;
+        setC14196x(c141.equals("96") ? this.c14196x : "");
         notifyPropertyChanged(BR.c141);
     }
 
@@ -6234,7 +6235,7 @@ public class Form extends BaseObservable implements Observable {
             this.c118m = json.getString("c118m");
             this.c119s = json.getString("c119s");
             this.c119m = json.getString("c119m");
-            this.c10s = json.getString("c10s");
+            this.c120s = json.getString("c10s");
             this.c120m = json.getString("c120m");
             this.c121s = json.getString("c121s");
             this.c121m = json.getString("c121m");
@@ -6852,7 +6853,7 @@ public class Form extends BaseObservable implements Observable {
                 .put("c118m", c118m)
                 .put("c119s", c119s)
                 .put("c119m", c119m)
-                .put("c10s", c10s)
+                .put("c10s", c120s)
                 .put("c120m", c120m)
                 .put("c121s", c121s)
                 .put("c121m", c121m)

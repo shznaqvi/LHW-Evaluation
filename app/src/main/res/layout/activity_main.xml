@@ -340,7 +340,7 @@
                             android:textSize="14sp" />
 
                         <TextView
-                            android:id="@+id/secc"
+                            android:id="@+id/secb2"
                             android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:layout_margin="4dp"
@@ -350,7 +350,7 @@
                             android:onClick="sectionPress"
                             android:padding="8dp"
                             android:shadowRadius="8"
-                            android:text="C"
+                            android:text="B2"
                             android:textColor="@color/colorAccentLight"
                             android:textSize="14sp" />
 

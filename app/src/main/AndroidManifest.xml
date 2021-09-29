@@ -28,8 +28,6 @@
         android:usesCleartextTraffic="true"
         tools:replace="android:allowBackup">
 
-
-
         <activity
             android:name=".ui.IdentificationActivity"
             android:label="@string/sec04title"
@@ -52,8 +50,15 @@
             android:windowSoftInputMode="adjustResize" />
 
         <activity
-            android:name=".ui.sections.SectionCActivity"
+            android:name=".ui.sections.SectionB2Activity"
             android:label="@string/section01lhwinformation_mainheading"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeEnglish1"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".ui.sections.SectionCActivity"
+            android:label="@string/sec04title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
             android:windowSoftInputMode="adjustResize" />
@@ -77,35 +82,44 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+
+
         <activity
             android:name=".ui.EndingActivity"
             android:label="@string/istatus"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
             android:windowSoftInputMode="adjustResize|stateHidden" />
+
         <activity
             android:name=".ui.TakePhoto"
             android:hardwareAccelerated="true"
             android:label="@string/app_name"
             android:theme="@style/AppTheme" />
+
         <activity
             android:name=".database.AndroidDatabaseManager"
             android:theme="@style/AppTheme" />
+
         <activity
             android:name=".ui.lists.FormsReportCluster"
             android:exported="false"
             android:label="Forms Report"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+
         <activity
             android:name=".ui.lists.FormsReportDate"
             android:exported="false"
             android:label="Forms Report"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+
+
     </application>
 
 </manifest>
