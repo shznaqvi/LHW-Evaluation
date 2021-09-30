@@ -20,6 +20,7 @@ import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportCluster;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportDate;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportPending;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionAActivity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionABActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionB1Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionB2Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionCActivity;
@@ -133,6 +134,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.secw4:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionW4Activity.class));
+                break;
+
+            case R.id.secab:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionABActivity.class));
                 break;
 
             case R.id.dbManager:
