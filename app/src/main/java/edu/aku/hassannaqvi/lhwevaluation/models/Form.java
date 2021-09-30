@@ -6030,6 +6030,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM105a(String m105a) {
+        if (this.m105a.equals(m105a)) return;
         this.m105a = m105a;
         notifyPropertyChanged(BR.m105a);
     }
@@ -6040,6 +6041,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM105b(String m105b) {
+        if (this.m105b.equals(m105b)) return;
         this.m105b = m105b;
         notifyPropertyChanged(BR.m105b);
     }
@@ -6050,6 +6052,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM105c(String m105c) {
+        if (this.m105c.equals(m105c)) return;
         this.m105c = m105c;
         notifyPropertyChanged(BR.m105c);
     }
@@ -6060,6 +6063,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM105d(String m105d) {
+        if (this.m105d.equals(m105d)) return;
         this.m105d = m105d;
         notifyPropertyChanged(BR.m105d);
     }
@@ -6070,6 +6074,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM105e(String m105e) {
+        if (this.m105e.equals(m105e)) return;
         this.m105e = m105e;
         notifyPropertyChanged(BR.m105e);
     }
@@ -6080,6 +6085,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM105f(String m105f) {
+        if (this.m105f.equals(m105f)) return;
         this.m105f = m105f;
         notifyPropertyChanged(BR.m105f);
     }
@@ -6090,6 +6096,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM105g(String m105g) {
+        if (this.m105g.equals(m105g)) return;
         this.m105g = m105g;
         notifyPropertyChanged(BR.m105g);
     }
@@ -6100,6 +6107,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM105h(String m105h) {
+        if (this.m105h.equals(m105h)) return;
         this.m105h = m105h;
         notifyPropertyChanged(BR.m105h);
     }
@@ -6110,6 +6118,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM10596(String m10596) {
+        if (this.m10596.equals(m10596)) return;
         this.m10596 = m10596;
         notifyPropertyChanged(BR.m10596);
     }
@@ -6140,6 +6149,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM106a(String m106a) {
+        if (this.m106a.equals(m106a)) return;
         this.m106a = m106a;
         notifyPropertyChanged(BR.m106a);
     }
@@ -6150,6 +6160,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM106b(String m106b) {
+        if (this.m106b.equals(m106b)) return;
         this.m106b = m106b;
         notifyPropertyChanged(BR.m106b);
     }
@@ -6160,6 +6171,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM106c(String m106c) {
+        if (this.m106c.equals(m106c)) return;
         this.m106c = m106c;
         notifyPropertyChanged(BR.m106c);
     }
@@ -6170,6 +6182,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setM106d(String m106d) {
+        if (this.m106d.equals(m106d)) return;
         this.m106d = m106d;
         notifyPropertyChanged(BR.m106d);
     }
