@@ -27,6 +27,7 @@ import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionCActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH1Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH2Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH3Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionMActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW1Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW2Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW3Activity;
@@ -139,6 +140,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.secab:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionABActivity.class));
+                break;
+
+            case R.id.secm:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionMActivity.class));
                 break;
 
             case R.id.dbManager:
