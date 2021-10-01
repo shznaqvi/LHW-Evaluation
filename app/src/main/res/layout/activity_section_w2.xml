@@ -1057,7 +1057,7 @@
                                 android:onClick="@{()->form.setW20998(form.w20998.equals(`98`)?``:`98`)}"
                                 android:text="@string/w20998" />
 
-                            <RadioButton
+                            <CheckBox
                                 android:id="@+id/w20997"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
