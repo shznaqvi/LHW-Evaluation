@@ -3593,6 +3593,7 @@
                             android:id="@+id/c140"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:onCheckedChanged="@{()->c141.clearCheck()}"
                             android:orientation="horizontal">
 
                             <RadioButton
@@ -3623,7 +3624,8 @@
                 <!-- c141  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVc141"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.c140.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -3694,7 +3696,7 @@
                                 android:hint="@string/c14196"
                                 android:tag="c14196"
                                 android:text="@={form.c14196x}"
-                                android:visibility='@{form.c141.equals(`96`) ? View.VISIBLE : View.GONE}' />
+                                android:visibility="@{form.c141.equals(`96`) ? View.VISIBLE : View.GONE}" />
 
                         </RadioGroup>
 
