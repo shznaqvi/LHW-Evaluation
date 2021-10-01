@@ -939,6 +939,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setB101(String b101) {
         this.b101 = b101;
+        setB103(b101.equals("2") && this.b102.equals("2") ? this.b103 : "");
         notifyPropertyChanged(BR.b101);
     }
 
@@ -949,6 +950,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setB102(String b102) {
         this.b102 = b102;
+        setB103(b102.equals("2") && this.b101.equals("2") ? this.b103 : "");
         notifyPropertyChanged(BR.b102);
     }
 
