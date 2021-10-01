@@ -94,35 +94,42 @@
                                 android:text="@string/Q_w201" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/w201" />
+
                         </LinearLayout>
 
                         <RadioGroup
                             android:id="@+id/w201"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/w201a"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{form.w201.equals(`1`)}"
                                 android:onClick="@{()->form.setW201(`1`)}"
                                 android:text="@string/w201a" />
 
                             <RadioButton
                                 android:id="@+id/w201b"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{form.w201.equals(`2`)}"
                                 android:onClick="@{()->form.setW201(`2`)}"
                                 android:text="@string/w201b" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- w202  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -147,10 +154,10 @@
                                 android:text="@string/Q_w202" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/w202" />
+
                         </LinearLayout>
 
                         <RadioGroup
@@ -205,9 +212,13 @@
                                 android:checked="@{form.w202.equals(`6`)}"
                                 android:onClick="@{()->form.setW202(`6`)}"
                                 android:text="@string/w202f" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- w203  CheckBox   -->
                 <androidx.cardview.widget.CardView
@@ -232,10 +243,10 @@
                                 android:text="@string/Q_w203" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/w203" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -301,10 +312,14 @@
                                 android:hint="@string/w20396"
                                 android:tag="w20396"
                                 android:text="@={form.w20396x}"
-                                android:visibility='@{w20396.checked? View.VISIBLE : View.GONE}' />
+                                android:visibility="@{form.w20396.equals(`96`) ? View.VISIBLE : View.GONE}" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- w204  CheckBox   -->
                 <androidx.cardview.widget.CardView
@@ -329,10 +344,10 @@
                                 android:text="@string/Q_w204" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/w204" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -346,6 +361,7 @@
                                 android:id="@+id/w204a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w204i.equals(`9`)}"
                                 android:checked="@{form.w204a.equals(`1`)}"
                                 android:onClick="@{()->form.setW204a(form.w204a.equals(`1`)?``:`1`)}"
                                 android:text="@string/w204a" />
@@ -354,6 +370,7 @@
                                 android:id="@+id/w204b"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w204i.equals(`9`)}"
                                 android:checked="@{form.w204b.equals(`2`)}"
                                 android:onClick="@{()->form.setW204b(form.w204b.equals(`2`)?``:`2`)}"
                                 android:text="@string/w204b" />
@@ -362,6 +379,7 @@
                                 android:id="@+id/w204c"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w204i.equals(`9`)}"
                                 android:checked="@{form.w204c.equals(`3`)}"
                                 android:onClick="@{()->form.setW204c(form.w204c.equals(`3`)?``:`3`)}"
                                 android:text="@string/w204c" />
@@ -370,6 +388,7 @@
                                 android:id="@+id/w204d"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w204i.equals(`9`)}"
                                 android:checked="@{form.w204d.equals(`4`)}"
                                 android:onClick="@{()->form.setW204d(form.w204d.equals(`4`)?``:`4`)}"
                                 android:text="@string/w204d" />
@@ -378,6 +397,7 @@
                                 android:id="@+id/w204e"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w204i.equals(`9`)}"
                                 android:checked="@{form.w204e.equals(`5`)}"
                                 android:onClick="@{()->form.setW204e(form.w204e.equals(`5`)?``:`5`)}"
                                 android:text="@string/w204e" />
@@ -386,6 +406,7 @@
                                 android:id="@+id/w204f"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w204i.equals(`9`)}"
                                 android:checked="@{form.w204f.equals(`6`)}"
                                 android:onClick="@{()->form.setW204f(form.w204f.equals(`6`)?``:`6`)}"
                                 android:text="@string/w204f" />
@@ -394,6 +415,7 @@
                                 android:id="@+id/w204g"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w204i.equals(`9`)}"
                                 android:checked="@{form.w204g.equals(`7`)}"
                                 android:onClick="@{()->form.setW204g(form.w204g.equals(`7`)?``:`7`)}"
                                 android:text="@string/w204g" />
@@ -402,6 +424,7 @@
                                 android:id="@+id/w204h"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w204i.equals(`9`)}"
                                 android:checked="@{form.w204h.equals(`8`)}"
                                 android:onClick="@{()->form.setW204h(form.w204h.equals(`8`)?``:`8`)}"
                                 android:text="@string/w204h" />
@@ -413,9 +436,13 @@
                                 android:checked="@{form.w204i.equals(`9`)}"
                                 android:onClick="@{()->form.setW204i(form.w204i.equals(`9`)?``:`9`)}"
                                 android:text="@string/w204i" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- w205  CheckBox   -->
                 <androidx.cardview.widget.CardView
@@ -440,10 +467,10 @@
                                 android:text="@string/Q_w205" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/w205" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -457,6 +484,7 @@
                                 android:id="@+id/w205a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w205e.equals(`5`) || !form.w20598.equals(`98`)}"
                                 android:checked="@{form.w205a.equals(`1`)}"
                                 android:onClick="@{()->form.setW205a(form.w205a.equals(`1`)?``:`1`)}"
                                 android:text="@string/w205a" />
@@ -465,6 +493,7 @@
                                 android:id="@+id/w205b"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w205e.equals(`5`) || !form.w20598.equals(`98`)}"
                                 android:checked="@{form.w205b.equals(`2`)}"
                                 android:onClick="@{()->form.setW205b(form.w205b.equals(`2`)?``:`2`)}"
                                 android:text="@string/w205b" />
@@ -473,6 +502,7 @@
                                 android:id="@+id/w205c"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w205e.equals(`5`) || !form.w20598.equals(`98`)}"
                                 android:checked="@{form.w205c.equals(`3`)}"
                                 android:onClick="@{()->form.setW205c(form.w205c.equals(`3`)?``:`3`)}"
                                 android:text="@string/w205c" />
@@ -481,6 +511,7 @@
                                 android:id="@+id/w205d"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w205e.equals(`5`) || !form.w20598.equals(`98`)}"
                                 android:checked="@{form.w205d.equals(`4`)}"
                                 android:onClick="@{()->form.setW205d(form.w205d.equals(`4`)?``:`4`)}"
                                 android:text="@string/w205d" />
@@ -489,6 +520,7 @@
                                 android:id="@+id/w205e"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w20598.equals(`98`)}"
                                 android:checked="@{form.w205e.equals(`5`)}"
                                 android:onClick="@{()->form.setW205e(form.w205e.equals(`5`)?``:`5`)}"
                                 android:text="@string/w205e" />
@@ -497,12 +529,17 @@
                                 android:id="@+id/w20598"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w205e.equals(`5`)}"
                                 android:checked="@{form.w20598.equals(`98`)}"
                                 android:onClick="@{()->form.setW20598(form.w20598.equals(`98`)?``:`98`)}"
                                 android:text="@string/w20598" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- w206  CheckBox   -->
                 <androidx.cardview.widget.CardView
@@ -527,10 +564,10 @@
                                 android:text="@string/Q_w206" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/w206" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -544,6 +581,7 @@
                                 android:id="@+id/w206a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w206k.equals(`11`) || !form.w20698.equals(`98`)}"
                                 android:checked="@{form.w206a.equals(`1`)}"
                                 android:onClick="@{()->form.setW206a(form.w206a.equals(`1`)?``:`1`)}"
                                 android:text="@string/w206a" />
@@ -552,6 +590,7 @@
                                 android:id="@+id/w206b"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w206k.equals(`11`) || !form.w20698.equals(`98`)}"
                                 android:checked="@{form.w206b.equals(`2`)}"
                                 android:onClick="@{()->form.setW206b(form.w206b.equals(`2`)?``:`2`)}"
                                 android:text="@string/w206b" />
@@ -560,6 +599,7 @@
                                 android:id="@+id/w206c"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w206k.equals(`11`) || !form.w20698.equals(`98`)}"
                                 android:checked="@{form.w206c.equals(`3`)}"
                                 android:onClick="@{()->form.setW206c(form.w206c.equals(`3`)?``:`3`)}"
                                 android:text="@string/w206c" />
@@ -568,6 +608,7 @@
                                 android:id="@+id/w206d"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w206k.equals(`11`) || !form.w20698.equals(`98`)}"
                                 android:checked="@{form.w206d.equals(`4`)}"
                                 android:onClick="@{()->form.setW206d(form.w206d.equals(`4`)?``:`4`)}"
                                 android:text="@string/w206d" />
@@ -576,6 +617,7 @@
                                 android:id="@+id/w206e"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w206k.equals(`11`) || !form.w20698.equals(`98`)}"
                                 android:checked="@{form.w206e.equals(`5`)}"
                                 android:onClick="@{()->form.setW206e(form.w206e.equals(`5`)?``:`5`)}"
                                 android:text="@string/w206e" />
@@ -584,6 +626,7 @@
                                 android:id="@+id/w206f"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w206k.equals(`11`) || !form.w20698.equals(`98`)}"
                                 android:checked="@{form.w206f.equals(`6`)}"
                                 android:onClick="@{()->form.setW206f(form.w206f.equals(`6`)?``:`6`)}"
                                 android:text="@string/w206f" />
@@ -592,6 +635,7 @@
                                 android:id="@+id/w206g"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w206k.equals(`11`) || !form.w20698.equals(`98`)}"
                                 android:checked="@{form.w206g.equals(`7`)}"
                                 android:onClick="@{()->form.setW206g(form.w206g.equals(`7`)?``:`7`)}"
                                 android:text="@string/w206g" />
@@ -600,6 +644,7 @@
                                 android:id="@+id/w206h"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w206k.equals(`11`) || !form.w20698.equals(`98`)}"
                                 android:checked="@{form.w206h.equals(`8`)}"
                                 android:onClick="@{()->form.setW206h(form.w206h.equals(`8`)?``:`8`)}"
                                 android:text="@string/w206h" />
@@ -608,6 +653,7 @@
                                 android:id="@+id/w206i"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w206k.equals(`11`) || !form.w20698.equals(`98`)}"
                                 android:checked="@{form.w206i.equals(`9`)}"
                                 android:onClick="@{()->form.setW206i(form.w206i.equals(`9`)?``:`9`)}"
                                 android:text="@string/w206i" />
@@ -616,6 +662,7 @@
                                 android:id="@+id/w206j"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w206k.equals(`11`) || !form.w20698.equals(`98`)}"
                                 android:checked="@{form.w206j.equals(`10`)}"
                                 android:onClick="@{()->form.setW206j(form.w206j.equals(`10`)?``:`10`)}"
                                 android:text="@string/w206j" />
@@ -624,6 +671,7 @@
                                 android:id="@+id/w206k"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w20698.equals(`98`)}"
                                 android:checked="@{form.w206k.equals(`11`)}"
                                 android:onClick="@{()->form.setW206k(form.w206k.equals(`11`)?``:`11`)}"
                                 android:text="@string/w206k" />
@@ -632,12 +680,17 @@
                                 android:id="@+id/w20698"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w206k.equals(`11`)}"
                                 android:checked="@{form.w20698.equals(`98`)}"
                                 android:onClick="@{()->form.setW20698(form.w20698.equals(`98`)?``:`98`)}"
                                 android:text="@string/w20698" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- w207  CheckBox   -->
                 <androidx.cardview.widget.CardView
@@ -662,10 +715,10 @@
                                 android:text="@string/Q_w207" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/w207" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -679,6 +732,7 @@
                                 android:id="@+id/w207a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w207j.equals(`10`) || !form.w20798.equals(`98`)}"
                                 android:checked="@{form.w207a.equals(`1`)}"
                                 android:onClick="@{()->form.setW207a(form.w207a.equals(`1`)?``:`1`)}"
                                 android:text="@string/w207a" />
@@ -687,6 +741,7 @@
                                 android:id="@+id/w207b"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w207j.equals(`10`) || !form.w20798.equals(`98`)}"
                                 android:checked="@{form.w207b.equals(`2`)}"
                                 android:onClick="@{()->form.setW207b(form.w207b.equals(`2`)?``:`2`)}"
                                 android:text="@string/w207b" />
@@ -695,6 +750,7 @@
                                 android:id="@+id/w207c"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w207j.equals(`10`) || !form.w20798.equals(`98`)}"
                                 android:checked="@{form.w207c.equals(`3`)}"
                                 android:onClick="@{()->form.setW207c(form.w207c.equals(`3`)?``:`3`)}"
                                 android:text="@string/w207c" />
@@ -703,6 +759,7 @@
                                 android:id="@+id/w207d"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w207j.equals(`10`) || !form.w20798.equals(`98`)}"
                                 android:checked="@{form.w207d.equals(`4`)}"
                                 android:onClick="@{()->form.setW207d(form.w207d.equals(`4`)?``:`4`)}"
                                 android:text="@string/w207d" />
@@ -711,6 +768,7 @@
                                 android:id="@+id/w207e"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w207j.equals(`10`) || !form.w20798.equals(`98`)}"
                                 android:checked="@{form.w207e.equals(`5`)}"
                                 android:onClick="@{()->form.setW207e(form.w207e.equals(`5`)?``:`5`)}"
                                 android:text="@string/w207e" />
@@ -719,6 +777,7 @@
                                 android:id="@+id/w207f"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w207j.equals(`10`) || !form.w20798.equals(`98`)}"
                                 android:checked="@{form.w207f.equals(`6`)}"
                                 android:onClick="@{()->form.setW207f(form.w207f.equals(`6`)?``:`6`)}"
                                 android:text="@string/w207f" />
@@ -727,6 +786,7 @@
                                 android:id="@+id/w207g"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w207j.equals(`10`) || !form.w20798.equals(`98`)}"
                                 android:checked="@{form.w207g.equals(`7`)}"
                                 android:onClick="@{()->form.setW207g(form.w207g.equals(`7`)?``:`7`)}"
                                 android:text="@string/w207g" />
@@ -735,6 +795,7 @@
                                 android:id="@+id/w207h"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w207j.equals(`10`) || !form.w20798.equals(`98`)}"
                                 android:checked="@{form.w207h.equals(`8`)}"
                                 android:onClick="@{()->form.setW207h(form.w207h.equals(`8`)?``:`8`)}"
                                 android:text="@string/w207h" />
@@ -743,6 +804,7 @@
                                 android:id="@+id/w207i"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w207j.equals(`10`) || !form.w20798.equals(`98`)}"
                                 android:checked="@{form.w207i.equals(`9`)}"
                                 android:onClick="@{()->form.setW207i(form.w207i.equals(`9`)?``:`9`)}"
                                 android:text="@string/w207i" />
@@ -751,6 +813,7 @@
                                 android:id="@+id/w207j"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w20798.equals(`98`)}"
                                 android:checked="@{form.w207j.equals(`10`)}"
                                 android:onClick="@{()->form.setW207j(form.w207j.equals(`10`)?``:`10`)}"
                                 android:text="@string/w207j" />
@@ -759,12 +822,17 @@
                                 android:id="@+id/w20798"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w207j.equals(`10`)}"
                                 android:checked="@{form.w20798.equals(`98`)}"
                                 android:onClick="@{()->form.setW20798(form.w20798.equals(`98`)?``:`98`)}"
                                 android:text="@string/w20798" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- w208  CheckBox   -->
                 <androidx.cardview.widget.CardView
@@ -789,10 +857,10 @@
                                 android:text="@string/Q_w208" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/w208" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -806,6 +874,7 @@
                                 android:id="@+id/w208a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w208f.equals(`6`) || !form.w20897.equals(`97`) || !form.w20898.equals(`98`)}"
                                 android:checked="@{form.w208a.equals(`1`)}"
                                 android:onClick="@{()->form.setW208a(form.w208a.equals(`1`)?``:`1`)}"
                                 android:text="@string/w208a" />
@@ -814,6 +883,7 @@
                                 android:id="@+id/w208b"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w208f.equals(`6`) || !form.w20897.equals(`97`) || !form.w20898.equals(`98`)}"
                                 android:checked="@{form.w208b.equals(`2`)}"
                                 android:onClick="@{()->form.setW208b(form.w208b.equals(`2`)?``:`2`)}"
                                 android:text="@string/w208b" />
@@ -822,6 +892,7 @@
                                 android:id="@+id/w208c"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w208f.equals(`6`) || !form.w20897.equals(`97`) || !form.w20898.equals(`98`)}"
                                 android:checked="@{form.w208c.equals(`3`)}"
                                 android:onClick="@{()->form.setW208c(form.w208c.equals(`3`)?``:`3`)}"
                                 android:text="@string/w208c" />
@@ -830,6 +901,7 @@
                                 android:id="@+id/w208d"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w208f.equals(`6`) || !form.w20897.equals(`97`) || !form.w20898.equals(`98`)}"
                                 android:checked="@{form.w208d.equals(`4`)}"
                                 android:onClick="@{()->form.setW208d(form.w208d.equals(`4`)?``:`4`)}"
                                 android:text="@string/w208d" />
@@ -838,6 +910,7 @@
                                 android:id="@+id/w208e"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w208f.equals(`6`) || !form.w20897.equals(`97`) || !form.w20898.equals(`98`)}"
                                 android:checked="@{form.w208e.equals(`5`)}"
                                 android:onClick="@{()->form.setW208e(form.w208e.equals(`5`)?``:`5`)}"
                                 android:text="@string/w208e" />
@@ -846,6 +919,7 @@
                                 android:id="@+id/w208f"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w20897.equals(`97`) || !form.w20898.equals(`98`)}"
                                 android:checked="@{form.w208f.equals(`6`)}"
                                 android:onClick="@{()->form.setW208f(form.w208f.equals(`6`)?``:`6`)}"
                                 android:text="@string/w208f" />
@@ -854,6 +928,7 @@
                                 android:id="@+id/w20898"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w208f.equals(`6`) || !form.w20897.equals(`97`)}"
                                 android:checked="@{form.w20898.equals(`98`)}"
                                 android:onClick="@{()->form.setW20898(form.w20898.equals(`98`)?``:`98`)}"
                                 android:text="@string/w20898" />
@@ -862,12 +937,17 @@
                                 android:id="@+id/w20897"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w208f.equals(`6`) || !form.w20898.equals(`98`)}"
                                 android:checked="@{form.w20897.equals(`97`)}"
                                 android:onClick="@{()->form.setW20897(form.w20897.equals(`97`)?``:`97`)}"
                                 android:text="@string/w20897" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- w209  CheckBox   -->
                 <androidx.cardview.widget.CardView
@@ -892,10 +972,10 @@
                                 android:text="@string/Q_w209" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/w209" />
+
                         </LinearLayout>
 
                         <LinearLayout
@@ -909,6 +989,7 @@
                                 android:id="@+id/w209a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w209g.equals(`7`) || !form.w20997.equals(`97`) || !form.w20998.equals(`98`)}"
                                 android:checked="@{form.w209a.equals(`1`)}"
                                 android:onClick="@{()->form.setW209a(form.w209a.equals(`1`)?``:`1`)}"
                                 android:text="@string/w209a" />
@@ -917,6 +998,7 @@
                                 android:id="@+id/w209b"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w209g.equals(`7`) || !form.w20997.equals(`97`) || !form.w20998.equals(`98`)}"
                                 android:checked="@{form.w209b.equals(`2`)}"
                                 android:onClick="@{()->form.setW209b(form.w209b.equals(`2`)?``:`2`)}"
                                 android:text="@string/w209b" />
@@ -925,6 +1007,7 @@
                                 android:id="@+id/w209c"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w209g.equals(`7`) || !form.w20997.equals(`97`) || !form.w20998.equals(`98`)}"
                                 android:checked="@{form.w209c.equals(`3`)}"
                                 android:onClick="@{()->form.setW209c(form.w209c.equals(`3`)?``:`3`)}"
                                 android:text="@string/w209c" />
@@ -933,6 +1016,7 @@
                                 android:id="@+id/w209d"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w209g.equals(`7`) || !form.w20997.equals(`97`) || !form.w20998.equals(`98`)}"
                                 android:checked="@{form.w209d.equals(`4`)}"
                                 android:onClick="@{()->form.setW209d(form.w209d.equals(`4`)?``:`4`)}"
                                 android:text="@string/w209d" />
@@ -941,6 +1025,7 @@
                                 android:id="@+id/w209e"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w209g.equals(`7`) || !form.w20997.equals(`97`) || !form.w20998.equals(`98`)}"
                                 android:checked="@{form.w209e.equals(`5`)}"
                                 android:onClick="@{()->form.setW209e(form.w209e.equals(`5`)?``:`5`)}"
                                 android:text="@string/w209e" />
@@ -949,6 +1034,7 @@
                                 android:id="@+id/w209f"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w209g.equals(`7`) || !form.w20997.equals(`97`) || !form.w20998.equals(`98`)}"
                                 android:checked="@{form.w209f.equals(`6`)}"
                                 android:onClick="@{()->form.setW209f(form.w209f.equals(`6`)?``:`6`)}"
                                 android:text="@string/w209f" />
@@ -957,6 +1043,7 @@
                                 android:id="@+id/w209g"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w20997.equals(`97`) || !form.w20998.equals(`98`)}"
                                 android:checked="@{form.w209g.equals(`7`)}"
                                 android:onClick="@{()->form.setW209g(form.w209g.equals(`7`)?``:`7`)}"
                                 android:text="@string/w209g" />
@@ -965,6 +1052,7 @@
                                 android:id="@+id/w20998"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
+                                android:enabled="@{!form.w209g.equals(`7`) || !form.w20997.equals(`97`)}"
                                 android:checked="@{form.w20998.equals(`98`)}"
                                 android:onClick="@{()->form.setW20998(form.w20998.equals(`98`)?``:`98`)}"
                                 android:text="@string/w20998" />
@@ -973,12 +1061,17 @@
                                 android:id="@+id/w20997"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{form.w209.equals(`97`)}"
-                                android:onClick="@{()->form.setW209(`97`)}"
+                                android:checked="@{form.w20997.equals(`97`)}"
+                                android:enabled="@{!form.w209g.equals(`7`) || !form.w20998.equals(`98`)}"
+                                android:onClick="@{()->form.setW20997(form.w20997.equals(`97`)?``:`97`)}"
                                 android:text="@string/w20997" />
+
                         </LinearLayout>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
+
 
                 <!-- w210  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -1003,34 +1096,40 @@
                                 android:text="@string/Q_w210" />
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:layout_weight="1"
                                 android:text="@string/w210" />
+
                         </LinearLayout>
 
                         <RadioGroup
                             android:id="@+id/w210"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
 
                             <RadioButton
                                 android:id="@+id/w210a"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{form.w210.equals(`1`)}"
                                 android:onClick="@{()->form.setW210(`1`)}"
                                 android:text="@string/w210a" />
 
                             <RadioButton
                                 android:id="@+id/w210b"
-                                android:layout_width="match_parent"
+                                android:layout_width="0dp"
                                 android:layout_height="wrap_content"
+                                android:layout_weight="1"
                                 android:checked="@{form.w210.equals(`2`)}"
                                 android:onClick="@{()->form.setW210(`2`)}"
                                 android:text="@string/w210b" />
+
                         </RadioGroup>
+
                     </LinearLayout>
+
                 </androidx.cardview.widget.CardView>
 
 
