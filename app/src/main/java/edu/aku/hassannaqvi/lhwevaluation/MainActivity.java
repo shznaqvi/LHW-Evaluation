@@ -31,7 +31,9 @@ import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionMActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW1Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW2Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW3Activity;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW4Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW41Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW42Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW43Activity;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -82,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
                 MainApp.form = new Form();
                 startActivity(new Intent(this, IdentificationActivity.class));
                 break;
-            case R.id.openAnthro:
+            case R.id.seca:
                 MainApp.form = new Form();
                 startActivity(new Intent(this, SectionAActivity.class));
                 break;
@@ -132,9 +134,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, SectionW3Activity.class));
                 break;
 
-            case R.id.secw4:
+            case R.id.secw41:
                 MainApp.form = new Form();
-                startActivity(new Intent(this, SectionW4Activity.class));
+                startActivity(new Intent(this, SectionW41Activity.class));
+                break;
+
+            case R.id.secw42:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionW42Activity.class));
+                break;
+
+            case R.id.secw43:
+                MainApp.form = new Form();
+                startActivity(new Intent(this, SectionW43Activity.class));
                 break;
 
             case R.id.secab:

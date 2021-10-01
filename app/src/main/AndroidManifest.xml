@@ -118,7 +118,23 @@
 
 
         <activity
-            android:name=".ui.sections.SectionW4Activity"
+            android:name=".ui.sections.SectionW41Activity"
+            android:label="@string/secw4title"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeEnglish1"
+            android:windowSoftInputMode="adjustResize" />
+
+
+        <activity
+            android:name=".ui.sections.SectionW42Activity"
+            android:label="@string/secw4title"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeEnglish1"
+            android:windowSoftInputMode="adjustResize" />
+
+
+        <activity
+            android:name=".ui.sections.SectionW43Activity"
             android:label="@string/secw4title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"

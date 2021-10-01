@@ -20,19 +20,19 @@ import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
-import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionW4Binding;
+import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionW43Binding;
 
 
-public class SectionW4Activity extends AppCompatActivity {
-    private static final String TAG = "SectionW4Activity";
-    ActivitySectionW4Binding bi;
+public class SectionW43Activity extends AppCompatActivity {
+    private static final String TAG = "SectionW43Activity";
+    ActivitySectionW43Binding bi;
     private DatabaseHelper db;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_w4);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_w43);
         bi.setCallback(this);
         bi.setForm(form);
 
