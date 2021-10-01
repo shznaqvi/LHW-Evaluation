@@ -3401,6 +3401,14 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW301(String w301) {
         this.w301 = w301;
+        setW302a(w301.equals("1") ? this.w302a : "");
+        setW302b(w301.equals("1") ? this.w302b : "");
+        setW302c(w301.equals("1") ? this.w302c : "");
+        setW302d(w301.equals("1") ? this.w302d : "");
+        setW302e(w301.equals("1") ? this.w302e : "");
+        setW302f(w301.equals("1") ? this.w302f : "");
+        setW302h(w301.equals("1") ? this.w302h : "");
+        setW30296(w301.equals("1") ? this.w30296 : "");
         notifyPropertyChanged(BR.w301);
     }
 
@@ -3420,6 +3428,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW302a(String w302a) {
+        if (this.w302a.equals(w302a)) return;
         this.w302a = w302a;
         notifyPropertyChanged(BR.w302a);
     }
@@ -3430,6 +3439,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW302b(String w302b) {
+        if (this.w302b.equals(w302b)) return;
         this.w302b = w302b;
         notifyPropertyChanged(BR.w302b);
     }
@@ -3440,6 +3450,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW302c(String w302c) {
+        if (this.w302c.equals(w302c)) return;
         this.w302c = w302c;
         notifyPropertyChanged(BR.w302c);
     }
@@ -3450,6 +3461,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW302d(String w302d) {
+        if (this.w302d.equals(w302d)) return;
         this.w302d = w302d;
         notifyPropertyChanged(BR.w302d);
     }
@@ -3460,6 +3472,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW302e(String w302e) {
+        if (this.w302e.equals(w302e)) return;
         this.w302e = w302e;
         notifyPropertyChanged(BR.w302e);
     }
@@ -3470,6 +3483,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW302f(String w302f) {
+        if (this.w302f.equals(w302f)) return;
         this.w302f = w302f;
         notifyPropertyChanged(BR.w302f);
     }
@@ -3480,6 +3494,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW302h(String w302h) {
+        if (this.w302h.equals(w302h)) return;
         this.w302h = w302h;
         notifyPropertyChanged(BR.w302h);
     }
@@ -3490,7 +3505,9 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW30296(String w30296) {
+        if (this.w30296.equals(w30296)) return;
         this.w30296 = w30296;
+        setW30296x(w30296.equals("96") ? this.w30296x : "");
         notifyPropertyChanged(BR.w30296);
     }
 
@@ -3540,6 +3557,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305a(String w305a) {
+        if (this.w305a.equals(w305a)) return;
         this.w305a = w305a;
         notifyPropertyChanged(BR.w305a);
     }
@@ -3550,6 +3568,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305b(String w305b) {
+        if (this.w305b.equals(w305b)) return;
         this.w305b = w305b;
         notifyPropertyChanged(BR.w305b);
     }
@@ -3560,6 +3579,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305c(String w305c) {
+        if (this.w305c.equals(w305c)) return;
         this.w305c = w305c;
         notifyPropertyChanged(BR.w305c);
     }
@@ -3570,6 +3590,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305d(String w305d) {
+        if (this.w305d.equals(w305d)) return;
         this.w305d = w305d;
         notifyPropertyChanged(BR.w305d);
     }
@@ -3580,6 +3601,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305e(String w305e) {
+        if (this.w305e.equals(w305e)) return;
         this.w305e = w305e;
         notifyPropertyChanged(BR.w305e);
     }
@@ -3590,6 +3612,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305f(String w305f) {
+        if (this.w305f.equals(w305f)) return;
         this.w305f = w305f;
         notifyPropertyChanged(BR.w305f);
     }
@@ -3600,6 +3623,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305g(String w305g) {
+        if (this.w305g.equals(w305g)) return;
         this.w305g = w305g;
         notifyPropertyChanged(BR.w305g);
     }
@@ -3610,6 +3634,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305h(String w305h) {
+        if (this.w305h.equals(w305h)) return;
         this.w305h = w305h;
         notifyPropertyChanged(BR.w305h);
     }
@@ -3620,6 +3645,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305i(String w305i) {
+        if (this.w305i.equals(w305i)) return;
         this.w305i = w305i;
         notifyPropertyChanged(BR.w305i);
     }
@@ -3630,6 +3656,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305j(String w305j) {
+        if (this.w305j.equals(w305j)) return;
         this.w305j = w305j;
         notifyPropertyChanged(BR.w305j);
     }
@@ -3640,6 +3667,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305k(String w305k) {
+        if (this.w305k.equals(w305k)) return;
         this.w305k = w305k;
         notifyPropertyChanged(BR.w305k);
     }
@@ -3650,6 +3678,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305l(String w305l) {
+        if (this.w305l.equals(w305l)) return;
         this.w305l = w305l;
         notifyPropertyChanged(BR.w305l);
     }
@@ -3660,6 +3689,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW305m(String w305m) {
+        if (this.w305m.equals(w305m)) return;
         this.w305m = w305m;
         notifyPropertyChanged(BR.w305m);
     }
@@ -3670,7 +3700,9 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW30596(String w30596) {
+        if (this.w30596.equals(w30596)) return;
         this.w30596 = w30596;
+        setW30596x(w30596.equals("96") ? this.w30596x : "");
         notifyPropertyChanged(BR.w30596);
     }
 
@@ -3701,6 +3733,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW307(String w307) {
         this.w307 = w307;
+        setW30796x(w307.equals("96") ? this.w30796x : "");
         notifyPropertyChanged(BR.w307);
     }
 
@@ -3750,6 +3783,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW310a(String w310a) {
+        if (this.w310a.equals(w310a)) return;
         this.w310a = w310a;
         notifyPropertyChanged(BR.w310a);
     }
@@ -3760,6 +3794,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW310b(String w310b) {
+        if (this.w310b.equals(w310b)) return;
         this.w310b = w310b;
         notifyPropertyChanged(BR.w310b);
     }
@@ -3770,6 +3805,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW310c(String w310c) {
+        if (this.w310c.equals(w310c)) return;
         this.w310c = w310c;
         notifyPropertyChanged(BR.w310c);
     }
@@ -3780,6 +3816,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW310d(String w310d) {
+        if (this.w310d.equals(w310d)) return;
         this.w310d = w310d;
         notifyPropertyChanged(BR.w310d);
     }
@@ -3790,6 +3827,7 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW310e(String w310e) {
+        if (this.w310e.equals(w310e)) return;
         this.w310e = w310e;
         notifyPropertyChanged(BR.w310e);
     }
@@ -3800,7 +3838,9 @@ public class Form extends BaseObservable implements Observable {
     }
 
     public void setW31096(String w31096) {
+        if (this.w31096.equals(w31096)) return;
         this.w31096 = w31096;
+        setW31096x(w31096.equals("96") ? this.w31096x : "");
         notifyPropertyChanged(BR.w31096);
     }
 
