@@ -3570,6 +3570,20 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW304(String w304) {
         this.w304 = w304;
+        setW305a(w304.equals("1") ? this.w305a : "");
+        setW305b(w304.equals("1") ? this.w305b : "");
+        setW305c(w304.equals("1") ? this.w305c : "");
+        setW305d(w304.equals("1") ? this.w305d : "");
+        setW305e(w304.equals("1") ? this.w305e : "");
+        setW305f(w304.equals("1") ? this.w305f : "");
+        setW305g(w304.equals("1") ? this.w305g : "");
+        setW305h(w304.equals("1") ? this.w305h : "");
+        setW305i(w304.equals("1") ? this.w305i : "");
+        setW305j(w304.equals("1") ? this.w305j : "");
+        setW305k(w304.equals("1") ? this.w305k : "");
+        setW305l(w304.equals("1") ? this.w305l : "");
+        setW305m(w304.equals("1") ? this.w305m : "");
+        setW30596(w301.equals("1") ? this.w30596 : "");
         notifyPropertyChanged(BR.w304);
     }
 
