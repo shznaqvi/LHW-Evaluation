@@ -2464,6 +2464,36 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW103(String w103) {
         this.w103 = w103;
+        setW207a(w103.equals("1") ? "" : this.w207a);
+        setW207b(w103.equals("1") ? "" : this.w207b);
+        setW207c(w103.equals("1") ? "" : this.w207c);
+        setW207d(w103.equals("1") ? "" : this.w207d);
+        setW207e(w103.equals("1") ? "" : this.w207e);
+        setW207f(w103.equals("1") ? "" : this.w207f);
+        setW207g(w103.equals("1") ? "" : this.w207g);
+        setW207h(w103.equals("1") ? "" : this.w207h);
+        setW207i(w103.equals("1") ? "" : this.w207i);
+        setW207j(w103.equals("1") ? "" : this.w207j);
+        setW20798(w103.equals("1") ? "" : this.w20798);
+        setW208a(w103.equals("1") ? "" : this.w208a);
+        setW208b(w103.equals("1") ? "" : this.w208b);
+        setW208c(w103.equals("1") ? "" : this.w208c);
+        setW208d(w103.equals("1") ? "" : this.w208d);
+        setW208e(w103.equals("1") ? "" : this.w208e);
+        setW208f(w103.equals("1") ? "" : this.w208f);
+        setW20897(w103.equals("1") ? "" : this.w20897);
+        setW20898(w103.equals("1") ? "" : this.w20898);
+        setW209a(w103.equals("1") ? "" : this.w209a);
+        setW209b(w103.equals("1") ? "" : this.w209b);
+        setW209c(w103.equals("1") ? "" : this.w209c);
+        setW209d(w103.equals("1") ? "" : this.w209d);
+        setW209e(w103.equals("1") ? "" : this.w209e);
+        setW209f(w103.equals("1") ? "" : this.w209f);
+        setW209g(w103.equals("1") ? "" : this.w209g);
+        setW20997(w103.equals("1") ? "" : this.w20997);
+        setW20998(w103.equals("1") ? "" : this.w20998);
+        setW210(w103.equals("1") ? "" : this.w210);
+        setW104(w103.equals("2") ? "" : this.w104);
         notifyPropertyChanged(BR.w103);
     }
 
@@ -2484,6 +2514,8 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW105(String w105) {
         this.w105 = w105;
+        setW106m(w105.equals("0") ? "" : this.w106m);
+        setW106y(w105.equals("0") ? "" : this.w106y);
         notifyPropertyChanged(BR.w105);
     }
 

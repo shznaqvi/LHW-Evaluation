@@ -4,6 +4,7 @@ import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.form;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
@@ -36,6 +37,11 @@ public class SectionW1Activity extends AppCompatActivity {
         bi.setCallback(this);
         bi.setForm(form);
 
+    }
+
+    public void valueSet(CharSequence s, int start, int before, int count) {
+        if (TextUtils.isEmpty(s)) return;
+        bi.w106y.setMaxvalue(Float.parseFloat(bi.w102.getText().toString()) - 15f);
     }
 
 
