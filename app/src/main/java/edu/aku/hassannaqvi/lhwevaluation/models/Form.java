@@ -4094,6 +4094,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW401(String w401) {
         this.w401 = w401;
+        setW402(w401.equals("2") ? "" : this.w402);
         notifyPropertyChanged(BR.w401);
     }
 
