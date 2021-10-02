@@ -3769,6 +3769,24 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW306(String w306) {
         this.w306 = w306;
+        setW307(w306.equals("2") ? "" : this.w307);
+        setW308(w306.equals("2") ? "" : this.w308);
+        setW309(w306.equals("2") ? "" : this.w309);
+        setW310a(w306.equals("2") ? "" : this.w310a);
+        setW310b(w306.equals("2") ? "" : this.w310b);
+        setW310c(w306.equals("2") ? "" : this.w310c);
+        setW310d(w306.equals("2") ? "" : this.w310d);
+        setW310e(w306.equals("2") ? "" : this.w310e);
+        setW31096(w306.equals("2") ? "" : this.w31096);
+        setW311a(w306.equals("2") ? "" : this.w311a);
+        setW311b(w306.equals("2") ? "" : this.w311b);
+        setW311c(w306.equals("2") ? "" : this.w311c);
+        setW311d(w306.equals("2") ? "" : this.w311d);
+        setW311e(w306.equals("2") ? "" : this.w311e);
+        setW311f(w306.equals("2") ? "" : this.w311f);
+        setW311g(w306.equals("2") ? "" : this.w311g);
+        setW311i(w306.equals("2") ? "" : this.w311i);
+        setW31196(w306.equals("2") ? "" : this.w31196);
         notifyPropertyChanged(BR.w306);
     }
 
@@ -3810,6 +3828,23 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW309(String w309) {
         this.w309 = w309;
+        setW310a(w309.equals("1") ? "" : this.w310a);
+        setW310b(w309.equals("1") ? "" : this.w310b);
+        setW310c(w309.equals("1") ? "" : this.w310c);
+        setW310d(w309.equals("1") ? "" : this.w310d);
+        setW310e(w309.equals("1") ? "" : this.w310e);
+        setW31096(w309.equals("1") ? "" : this.w31096);
+        setW311a(w309.equals("1") ? "" : this.w311a);
+        setW311b(w309.equals("1") ? "" : this.w311b);
+        setW311c(w309.equals("1") ? "" : this.w311c);
+        setW311d(w309.equals("1") ? "" : this.w311d);
+        setW311e(w309.equals("1") ? "" : this.w311e);
+        setW311f(w309.equals("1") ? "" : this.w311f);
+        setW311g(w309.equals("1") ? "" : this.w311g);
+        setW311i(w309.equals("1") ? "" : this.w311i);
+        setW31196(w309.equals("1") ? "" : this.w31196);
+        setW312(w309.equals("1") ? "" : this.w312);
+        setW313(w309.equals("1") ? "" : this.w313);
         notifyPropertyChanged(BR.w309);
     }
 
@@ -4027,6 +4062,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW312(String w312) {
         this.w312 = w312;
+        setW313(w312.equals("2") ? "" : this.w31396x);
         notifyPropertyChanged(BR.w312);
     }
 
