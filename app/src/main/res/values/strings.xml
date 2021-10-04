@@ -563,7 +563,7 @@ she should be available during the interview, One MWRA per household will be sel
     <string name="w302d"> L H V </string>
     <string name="w302e"> C M W </string>
     <string name="w302f"> Pharmacy </string>
-    <string name="w302h"> Friend / Relative </string>
+    <string name="w302g"> Friend / Relative </string>
     <string name="w30296">Others (Specify)</string>
     <string name="w303">Does LHW visit you in last three months for providing FP services?</string>
     <string name="w303a">Yes</string>

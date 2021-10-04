@@ -197,12 +197,12 @@
                                 android:text="@string/w302f" />
 
                             <CheckBox
-                                android:id="@+id/w302h"
+                                android:id="@+id/w302g"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{form.w302h.equals(`7`)}"
-                                android:onClick="@{()->form.setW302h(form.w302h.equals(`7`)?``:`7`)}"
-                                android:text="@string/w302h" />
+                                android:checked="@{form.w302g.equals(`7`)}"
+                                android:onClick="@{()->form.setW302g(form.w302g.equals(`7`)?``:`7`)}"
+                                android:text="@string/w302g" />
 
                             <CheckBox
                                 android:id="@+id/w30296"
