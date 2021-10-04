@@ -3433,14 +3433,14 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW301(String w301) {
         this.w301 = w301;
-        setW302a(w301.equals("1") ? this.w302a : "");
-        setW302b(w301.equals("1") ? this.w302b : "");
-        setW302c(w301.equals("1") ? this.w302c : "");
-        setW302d(w301.equals("1") ? this.w302d : "");
-        setW302e(w301.equals("1") ? this.w302e : "");
-        setW302f(w301.equals("1") ? this.w302f : "");
-        setW302g(w301.equals("1") ? this.w302g : "");
-        setW30296(w301.equals("1") ? this.w30296 : "");
+        setW302a(w301.equals("2") ? "" : this.w302a);
+        setW302b(w301.equals("2") ? "" : this.w302b);
+        setW302c(w301.equals("2") ? "" : this.w302c);
+        setW302d(w301.equals("2") ? "" : this.w302d);
+        setW302e(w301.equals("2") ? "" : this.w302e);
+        setW302f(w301.equals("2") ? "" : this.w302f);
+        setW302g(w301.equals("2") ? "" : this.w302g);
+        setW30296(w301.equals("2") ? "" : this.w30296);
         notifyPropertyChanged(BR.w301);
     }
 
