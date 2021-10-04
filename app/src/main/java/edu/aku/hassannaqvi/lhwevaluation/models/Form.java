@@ -6842,7 +6842,7 @@ public class Form extends BaseObservable implements Observable {
             this.w302d = json.getString("w302d");
             this.w302e = json.getString("w302e");
             this.w302f = json.getString("w302f");
-            this.w302g = json.getString("w302h");
+            this.w302g = json.getString("w302g");
             this.w30296 = json.getString("w30296");
             this.w30296x = json.getString("w30296x");
             this.w303 = json.getString("w303");
@@ -7448,7 +7448,7 @@ public class Form extends BaseObservable implements Observable {
                 .put("w302d", w302d)
                 .put("w302e", w302e)
                 .put("w302f", w302f)
-                .put("w302h", w302g)
+                .put("w302g", w302g)
                 .put("w30296", w30296)
                 .put("w30296x", w30296x)
                 .put("w303", w303)
