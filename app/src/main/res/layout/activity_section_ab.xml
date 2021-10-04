@@ -787,12 +787,12 @@
                                 android:text="@string/ab110d" />
 
                             <CheckBox
-                                android:id="@+id/ab1105"
+                                android:id="@+id/ab110e"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{form.ab1105.equals(`5`)}"
-                                android:onClick="@{()->form.setAb1105(form.ab1105.equals(`5`)?``:`5`)}"
-                                android:text="@string/ab1105" />
+                                android:checked="@{form.ab110e.equals(`5`)}"
+                                android:onClick="@{()->form.setAb110e(form.ab110e.equals(`5`)?``:`5`)}"
+                                android:text="@string/ab110e" />
 
                             <CheckBox
                                 android:id="@+id/ab11096"
