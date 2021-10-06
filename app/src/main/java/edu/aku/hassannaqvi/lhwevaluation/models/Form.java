@@ -5625,6 +5625,11 @@ public class Form extends BaseObservable implements Observable {
 
     public void setAb103(String ab103) {
         this.ab103 = ab103;
+        setAb104a(ab103.equals("2") ? "" : this.ab104a);
+        setAb104b(ab103.equals("2") ? "" : this.ab104b);
+        setAb104c(ab103.equals("2") ? "" : this.ab104c);
+        setAb104d(ab103.equals("2") ? "" : this.ab104d);
+        setAb10496(ab103.equals("2") ? "" : this.ab10496);
         notifyPropertyChanged(BR.ab103);
     }
 
