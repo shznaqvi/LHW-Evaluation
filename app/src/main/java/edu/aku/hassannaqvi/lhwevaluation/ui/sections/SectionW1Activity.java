@@ -41,7 +41,7 @@ public class SectionW1Activity extends AppCompatActivity {
 
     public void valueSet(CharSequence s, int start, int before, int count) {
         if (TextUtils.isEmpty(s)) return;
-        bi.w106y.setMaxvalue(Float.parseFloat(bi.w102.getText().toString()) - 15f);
+        bi.w106y.setMaxvalue(Float.parseFloat(bi.w102.getText().toString()) > 30 ? 15f : Float.parseFloat(bi.w102.getText().toString()) - 15f);
     }
 
 

@@ -2514,8 +2514,8 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW105(String w105) {
         this.w105 = w105;
-        setW106m(w105.equals("0") ? "" : this.w106m);
-        setW106y(w105.equals("0") ? "" : this.w106y);
+        setW106m(w105.length() > 0 ? Integer.parseInt(w105) == 0 ? "" : this.w106m : this.w106m);
+        setW106y(w105.length() > 0 ? Integer.parseInt(w105) == 0 ? "" : this.w106y : this.w106y);
         notifyPropertyChanged(BR.w105);
     }
 
