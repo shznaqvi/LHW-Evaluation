@@ -163,7 +163,8 @@
                         <RadioGroup
                             android:id="@+id/w202"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:onCheckedChanged="@{()->w210.clearCheck()}">
 
                             <RadioButton
                                 android:id="@+id/w202a"
@@ -223,7 +224,8 @@
                 <!-- w203  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw203"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -324,7 +326,8 @@
                 <!-- w204  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw204"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -447,7 +450,8 @@
                 <!-- w205  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw205"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -544,7 +548,8 @@
                 <!-- w206  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw206"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -696,7 +701,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw207"
                     style="@style/cardView"
-                    android:visibility="@{form.w103.equals(`2`) ? View.VISIBLE : View.GONE}">
+                    android:visibility="@{form.w103.equals(`1`) || form.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -839,7 +844,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw208"
                     style="@style/cardView"
-                    android:visibility="@{form.w103.equals(`2`) ? View.VISIBLE : View.GONE}">
+                    android:visibility="@{form.w103.equals(`1`) || form.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -955,7 +960,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw209"
                     style="@style/cardView"
-                    android:visibility="@{form.w103.equals(`2`) ? View.VISIBLE : View.GONE}">
+                    android:visibility="@{form.w103.equals(`1`) || form.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1080,7 +1085,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw210"
                     style="@style/cardView"
-                    android:visibility="@{form.w103.equals(`2`) ? View.VISIBLE : View.GONE}">
+                    android:visibility="@{form.w103.equals(`1`) || form.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"

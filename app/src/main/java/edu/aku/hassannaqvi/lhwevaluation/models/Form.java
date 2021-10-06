@@ -2566,6 +2566,75 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW202(String w202) {
         this.w202 = w202;
+        setW203a(w202.equals("6") ? "" : this.w203a);
+        setW203b(w202.equals("6") ? "" : this.w203b);
+        setW203c(w202.equals("6") ? "" : this.w203c);
+        setW203d(w202.equals("6") ? "" : this.w203d);
+        setW203e(w202.equals("6") ? "" : this.w203e);
+        setW20396(w202.equals("6") ? "" : this.w20396);
+
+        setW204a(w202.equals("6") ? "" : this.w204a);
+        setW204b(w202.equals("6") ? "" : this.w204b);
+        setW204c(w202.equals("6") ? "" : this.w204c);
+        setW204d(w202.equals("6") ? "" : this.w204d);
+        setW204e(w202.equals("6") ? "" : this.w204e);
+        setW204f(w202.equals("6") ? "" : this.w204f);
+        setW204g(w202.equals("6") ? "" : this.w204g);
+        setW204h(w202.equals("6") ? "" : this.w204h);
+        setW204i(w202.equals("6") ? "" : this.w204i);
+
+        setW205a(w202.equals("6") ? "" : this.w205a);
+        setW205b(w202.equals("6") ? "" : this.w205b);
+        setW205c(w202.equals("6") ? "" : this.w205c);
+        setW205d(w202.equals("6") ? "" : this.w205d);
+        setW205e(w202.equals("6") ? "" : this.w205e);
+        setW20598(w202.equals("6") ? "" : this.w20598);
+
+        setW206a(w202.equals("6") ? "" : this.w206a);
+        setW206b(w202.equals("6") ? "" : this.w206b);
+        setW206c(w202.equals("6") ? "" : this.w206c);
+        setW206d(w202.equals("6") ? "" : this.w206d);
+        setW206e(w202.equals("6") ? "" : this.w206e);
+        setW206f(w202.equals("6") ? "" : this.w206f);
+        setW206g(w202.equals("6") ? "" : this.w206g);
+        setW206h(w202.equals("6") ? "" : this.w206h);
+        setW206i(w202.equals("6") ? "" : this.w206i);
+        setW206j(w202.equals("6") ? "" : this.w206j);
+        setW206k(w202.equals("6") ? "" : this.w206k);
+        setW20698(w202.equals("6") ? "" : this.w20698);
+
+        setW207a(w202.equals("6") ? "" : this.w207a);
+        setW207b(w202.equals("6") ? "" : this.w207b);
+        setW207c(w202.equals("6") ? "" : this.w207c);
+        setW207d(w202.equals("6") ? "" : this.w207d);
+        setW207e(w202.equals("6") ? "" : this.w207e);
+        setW207f(w202.equals("6") ? "" : this.w207f);
+        setW207g(w202.equals("6") ? "" : this.w207g);
+        setW207h(w202.equals("6") ? "" : this.w207h);
+        setW207i(w202.equals("6") ? "" : this.w207i);
+        setW207j(w202.equals("6") ? "" : this.w207j);
+        setW20798(w202.equals("6") ? "" : this.w20798);
+
+        setW208a(w202.equals("6") ? "" : this.w208a);
+        setW208b(w202.equals("6") ? "" : this.w208b);
+        setW208c(w202.equals("6") ? "" : this.w208c);
+        setW208d(w202.equals("6") ? "" : this.w208d);
+        setW208e(w202.equals("6") ? "" : this.w208e);
+        setW208f(w202.equals("6") ? "" : this.w208f);
+        setW20897(w202.equals("6") ? "" : this.w20897);
+        setW20898(w202.equals("6") ? "" : this.w20898);
+
+        setW209a(w202.equals("6") ? "" : this.w209a);
+        setW209b(w202.equals("6") ? "" : this.w209b);
+        setW209c(w202.equals("6") ? "" : this.w209c);
+        setW209d(w202.equals("6") ? "" : this.w209d);
+        setW209e(w202.equals("6") ? "" : this.w209e);
+        setW209f(w202.equals("6") ? "" : this.w209f);
+        setW209g(w202.equals("6") ? "" : this.w209g);
+        setW20997(w202.equals("6") ? "" : this.w20997);
+        setW20998(w202.equals("6") ? "" : this.w20998);
+
+        setW210(w202.equals("6") ? "" : this.w210);
         notifyPropertyChanged(BR.w202);
     }
 
