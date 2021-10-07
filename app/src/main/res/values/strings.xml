@@ -605,7 +605,7 @@ she should be available during the interview, One MWRA per household will be sel
     <string name="w307m">Withdrawal</string>
     <string name="w30796">Others (Specify)</string>
     <string name="w308">From where you / your husband got the current method to delay or avoid pregnancy?</string>
-    <string name="w308_info">for 12 and 13 in W307, select 10)</string>
+    <string name="w308_info"> For 12 and 13 in W307, select 10 </string>
     <string name="w308a">Government Hospital</string>
     <string name="w308b">Family Welfare Centre</string>
     <string name="w308c">Mobile service camp</string>

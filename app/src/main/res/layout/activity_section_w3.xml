@@ -609,7 +609,8 @@
                         <RadioGroup
                             android:id="@+id/w307"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:onCheckedChanged="@{()->w308.clearCheck() + form.setW308(``) }">
 
                             <RadioButton
                                 android:id="@+id/w307a"
@@ -775,6 +776,13 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content">
 
+                            <TextView
+                                style="@style/info"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:text="@string/w308_info" />
+
                             <RadioButton
                                 android:id="@+id/w308a"
                                 android:layout_width="match_parent"
@@ -851,7 +859,7 @@
                                 android:id="@+id/w308j"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{form.w308.equals(`10`)}"
+                                android:checked="@{form.w308.equals(`10`) || form.w307.equals(`12`) || form.w307.equals(`13`)}"
                                 android:onClick="@{()->form.setW308(`10`)}"
                                 android:text="@string/w308j" />
 
