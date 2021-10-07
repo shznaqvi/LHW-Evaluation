@@ -3955,116 +3955,6 @@ public class MWRA extends BaseObservable {
             this.w405l = json.getString("w405l");
             this.w405m = json.getString("w405m");
             this.w405n = json.getString("w405n");
-            this.w406a = json.getString("w406a");
-            this.w406b = json.getString("w406b");
-            this.w406c = json.getString("w406c");
-            this.w406d = json.getString("w406d");
-            this.w406e = json.getString("w406e");
-            this.w407a = json.getString("w407a");
-            this.w407b = json.getString("w407b");
-            this.w407c = json.getString("w407c");
-            this.w407d = json.getString("w407d");
-            this.w407e = json.getString("w407e");
-            this.w407f = json.getString("w407f");
-            this.w407g = json.getString("w407g");
-            this.w407h = json.getString("w407h");
-            this.w407i = json.getString("w407i");
-            this.w408a = json.getString("w408a");
-            this.w408b = json.getString("w408b");
-            this.w408c = json.getString("w408c");
-            this.w408d = json.getString("w408d");
-            this.w409a = json.getString("w409a");
-            this.w409b = json.getString("w409b");
-            this.w409c = json.getString("w409c");
-            this.w409d = json.getString("w409d");
-            this.w409e = json.getString("w409e");
-            this.w409f = json.getString("w409f");
-            this.w409g = json.getString("w409g");
-            this.w409h = json.getString("w409h");
-            this.w409i = json.getString("w409i");
-            this.w409j = json.getString("w409j");
-            this.w410a = json.getString("w410a");
-            this.w410b = json.getString("w410b");
-            this.w410c = json.getString("w410c");
-            this.w410d = json.getString("w410d");
-            this.w410e = json.getString("w410e");
-            this.w410f = json.getString("w410f");
-            this.w410g = json.getString("w410g");
-            this.w410h = json.getString("w410h");
-            this.w410i = json.getString("w410i");
-            this.w410j = json.getString("w410j");
-            this.w410k = json.getString("w410k");
-            this.w410l = json.getString("w410l");
-            this.w411a = json.getString("w411a");
-            this.w411b = json.getString("w411b");
-            this.w411c = json.getString("w411c");
-            this.w411d = json.getString("w411d");
-            this.w411e = json.getString("w411e");
-            this.w411f = json.getString("w411f");
-            this.w411g = json.getString("w411g");
-            this.w411h = json.getString("w411h");
-            this.w411i = json.getString("w411i");
-            this.w412a = json.getString("w412a");
-            this.w412b = json.getString("w412b");
-            this.w412c = json.getString("w412c");
-            this.w412d = json.getString("w412d");
-            this.w412e = json.getString("w412e");
-            this.w412f = json.getString("w412f");
-            this.w412g = json.getString("w412g");
-            this.w412h = json.getString("w412h");
-            this.w412i = json.getString("w412i");
-            this.w412j = json.getString("w412j");
-            this.w413a = json.getString("w413a");
-            this.w413b = json.getString("w413b");
-            this.w413c = json.getString("w413c");
-            this.w413d = json.getString("w413d");
-            this.w413e = json.getString("w413e");
-            this.w413f = json.getString("w413f");
-            this.w413g = json.getString("w413g");
-            this.w414a = json.getString("w414a");
-            this.w414b = json.getString("w414b");
-            this.w414c = json.getString("w414c");
-            this.w414d = json.getString("w414d");
-            this.w414e = json.getString("w414e");
-            this.w414f = json.getString("w414f");
-            this.w414g = json.getString("w414g");
-            this.w414h = json.getString("w414h");
-            this.w414i = json.getString("w414i");
-            this.w415a = json.getString("w415a");
-            this.w415b = json.getString("w415b");
-            this.w415c = json.getString("w415c");
-            this.w415d = json.getString("w415d");
-            this.w415e = json.getString("w415e");
-            this.w416a = json.getString("w416a");
-            this.w416b = json.getString("w416b");
-            this.w416c = json.getString("w416c");
-            this.w416d = json.getString("w416d");
-            this.w416e = json.getString("w416e");
-            this.w416f = json.getString("w416f");
-            this.w417a = json.getString("w417a");
-            this.w417b = json.getString("w417b");
-            this.w417c = json.getString("w417c");
-            this.w417d = json.getString("w417d");
-            this.w417e = json.getString("w417e");
-            this.w417f = json.getString("w417f");
-            this.w417g = json.getString("w417g");
-            this.w418a = json.getString("w418a");
-            this.w418b = json.getString("w418b");
-            this.w418c = json.getString("w418c");
-            this.w418d = json.getString("w418d");
-            this.w418e = json.getString("w418e");
-            this.w418f = json.getString("w418f");
-            this.w418g = json.getString("w418g");
-            this.w418h = json.getString("w418h");
-            this.w418i = json.getString("w418i");
-            this.w418j = json.getString("w418j");
-            this.w419 = json.getString("w419");
-            this.w419a = json.getString("w419a");
-            this.w419b = json.getString("w419b");
-            this.w419c = json.getString("w419c");
-            this.w419d = json.getString("w419d");
-            this.w420 = json.getString("w420");
-            this.w42096x = json.getString("w42096x");
         }
     }
 
@@ -4073,37 +3963,6 @@ public class MWRA extends BaseObservable {
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
-            this.w401 = json.getString("w401");
-            this.w402 = json.getString("w402");
-            this.w403 = json.getString("w403");
-            this.w403a = json.getString("w403a");
-            this.w403b = json.getString("w403b");
-            this.w403c = json.getString("w403c");
-            this.w403d = json.getString("w403d");
-            this.w403e = json.getString("w403e");
-            this.w403f = json.getString("w403f");
-            this.w403g = json.getString("w403g");
-            this.w403h = json.getString("w403h");
-            this.w403i = json.getString("w403i");
-            this.w403j = json.getString("w403j");
-            this.w40396 = json.getString("w40396");
-            this.w40396x = json.getString("w40396x");
-            this.w404 = json.getString("w404");
-            this.w405 = json.getString("w405");
-            this.w405a = json.getString("w405a");
-            this.w405b = json.getString("w405b");
-            this.w405c = json.getString("w405c");
-            this.w405d = json.getString("w405d");
-            this.w405e = json.getString("w405e");
-            this.w405f = json.getString("w405f");
-            this.w405g = json.getString("w405g");
-            this.w405h = json.getString("w405h");
-            this.w405i = json.getString("w405i");
-            this.w405j = json.getString("w405j");
-            this.w405k = json.getString("w405k");
-            this.w405l = json.getString("w405l");
-            this.w405m = json.getString("w405m");
-            this.w405n = json.getString("w405n");
             this.w406a = json.getString("w406a");
             this.w406b = json.getString("w406b");
             this.w406c = json.getString("w406c");
@@ -4163,57 +4022,6 @@ public class MWRA extends BaseObservable {
             this.w412h = json.getString("w412h");
             this.w412i = json.getString("w412i");
             this.w412j = json.getString("w412j");
-            this.w413a = json.getString("w413a");
-            this.w413b = json.getString("w413b");
-            this.w413c = json.getString("w413c");
-            this.w413d = json.getString("w413d");
-            this.w413e = json.getString("w413e");
-            this.w413f = json.getString("w413f");
-            this.w413g = json.getString("w413g");
-            this.w414a = json.getString("w414a");
-            this.w414b = json.getString("w414b");
-            this.w414c = json.getString("w414c");
-            this.w414d = json.getString("w414d");
-            this.w414e = json.getString("w414e");
-            this.w414f = json.getString("w414f");
-            this.w414g = json.getString("w414g");
-            this.w414h = json.getString("w414h");
-            this.w414i = json.getString("w414i");
-            this.w415a = json.getString("w415a");
-            this.w415b = json.getString("w415b");
-            this.w415c = json.getString("w415c");
-            this.w415d = json.getString("w415d");
-            this.w415e = json.getString("w415e");
-            this.w416a = json.getString("w416a");
-            this.w416b = json.getString("w416b");
-            this.w416c = json.getString("w416c");
-            this.w416d = json.getString("w416d");
-            this.w416e = json.getString("w416e");
-            this.w416f = json.getString("w416f");
-            this.w417a = json.getString("w417a");
-            this.w417b = json.getString("w417b");
-            this.w417c = json.getString("w417c");
-            this.w417d = json.getString("w417d");
-            this.w417e = json.getString("w417e");
-            this.w417f = json.getString("w417f");
-            this.w417g = json.getString("w417g");
-            this.w418a = json.getString("w418a");
-            this.w418b = json.getString("w418b");
-            this.w418c = json.getString("w418c");
-            this.w418d = json.getString("w418d");
-            this.w418e = json.getString("w418e");
-            this.w418f = json.getString("w418f");
-            this.w418g = json.getString("w418g");
-            this.w418h = json.getString("w418h");
-            this.w418i = json.getString("w418i");
-            this.w418j = json.getString("w418j");
-            this.w419 = json.getString("w419");
-            this.w419a = json.getString("w419a");
-            this.w419b = json.getString("w419b");
-            this.w419c = json.getString("w419c");
-            this.w419d = json.getString("w419d");
-            this.w420 = json.getString("w420");
-            this.w42096x = json.getString("w42096x");
         }
     }
 
@@ -4222,96 +4030,6 @@ public class MWRA extends BaseObservable {
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
-            this.w401 = json.getString("w401");
-            this.w402 = json.getString("w402");
-            this.w403 = json.getString("w403");
-            this.w403a = json.getString("w403a");
-            this.w403b = json.getString("w403b");
-            this.w403c = json.getString("w403c");
-            this.w403d = json.getString("w403d");
-            this.w403e = json.getString("w403e");
-            this.w403f = json.getString("w403f");
-            this.w403g = json.getString("w403g");
-            this.w403h = json.getString("w403h");
-            this.w403i = json.getString("w403i");
-            this.w403j = json.getString("w403j");
-            this.w40396 = json.getString("w40396");
-            this.w40396x = json.getString("w40396x");
-            this.w404 = json.getString("w404");
-            this.w405 = json.getString("w405");
-            this.w405a = json.getString("w405a");
-            this.w405b = json.getString("w405b");
-            this.w405c = json.getString("w405c");
-            this.w405d = json.getString("w405d");
-            this.w405e = json.getString("w405e");
-            this.w405f = json.getString("w405f");
-            this.w405g = json.getString("w405g");
-            this.w405h = json.getString("w405h");
-            this.w405i = json.getString("w405i");
-            this.w405j = json.getString("w405j");
-            this.w405k = json.getString("w405k");
-            this.w405l = json.getString("w405l");
-            this.w405m = json.getString("w405m");
-            this.w405n = json.getString("w405n");
-            this.w406a = json.getString("w406a");
-            this.w406b = json.getString("w406b");
-            this.w406c = json.getString("w406c");
-            this.w406d = json.getString("w406d");
-            this.w406e = json.getString("w406e");
-            this.w407a = json.getString("w407a");
-            this.w407b = json.getString("w407b");
-            this.w407c = json.getString("w407c");
-            this.w407d = json.getString("w407d");
-            this.w407e = json.getString("w407e");
-            this.w407f = json.getString("w407f");
-            this.w407g = json.getString("w407g");
-            this.w407h = json.getString("w407h");
-            this.w407i = json.getString("w407i");
-            this.w408a = json.getString("w408a");
-            this.w408b = json.getString("w408b");
-            this.w408c = json.getString("w408c");
-            this.w408d = json.getString("w408d");
-            this.w409a = json.getString("w409a");
-            this.w409b = json.getString("w409b");
-            this.w409c = json.getString("w409c");
-            this.w409d = json.getString("w409d");
-            this.w409e = json.getString("w409e");
-            this.w409f = json.getString("w409f");
-            this.w409g = json.getString("w409g");
-            this.w409h = json.getString("w409h");
-            this.w409i = json.getString("w409i");
-            this.w409j = json.getString("w409j");
-            this.w410a = json.getString("w410a");
-            this.w410b = json.getString("w410b");
-            this.w410c = json.getString("w410c");
-            this.w410d = json.getString("w410d");
-            this.w410e = json.getString("w410e");
-            this.w410f = json.getString("w410f");
-            this.w410g = json.getString("w410g");
-            this.w410h = json.getString("w410h");
-            this.w410i = json.getString("w410i");
-            this.w410j = json.getString("w410j");
-            this.w410k = json.getString("w410k");
-            this.w410l = json.getString("w410l");
-            this.w411a = json.getString("w411a");
-            this.w411b = json.getString("w411b");
-            this.w411c = json.getString("w411c");
-            this.w411d = json.getString("w411d");
-            this.w411e = json.getString("w411e");
-            this.w411f = json.getString("w411f");
-            this.w411g = json.getString("w411g");
-            this.w411h = json.getString("w411h");
-            this.w411i = json.getString("w411i");
-            this.w412a = json.getString("w412a");
-            this.w412b = json.getString("w412b");
-            this.w412c = json.getString("w412c");
-            this.w412d = json.getString("w412d");
-            this.w412e = json.getString("w412e");
-            this.w412f = json.getString("w412f");
-            this.w412g = json.getString("w412g");
-            this.w412h = json.getString("w412h");
-            this.w412i = json.getString("w412i");
-            this.w412j = json.getString("w412j");
             this.w413a = json.getString("w413a");
             this.w413b = json.getString("w413b");
             this.w413c = json.getString("w413c");
@@ -4520,7 +4238,7 @@ public class MWRA extends BaseObservable {
     }
 
     public String sW41toString() throws JSONException {
-        Log.d(TAG, "sW4toString: ");
+        Log.d(TAG, "sW41toString: ");
         JSONObject json = new JSONObject();
         json.put("w401", w401)
                 .put("w402", w402)
@@ -4552,155 +4270,14 @@ public class MWRA extends BaseObservable {
                 .put("w405k", w405k)
                 .put("w405l", w405l)
                 .put("w405m", w405m)
-                .put("w405n", w405n)
-                .put("w406a", w406a)
-                .put("w406b", w406b)
-                .put("w406c", w406c)
-                .put("w406d", w406d)
-                .put("w406e", w406e)
-                .put("w407a", w407a)
-                .put("w407b", w407b)
-                .put("w407c", w407c)
-                .put("w407d", w407d)
-                .put("w407e", w407e)
-                .put("w407f", w407f)
-                .put("w407g", w407g)
-                .put("w407h", w407h)
-                .put("w407i", w407i)
-                .put("w408a", w408a)
-                .put("w408b", w408b)
-                .put("w408c", w408c)
-                .put("w408d", w408d)
-                .put("w409a", w409a)
-                .put("w409b", w409b)
-                .put("w409c", w409c)
-                .put("w409d", w409d)
-                .put("w409e", w409e)
-                .put("w409f", w409f)
-                .put("w409g", w409g)
-                .put("w409h", w409h)
-                .put("w409i", w409i)
-                .put("w409j", w409j)
-                .put("w410a", w410a)
-                .put("w410b", w410b)
-                .put("w410c", w410c)
-                .put("w410d", w410d)
-                .put("w410e", w410e)
-                .put("w410f", w410f)
-                .put("w410g", w410g)
-                .put("w410h", w410h)
-                .put("w410i", w410i)
-                .put("w410j", w410j)
-                .put("w410k", w410k)
-                .put("w410l", w410l)
-                .put("w411a", w411a)
-                .put("w411b", w411b)
-                .put("w411c", w411c)
-                .put("w411d", w411d)
-                .put("w411e", w411e)
-                .put("w411f", w411f)
-                .put("w411g", w411g)
-                .put("w411h", w411h)
-                .put("w411i", w411i)
-                .put("w412a", w412a)
-                .put("w412b", w412b)
-                .put("w412c", w412c)
-                .put("w412d", w412d)
-                .put("w412e", w412e)
-                .put("w412f", w412f)
-                .put("w412g", w412g)
-                .put("w412h", w412h)
-                .put("w412i", w412i)
-                .put("w412j", w412j)
-                .put("w413a", w413a)
-                .put("w413b", w413b)
-                .put("w413c", w413c)
-                .put("w413d", w413d)
-                .put("w413e", w413e)
-                .put("w413f", w413f)
-                .put("w413g", w413g)
-                .put("w414a", w414a)
-                .put("w414b", w414b)
-                .put("w414c", w414c)
-                .put("w414d", w414d)
-                .put("w414e", w414e)
-                .put("w414f", w414f)
-                .put("w414g", w414g)
-                .put("w414h", w414h)
-                .put("w414i", w414i)
-                .put("w415a", w415a)
-                .put("w415b", w415b)
-                .put("w415c", w415c)
-                .put("w415d", w415d)
-                .put("w415e", w415e)
-                .put("w416a", w416a)
-                .put("w416b", w416b)
-                .put("w416c", w416c)
-                .put("w416d", w416d)
-                .put("w416e", w416e)
-                .put("w416f", w416f)
-                .put("w417a", w417a)
-                .put("w417b", w417b)
-                .put("w417c", w417c)
-                .put("w417d", w417d)
-                .put("w417e", w417e)
-                .put("w417f", w417f)
-                .put("w417g", w417g)
-                .put("w418a", w418a)
-                .put("w418b", w418b)
-                .put("w418c", w418c)
-                .put("w418d", w418d)
-                .put("w418e", w418e)
-                .put("w418f", w418f)
-                .put("w418g", w418g)
-                .put("w418h", w418h)
-                .put("w418i", w418i)
-                .put("w418j", w418j)
-                .put("w419", w419)
-                .put("w419a", w419a)
-                .put("w419b", w419b)
-                .put("w419c", w419c)
-                .put("w419d", w419d)
-                .put("w420", w420)
-                .put("w42096x", w42096x);
+                .put("w405n", w405n);
         return json.toString();
     }
 
     public String sW42toString() throws JSONException {
-        Log.d(TAG, "sW4toString: ");
+        Log.d(TAG, "sW42toString: ");
         JSONObject json = new JSONObject();
-        json.put("w401", w401)
-                .put("w402", w402)
-                .put("w403", w403)
-                .put("w403a", w403a)
-                .put("w403b", w403b)
-                .put("w403c", w403c)
-                .put("w403d", w403d)
-                .put("w403e", w403e)
-                .put("w403f", w403f)
-                .put("w403g", w403g)
-                .put("w403h", w403h)
-                .put("w403i", w403i)
-                .put("w403j", w403j)
-                .put("w40396", w40396)
-                .put("w40396x", w40396x)
-                .put("w404", w404)
-                .put("w405", w405)
-                .put("w405a", w405a)
-                .put("w405b", w405b)
-                .put("w405c", w405c)
-                .put("w405d", w405d)
-                .put("w405e", w405e)
-                .put("w405f", w405f)
-                .put("w405g", w405g)
-                .put("w405h", w405h)
-                .put("w405i", w405i)
-                .put("w405j", w405j)
-                .put("w405k", w405k)
-                .put("w405l", w405l)
-                .put("w405m", w405m)
-                .put("w405n", w405n)
-                .put("w406a", w406a)
+        json.put("w406a", w406a)
                 .put("w406b", w406b)
                 .put("w406c", w406c)
                 .put("w406d", w406d)
@@ -4758,155 +4335,14 @@ public class MWRA extends BaseObservable {
                 .put("w412g", w412g)
                 .put("w412h", w412h)
                 .put("w412i", w412i)
-                .put("w412j", w412j)
-                .put("w413a", w413a)
-                .put("w413b", w413b)
-                .put("w413c", w413c)
-                .put("w413d", w413d)
-                .put("w413e", w413e)
-                .put("w413f", w413f)
-                .put("w413g", w413g)
-                .put("w414a", w414a)
-                .put("w414b", w414b)
-                .put("w414c", w414c)
-                .put("w414d", w414d)
-                .put("w414e", w414e)
-                .put("w414f", w414f)
-                .put("w414g", w414g)
-                .put("w414h", w414h)
-                .put("w414i", w414i)
-                .put("w415a", w415a)
-                .put("w415b", w415b)
-                .put("w415c", w415c)
-                .put("w415d", w415d)
-                .put("w415e", w415e)
-                .put("w416a", w416a)
-                .put("w416b", w416b)
-                .put("w416c", w416c)
-                .put("w416d", w416d)
-                .put("w416e", w416e)
-                .put("w416f", w416f)
-                .put("w417a", w417a)
-                .put("w417b", w417b)
-                .put("w417c", w417c)
-                .put("w417d", w417d)
-                .put("w417e", w417e)
-                .put("w417f", w417f)
-                .put("w417g", w417g)
-                .put("w418a", w418a)
-                .put("w418b", w418b)
-                .put("w418c", w418c)
-                .put("w418d", w418d)
-                .put("w418e", w418e)
-                .put("w418f", w418f)
-                .put("w418g", w418g)
-                .put("w418h", w418h)
-                .put("w418i", w418i)
-                .put("w418j", w418j)
-                .put("w419", w419)
-                .put("w419a", w419a)
-                .put("w419b", w419b)
-                .put("w419c", w419c)
-                .put("w419d", w419d)
-                .put("w420", w420)
-                .put("w42096x", w42096x);
+                .put("w412j", w412j);
         return json.toString();
     }
 
     public String sW43toString() throws JSONException {
-        Log.d(TAG, "sW4toString: ");
+        Log.d(TAG, "sW43toString: ");
         JSONObject json = new JSONObject();
-        json.put("w401", w401)
-                .put("w402", w402)
-                .put("w403", w403)
-                .put("w403a", w403a)
-                .put("w403b", w403b)
-                .put("w403c", w403c)
-                .put("w403d", w403d)
-                .put("w403e", w403e)
-                .put("w403f", w403f)
-                .put("w403g", w403g)
-                .put("w403h", w403h)
-                .put("w403i", w403i)
-                .put("w403j", w403j)
-                .put("w40396", w40396)
-                .put("w40396x", w40396x)
-                .put("w404", w404)
-                .put("w405", w405)
-                .put("w405a", w405a)
-                .put("w405b", w405b)
-                .put("w405c", w405c)
-                .put("w405d", w405d)
-                .put("w405e", w405e)
-                .put("w405f", w405f)
-                .put("w405g", w405g)
-                .put("w405h", w405h)
-                .put("w405i", w405i)
-                .put("w405j", w405j)
-                .put("w405k", w405k)
-                .put("w405l", w405l)
-                .put("w405m", w405m)
-                .put("w405n", w405n)
-                .put("w406a", w406a)
-                .put("w406b", w406b)
-                .put("w406c", w406c)
-                .put("w406d", w406d)
-                .put("w406e", w406e)
-                .put("w407a", w407a)
-                .put("w407b", w407b)
-                .put("w407c", w407c)
-                .put("w407d", w407d)
-                .put("w407e", w407e)
-                .put("w407f", w407f)
-                .put("w407g", w407g)
-                .put("w407h", w407h)
-                .put("w407i", w407i)
-                .put("w408a", w408a)
-                .put("w408b", w408b)
-                .put("w408c", w408c)
-                .put("w408d", w408d)
-                .put("w409a", w409a)
-                .put("w409b", w409b)
-                .put("w409c", w409c)
-                .put("w409d", w409d)
-                .put("w409e", w409e)
-                .put("w409f", w409f)
-                .put("w409g", w409g)
-                .put("w409h", w409h)
-                .put("w409i", w409i)
-                .put("w409j", w409j)
-                .put("w410a", w410a)
-                .put("w410b", w410b)
-                .put("w410c", w410c)
-                .put("w410d", w410d)
-                .put("w410e", w410e)
-                .put("w410f", w410f)
-                .put("w410g", w410g)
-                .put("w410h", w410h)
-                .put("w410i", w410i)
-                .put("w410j", w410j)
-                .put("w410k", w410k)
-                .put("w410l", w410l)
-                .put("w411a", w411a)
-                .put("w411b", w411b)
-                .put("w411c", w411c)
-                .put("w411d", w411d)
-                .put("w411e", w411e)
-                .put("w411f", w411f)
-                .put("w411g", w411g)
-                .put("w411h", w411h)
-                .put("w411i", w411i)
-                .put("w412a", w412a)
-                .put("w412b", w412b)
-                .put("w412c", w412c)
-                .put("w412d", w412d)
-                .put("w412e", w412e)
-                .put("w412f", w412f)
-                .put("w412g", w412g)
-                .put("w412h", w412h)
-                .put("w412i", w412i)
-                .put("w412j", w412j)
-                .put("w413a", w413a)
+        json.put("w413a", w413a)
                 .put("w413b", w413b)
                 .put("w413c", w413c)
                 .put("w413d", w413d)
