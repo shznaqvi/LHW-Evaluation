@@ -7,8 +7,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="form"
-            type="edu.aku.hassannaqvi.lhwevaluation.models.Form" />
+            name="mwra"
+            type="edu.aku.hassannaqvi.lhwevaluation.models.MWRA" />
 
         <variable
             name="callback"
@@ -86,7 +86,7 @@
                             android:layout_height="wrap_content"
                             android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                             android:hint="@string/w101"
-                            android:text="@={form.w101}" />
+                            android:text="@={mwra.w101}" />
 
                     </LinearLayout>
 
@@ -131,7 +131,7 @@
                             android:hint="##"
                             android:inputType="number"
                             android:maxLength="2"
-                            android:text="@={form.w102}"
+                            android:text="@={mwra.w102}"
                             app:maxValue="49"
                             app:minValue="15"
                             app:type="range" />
@@ -181,8 +181,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{form.w103.equals(`1`)}"
-                                android:onClick="@{()->form.setW103(`1`)}"
+                                android:checked="@{mwra.w103.equals(`1`)}"
+                                android:onClick="@{()->mwra.setW103(`1`)}"
                                 android:text="@string/w103a" />
 
                             <RadioButton
@@ -190,8 +190,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{form.w103.equals(`2`)}"
-                                android:onClick="@{()->form.setW103(`2`)}"
+                                android:checked="@{mwra.w103.equals(`2`)}"
+                                android:onClick="@{()->mwra.setW103(`2`)}"
                                 android:text="@string/w103b" />
 
                         </RadioGroup>
@@ -205,7 +205,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw104"
                     style="@style/cardView"
-                    android:visibility="@{form.w103.equals(`2`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{mwra.w103.equals(`2`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -239,7 +239,7 @@
                             android:hint="#"
                             android:inputType="number"
                             android:maxLength="1"
-                            android:text="@={form.w104}"
+                            android:text="@={mwra.w104}"
                             app:maxValue="9"
                             app:minValue="1"
                             app:type="range" />
@@ -286,7 +286,7 @@
                             android:hint="##"
                             android:inputType="number"
                             android:maxLength="2"
-                            android:text="@={form.w105}"
+                            android:text="@={mwra.w105}"
                             app:maxValue="15"
                             app:minValue="0"
                             app:type="range" />
@@ -300,7 +300,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw106"
                     style="@style/cardView"
-                    android:visibility="@{form.w105.length() > 0 ? (Integer.parseInt(form.w105) == 0 ? View.GONE : View.VISIBLE) : View.VISIBLE}">
+                    android:visibility="@{mwra.w105.length() > 0 ? (Integer.parseInt(mwra.w105) == 0 ? View.GONE : View.VISIBLE) : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -361,7 +361,7 @@
                                 android:hint="##"
                                 android:inputType="number"
                                 android:maxLength="2"
-                                android:text="@={form.w106y}"
+                                android:text="@={mwra.w106y}"
                                 app:maxValue="15"
                                 app:minValue="0"
                                 app:type="range" />
@@ -375,7 +375,7 @@
                                 android:hint="##"
                                 android:inputType="number"
                                 android:maxLength="2"
-                                android:text="@={form.w106m}"
+                                android:text="@={mwra.w106m}"
                                 app:maxValue="12"
                                 app:minValue="0"
                                 app:type="range" />

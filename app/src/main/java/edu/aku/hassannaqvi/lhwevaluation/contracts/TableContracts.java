@@ -20,10 +20,6 @@ public class TableContracts {
         public static final String COLUMN_SH1 = "sH1";
         public static final String COLUMN_SH2 = "sH2";
         public static final String COLUMN_SH3 = "sH3";
-        public static final String COLUMN_SW1 = "sW1";
-        public static final String COLUMN_SW2 = "sW2";
-        public static final String COLUMN_SW3 = "sW3";
-        public static final String COLUMN_SW4 = "sW4";
         public static final String COLUMN_SAB = "sAB";
         public static final String COLUMN_SM = "sM";
 
@@ -48,7 +44,12 @@ public class TableContracts {
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_SYSDATE = "sysdate";
         public static final String COLUMN_INDEXED = "indexed";
-        public static final String COLUMN_S1 = "s1";
+        public static final String COLUMN_SW1 = "sW1";
+        public static final String COLUMN_SW2 = "sW2";
+        public static final String COLUMN_SW3 = "sW3";
+        public static final String COLUMN_SW41 = "sW41";
+        public static final String COLUMN_SW42 = "sW42";
+        public static final String COLUMN_SW43 = "sW43";
 
         public static final String COLUMN_DEVICEID = "deviceid";
         public static final String COLUMN_DEVICETAGID = "devicetagid";

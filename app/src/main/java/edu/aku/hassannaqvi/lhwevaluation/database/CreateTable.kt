@@ -57,7 +57,7 @@ object CreateTable {
             + MWRAListTable.COLUMN_SYNCED + " TEXT,"
             + MWRAListTable.COLUMN_SYNCED_DATE + " TEXT,"
             + MWRAListTable.COLUMN_APPVERSION + " TEXT,"
-            + MWRAListTable.COLUMN_S1 + " TEXT"
+            + MWRAListTable.COLUMN_SW1 + " TEXT"
             + " );"
             )
 

@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.form;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,7 +34,7 @@ public class SectionW2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_w2);
         bi.setCallback(this);
-        bi.setForm(form);
+        bi.setMwra(mwra);
 
     }
 
@@ -43,7 +43,7 @@ public class SectionW2Activity extends AppCompatActivity {
         db = MainApp.appInfo.getDbHelper();
         long updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SW2, form.sW2toString());
+            updcount = db.updatesMwraColumn(TableContracts.MWRAListTable.COLUMN_SW2, mwra.sW2toString());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());

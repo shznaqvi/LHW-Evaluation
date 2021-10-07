@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.lhwevaluation.database;
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_VERSION;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_ANTHRO;
@@ -48,6 +49,7 @@ import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.ZScoreTable;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.models.Clusters;
 import edu.aku.hassannaqvi.lhwevaluation.models.Form;
+import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.models.RandomHH;
 import edu.aku.hassannaqvi.lhwevaluation.models.Users;
 import edu.aku.hassannaqvi.lhwevaluation.models.VersionApp;
@@ -117,10 +119,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(FormsTable.COLUMN_SH1, form.sH1toString());
         values.put(FormsTable.COLUMN_SH2, form.sH2toString());
         values.put(FormsTable.COLUMN_SH3, form.sH3toString());
-        values.put(FormsTable.COLUMN_SW1, form.sW1toString());
-        values.put(FormsTable.COLUMN_SW2, form.sW2toString());
-        values.put(FormsTable.COLUMN_SW3, form.sW3toString());
-        values.put(FormsTable.COLUMN_SW4, form.sW4toString());
         values.put(FormsTable.COLUMN_SAB, form.sABtoString());
         values.put(FormsTable.COLUMN_SM, form.sMtoString());
 
@@ -151,6 +149,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(MainApp.form.getId())};
 
         return db.update(FormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    public int updatesMwraColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = MWRAListTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(mwra.getId())};
+
+        return db.update(MWRAListTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
@@ -1127,22 +1140,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public String getWraName(String uid) throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
-        String[] columns = {FormsTable.COLUMN_SW1};
+        String[] columns = {MWRAListTable.COLUMN_SW1};
 
         String whereClause;
-        whereClause = FormsTable.COLUMN_UID + "=?  ";
+        whereClause = MWRAListTable.COLUMN_UID + "=?  ";
 
         String[] whereArgs = {uid};
 
         String groupBy = null;
         String having = null;
 
-        String orderBy = FormsTable.COLUMN_ID + " ASC";
+        String orderBy = MWRAListTable.COLUMN_ID + " ASC";
 
-        Form form = null;
+        MWRA mwra = null;
         try {
             c = db.query(
-                    FormsTable.TABLE_NAME,  // The table to query
+                    MWRAListTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
                     whereClause,               // The columns for the WHERE clause
                     whereArgs,                 // The values for the WHERE clause
@@ -1151,8 +1164,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                form = new Form();
-                form.sW1Hydrate(c.getString(c.getColumnIndexOrThrow(FormsTable.COLUMN_SW1)));
+                mwra = new MWRA();
+                mwra.sW1Hydrate(c.getString(c.getColumnIndexOrThrow(MWRAListTable.COLUMN_SW1)));
 
 
             }
@@ -1164,7 +1177,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.close();
             }
         }
-        return form.getA101();
+        return mwra.getW101();
     }
 
     public String getChildName(String uid) throws JSONException {
