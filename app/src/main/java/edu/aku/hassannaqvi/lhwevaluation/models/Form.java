@@ -2464,7 +2464,7 @@ public class Form extends BaseObservable implements Observable {
 
     public void setW103(String w103) {
         this.w103 = w103;
-        setW207a(w103.equals("1") ? "" : this.w207a);
+        /*setW207a(w103.equals("1") ? "" : this.w207a);
         setW207b(w103.equals("1") ? "" : this.w207b);
         setW207c(w103.equals("1") ? "" : this.w207c);
         setW207d(w103.equals("1") ? "" : this.w207d);
@@ -2492,7 +2492,7 @@ public class Form extends BaseObservable implements Observable {
         setW209g(w103.equals("1") ? "" : this.w209g);
         setW20997(w103.equals("1") ? "" : this.w20997);
         setW20998(w103.equals("1") ? "" : this.w20998);
-        setW210(w103.equals("1") ? "" : this.w210);
+        setW210(w103.equals("1") ? "" : this.w210);*/
         setW104(w103.equals("2") ? "" : this.w104);
         notifyPropertyChanged(BR.w103);
     }
