@@ -43,6 +43,7 @@ public class MWRA extends BaseObservable {
     private String iStatus96x = StringUtils.EMPTY;
     private String synced = StringUtils.EMPTY;
     private String syncDate = StringUtils.EMPTY;
+
     // SECTION VARIABLES
     private String sW1 = StringUtils.EMPTY;
     private String sW2 = StringUtils.EMPTY;
@@ -50,6 +51,7 @@ public class MWRA extends BaseObservable {
     private String sW41 = StringUtils.EMPTY;
     private String sW42 = StringUtils.EMPTY;
     private String sW43 = StringUtils.EMPTY;
+
     // FIELD VARIABLES
     private String w101 = StringUtils.EMPTY;
     private String w102 = StringUtils.EMPTY;

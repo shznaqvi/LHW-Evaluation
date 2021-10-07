@@ -43,7 +43,7 @@ public class SectionW42Activity extends AppCompatActivity {
         db = MainApp.appInfo.getDbHelper();
         long updcount = 0;
         try {
-            updcount = db.updatesMwraColumn(TableContracts.MWRAListTable.COLUMN_SW41, mwra.sW41toString());
+            updcount = db.updatesMwraColumn(TableContracts.MWRAListTable.COLUMN_SW42, mwra.sW42toString());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());

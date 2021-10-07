@@ -14,6 +14,7 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.lhwevaluation.models.Form;
+import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.ui.IdentificationActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.SyncActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportCluster;
@@ -120,32 +121,32 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.secw1:
-                MainApp.form = new Form();
+                MainApp.mwra = new MWRA();
                 startActivity(new Intent(this, SectionW1Activity.class));
                 break;
 
             case R.id.secw2:
-                MainApp.form = new Form();
+                MainApp.mwra = new MWRA();
                 startActivity(new Intent(this, SectionW2Activity.class));
                 break;
 
             case R.id.secw3:
-                MainApp.form = new Form();
+                MainApp.mwra = new MWRA();
                 startActivity(new Intent(this, SectionW3Activity.class));
                 break;
 
             case R.id.secw41:
-                MainApp.form = new Form();
+                MainApp.mwra = new MWRA();
                 startActivity(new Intent(this, SectionW41Activity.class));
                 break;
 
             case R.id.secw42:
-                MainApp.form = new Form();
+                MainApp.mwra = new MWRA();
                 startActivity(new Intent(this, SectionW42Activity.class));
                 break;
 
             case R.id.secw43:
-                MainApp.form = new Form();
+                MainApp.mwra = new MWRA();
                 startActivity(new Intent(this, SectionW43Activity.class));
                 break;
 
