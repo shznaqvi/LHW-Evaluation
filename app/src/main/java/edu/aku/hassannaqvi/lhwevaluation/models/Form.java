@@ -3903,17 +3903,17 @@ public class Form extends BaseObservable implements Observable {
         setW310d(w309.equals("1") ? "" : this.w310d);
         setW310e(w309.equals("1") ? "" : this.w310e);
         setW31096(w309.equals("1") ? "" : this.w31096);
-        setW311a(w309.equals("1") ? "" : this.w311a);
-        setW311b(w309.equals("1") ? "" : this.w311b);
-        setW311c(w309.equals("1") ? "" : this.w311c);
-        setW311d(w309.equals("1") ? "" : this.w311d);
-        setW311e(w309.equals("1") ? "" : this.w311e);
-        setW311f(w309.equals("1") ? "" : this.w311f);
-        setW311g(w309.equals("1") ? "" : this.w311g);
-        setW311h(w309.equals("1") ? "" : this.w311h);
-        setW31196(w309.equals("1") ? "" : this.w31196);
-        setW312(w309.equals("1") ? "" : this.w312);
-        setW313(w309.equals("1") ? "" : this.w313);
+        setW311a(!w309.equals("") ? "" : this.w311a);
+        setW311b(!w309.equals("") ? "" : this.w311b);
+        setW311c(!w309.equals("") ? "" : this.w311c);
+        setW311d(!w309.equals("") ? "" : this.w311d);
+        setW311e(!w309.equals("") ? "" : this.w311e);
+        setW311f(!w309.equals("") ? "" : this.w311f);
+        setW311g(!w309.equals("") ? "" : this.w311g);
+        setW311h(!w309.equals("") ? "" : this.w311h);
+        setW31196(!w309.equals("") ? "" : this.w31196);
+        setW312(!w309.equals("") ? "" : this.w312);
+        setW313(!w309.equals("") ? "" : this.w313);
         notifyPropertyChanged(BR.w309);
     }
 
