@@ -337,8 +337,8 @@
                             android:inputType="number"
                             android:maxLength="2"
                             android:text="@={form.h305}"
-                            app:maxValue="49"
-                            app:minValue="15"
+                            app:maxValue="70"
+                            app:minValue="0"
                             app:type="range" />
 
                     </LinearLayout>
