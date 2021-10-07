@@ -84,7 +84,7 @@
                             android:id="@+id/w401"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:onCheckedChanged="@{()->w402.clearCheck()}"
+                            android:onCheckedChanged="@{()->w402.clearCheck() + w404.clearCheck()}"
                             android:orientation="horizontal">
 
                             <RadioButton
@@ -146,6 +146,7 @@
                             android:id="@+id/w402"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:onCheckedChanged="@{()->w404.clearCheck()}"
                             android:orientation="horizontal">
 
                             <RadioButton
@@ -176,7 +177,8 @@
                 <!-- w403  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw403"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.w401.equals(`2`) || form.w402.equals(`2`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -317,7 +319,8 @@
                 <!-- w404  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw404"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.w401.equals(`2`) || form.w402.equals(`2`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -406,7 +409,8 @@
                 <!-- w405  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw405"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.w401.equals(`2`) || form.w402.equals(`2`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"

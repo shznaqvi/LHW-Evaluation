@@ -4164,6 +4164,32 @@ public class Form extends BaseObservable implements Observable {
     public void setW401(String w401) {
         this.w401 = w401;
         setW402(w401.equals("2") ? "" : this.w402);
+        setW403a(w401.equals("1") ? "" : this.w403a);
+        setW403b(w401.equals("1") ? "" : this.w403b);
+        setW403c(w401.equals("1") ? "" : this.w403c);
+        setW403d(w401.equals("1") ? "" : this.w403d);
+        setW403e(w401.equals("1") ? "" : this.w403e);
+        setW403f(w401.equals("1") ? "" : this.w403f);
+        setW403g(w401.equals("1") ? "" : this.w403g);
+        setW403h(w401.equals("1") ? "" : this.w403h);
+        setW403i(w401.equals("1") ? "" : this.w403i);
+        setW403j(w401.equals("1") ? "" : this.w403j);
+        setW40396(w401.equals("1") ? "" : this.w40396);
+        setW404(w401.equals("2") ? "" : this.w404);
+        setW405a(w401.equals("2") ? "" : this.w405a);
+        setW405b(w401.equals("2") ? "" : this.w405b);
+        setW405c(w401.equals("2") ? "" : this.w405c);
+        setW405d(w401.equals("2") ? "" : this.w405d);
+        setW405e(w401.equals("2") ? "" : this.w405e);
+        setW405f(w401.equals("2") ? "" : this.w405f);
+        setW405g(w401.equals("2") ? "" : this.w405g);
+        setW405h(w401.equals("2") ? "" : this.w405h);
+        setW405i(w401.equals("2") ? "" : this.w405i);
+        setW405j(w401.equals("2") ? "" : this.w405j);
+        setW405k(w401.equals("2") ? "" : this.w405k);
+        setW405l(w401.equals("2") ? "" : this.w405l);
+        setW405m(w401.equals("2") ? "" : this.w405m);
+        setW405n(w401.equals("2") ? "" : this.w405n);
         notifyPropertyChanged(BR.w401);
     }
 
