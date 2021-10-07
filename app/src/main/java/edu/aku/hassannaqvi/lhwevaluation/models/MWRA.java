@@ -3737,7 +3737,7 @@ public class MWRA extends BaseObservable {
     }
 
 
-    public MWRA Hydrate(Cursor cursor) {
+    public MWRA Hydrate(Cursor cursor) throws JSONException {
         this.id = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_UID));
         this.uuid = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_UUID));
