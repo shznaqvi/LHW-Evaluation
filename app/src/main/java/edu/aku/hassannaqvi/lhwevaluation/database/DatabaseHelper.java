@@ -138,6 +138,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public Long addMWRAList(MWRA mwra) throws JSONException {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(MWRAListTable.COLUMN_PROJECT_NAME, mwra.getProjectName());
+        values.put(MWRAListTable.COLUMN_UID, mwra.getUid());
+        values.put(MWRAListTable.COLUMN_UUID, mwra.getUuid());
+        values.put(MWRAListTable.COLUMN_CLUSTER, mwra.getCluster());
+        values.put(MWRAListTable.COLUMN_HHID, mwra.getHhid());
+        values.put(MWRAListTable.COLUMN_USERNAME, mwra.getUserName());
+        values.put(MWRAListTable.COLUMN_SYSDATE, mwra.getSysDate());
+        values.put(MWRAListTable.COLUMN_INDEXED, mwra.getIndexed());
+
+        values.put(MWRAListTable.COLUMN_SW1, mwra.sW1toString());
+        values.put(MWRAListTable.COLUMN_SW2, mwra.sW2toString());
+        values.put(MWRAListTable.COLUMN_SW3, mwra.sW3toString());
+        values.put(MWRAListTable.COLUMN_SW41, mwra.sW41toString());
+        values.put(MWRAListTable.COLUMN_SW42, mwra.sW42toString());
+        values.put(MWRAListTable.COLUMN_SW43, mwra.sW43toString());
+
+        values.put(MWRAListTable.COLUMN_DEVICEID, mwra.getDeviceId());
+        values.put(MWRAListTable.COLUMN_DEVICETAGID, mwra.getDeviceTag());
+        values.put(MWRAListTable.COLUMN_APPVERSION, mwra.getAppver());
+        values.put(MWRAListTable.COLUMN_ISTATUS, mwra.getiStatus());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                MWRAListTable.TABLE_NAME,
+                MWRAListTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+
     //UPDATE in DB
     public int updatesFormColumn(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
