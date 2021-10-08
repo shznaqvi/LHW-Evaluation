@@ -20,14 +20,14 @@ import edu.aku.hassannaqvi.lhwevaluation.ui.SyncActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportCluster;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportDate;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportPending;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionAActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionABActivity;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionB1Activity;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionB2Activity;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionCActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH1Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH2Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH3Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL1Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL2Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL3Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL4Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionMActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW1Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW2Activity;
@@ -87,22 +87,22 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.seca:
                 MainApp.form = new Form();
-                startActivity(new Intent(this, SectionAActivity.class));
+                startActivity(new Intent(this, SectionL1Activity.class));
                 break;
 
             case R.id.secb1:
                 MainApp.form = new Form();
-                startActivity(new Intent(this, SectionB1Activity.class));
+                startActivity(new Intent(this, SectionL2Activity.class));
                 break;
 
             case R.id.secb2:
                 MainApp.form = new Form();
-                startActivity(new Intent(this, SectionB2Activity.class));
+                startActivity(new Intent(this, SectionL3Activity.class));
                 break;
 
             case R.id.secc:
                 MainApp.form = new Form();
-                startActivity(new Intent(this, SectionCActivity.class));
+                startActivity(new Intent(this, SectionL4Activity.class));
                 break;
 
             case R.id.sech1:

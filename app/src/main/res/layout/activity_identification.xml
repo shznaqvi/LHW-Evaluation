@@ -177,7 +177,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
                                 android:background="@color/colorAccent"
-                                android:drawableEnd="@drawable/search"
+                                android:drawableStart="@drawable/search"
                                 android:drawablePadding="8dp"
                                 android:elevation="1dp"
                                 android:minWidth="56dp"
@@ -185,7 +185,7 @@
                                 android:padding="8dp"
                                 android:radius="2dp"
                                 android:text="Check Household"
-                                android:textColor="@color/colorPrimaryDark" />
+                                android:textColor="@color/white" />
 
                         </LinearLayout>
 

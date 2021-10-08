@@ -20,19 +20,19 @@ import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
-import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionB1Binding;
+import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionL3Binding;
 
 
-public class SectionB1Activity extends AppCompatActivity {
-    private static final String TAG = "SectionB1Activity";
-    ActivitySectionB1Binding bi;
+public class SectionL3Activity extends AppCompatActivity {
+    private static final String TAG = "SectionL3Activity";
+    ActivitySectionL3Binding bi;
     private DatabaseHelper db;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_b1);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_l3);
         bi.setCallback(this);
         bi.setForm(form);
 
@@ -43,7 +43,7 @@ public class SectionB1Activity extends AppCompatActivity {
         db = MainApp.appInfo.getDbHelper();
         long updcount = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SB, form.sBtoString());
+            updcount = db.updatesFormColumn(TableContracts.FormsTable.COLUMN_SC, form.sCtoString());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());

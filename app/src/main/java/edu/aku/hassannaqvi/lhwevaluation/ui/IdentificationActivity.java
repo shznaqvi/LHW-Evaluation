@@ -31,7 +31,7 @@ import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityIdentificationBindi
 import edu.aku.hassannaqvi.lhwevaluation.models.Clusters;
 import edu.aku.hassannaqvi.lhwevaluation.models.Form;
 import edu.aku.hassannaqvi.lhwevaluation.models.RandomHH;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionAActivity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL1Activity;
 
 
 public class IdentificationActivity extends AppCompatActivity {
@@ -58,7 +58,7 @@ public class IdentificationActivity extends AppCompatActivity {
             case 1:
                 bi.btnContinue.setText(R.string.open_hh_form);
                 MainApp.form = new Form();
-                openIntent = new Intent(this, SectionAActivity.class);
+                openIntent = new Intent(this, SectionL1Activity.class);
                 break;
          /*   case 2:
                 bi.btnContinue.setText(R.string.open_anhtro_form);
