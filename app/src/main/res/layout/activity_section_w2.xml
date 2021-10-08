@@ -327,7 +327,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw204"
                     style="@style/cardView"
-                    android:visibility="@{mwra.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{mwra.w202.equals(`6`) || (mwra.w106y.length() > 0 ? Integer.parseInt(mwra.w106y) >= 5 : mwra.w106y.equals(`5`)) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -451,7 +451,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw205"
                     style="@style/cardView"
-                    android:visibility="@{mwra.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{mwra.w202.equals(`6`) || (mwra.w106y.length() > 0 ? Integer.parseInt(mwra.w106y) >= 5 : mwra.w106y.equals(`5`)) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -549,7 +549,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw206"
                     style="@style/cardView"
-                    android:visibility="@{mwra.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{mwra.w202.equals(`6`) || (mwra.w106y.length() > 0 ? Integer.parseInt(mwra.w106y) >= 5 : mwra.w106y.equals(`5`)) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -701,7 +701,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw207"
                     style="@style/cardView"
-                    android:visibility="@{mwra.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{mwra.w202.equals(`6`) || (mwra.w106y.length() > 0 ? Integer.parseInt(mwra.w106y) >= 5 : mwra.w106y.equals(`5`)) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -844,7 +844,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw208"
                     style="@style/cardView"
-                    android:visibility="@{mwra.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{mwra.w202.equals(`6`) || (mwra.w106y.length() > 0 ? Integer.parseInt(mwra.w106y) >= 5 : mwra.w106y.equals(`5`)) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -960,7 +960,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw209"
                     style="@style/cardView"
-                    android:visibility="@{mwra.w202.equals(`6`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{mwra.w202.equals(`6`) || (mwra.w106y.length() > 0 ? Integer.parseInt(mwra.w106y) >= 5 : mwra.w106y.equals(`5`)) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
