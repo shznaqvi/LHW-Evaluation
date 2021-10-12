@@ -18,6 +18,7 @@ import java.util.List;
 
 import edu.aku.hassannaqvi.lhwevaluation.BuildConfig;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.models.Users;
 
@@ -44,6 +45,7 @@ public class MainApp extends Application {
     public static String[] downloadData;
     public static HHForm HHForm;
     public static MWRA mwra;
+    public static LHWForm lhwForm;
 
     public static String DeviceURL = "devices.php";
     public static AppInfo appInfo;

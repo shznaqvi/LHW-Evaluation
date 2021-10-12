@@ -43,13 +43,9 @@ public class TableContracts {
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_SYSDATE = "sysdate";
         public static final String COLUMN_SA = "sA";
-        public static final String COLUMN_SB = "sB";
+        public static final String COLUMN_SB1 = "sB1";
+        public static final String COLUMN_SB2 = "sB2";
         public static final String COLUMN_SC = "sC";
-        public static final String COLUMN_SH1 = "sH1";
-        public static final String COLUMN_SH2 = "sH2";
-        public static final String COLUMN_SH3 = "sH3";
-        public static final String COLUMN_SAB = "sAB";
-        public static final String COLUMN_SM = "sM";
 
         public static final String COLUMN_DEVICEID = "deviceid";
         public static final String COLUMN_DEVICETAGID = "devicetagid";
