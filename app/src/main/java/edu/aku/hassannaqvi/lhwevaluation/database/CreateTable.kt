@@ -49,12 +49,8 @@ object CreateTable {
             + LHWFormsTable.COLUMN_APPVERSION + " TEXT,"
             + LHWFormsTable.COLUMN_SA + " TEXT,"
             + LHWFormsTable.COLUMN_SB1 + " TEXT,"
-            + LHWFormsTable.COLUMN_SC + " TEXT,"
             + LHWFormsTable.COLUMN_SB2 + " TEXT,"
-            + LHWFormsTable.COLUMN_SH2 + " TEXT,"
-            + LHWFormsTable.COLUMN_SH3 + " TEXT,"
-            + LHWFormsTable.COLUMN_SAB + " TEXT,"
-            + LHWFormsTable.COLUMN_SM + " TEXT"
+            + LHWFormsTable.COLUMN_SC + " TEXT"
             + " );"
             )
 

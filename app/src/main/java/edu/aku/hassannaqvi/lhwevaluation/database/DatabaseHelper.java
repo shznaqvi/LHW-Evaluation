@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.lhwevaluation.database;
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_VERSION;
@@ -7,6 +8,7 @@ import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_CHILDLIST;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_CLUSTERS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_HH_FORMS;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW_FORMS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_MWRALIST;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_PREGNANCY;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_RANDOM;
@@ -36,6 +38,7 @@ import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.models.Clusters;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.models.RandomHH;
 import edu.aku.hassannaqvi.lhwevaluation.models.Users;
@@ -64,6 +67,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_CLUSTERS);
         db.execSQL(SQL_CREATE_RANDOM);
         db.execSQL(SQL_CREATE_HH_FORMS);
+        db.execSQL(SQL_CREATE_LHW_FORMS);
         db.execSQL(SQL_CREATE_MWRALIST);
         db.execSQL(SQL_CREATE_CHILDLIST);
         db.execSQL(SQL_CREATE_ANTHRO);
@@ -119,6 +123,42 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         newRowId = db.insert(
                 TableContracts.HHFormsTable.TABLE_NAME,
                 TableContracts.HHFormsTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+    public Long addLhwForm(LHWForm lhwForm) throws JSONException {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(TableContracts.LHWFormsTable.COLUMN_PROJECT_NAME, lhwForm.getProjectName());
+        values.put(TableContracts.LHWFormsTable.COLUMN_UID, lhwForm.getUid());
+        values.put(TableContracts.LHWFormsTable.COLUMN_CLUSTER, lhwForm.getCluster());
+        values.put(TableContracts.LHWFormsTable.COLUMN_HHID, lhwForm.getHhid());
+        /*values.put(TableContracts.LHWFormsTable.COLUMN_LHW_UID, lhwForm.getHhid());*/
+        values.put(TableContracts.LHWFormsTable.COLUMN_USERNAME, lhwForm.getUserName());
+        values.put(TableContracts.LHWFormsTable.COLUMN_SYSDATE, lhwForm.getSysDate());
+
+
+        values.put(TableContracts.LHWFormsTable.COLUMN_SA, lhwForm.sAtoString());
+        values.put(TableContracts.LHWFormsTable.COLUMN_SB1, lhwForm.sB1toString());
+        values.put(TableContracts.LHWFormsTable.COLUMN_SB2, lhwForm.sB2toString());
+        values.put(TableContracts.LHWFormsTable.COLUMN_SC, lhwForm.sCtoString());
+
+        values.put(TableContracts.LHWFormsTable.COLUMN_ISTATUS, lhwForm.getiStatus());
+        values.put(TableContracts.LHWFormsTable.COLUMN_DEVICETAGID, lhwForm.getDeviceTag());
+        values.put(TableContracts.LHWFormsTable.COLUMN_DEVICEID, lhwForm.getDeviceId());
+        values.put(TableContracts.LHWFormsTable.COLUMN_APPVERSION, lhwForm.getAppver());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                TableContracts.LHWFormsTable.TABLE_NAME,
+                TableContracts.LHWFormsTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -185,6 +225,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(mwra.getId())};
 
         return db.update(TableContracts.MWRAListTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    public int updatesLhwColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = TableContracts.LHWFormsTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(lhwForm.getId())};
+
+        return db.update(TableContracts.LHWFormsTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
