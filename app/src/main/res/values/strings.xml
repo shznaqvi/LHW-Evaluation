@@ -1583,7 +1583,7 @@ she should be available during the interview, One MWRA per household will be sel
     <string name="message_child_dialog_addmore">You have already entered %1$s Child(ren). \nAre you sure you want to add more Child?</string>
     <string name="message_child_dialog_proceeed">You have entered only %1$s of %2$s Child(ren) in the household. \nAre you sure you want to select aChild now?</string>
 
-    <string name="upd_db_form"> updateDB(Form):\t </string>
+    <string name="upd_db_form"> updateDB(HHForm):\t </string>
     <string name="upd_db_error"> Updating Database… ERROR! </string>
     <string name="db_excp_error"> Database Exception... ERROR! </string>
     <string name="upd_db"> Updating Database...\t </string>
@@ -1603,11 +1603,11 @@ she should be available during the interview, One MWRA per household will be sel
     <string name="invalid_password"> Invalid Password </string>
     <string name="username_required"> Username is required. </string>
     <string name="incorrect_username_or_password">Incorrect Username or Password</string>
-    <string name="open_hh_form"> Open Household Form </string>
-    <string name="open_anhtro_form">Open Anthro Form</string>
+    <string name="open_hh_form"> Open Household HHForm </string>
+    <string name="open_anhtro_form">Open Anthro HHForm</string>
     <string name="info_hh_form_not_exist">INFO: Household information does not exist.</string>
     <string name="hh_not_found">Household not Found</string>
-    <string name="hh_exists_form"> hhExists(Form): \t </string>
+    <string name="hh_exists_form"> hhExists(HHForm): \t </string>
     <string name="w202t2">Probe for the type of person seen and record all answers given.</string>
     <string name="w311t2">Агар аз 24 соат камтар бошад, соатро нависед.</string>
     <string name="instrc3">Варақчаи Гуруҳи Ғизоҳоро истифода баред то ин ки ғизо муайян шавад ки ба кадом гурӯҳ дохил мебошад.</string>

@@ -29,7 +29,7 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityIdentificationBinding;
 import edu.aku.hassannaqvi.lhwevaluation.models.Clusters;
-import edu.aku.hassannaqvi.lhwevaluation.models.Form;
+import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.RandomHH;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL1Activity;
 
@@ -57,7 +57,7 @@ public class IdentificationActivity extends AppCompatActivity {
         switch (MainApp.idType) {
             case 1:
                 bi.btnContinue.setText(R.string.open_hh_form);
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 openIntent = new Intent(this, SectionL1Activity.class);
                 break;
          /*   case 2:
@@ -241,17 +241,17 @@ public class IdentificationActivity extends AppCompatActivity {
 
 
     private void saveDraftForm() {
-        MainApp.form = new Form();
+        MainApp.HHForm = new HHForm();
 
-        MainApp.form.setUserName(MainApp.user.getUserName());
-        MainApp.form.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
-        MainApp.form.setDeviceId(MainApp.deviceid);
-        MainApp.form.setAppver(MainApp.versionName + "." + MainApp.versionCode);
+        MainApp.HHForm.setUserName(MainApp.user.getUserName());
+        MainApp.HHForm.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
+        MainApp.HHForm.setDeviceId(MainApp.deviceid);
+        MainApp.HHForm.setAppver(MainApp.versionName + "." + MainApp.versionCode);
 
-        MainApp.form.setH101(districtCodes.get(bi.h101.getSelectedItemPosition()));
-        MainApp.form.setH102(cityCodes.get(bi.h102.getSelectedItemPosition()));
-        MainApp.form.setH103(bi.h103.getText().toString());
-        MainApp.form.setH104a(bi.h104.getText().toString());
+        MainApp.HHForm.setH101(districtCodes.get(bi.h101.getSelectedItemPosition()));
+        MainApp.HHForm.setH102(cityCodes.get(bi.h102.getSelectedItemPosition()));
+        MainApp.HHForm.setH103(bi.h103.getText().toString());
+        MainApp.HHForm.setH104a(bi.h104.getText().toString());
 
     }
 
@@ -312,32 +312,32 @@ public class IdentificationActivity extends AppCompatActivity {
 
         switch (MainApp.idType) {
             case 1:
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 try {
-                    MainApp.form = db.getFormByClusterHHNo(bi.h103.getText().toString(), bi.h104.getText().toString());
+                    MainApp.HHForm = db.getFormByClusterHHNo(bi.h103.getText().toString(), bi.h104.getText().toString());
                 } catch (JSONException e) {
                     Log.d(TAG, getString(R.string.hh_exists_form) + e.getMessage());
                     Toast.makeText(this, getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
-                return MainApp.form != null;
+                return MainApp.HHForm != null;
 
             case 2:
             case 3:
             case 4:
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 try {
-                    MainApp.form = db.getFormByClusterHHNo(bi.h103.getText().toString(), bi.h104.getText().toString());
+                    MainApp.HHForm = db.getFormByClusterHHNo(bi.h103.getText().toString(), bi.h104.getText().toString());
                     // Populate Subject Names for spinner Adapter in Samples Activity.
-                    if (MainApp.form != null) {
+                    if (MainApp.HHForm != null) {
                         MainApp.subjectNames = new ArrayList<>();
                         MainApp.subjectNames.add("...");
 
                         // Add woman if exist
-                        if (!MainApp.form.getA104n().equals("")) {
-                            MainApp.subjectNames.add(MainApp.form.getA104n() + " (" + MainApp.form.getA104c() + ")");
+                        if (!MainApp.HHForm.getA104n().equals("")) {
+                            MainApp.subjectNames.add(MainApp.HHForm.getA104n() + " (" + MainApp.HHForm.getA104c() + ")");
                             // Add child if both woman and child exist
-                            if (!MainApp.form.getA104n().equals("")) {
-                                MainApp.subjectNames.add(MainApp.form.getA104n());
+                            if (!MainApp.HHForm.getA104n().equals("")) {
+                                MainApp.subjectNames.add(MainApp.HHForm.getA104n());
                             } else {
                                 Toast.makeText(this, R.string.child_info_missing, Toast.LENGTH_SHORT).show();
                                 return false;
@@ -349,7 +349,7 @@ public class IdentificationActivity extends AppCompatActivity {
 
                         }
                     } else {
-                        return MainApp.form != null;
+                        return MainApp.HHForm != null;
                     }
              /*       MainApp.samples = new Samples();
                     MainApp.anthro = new Anthro();*/
@@ -359,7 +359,7 @@ public class IdentificationActivity extends AppCompatActivity {
                     Log.d(TAG, getString(R.string.hh_exists_form) + e.getMessage());
                     Toast.makeText(this, getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
-                return MainApp.form != null;
+                return MainApp.HHForm != null;
 
             default:
                 return false;

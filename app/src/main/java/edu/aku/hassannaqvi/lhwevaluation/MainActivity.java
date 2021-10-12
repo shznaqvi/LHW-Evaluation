@@ -13,7 +13,7 @@ import androidx.databinding.DataBindingUtil;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityMainBinding;
-import edu.aku.hassannaqvi.lhwevaluation.models.Form;
+import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.ui.IdentificationActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.SyncActivity;
@@ -82,41 +82,41 @@ public class MainActivity extends AppCompatActivity {
             case R.id.openForm:
             case R.id.updateBlood:
             case R.id.updateStool:
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 startActivity(new Intent(this, IdentificationActivity.class));
                 break;
             case R.id.seca:
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 startActivity(new Intent(this, SectionL1Activity.class));
                 break;
 
             case R.id.secb1:
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 startActivity(new Intent(this, SectionL2Activity.class));
                 break;
 
             case R.id.secb2:
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 startActivity(new Intent(this, SectionL3Activity.class));
                 break;
 
             case R.id.secc:
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 startActivity(new Intent(this, SectionL4Activity.class));
                 break;
 
             case R.id.sech1:
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 startActivity(new Intent(this, SectionH1Activity.class));
                 break;
 
             case R.id.sech2:
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 startActivity(new Intent(this, SectionH2Activity.class));
                 break;
 
             case R.id.sech3:
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 startActivity(new Intent(this, SectionH3Activity.class));
                 break;
 
@@ -151,12 +151,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.secab:
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 startActivity(new Intent(this, SectionABActivity.class));
                 break;
 
             case R.id.secm:
-                MainApp.form = new Form();
+                MainApp.HHForm = new HHForm();
                 startActivity(new Intent(this, SectionMActivity.class));
                 break;
 

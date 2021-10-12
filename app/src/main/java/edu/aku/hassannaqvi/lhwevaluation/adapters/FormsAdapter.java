@@ -19,7 +19,7 @@ import java.util.List;
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
-import edu.aku.hassannaqvi.lhwevaluation.models.Form;
+import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 
 /**
  * Created by hassan.naqvi on 8/1/2016.
@@ -28,10 +28,10 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
     private static final String TAG = "FormsAdapter";
     Context c;
     DatabaseHelper db;
-    private List<Form> fc = Collections.emptyList();
+    private List<HHForm> fc = Collections.emptyList();
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public FormsAdapter(List<Form> fc, Context c) {
+    public FormsAdapter(List<HHForm> fc, Context c) {
         this.fc = fc;
         this.c = c;
         Log.d("TAG:count", String.valueOf(getItemCount()));
@@ -53,40 +53,23 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
 
-/*        int childCount = 0;
-        childCount = db.getChildrenByUUID(fc.get(position).get_UID());
-        int photoChild = 0;
-        photoChild = db.getChildrenPhotoCheck(fc.get(position).get_UID());
-        int cardChild = 0;
-        cardChild = db.getChildrenCardCheck(fc.get(position).get_UID());*/
-
-        int anthroStatus = 0;
-        anthroStatus = db.checkAnthro(fc.get(position).getUid());
-
-        int bloodStatus = 0;
-        bloodStatus = db.checkBlood(fc.get(position).getUid());
-
-        int stoolStatus = 0;
-        stoolStatus = db.checkStool(fc.get(position).getUid());
 
         String motherName = "";
         try {
             motherName = db.getWraName(fc.get(position).getUid());
         } catch (JSONException e) {
             e.printStackTrace();
-            Toast.makeText(c, "JSONException(Form): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(c, "JSONException(HHForm): " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
 
-        String childName = "";
+     /*   String childName = "";
         try {
             childName = db.getChildName(fc.get(position).getUid());
         } catch (JSONException e) {
             e.printStackTrace();
-            Toast.makeText(c, "JSONException(Form): " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+            Toast.makeText(c, "JSONException(HHForm): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }*/
 
         String iStatus = "Status  Unknown";
         int iColor = 0;
@@ -120,7 +103,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
                 iColor = Color.RED;
                 break;
             default:
-                iStatus = "Open Form";
+                iStatus = "Open HHForm";
                 iColor = Color.RED;
                 break;
 
@@ -131,13 +114,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
         holder.cluster.setText(fc.get(position).getCluster());
         holder.cluster.setText(fc.get(position).getCluster());
         holder.istatus.setText(iStatus);
-        holder.fatherName.setText(motherName + " / " + childName);
-        holder.secStatusAnthro.setText(anthroStatus == 2 ? "  Done   " : " Pending ");
-        holder.secStatusBlood.setText(bloodStatus == 2 ? "  Done   " : " Pending ");
-        holder.secStatusStool.setText(stoolStatus == 2 ? "  Done   " : " Pending ");
-        holder.secStatusAnthro.setTextColor(anthroStatus == 2 ? Color.GREEN : Color.RED);
-        holder.secStatusBlood.setTextColor(bloodStatus == 2 ? Color.GREEN : Color.RED);
-        holder.secStatusStool.setTextColor(stoolStatus == 2 ? Color.GREEN : Color.RED);
+        /*holder.fatherName.setText(motherName + " / " + childName);*/
 
         holder.sysdate.setText(fc.get(position).getSysDate());
         holder.istatus.setTextColor(iColor);
@@ -146,9 +123,9 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
       /*  holder.itemView.setOnClickListener(v -> {
             // Get the current state of the item
 
-            MainApp.form = fc.get(position);
+            MainApp.HHForm = fc.get(position);
             //MainApp.households.setVisitNo(String.valueOf(Integer.parseInt(MainApp.households.getVisitNo())+1));
-            if (!MainApp.form.getiStatus().equals("1")) {
+            if (!MainApp.HHForm.getiStatus().equals("1")) {
 
                 editHousehold(position);
 
@@ -169,9 +146,9 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
     }
 
     private void editHousehold(int position) {
-        MainApp.form = new Form();
+        MainApp.HHForm = new HHForm();
         try {
-            MainApp.form = db.getFormByClusterHHNo(fc.get(position).getCluster(), fc.get(position).getHhid());
+            MainApp.HHForm = db.getFormByClusterHHNo(fc.get(position).getCluster(), fc.get(position).getHhid());
         } catch (JSONException e) {
             Log.d(TAG, c.getString(R.string.hh_exists_form) + e.getMessage());
             Toast.makeText(c, c.getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();

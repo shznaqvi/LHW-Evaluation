@@ -13,20 +13,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.lhwevaluation.BR;
-import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.FormsTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.HHFormsTable;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 
-public class Form extends BaseObservable implements Observable {
+public class HHForm extends BaseObservable implements Observable {
 
-    private final String TAG = "Form";
+    private final String TAG = "HHForm";
     private final transient PropertyChangeRegistry propertyChangeRegistry = new PropertyChangeRegistry();
     // APP VARIABLES
     private String projectName = MainApp.PROJECT_NAME;
     // APP VARIABLES
     private String id = StringUtils.EMPTY;
     private String uid = StringUtils.EMPTY;
-    private final String wuid = StringUtils.EMPTY;
-    private final String cuid = StringUtils.EMPTY;
+    private String lhwuid = StringUtils.EMPTY;
     private String userName = StringUtils.EMPTY;
     private String sysDate = StringUtils.EMPTY;
     private String cluster = StringUtils.EMPTY;
@@ -40,12 +39,10 @@ public class Form extends BaseObservable implements Observable {
     private String synced = StringUtils.EMPTY;
     private String syncDate = StringUtils.EMPTY;
     // SECTION VARIABLES
-    private String sA = StringUtils.EMPTY;
-    private String sB = StringUtils.EMPTY;
-    private String sC = StringUtils.EMPTY;
     private String sH1 = StringUtils.EMPTY;
     private String sH2 = StringUtils.EMPTY;
     private String sH3 = StringUtils.EMPTY;
+
     private String sAB = StringUtils.EMPTY;
     private String sM = StringUtils.EMPTY;
 
@@ -304,7 +301,7 @@ public class Form extends BaseObservable implements Observable {
     private String m106d = StringUtils.EMPTY;
 
 
-    public Form() {
+    public HHForm() {
     }
 
 
@@ -330,6 +327,14 @@ public class Form extends BaseObservable implements Observable {
 
     public void setUid(String uid) {
         this.uid = uid;
+    }
+
+    public String getLhwuid() {
+        return lhwuid;
+    }
+
+    public void setLhwuid(String lhwuid) {
+        this.lhwuid = lhwuid;
     }
 
     @Bindable
@@ -434,31 +439,6 @@ public class Form extends BaseObservable implements Observable {
 
 
     /*JSON DATABASE VARIABLES*/
-    public String getsA() {
-        return sA;
-    }
-
-    public void setsA(String sA) {
-        this.sA = sA;
-    }
-
-    public String getsB() {
-        return sB;
-    }
-
-    public void setsB(String sB) {
-        this.sB = sB;
-    }
-
-
-    public String getsC() {
-        return sC;
-    }
-
-    public void setsC(String sC) {
-        this.sC = sC;
-    }
-
 
     public String getsH1() {
         return sH1;
@@ -3157,28 +3137,26 @@ public class Form extends BaseObservable implements Observable {
     }
 
 
-    public Form Hydrate(Cursor cursor) throws JSONException {
-        this.id = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_ID));
-        this.uid = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_UID));
-        this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_CLUSTER));
-        this.hhid = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_HHID));
-        this.userName = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_USERNAME));
-        this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SYSDATE));
-        this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_DEVICEID));
-        this.deviceTag = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_DEVICETAGID));
-        this.appver = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_APPVERSION));
-        this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_ISTATUS));
-        this.synced = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SYNCED));
-        this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SYNCED_DATE));
+    public HHForm Hydrate(Cursor cursor) throws JSONException {
+        this.id = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_ID));
+        this.uid = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_UID));
+        this.lhwuid = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_LHW_UID));
+        this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_CLUSTER));
+        this.hhid = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_HHID));
+        this.userName = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_USERNAME));
+        this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SYSDATE));
+        this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_DEVICEID));
+        this.deviceTag = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_DEVICETAGID));
+        this.appver = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_APPVERSION));
+        this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_ISTATUS));
+        this.synced = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SYNCED));
+        this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SYNCED_DATE));
 
-        sAHydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SA)));
-        sBHydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SB)));
-        sCHydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SC)));
-        sH1Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SH1)));
-        sH2Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SH2)));
-        sH3Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SH3)));
-        sABHydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SAB)));
-        sMHydrate(cursor.getString(cursor.getColumnIndexOrThrow(FormsTable.COLUMN_SM)));
+        sH1Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SH1)));
+        sH2Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SH2)));
+        sH3Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SH3)));
+        sABHydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SAB)));
+        sMHydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SM)));
 
         return this;
     }
@@ -3501,155 +3479,6 @@ public class Form extends BaseObservable implements Observable {
     }
 
 
-    public String sAtoString() throws JSONException {
-        Log.d(TAG, "sAtoString: ");
-        JSONObject json = new JSONObject();
-        json.put("a101", a101)
-                .put("a102", a102)
-                .put("a103", a103)
-                .put("a104n", a104n)
-                .put("a104c", a104c)
-                .put("a105", a105)
-                .put("a106", a106)
-                .put("a107", a107)
-                .put("a10796x", a10796x)
-                .put("a108", a108)
-                .put("a109", a109)
-                .put("lhwphoto", lhwphoto);
-        return json.toString();
-    }
-
-    public String sBtoString() throws JSONException {
-        Log.d(TAG, "sBtoString: ");
-        JSONObject json = new JSONObject();
-        json.put("b101", b101)
-                .put("b102", b102)
-                .put("b103", b103)
-                .put("b10396x", b10396x)
-                .put("b104", b104)
-                .put("b107a", b107a)
-                .put("b107b", b107b)
-                .put("b107c", b107c)
-                .put("b107d", b107d)
-                .put("b107e", b107e)
-                .put("b107f", b107f)
-                .put("b107g", b107g)
-                .put("b107h", b107h)
-                .put("b107i", b107i)
-                .put("b107j", b107j)
-                .put("b108a", b108a)
-                .put("b108b", b108b)
-                .put("b108c", b108c)
-                .put("b108d", b108d)
-                .put("b108e", b108e)
-                .put("b108f", b108f)
-                .put("b108g", b108g)
-                .put("b108h", b108h)
-                .put("b108i", b108i)
-                .put("b108j", b108j)
-                .put("b108k", b108k)
-                .put("b108l", b108l)
-                .put("b108m", b108m)
-                .put("b108n", b108n)
-                .put("b108o", b108o)
-                .put("b108p", b108p)
-                .put("b108q", b108q)
-                .put("b108r", b108r)
-                .put("b108s", b108s)
-                .put("b108t", b108t)
-                .put("b108u", b108u)
-                .put("b108v", b108v)
-                .put("b108w", b108w);
-        return json.toString();
-    }
-
-    public String sCtoString() throws JSONException {
-        Log.d(TAG, "sCtoString: ");
-        JSONObject json = new JSONObject();
-        json.put("c101s", c101s)
-                .put("c101m", c101m)
-                .put("c102s", c102s)
-                .put("c102m", c102m)
-                .put("c103s", c103s)
-                .put("c103m", c103m)
-                .put("c104s", c104s)
-                .put("c104m", c104m)
-                .put("c105s", c105s)
-                .put("c105m", c105m)
-                .put("c106s", c106s)
-                .put("c106m", c106m)
-                .put("c107s", c107s)
-                .put("c107m", c107m)
-                .put("c108s", c108s)
-                .put("c108m", c108m)
-                .put("c109s", c109s)
-                .put("c109m", c109m)
-                .put("c110s", c110s)
-                .put("c110m", c110m)
-                .put("c111s", c111s)
-                .put("c111m", c111m)
-                .put("c112s", c112s)
-                .put("c112m", c112m)
-                .put("c113s", c113s)
-                .put("c113m", c113m)
-                .put("c114s", c114s)
-                .put("c114m", c114m)
-                .put("c115s", c115s)
-                .put("c115m", c115m)
-                .put("c116s", c116s)
-                .put("c116m", c116m)
-                .put("c117s", c117s)
-                .put("c117m", c117m)
-                .put("c118s", c118s)
-                .put("c118m", c118m)
-                .put("c119s", c119s)
-                .put("c119m", c119m)
-                .put("c10s", c120s)
-                .put("c120m", c120m)
-                .put("c121s", c121s)
-                .put("c121m", c121m)
-                .put("c122s", c122s)
-                .put("c122m", c122m)
-                .put("c123s", c123s)
-                .put("c123m", c123m)
-                .put("c124s", c124s)
-                .put("c124m", c124m)
-                .put("c125s", c125s)
-                .put("c125m", c125m)
-                .put("c126s", c126s)
-                .put("c126m", c126m)
-                .put("c127s", c127s)
-                .put("c127m", c127m)
-                .put("c128s", c128s)
-                .put("c128m", c128m)
-                .put("c129s", c129s)
-                .put("c129m", c129m)
-                .put("c130s", c130s)
-                .put("c130m", c130m)
-                .put("c131s", c131s)
-                .put("c131m", c131m)
-                .put("c132s", c132s)
-                .put("c132m", c132m)
-                .put("c133s", c133s)
-                .put("c133m", c133m)
-                .put("c134s", c134s)
-                .put("c134m", c134m)
-                .put("c135s", c135s)
-                .put("c135m", c135m)
-                .put("c136s", c136s)
-                .put("c136m", c136m)
-                .put("c137s", c137s)
-                .put("c137m", c137m)
-                .put("c138s", c138s)
-                .put("c138m", c138m)
-                .put("c139s", c139s)
-                .put("c139m", c139m)
-                .put("c140", c140)
-                .put("c141", c141)
-                .put("c14196x", c14196x);
-        return json.toString();
-    }
-
     public String sH1toString() throws JSONException {
         Log.d(TAG, "sH1toString: ");
         JSONObject json = new JSONObject();
@@ -3803,28 +3632,25 @@ public class Form extends BaseObservable implements Observable {
     public JSONObject toJSONObject() throws JSONException {
         JSONObject json = new JSONObject();
 
-        json.put(FormsTable.COLUMN_ID, this.id);
-        json.put(FormsTable.COLUMN_UID, this.uid);
-        json.put(FormsTable.COLUMN_CLUSTER, this.cluster);
-        json.put(FormsTable.COLUMN_HHID, this.hhid);
-        json.put(FormsTable.COLUMN_USERNAME, this.userName);
-        json.put(FormsTable.COLUMN_SYSDATE, this.sysDate);
-        json.put(FormsTable.COLUMN_DEVICEID, this.deviceId);
-        json.put(FormsTable.COLUMN_DEVICETAGID, this.deviceTag);
-        json.put(FormsTable.COLUMN_ISTATUS, this.iStatus);
-        //  json.put(FormsTable.COLUMN_SYNCED, this.synced);
-        //  json.put(FormsTable.COLUMN_SYNCED_DATE, this.syncDate);
+        json.put(HHFormsTable.COLUMN_ID, this.id);
+        json.put(HHFormsTable.COLUMN_UID, this.uid);
+        json.put(HHFormsTable.COLUMN_LHW_UID, this.lhwuid);
+        json.put(HHFormsTable.COLUMN_CLUSTER, this.cluster);
+        json.put(HHFormsTable.COLUMN_HHID, this.hhid);
+        json.put(HHFormsTable.COLUMN_USERNAME, this.userName);
+        json.put(HHFormsTable.COLUMN_SYSDATE, this.sysDate);
+        json.put(HHFormsTable.COLUMN_DEVICEID, this.deviceId);
+        json.put(HHFormsTable.COLUMN_DEVICETAGID, this.deviceTag);
+        json.put(HHFormsTable.COLUMN_ISTATUS, this.iStatus);
+        //  json.put(HHFormsTable.COLUMN_SYNCED, this.synced);
+        //  json.put(HHFormsTable.COLUMN_SYNCED_DATE, this.syncDate);
 
         // Household
-
-        json.put(FormsTable.COLUMN_SA, new JSONObject(sAtoString()));
-        json.put(FormsTable.COLUMN_SB, new JSONObject(sBtoString()));
-        json.put(FormsTable.COLUMN_SC, new JSONObject(sCtoString()));
-        json.put(FormsTable.COLUMN_SH1, new JSONObject(sH1toString()));
-        json.put(FormsTable.COLUMN_SH2, new JSONObject(sH2toString()));
-        json.put(FormsTable.COLUMN_SH3, new JSONObject(sH3toString()));
-        json.put(FormsTable.COLUMN_SAB, new JSONObject(sABtoString()));
-        json.put(FormsTable.COLUMN_SM, new JSONObject(sMtoString()));
+        json.put(HHFormsTable.COLUMN_SH1, new JSONObject(sH1toString()));
+        json.put(HHFormsTable.COLUMN_SH2, new JSONObject(sH2toString()));
+        json.put(HHFormsTable.COLUMN_SH3, new JSONObject(sH3toString()));
+        json.put(HHFormsTable.COLUMN_SAB, new JSONObject(sABtoString()));
+        json.put(HHFormsTable.COLUMN_SM, new JSONObject(sMtoString()));
         return json;
     }
 

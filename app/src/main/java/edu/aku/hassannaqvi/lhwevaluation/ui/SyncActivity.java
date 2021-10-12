@@ -47,7 +47,7 @@ import java.util.concurrent.TimeUnit;
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.adapters.SyncListAdapter;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.ClustersTable;
-import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.FormsTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.HHFormsTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.RandomTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.VersionTable;
@@ -140,7 +140,7 @@ public class SyncActivity extends AppCompatActivity {
                 MainApp.uploadData.clear();
 
                 // Forms
-                uploadTables.add(new SyncModel(FormsTable.TABLE_NAME));
+                uploadTables.add(new SyncModel(HHFormsTable.TABLE_NAME));
                 MainApp.uploadData.add(db.getUnsyncedForms());
 
 

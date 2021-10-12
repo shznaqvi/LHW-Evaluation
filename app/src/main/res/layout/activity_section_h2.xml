@@ -7,8 +7,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="form"
-            type="edu.aku.hassannaqvi.lhwevaluation.models.Form" />
+            name="HHForm"
+            type="edu.aku.hassannaqvi.lhwevaluation.models.HHForm" />
 
         <variable
             name="callback"
@@ -79,7 +79,7 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:text="@={form.h201}" />
+                            android:text="@={HHForm.h201}" />
 
                     </LinearLayout>
 
@@ -123,7 +123,7 @@
                             android:hint="###########"
                             android:inputType="number"
                             android:maxLength="11"
-                            android:text="@={form.h202}"
+                            android:text="@={HHForm.h202}"
                             app:maxValue="99999999999"
                             app:minValue="0"
                             app:type="range" />
@@ -168,7 +168,7 @@
                             android:layout_height="wrap_content"
                             android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                             android:hint="@string/name"
-                            android:text="@={form.h203}" />
+                            android:text="@={HHForm.h203}" />
 
                     </LinearLayout>
 
@@ -232,7 +232,7 @@
                                 android:hint="###########"
                                 android:inputType="number"
                                 android:maxLength="11"
-                                android:text="@={form.h204a}"
+                                android:text="@={HHForm.h204a}"
                                 app:maxValue="99999999999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -261,7 +261,7 @@
                                 android:hint="###########"
                                 android:inputType="number"
                                 android:maxLength="11"
-                                android:text="@={form.h204b}"
+                                android:text="@={HHForm.h204b}"
                                 app:maxValue="99999999999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -288,7 +288,7 @@
                                 android:layout_weight="5"
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                                 android:hint="@string/h204c"
-                                android:text="@={form.h204c}" />
+                                android:text="@={HHForm.h204c}" />
 
                         </LinearLayout>
 
@@ -312,7 +312,7 @@
                                 android:layout_weight="5"
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                                 android:hint="@string/h204d"
-                                android:text="@={form.h204d}" />
+                                android:text="@={HHForm.h204d}" />
 
                         </LinearLayout>
 
@@ -336,7 +336,7 @@
                                 android:layout_weight="5"
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                                 android:hint="@string/h204e"
-                                android:text="@={form.h204e}" />
+                                android:text="@={HHForm.h204e}" />
 
                         </LinearLayout>
 
@@ -360,7 +360,7 @@
                                 android:layout_weight="5"
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                                 android:hint="@string/h204f"
-                                android:text="@={form.h204f}" />
+                                android:text="@={HHForm.h204f}" />
 
                         </LinearLayout>
 
@@ -409,8 +409,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{form.h205.equals(`1`)}"
-                                android:onClick="@{()->form.setH205(`1`)}"
+                                android:checked="@{HHForm.h205.equals(`1`)}"
+                                android:onClick="@{()->HHForm.setH205(`1`)}"
                                 android:text="@string/h205a" />
 
                             <RadioButton
@@ -418,8 +418,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{form.h205.equals(`2`)}"
-                                android:onClick="@{()->form.setH205(`2`)}"
+                                android:checked="@{HHForm.h205.equals(`2`)}"
+                                android:onClick="@{()->HHForm.setH205(`2`)}"
                                 android:text="@string/h205b" />
 
                         </RadioGroup>

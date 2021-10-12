@@ -9,8 +9,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="form"
-            type="edu.aku.hassannaqvi.lhwevaluation.models.Form" />
+            name="HHForm"
+            type="edu.aku.hassannaqvi.lhwevaluation.models.HHForm" />
     </data>
 
 

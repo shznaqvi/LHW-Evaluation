@@ -7,8 +7,8 @@
         <import type="android.view.View" />
 
         <variable
-            name="form"
-            type="edu.aku.hassannaqvi.lhwevaluation.models.Form" />
+            name="HHForm"
+            type="edu.aku.hassannaqvi.lhwevaluation.models.HHForm" />
 
         <variable
             name="callback"
@@ -114,7 +114,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c101s}"
+                                android:text="@={HHForm.c101s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -128,7 +128,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c101m}"
+                                android:text="@={HHForm.c101m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -204,7 +204,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c102s}"
+                                android:text="@={HHForm.c102s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -218,7 +218,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c102m}"
+                                android:text="@={HHForm.c102m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -294,7 +294,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c103s}"
+                                android:text="@={HHForm.c103s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -308,7 +308,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c103m}"
+                                android:text="@={HHForm.c103m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -384,7 +384,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c104s}"
+                                android:text="@={HHForm.c104s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -398,7 +398,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c104m}"
+                                android:text="@={HHForm.c104m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -474,7 +474,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c105s}"
+                                android:text="@={HHForm.c105s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -488,7 +488,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c105m}"
+                                android:text="@={HHForm.c105m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -564,7 +564,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c106s}"
+                                android:text="@={HHForm.c106s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -578,7 +578,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c106m}"
+                                android:text="@={HHForm.c106m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -654,7 +654,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c107s}"
+                                android:text="@={HHForm.c107s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -668,7 +668,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c107m}"
+                                android:text="@={HHForm.c107m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -744,7 +744,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c108s}"
+                                android:text="@={HHForm.c108s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -758,7 +758,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c108m}"
+                                android:text="@={HHForm.c108m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -834,7 +834,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c109s}"
+                                android:text="@={HHForm.c109s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -848,7 +848,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c109m}"
+                                android:text="@={HHForm.c109m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -924,7 +924,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c110s}"
+                                android:text="@={HHForm.c110s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -938,7 +938,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c110m}"
+                                android:text="@={HHForm.c110m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1014,7 +1014,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c111s}"
+                                android:text="@={HHForm.c111s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1028,7 +1028,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c111m}"
+                                android:text="@={HHForm.c111m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1104,7 +1104,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c112s}"
+                                android:text="@={HHForm.c112s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1118,7 +1118,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c112m}"
+                                android:text="@={HHForm.c112m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1194,7 +1194,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c113s}"
+                                android:text="@={HHForm.c113s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1208,7 +1208,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c113m}"
+                                android:text="@={HHForm.c113m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1284,7 +1284,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c114s}"
+                                android:text="@={HHForm.c114s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1298,7 +1298,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c114m}"
+                                android:text="@={HHForm.c114m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1374,7 +1374,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c115s}"
+                                android:text="@={HHForm.c115s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1388,7 +1388,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c115m}"
+                                android:text="@={HHForm.c115m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1464,7 +1464,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c116s}"
+                                android:text="@={HHForm.c116s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1478,7 +1478,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c116m}"
+                                android:text="@={HHForm.c116m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1554,7 +1554,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c117s}"
+                                android:text="@={HHForm.c117s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1568,7 +1568,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c117m}"
+                                android:text="@={HHForm.c117m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1644,7 +1644,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c118s}"
+                                android:text="@={HHForm.c118s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1658,7 +1658,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c118m}"
+                                android:text="@={HHForm.c118m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1734,7 +1734,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c119s}"
+                                android:text="@={HHForm.c119s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1748,7 +1748,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c119m}"
+                                android:text="@={HHForm.c119m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1824,7 +1824,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c120s}"
+                                android:text="@={HHForm.c120s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1838,7 +1838,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c120m}"
+                                android:text="@={HHForm.c120m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1914,7 +1914,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c121s}"
+                                android:text="@={HHForm.c121s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -1928,7 +1928,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c121m}"
+                                android:text="@={HHForm.c121m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2004,7 +2004,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c122s}"
+                                android:text="@={HHForm.c122s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2018,7 +2018,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c122m}"
+                                android:text="@={HHForm.c122m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2094,7 +2094,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c123s}"
+                                android:text="@={HHForm.c123s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2108,7 +2108,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c123m}"
+                                android:text="@={HHForm.c123m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2184,7 +2184,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c124s}"
+                                android:text="@={HHForm.c124s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2198,7 +2198,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c124m}"
+                                android:text="@={HHForm.c124m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2274,7 +2274,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c125s}"
+                                android:text="@={HHForm.c125s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2288,7 +2288,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c125m}"
+                                android:text="@={HHForm.c125m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2364,7 +2364,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c126s}"
+                                android:text="@={HHForm.c126s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2378,7 +2378,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c126m}"
+                                android:text="@={HHForm.c126m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2454,7 +2454,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c127s}"
+                                android:text="@={HHForm.c127s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2468,7 +2468,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c127m}"
+                                android:text="@={HHForm.c127m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2544,7 +2544,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c128s}"
+                                android:text="@={HHForm.c128s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2558,7 +2558,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c128m}"
+                                android:text="@={HHForm.c128m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2634,7 +2634,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c129s}"
+                                android:text="@={HHForm.c129s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2648,7 +2648,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c129m}"
+                                android:text="@={HHForm.c129m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2724,7 +2724,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c130s}"
+                                android:text="@={HHForm.c130s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2738,7 +2738,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c130m}"
+                                android:text="@={HHForm.c130m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2814,7 +2814,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c131s}"
+                                android:text="@={HHForm.c131s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2828,7 +2828,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c131m}"
+                                android:text="@={HHForm.c131m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2904,7 +2904,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c132s}"
+                                android:text="@={HHForm.c132s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2918,7 +2918,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c132m}"
+                                android:text="@={HHForm.c132m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -2994,7 +2994,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c133s}"
+                                android:text="@={HHForm.c133s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3008,7 +3008,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c133m}"
+                                android:text="@={HHForm.c133m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3084,7 +3084,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c134s}"
+                                android:text="@={HHForm.c134s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3098,7 +3098,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c134m}"
+                                android:text="@={HHForm.c134m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3174,7 +3174,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c135s}"
+                                android:text="@={HHForm.c135s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3188,7 +3188,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c135m}"
+                                android:text="@={HHForm.c135m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3264,7 +3264,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c136s}"
+                                android:text="@={HHForm.c136s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3278,7 +3278,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c136m}"
+                                android:text="@={HHForm.c136m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3354,7 +3354,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c137s}"
+                                android:text="@={HHForm.c137s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3368,7 +3368,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c137m}"
+                                android:text="@={HHForm.c137m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3444,7 +3444,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c138s}"
+                                android:text="@={HHForm.c138s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3458,7 +3458,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c138m}"
+                                android:text="@={HHForm.c138m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3534,7 +3534,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c139s}"
+                                android:text="@={HHForm.c139s}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3548,7 +3548,7 @@
                                 android:hint="###"
                                 android:inputType="number"
                                 android:maxLength="3"
-                                android:text="@={form.c139m}"
+                                android:text="@={HHForm.c139m}"
                                 app:maxValue="999"
                                 app:minValue="0"
                                 app:type="range" />
@@ -3601,8 +3601,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{form.c140.equals(`1`)}"
-                                android:onClick="@{()->form.setC140(`1`)}"
+                                android:checked="@{HHForm.c140.equals(`1`)}"
+                                android:onClick="@{()->HHForm.setC140(`1`)}"
                                 android:text="@string/c140a" />
 
                             <RadioButton
@@ -3610,8 +3610,8 @@
                                 android:layout_width="0dp"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:checked="@{form.c140.equals(`2`)}"
-                                android:onClick="@{()->form.setC140(`2`)}"
+                                android:checked="@{HHForm.c140.equals(`2`)}"
+                                android:onClick="@{()->HHForm.setC140(`2`)}"
                                 android:text="@string/c140b" />
 
                         </RadioGroup>
@@ -3625,7 +3625,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVc141"
                     style="@style/cardView"
-                    android:visibility="@{form.c140.equals(`2`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{HHForm.c140.equals(`2`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -3660,32 +3660,32 @@
                                 android:id="@+id/c141a"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{form.c141.equals(`1`)}"
-                                android:onClick="@{()->form.setC141(`1`)}"
+                                android:checked="@{HHForm.c141.equals(`1`)}"
+                                android:onClick="@{()->HHForm.setC141(`1`)}"
                                 android:text="@string/c141a" />
 
                             <RadioButton
                                 android:id="@+id/c141b"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{form.c141.equals(`2`)}"
-                                android:onClick="@{()->form.setC141(`2`)}"
+                                android:checked="@{HHForm.c141.equals(`2`)}"
+                                android:onClick="@{()->HHForm.setC141(`2`)}"
                                 android:text="@string/c141b" />
 
                             <RadioButton
                                 android:id="@+id/c141c"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{form.c141.equals(`3`)}"
-                                android:onClick="@{()->form.setC141(`3`)}"
+                                android:checked="@{HHForm.c141.equals(`3`)}"
+                                android:onClick="@{()->HHForm.setC141(`3`)}"
                                 android:text="@string/c141c" />
 
                             <RadioButton
                                 android:id="@+id/c14196"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{form.c141.equals(`96`)}"
-                                android:onClick="@{()->form.setC141(`96`)}"
+                                android:checked="@{HHForm.c141.equals(`96`)}"
+                                android:onClick="@{()->HHForm.setC141(`96`)}"
                                 android:text="@string/c14196" />
 
                             <EditText
@@ -3695,8 +3695,8 @@
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                                 android:hint="@string/c14196"
                                 android:tag="c14196"
-                                android:text="@={form.c14196x}"
-                                android:visibility="@{form.c141.equals(`96`) ? View.VISIBLE : View.GONE}" />
+                                android:text="@={HHForm.c14196x}"
+                                android:visibility="@{HHForm.c141.equals(`96`) ? View.VISIBLE : View.GONE}" />
 
                         </RadioGroup>
 

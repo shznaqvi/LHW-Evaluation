@@ -19,11 +19,11 @@ import edu.aku.hassannaqvi.lhwevaluation.adapters.FormsAdapter;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityFormsReportBinding;
-import edu.aku.hassannaqvi.lhwevaluation.models.Form;
+import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 
 public class FormsReportCluster extends AppCompatActivity {
     DatabaseHelper db;
-    Collection<Form> fc;
+    Collection<HHForm> fc;
     String sysdateToday = new SimpleDateFormat("dd-MM-yy").format(new Date());
     ActivityFormsReportBinding bi;
     private RecyclerView.Adapter formsAdapter;
@@ -51,14 +51,14 @@ public class FormsReportCluster extends AppCompatActivity {
         fc = db.getFormsByCluster("0000000");
 
         // specify an adapter (see also next example)
-        formsAdapter = new FormsAdapter((List<Form>) fc, this);
+        formsAdapter = new FormsAdapter((List<HHForm>) fc, this);
         bi.fcRecyclerView.setAdapter(formsAdapter);
     }
 
     public void filterForms(View view) {
         Toast.makeText(this, "updated", Toast.LENGTH_SHORT).show();
         fc = db.getFormsByCluster(bi.clusterFilter.getText().toString());
-        formsAdapter = new FormsAdapter((List<Form>) fc, this);
+        formsAdapter = new FormsAdapter((List<HHForm>) fc, this);
         formsAdapter.notifyDataSetChanged();
         bi.fcRecyclerView.setAdapter(formsAdapter);
 

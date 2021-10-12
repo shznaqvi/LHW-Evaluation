@@ -96,7 +96,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="36dp"
                                 android:gravity="center_horizontal|center_vertical"
-                                android:text="Open to enter household form"
+                                android:text="Open to enter household HHForm"
                                 android:textColor="@color/gray"
                                 android:textSize="14sp" />
                         </LinearLayout>
