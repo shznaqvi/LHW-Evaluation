@@ -1604,7 +1604,7 @@ she should be available during the interview, One MWRA per household will be sel
     <string name="invalid_password"> Invalid Password </string>
     <string name="username_required"> Username is required. </string>
     <string name="incorrect_username_or_password">Incorrect Username or Password</string>
-    <string name="open_hh_form"> Open Household HHForm </string>
+    <!--<string name="open_hh_form"> Open Household HHForm </string>-->
     <string name="open_anhtro_form">Open Anthro HHForm</string>
     <string name="info_hh_form_not_exist">INFO: Household information does not exist.</string>
     <string name="hh_not_found">Household not Found</string>

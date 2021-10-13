@@ -299,14 +299,6 @@ public class HHForm extends BaseObservable implements Observable {
 
     /*JSON DATABASE VARIABLES*/
 
-    public String getsH1() {
-        return sH1;
-    }
-
-    public void setsH1(String sH1) {
-        this.sH1 = sH1;
-    }
-
 
     public String getsH2() {
         return sH2;
