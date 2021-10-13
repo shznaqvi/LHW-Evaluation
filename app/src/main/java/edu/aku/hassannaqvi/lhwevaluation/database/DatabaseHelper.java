@@ -145,6 +145,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.LHWFormsTable.COLUMN_USERNAME, lhwForm.getUserName());
         values.put(TableContracts.LHWFormsTable.COLUMN_SYSDATE, lhwForm.getSysDate());
 
+        values.put(TableContracts.LHWFormsTable.COLUMN_A101, lhwForm.getA101());
+        values.put(TableContracts.LHWFormsTable.COLUMN_A102, lhwForm.getA102());
+        values.put(TableContracts.LHWFormsTable.COLUMN_A103, lhwForm.getA103());
+        values.put(TableContracts.LHWFormsTable.COLUMN_A104n, lhwForm.getA104n());
+        values.put(TableContracts.LHWFormsTable.COLUMN_A104c, lhwForm.getA104c());
 
         values.put(TableContracts.LHWFormsTable.COLUMN_SA, lhwForm.sAtoString());
         values.put(TableContracts.LHWFormsTable.COLUMN_SB1, lhwForm.sB1toString());

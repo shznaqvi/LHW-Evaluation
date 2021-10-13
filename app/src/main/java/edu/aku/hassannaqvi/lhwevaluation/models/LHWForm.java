@@ -1667,6 +1667,12 @@ public class LHWForm extends BaseObservable implements Observable {
         this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SYNCED_DATE));
 
 
+        this.a101 = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_A101));
+        this.a102 = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_A102));
+        this.a103 = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_A103));
+        this.a104n = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_A104n));
+        this.a104c = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_A104c));
+
         sAHydrate(cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SA)));
         sB1Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SB1)));
         sB2Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SB2)));
@@ -1681,11 +1687,6 @@ public class LHWForm extends BaseObservable implements Observable {
 
             JSONObject json = null;
             json = new JSONObject(string);
-            this.a101 = json.getString("a101");
-            this.a102 = json.getString("a102");
-            this.a103 = json.getString("a103");
-            this.a104n = json.getString("a104n");
-            this.a104c = json.getString("a104c");
             this.a105 = json.getString("a105");
             this.a106 = json.getString("a106");
             this.a107 = json.getString("a107");
@@ -1843,12 +1844,7 @@ public class LHWForm extends BaseObservable implements Observable {
     public String sAtoString() throws JSONException {
         Log.d(TAG, "sAtoString: ");
         JSONObject json = new JSONObject();
-        json.put("a101", a101)
-                .put("a102", a102)
-                .put("a103", a103)
-                .put("a104n", a104n)
-                .put("a104c", a104c)
-                .put("a105", a105)
+        json.put("a105", a105)
                 .put("a106", a106)
                 .put("a107", a107)
                 .put("a10796x", a10796x)
@@ -2011,6 +2007,11 @@ public class LHWForm extends BaseObservable implements Observable {
 
         // Household
 
+        json.put(LHWFormsTable.COLUMN_A101, this.a101);
+        json.put(LHWFormsTable.COLUMN_A102, this.a102);
+        json.put(LHWFormsTable.COLUMN_A103, this.a103);
+        json.put(LHWFormsTable.COLUMN_A104n, this.a104n);
+        json.put(LHWFormsTable.COLUMN_A104c, this.a104c);
         json.put(LHWFormsTable.COLUMN_SA, new JSONObject(sAtoString()));
         json.put(LHWFormsTable.COLUMN_SB1, new JSONObject(sB1toString()));
         json.put(LHWFormsTable.COLUMN_SB2, new JSONObject(sB2toString()));
