@@ -17,6 +17,7 @@ import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityLhwIdentificationBinding;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL1Activity;
 
 
 public class LhwIdentificationActivity extends AppCompatActivity {
@@ -31,12 +32,12 @@ public class LhwIdentificationActivity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_lhw_identification);
         bi.setCallback(this);
         bi.setLhwForm(lhwForm);
+        db = MainApp.appInfo.getDbHelper();
 
     }
 
 
     private boolean updateDB() {
-        db = MainApp.appInfo.getDbHelper();
         long updcount = 0;
         /*try {
            // updcount = db.updatesFormColumn(TableContracts.HHFormsTable.COLUMN_SA, HHForm.sAtoString());
@@ -57,7 +58,7 @@ public class LhwIdentificationActivity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, SectionL1Activity.class));
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
@@ -72,11 +73,11 @@ public class LhwIdentificationActivity extends AppCompatActivity {
         return Validator.emptyCheckingContainer(this, bi.GrpName);
     }
 
-    @Override
+/*    @Override
     public void onBackPressed() {
         // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
-    }
+    }*/
 
 
 }

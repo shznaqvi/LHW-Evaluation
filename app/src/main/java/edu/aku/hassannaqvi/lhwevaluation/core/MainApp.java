@@ -44,6 +44,7 @@ public class MainApp extends Application {
     public static File sdDir;
     public static String[] downloadData;
     public static HHForm HHForm;
+    public static LHWForm LHWForm;
     public static MWRA mwra;
     public static LHWForm lhwForm;
 
@@ -75,6 +76,7 @@ public class MainApp extends Application {
     public static int childCountComplete = 0;
     public static int pregCountComplete = 0;
     public static List<String> subjectNames;
+    public static boolean lhwComplete;
 
 
     public static void hideSystemUI(View decorView) {

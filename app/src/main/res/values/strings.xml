@@ -14,7 +14,8 @@
     <string name="splashText"> </string>
     <string name="splashText2">  </string>
     <string name="check_pending_forms">CHECK PENDING FORMS</string>
-    <string name="open_household_form">OPEN HOUSEHOLD FORM</string>
+    <string name="open_lhw_form">OPEN LHW REGISTRATION FORM</string>
+    <string name="open_hh_form">OPEN HOUSEHOLD FORM</string>
     <string name="open_anthro_form">UPDATE ANTHRO FORM</string>
     <string name="open_blood_form">UPDATE BLOOD INFORMANTION</string>
     <string name="open_stool_form">UPDATE STOOL INFORMANTION</string>

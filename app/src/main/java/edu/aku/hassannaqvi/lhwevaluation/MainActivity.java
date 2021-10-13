@@ -14,6 +14,7 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.ui.IdentificationActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.SyncActivity;
@@ -21,13 +22,13 @@ import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportCluster;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportDate;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportPending;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionABActivity;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH1Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH2Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH3Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL1Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL2Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL3Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL4Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionLhwHhActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionMActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW1Activity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionW2Activity;
@@ -57,20 +58,10 @@ public class MainActivity extends AppCompatActivity {
     public void sectionPress(View view) {
 
         switch (view.getId()) {
-            case R.id.openForm:
+            case R.id.openHHForm:
                 MainApp.idType = 1;
                 break;
-            case R.id.openAnthro:
-                MainApp.idType = 2;
-                break;
 
-            case R.id.updateBlood:
-                MainApp.idType = 3;
-                break;
-
-            case R.id.updateStool:
-                MainApp.idType = 4;
-                break;
             default:
                 MainApp.idType = 0;
 
@@ -79,10 +70,12 @@ public class MainActivity extends AppCompatActivity {
 
         switch (view.getId()) {
 
-            case R.id.openForm:
-            case R.id.updateBlood:
-            case R.id.updateStool:
+            case R.id.openHHForm:
                 MainApp.HHForm = new HHForm();
+                startActivity(new Intent(this, IdentificationActivity.class));
+                break;
+            case R.id.openLHWForm:
+                MainApp.LHWForm = new LHWForm();
                 startActivity(new Intent(this, IdentificationActivity.class));
                 break;
             case R.id.seca:
@@ -107,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.sech1:
                 MainApp.HHForm = new HHForm();
-                startActivity(new Intent(this, SectionH1Activity.class));
+                startActivity(new Intent(this, SectionLhwHhActivity.class));
                 break;
 
             case R.id.sech2:

@@ -31,7 +31,7 @@ import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityIdentificationBindi
 import edu.aku.hassannaqvi.lhwevaluation.models.Clusters;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.RandomHH;
-import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL1Activity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH2Activity;
 
 
 public class IdentificationActivity extends AppCompatActivity {
@@ -58,7 +58,7 @@ public class IdentificationActivity extends AppCompatActivity {
             case 1:
                 bi.btnContinue.setText(R.string.open_hh_form);
                 MainApp.HHForm = new HHForm();
-                openIntent = new Intent(this, SectionL1Activity.class);
+                openIntent = new Intent(this, SectionH2Activity.class);
                 break;
          /*   case 2:
                 bi.btnContinue.setText(R.string.open_anhtro_form);
@@ -320,46 +320,8 @@ public class IdentificationActivity extends AppCompatActivity {
                     Toast.makeText(this, getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 return MainApp.HHForm != null;
-
             case 2:
-            case 3:
-            case 4:
-                MainApp.HHForm = new HHForm();
-                try {
-                    MainApp.HHForm = db.getFormByClusterHHNo(bi.h103.getText().toString(), bi.h104.getText().toString());
-                    // Populate Subject Names for spinner Adapter in Samples Activity.
-                    if (MainApp.HHForm != null) {
-                        MainApp.subjectNames = new ArrayList<>();
-                        MainApp.subjectNames.add("...");
 
-                        // Add woman if exist
-                        if (!MainApp.HHForm.getA104n().equals("")) {
-                            MainApp.subjectNames.add(MainApp.HHForm.getA104n() + " (" + MainApp.HHForm.getA104c() + ")");
-                            // Add child if both woman and child exist
-                            if (!MainApp.HHForm.getA104n().equals("")) {
-                                MainApp.subjectNames.add(MainApp.HHForm.getA104n());
-                            } else {
-                                Toast.makeText(this, R.string.child_info_missing, Toast.LENGTH_SHORT).show();
-                                return false;
-
-                            }
-                        } else {
-                            Toast.makeText(this, R.string.woman_child_info_missing, Toast.LENGTH_SHORT).show();
-                            return false;
-
-                        }
-                    } else {
-                        return MainApp.HHForm != null;
-                    }
-             /*       MainApp.samples = new Samples();
-                    MainApp.anthro = new Anthro();*/
-                    //MainApp.samples = db.getSamplesByClusterHHNo(bi.h103.getText().toString(), bi.h103.getText().toString());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Log.d(TAG, getString(R.string.hh_exists_form) + e.getMessage());
-                    Toast.makeText(this, getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-                return MainApp.HHForm != null;
 
             default:
                 return false;

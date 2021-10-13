@@ -23,8 +23,8 @@ import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionH1Binding;
 
 
-public class SectionH1Activity extends AppCompatActivity {
-    private static final String TAG = "SectionH1Activity";
+public class SectionLhwHhActivity extends AppCompatActivity {
+    private static final String TAG = "SectionLhwHhActivity";
     ActivitySectionH1Binding bi;
     private DatabaseHelper db;
 
@@ -32,7 +32,7 @@ public class SectionH1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h1);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_lhwhh);
         bi.setCallback(this);
         bi.setHHForm(HHForm);
 

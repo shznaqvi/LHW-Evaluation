@@ -65,7 +65,7 @@
                     app:cardCornerRadius="24dp">
 
                     <LinearLayout
-                        android:id="@+id/openForm"
+                        android:id="@+id/openLHWForm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:clickable="true"
@@ -87,7 +87,7 @@
                                 android:drawablePadding="12dp"
                                 android:gravity="center_vertical"
                                 android:minWidth="460dp"
-                                android:text="@string/open_household_form"
+                                android:text="@string/open_lhw_form"
                                 android:textColor="@color/colorPrimary"
                                 android:textSize="16dp" />
 
@@ -96,7 +96,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="36dp"
                                 android:gravity="center_horizontal|center_vertical"
-                                android:text="Open to enter household HHForm"
+                                android:text="Open to register LHW information"
                                 android:textColor="@color/gray"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -112,7 +112,6 @@
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -123,9 +122,10 @@
                     app:cardCornerRadius="24dp">
 
                     <LinearLayout
-                        android:id="@+id/openAnthro"
+                        android:id="@+id/openHHForm"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:clickable="true"
                         android:onClick="sectionPress"
                         android:orientation="horizontal">
 
@@ -140,11 +140,11 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:background="@color/white"
-                                android:drawableStart="@drawable/onhold_forms"
+                                android:drawableStart="@drawable/new_form"
                                 android:drawablePadding="12dp"
                                 android:gravity="center_vertical"
                                 android:minWidth="460dp"
-                                android:text="@string/open_anthro_form"
+                                android:text="@string/open_hh_form"
                                 android:textColor="@color/colorPrimary"
                                 android:textSize="16dp" />
 
@@ -153,7 +153,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="36dp"
                                 android:gravity="center_horizontal|center_vertical"
-                                android:text="Update anthropometry and examination"
+                                android:text="Open to enter household Form"
                                 android:textColor="@color/gray"
                                 android:textSize="14sp" />
                         </LinearLayout>
@@ -170,119 +170,6 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="24dp"
-                    android:padding="12dp"
-                    app:cardCornerRadius="24dp">
-
-                    <LinearLayout
-                        android:id="@+id/updateBlood"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="sectionPress"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="12dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/white"
-                                android:drawableStart="@drawable/ic_baseline_bloodtype_24"
-                                android:drawablePadding="12dp"
-                                android:gravity="center_vertical"
-                                android:minWidth="460dp"
-                                android:text="@string/open_blood_form"
-                                android:textColor="@color/colorPrimary"
-                                android:textSize="16dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="36dp"
-                                android:gravity="center_horizontal|center_vertical"
-                                android:text="Update blood information"
-                                android:textColor="@color/gray"
-                                android:textSize="14sp" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="12dp"
-                            android:background="@drawable/ic_item_right_arrow"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="24dp" />
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="24dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginEnd="24dp"
-                    android:padding="12dp"
-                    app:cardCornerRadius="24dp">
-
-                    <LinearLayout
-                        android:id="@+id/updateStool"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:onClick="sectionPress"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="12dp"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:background="@color/white"
-                                android:drawableStart="@drawable/ic_stool"
-                                android:drawablePadding="12dp"
-                                android:gravity="center_vertical"
-                                android:minWidth="460dp"
-                                android:text="@string/open_stool_form"
-                                android:textColor="@color/colorPrimary"
-                                android:textSize="16dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="36dp"
-                                android:gravity="center_horizontal|center_vertical"
-                                android:text="Update stool information"
-                                android:textColor="@color/gray"
-                                android:textSize="14sp" />
-                        </LinearLayout>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center_horizontal|center_vertical"
-                            android:layout_margin="12dp"
-                            android:background="@drawable/ic_item_right_arrow"
-                            android:textColor="@color/colorAccent"
-                            android:textSize="24dp" />
-
-                    </LinearLayout>
-                </androidx.cardview.widget.CardView>
 
                 <LinearLayout
                     android:id="@+id/adminView"
