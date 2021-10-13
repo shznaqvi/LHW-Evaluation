@@ -1,10 +1,9 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.HHForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwHh;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -13,19 +12,16 @@ import androidx.databinding.DataBindingUtil;
 
 import com.validatorcrawler.aliazaz.Validator;
 
-import org.json.JSONException;
-
 import edu.aku.hassannaqvi.lhwevaluation.MainActivity;
 import edu.aku.hassannaqvi.lhwevaluation.R;
-import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
-import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionH1Binding;
+import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionLhwhhBinding;
 
 
 public class SectionLhwHhActivity extends AppCompatActivity {
     private static final String TAG = "SectionLhwHhActivity";
-    ActivitySectionH1Binding bi;
+    ActivitySectionLhwhhBinding bi;
     private DatabaseHelper db;
 
 
@@ -34,7 +30,7 @@ public class SectionLhwHhActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_lhwhh);
         bi.setCallback(this);
-        bi.setHHForm(HHForm);
+        bi.setLhwHh(lhwHh);
 
     }
 
@@ -42,13 +38,13 @@ public class SectionLhwHhActivity extends AppCompatActivity {
     private boolean updateDB() {
         db = MainApp.appInfo.getDbHelper();
         long updcount = 0;
-        try {
-            updcount = db.updatesFormColumn(TableContracts.HHFormsTable.COLUMN_SH1, HHForm.sH1toString());
+        /*try {
+            updcount = db.updatesLhwHhColumn(TableContracts.LHWHHTable.COLUMN_H101, lhwHh.getH101());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());
             Toast.makeText(this, R.string.upd_db_form + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+        }*/
         if (updcount > 0) return true;
         else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();

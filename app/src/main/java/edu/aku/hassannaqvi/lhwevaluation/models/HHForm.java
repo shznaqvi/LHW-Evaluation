@@ -39,7 +39,6 @@ public class HHForm extends BaseObservable implements Observable {
     private String synced = StringUtils.EMPTY;
     private String syncDate = StringUtils.EMPTY;
     // SECTION VARIABLES
-    private String sH1 = StringUtils.EMPTY;
     private String sH2 = StringUtils.EMPTY;
     private String sH3 = StringUtils.EMPTY;
 
@@ -47,16 +46,6 @@ public class HHForm extends BaseObservable implements Observable {
     private String sM = StringUtils.EMPTY;
 
     // FIELD VARIABLES
-    private String h101 = StringUtils.EMPTY;
-    private String h102 = StringUtils.EMPTY;
-    private String h103 = StringUtils.EMPTY;
-    private String h104a = StringUtils.EMPTY;
-    private String h104b = StringUtils.EMPTY;
-    private String h104c = StringUtils.EMPTY;
-    private String h104d = StringUtils.EMPTY;
-    private String h104e = StringUtils.EMPTY;
-    private String h104f = StringUtils.EMPTY;
-    private String lhwphoto = StringUtils.EMPTY;
     private String h201 = StringUtils.EMPTY;
     private String h202 = StringUtils.EMPTY;
     private String h203 = StringUtils.EMPTY;
@@ -352,108 +341,6 @@ public class HHForm extends BaseObservable implements Observable {
 
     public void setsM(String sM) {
         this.sM = sM;
-    }
-
-
-
-    @Bindable
-    public String getH101() {
-        return h101;
-    }
-
-    public void setH101(String h101) {
-        this.h101 = h101;
-        notifyPropertyChanged(BR.h101);
-    }
-
-    @Bindable
-    public String getH102() {
-        return h102;
-    }
-
-    public void setH102(String h102) {
-        this.h102 = h102;
-        notifyPropertyChanged(BR.h102);
-    }
-
-    @Bindable
-    public String getH103() {
-        return h103;
-    }
-
-    public void setH103(String h103) {
-        this.h103 = h103;
-        notifyPropertyChanged(BR.h103);
-    }
-
-    @Bindable
-    public String getH104a() {
-        return h104a;
-    }
-
-    public void setH104a(String h104a) {
-        this.h104a = h104a;
-        notifyPropertyChanged(BR.h104a);
-    }
-
-    @Bindable
-    public String getH104b() {
-        return h104b;
-    }
-
-    public void setH104b(String h104b) {
-        this.h104b = h104b;
-        notifyPropertyChanged(BR.h104b);
-    }
-
-    @Bindable
-    public String getH104c() {
-        return h104c;
-    }
-
-    public void setH104c(String h104c) {
-        this.h104c = h104c;
-        notifyPropertyChanged(BR.h104c);
-    }
-
-    @Bindable
-    public String getH104d() {
-        return h104d;
-    }
-
-    public void setH104d(String h104d) {
-        this.h104d = h104d;
-        notifyPropertyChanged(BR.h104d);
-    }
-
-    @Bindable
-    public String getH104e() {
-        return h104e;
-    }
-
-    public void setH104e(String h104e) {
-        this.h104e = h104e;
-        notifyPropertyChanged(BR.h104e);
-    }
-
-    @Bindable
-    public String getH104f() {
-        return h104f;
-    }
-
-    public void setH104f(String h104f) {
-        this.h104f = h104f;
-        notifyPropertyChanged(BR.h104f);
-    }
-
-    @Bindable
-    public String getLhwphoto() {
-        return lhwphoto;
-    }
-
-    public void setLhwphoto(String lhwphoto) {
-        this.lhwphoto = lhwphoto;
-        notifyPropertyChanged(BR.lhwphoto);
     }
 
     @Bindable
@@ -1717,30 +1604,12 @@ public class HHForm extends BaseObservable implements Observable {
         this.synced = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SYNCED));
         this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SYNCED_DATE));
 
-        sH1Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SH1)));
         sH2Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SH2)));
         sH3Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SH3)));
         sABHydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SAB)));
         sMHydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SM)));
 
         return this;
-    }
-
-    public void sH1Hydrate(String string) throws JSONException {
-        Log.d(TAG, "sH1Hydrate: " + string);
-        if (string != null) {
-            JSONObject json = null;
-            json = new JSONObject(string);
-            this.h101 = json.getString("h101");
-            this.h102 = json.getString("h102");
-            this.h103 = json.getString("h103");
-            this.h104a = json.getString("h104a");
-            this.h104b = json.getString("h104b");
-            this.h104c = json.getString("h104c");
-            this.h104d = json.getString("h104d");
-            this.h104e = json.getString("h104e");
-            this.h104f = json.getString("h104f");
-        }
     }
 
     public void sH2Hydrate(String string) throws JSONException {
@@ -1887,20 +1756,6 @@ public class HHForm extends BaseObservable implements Observable {
     }
 
 
-    public String sH1toString() throws JSONException {
-        Log.d(TAG, "sH1toString: ");
-        JSONObject json = new JSONObject();
-        json.put("h101", h101)
-                .put("h102", h102)
-                .put("h103", h103)
-                .put("h104a", h104a)
-                .put("h104b", h104b)
-                .put("h104c", h104c)
-                .put("h104d", h104d)
-                .put("h104e", h104e)
-                .put("h104f", h104f);
-        return json.toString();
-    }
 
     public String sH2toString() throws JSONException {
         Log.d(TAG, "sH2toString: ");
@@ -2054,7 +1909,6 @@ public class HHForm extends BaseObservable implements Observable {
         //  json.put(HHFormsTable.COLUMN_SYNCED_DATE, this.syncDate);
 
         // Household
-        json.put(HHFormsTable.COLUMN_SH1, new JSONObject(sH1toString()));
         json.put(HHFormsTable.COLUMN_SH2, new JSONObject(sH2toString()));
         json.put(HHFormsTable.COLUMN_SH3, new JSONObject(sH3toString()));
         json.put(HHFormsTable.COLUMN_SAB, new JSONObject(sABtoString()));

@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.lhwevaluation.database;
 
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwHh;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_VERSION;
@@ -8,6 +9,7 @@ import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_CHILDLIST;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_CLUSTERS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_HH_FORMS;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHWHH;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW_FORMS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_MWRALIST;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_PREGNANCY;
@@ -39,6 +41,7 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.models.Clusters;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
+import edu.aku.hassannaqvi.lhwevaluation.models.LhwHh;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.models.RandomHH;
 import edu.aku.hassannaqvi.lhwevaluation.models.Users;
@@ -68,6 +71,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_RANDOM);
         db.execSQL(SQL_CREATE_HH_FORMS);
         db.execSQL(SQL_CREATE_LHW_FORMS);
+        db.execSQL(SQL_CREATE_LHWHH);
         db.execSQL(SQL_CREATE_MWRALIST);
         db.execSQL(SQL_CREATE_CHILDLIST);
         db.execSQL(SQL_CREATE_ANTHRO);
@@ -106,7 +110,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.HHFormsTable.COLUMN_SYSDATE, HHForm.getSysDate());
 
 
-        values.put(TableContracts.HHFormsTable.COLUMN_SH1, HHForm.sH1toString());
         values.put(TableContracts.HHFormsTable.COLUMN_SH2, HHForm.sH2toString());
         values.put(TableContracts.HHFormsTable.COLUMN_SH3, HHForm.sH3toString());
         values.put(TableContracts.HHFormsTable.COLUMN_SAB, HHForm.sABtoString());
@@ -163,6 +166,47 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+    public Long addLhwHh(LhwHh lhwHh) throws JSONException {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(TableContracts.LHWHHTable.COLUMN_PROJECT_NAME, lhwHh.getProjectName());
+        values.put(TableContracts.LHWHHTable.COLUMN_UID, lhwHh.getUid());
+        values.put(TableContracts.LHWHHTable.COLUMN_UUID, lhwHh.getUuid());
+        values.put(TableContracts.LHWHHTable.COLUMN_CLUSTER, lhwHh.getCluster());
+        values.put(TableContracts.LHWHHTable.COLUMN_HHID, lhwHh.getHhid());
+        values.put(TableContracts.LHWHHTable.COLUMN_USERNAME, lhwHh.getUserName());
+        values.put(TableContracts.LHWHHTable.COLUMN_SYSDATE, lhwHh.getSysDate());
+
+
+        values.put(TableContracts.LHWHHTable.COLUMN_H101, lhwHh.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H102, lhwHh.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H103, lhwHh.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104A, lhwHh.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104B, lhwHh.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104C, lhwHh.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104D, lhwHh.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104E, lhwHh.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104F, lhwHh.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_LHWPHOTO, lhwHh.getLhwphoto());
+
+        values.put(TableContracts.LHWHHTable.COLUMN_ISTATUS, lhwHh.getiStatus());
+        values.put(TableContracts.LHWHHTable.COLUMN_DEVICETAGID, lhwHh.getDeviceTag());
+        values.put(TableContracts.LHWHHTable.COLUMN_DEVICEID, lhwHh.getDeviceId());
+        values.put(TableContracts.LHWHHTable.COLUMN_APPVERSION, lhwHh.getAppver());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                TableContracts.LHWHHTable.TABLE_NAME,
+                TableContracts.LHWHHTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
 
     public Long addMWRAList(MWRA mwra) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -240,6 +284,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] selectionArgs = {String.valueOf(lhwForm.getId())};
 
         return db.update(TableContracts.LHWFormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    public int updatesLhwHhColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = TableContracts.LHWHHTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(lhwHh.getId())};
+
+        return db.update(TableContracts.LHWHHTable.TABLE_NAME,
                 values,
                 selection,
                 selectionArgs);
