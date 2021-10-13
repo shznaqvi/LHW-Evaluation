@@ -55,13 +55,13 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
 
-        String motherName = "";
+/*        String motherName = "";
         try {
             motherName = db.getWraName(fc.get(position).getUid());
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(c, "JSONException(HHForm): " + e.getMessage(), Toast.LENGTH_SHORT).show();
-        }
+        }*/
 
      /*   String childName = "";
         try {

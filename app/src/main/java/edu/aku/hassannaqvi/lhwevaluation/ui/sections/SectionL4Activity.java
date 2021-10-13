@@ -1,6 +1,5 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwForm;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,7 +29,7 @@ public class SectionL4Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_l4);
         bi.setCallback(this);
-        bi.setLhwForm(lhwForm);
+        bi.setLhwForm(MainApp.LHWForm);
 
     }
 

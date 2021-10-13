@@ -15,9 +15,9 @@ import edu.aku.hassannaqvi.lhwevaluation.BR;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LHWHHTable;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 
-public class LhwHh extends BaseObservable implements Observable {
+public class LHWHouseholds extends BaseObservable implements Observable {
 
-    private final String TAG = "LhwHh";
+    private final String TAG = "LHWHouseholds";
     private final transient PropertyChangeRegistry propertyChangeRegistry = new PropertyChangeRegistry();
     private final String wuid = StringUtils.EMPTY;
     private final String cuid = StringUtils.EMPTY;
@@ -53,7 +53,7 @@ public class LhwHh extends BaseObservable implements Observable {
     private String lhwphoto = StringUtils.EMPTY;
 
 
-    public LhwHh() {
+    public LHWHouseholds() {
     }
 
 
@@ -291,7 +291,7 @@ public class LhwHh extends BaseObservable implements Observable {
     }
 
 
-    public LhwHh Hydrate(Cursor cursor) throws JSONException {
+    public LHWHouseholds Hydrate(Cursor cursor) throws JSONException {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_UID));
         this.uuid = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_UUID));

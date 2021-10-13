@@ -1,7 +1,5 @@
 package edu.aku.hassannaqvi.lhwevaluation.database;
 
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwForm;
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwHh;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_VERSION;
@@ -35,13 +33,14 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.models.Clusters;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
-import edu.aku.hassannaqvi.lhwevaluation.models.LhwHh;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWHouseholds;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.models.RandomHH;
 import edu.aku.hassannaqvi.lhwevaluation.models.Users;
@@ -171,37 +170,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-    public Long addLhwHh(LhwHh lhwHh) throws JSONException {
+    public Long addLhwHh(LHWHouseholds LHWHouseholds) throws JSONException {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
-        values.put(TableContracts.LHWHHTable.COLUMN_PROJECT_NAME, lhwHh.getProjectName());
-        values.put(TableContracts.LHWHHTable.COLUMN_UID, lhwHh.getUid());
-        values.put(TableContracts.LHWHHTable.COLUMN_UUID, lhwHh.getUuid());
-        values.put(TableContracts.LHWHHTable.COLUMN_CLUSTER, lhwHh.getCluster());
-        values.put(TableContracts.LHWHHTable.COLUMN_HHID, lhwHh.getHhid());
-        values.put(TableContracts.LHWHHTable.COLUMN_USERNAME, lhwHh.getUserName());
-        values.put(TableContracts.LHWHHTable.COLUMN_SYSDATE, lhwHh.getSysDate());
+        values.put(TableContracts.LHWHHTable.COLUMN_PROJECT_NAME, LHWHouseholds.getProjectName());
+        values.put(TableContracts.LHWHHTable.COLUMN_UID, LHWHouseholds.getUid());
+        values.put(TableContracts.LHWHHTable.COLUMN_UUID, LHWHouseholds.getUuid());
+        values.put(TableContracts.LHWHHTable.COLUMN_CLUSTER, LHWHouseholds.getCluster());
+        values.put(TableContracts.LHWHHTable.COLUMN_HHID, LHWHouseholds.getHhid());
+        values.put(TableContracts.LHWHHTable.COLUMN_USERNAME, LHWHouseholds.getUserName());
+        values.put(TableContracts.LHWHHTable.COLUMN_SYSDATE, LHWHouseholds.getSysDate());
 
 
-        values.put(TableContracts.LHWHHTable.COLUMN_H101, lhwHh.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H102, lhwHh.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H103, lhwHh.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H104A, lhwHh.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H104B, lhwHh.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H104C, lhwHh.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H104D, lhwHh.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H104E, lhwHh.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H104F, lhwHh.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_LHWPHOTO, lhwHh.getLhwphoto());
+        values.put(TableContracts.LHWHHTable.COLUMN_H101, LHWHouseholds.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H102, LHWHouseholds.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H103, LHWHouseholds.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104A, LHWHouseholds.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104B, LHWHouseholds.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104C, LHWHouseholds.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104D, LHWHouseholds.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104E, LHWHouseholds.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104F, LHWHouseholds.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_LHWPHOTO, LHWHouseholds.getLhwphoto());
 
-        values.put(TableContracts.LHWHHTable.COLUMN_ISTATUS, lhwHh.getiStatus());
-        values.put(TableContracts.LHWHHTable.COLUMN_DEVICETAGID, lhwHh.getDeviceTag());
-        values.put(TableContracts.LHWHHTable.COLUMN_DEVICEID, lhwHh.getDeviceId());
-        values.put(TableContracts.LHWHHTable.COLUMN_APPVERSION, lhwHh.getAppver());
+        values.put(TableContracts.LHWHHTable.COLUMN_ISTATUS, LHWHouseholds.getiStatus());
+        values.put(TableContracts.LHWHHTable.COLUMN_DEVICETAGID, LHWHouseholds.getDeviceTag());
+        values.put(TableContracts.LHWHHTable.COLUMN_DEVICEID, LHWHouseholds.getDeviceId());
+        values.put(TableContracts.LHWHHTable.COLUMN_APPVERSION, LHWHouseholds.getAppver());
 
 
         // Insert the new row, returning the primary key value of the new row
@@ -286,7 +285,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(column, value);
 
         String selection = TableContracts.LHWFormsTable._ID + " =? ";
-        String[] selectionArgs = {String.valueOf(lhwForm.getId())};
+        String[] selectionArgs = {String.valueOf(MainApp.LHWHouseholds.getId())};
 
         return db.update(TableContracts.LHWFormsTable.TABLE_NAME,
                 values,
@@ -301,7 +300,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(column, value);
 
         String selection = TableContracts.LHWHHTable._ID + " =? ";
-        String[] selectionArgs = {String.valueOf(lhwHh.getId())};
+        String[] selectionArgs = {String.valueOf(MainApp.LHWHouseholds.getId())};
 
         return db.update(TableContracts.LHWHHTable.TABLE_NAME,
                 values,
@@ -1092,24 +1091,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
-
-    public String getWraName(String uid) throws JSONException {
+    public List<LHWForm> getAllLHW() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
-        String[] columns = {TableContracts.MWRAListTable.COLUMN_SW1};
+        String[] columns = null;
 
         String whereClause;
-        whereClause = TableContracts.MWRAListTable.COLUMN_UID + "=?  ";
+        whereClause = null;
 
-        String[] whereArgs = {uid};
+        String[] whereArgs = null;
 
         String groupBy = null;
         String having = null;
 
-        String orderBy = TableContracts.MWRAListTable.COLUMN_ID + " ASC";
+        String orderBy = TableContracts.LHWFormsTable.COLUMN_ID + " ASC";
 
-        MWRA mwra = null;
+        List<LHWForm> lhws = new ArrayList<>();
         try {
             c = db.query(
                     TableContracts.MWRAListTable.TABLE_NAME,  // The table to query
@@ -1121,8 +1118,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     orderBy                    // The sort order
             );
             while (c.moveToNext()) {
-                mwra = new MWRA();
-                mwra.sW1Hydrate(c.getString(c.getColumnIndexOrThrow(TableContracts.MWRAListTable.COLUMN_SW1)));
+
+                lhws.add(new LHWForm().Hydrate(c));
 
 
             }
@@ -1134,8 +1131,51 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.close();
             }
         }
-        return mwra.getW101();
+        return lhws;
     }
 
 
+    public List<HHForm> getAllFormsByLHW(String uid) throws JSONException {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = TableContracts.HHFormsTable.COLUMN_LHW_UID + " = ? ";
+
+        String[] whereArgs = {uid};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.HHFormsTable.COLUMN_ID + " ASC";
+
+        List<HHForm> hhs = new ArrayList<>();
+        try {
+            c = db.query(
+                    TableContracts.MWRAListTable.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+
+                hhs.add(new HHForm().Hydrate(c));
+
+
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
+        return hhs;
+    }
 }

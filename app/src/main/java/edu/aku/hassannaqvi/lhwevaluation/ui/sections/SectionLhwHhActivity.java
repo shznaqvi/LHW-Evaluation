@@ -1,7 +1,5 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwHh;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -30,7 +28,7 @@ public class SectionLhwHhActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_lhwhh);
         bi.setCallback(this);
-        bi.setLhwHh(lhwHh);
+        bi.setLHWHouseholds(MainApp.LHWHouseholds);
 
     }
 
@@ -39,7 +37,7 @@ public class SectionLhwHhActivity extends AppCompatActivity {
         db = MainApp.appInfo.getDbHelper();
         long updcount = 0;
         /*try {
-            updcount = db.updatesLhwHhColumn(TableContracts.LHWHHTable.COLUMN_H101, lhwHh.getH101());
+            updcount = db.updatesLhwHhColumn(TableContracts.LHWHHTable.COLUMN_H101, LHWHouseholds.getH101());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());

@@ -248,10 +248,10 @@ public class IdentificationActivity extends AppCompatActivity {
         MainApp.HHForm.setDeviceId(MainApp.deviceid);
         MainApp.HHForm.setAppver(MainApp.versionName + "." + MainApp.versionCode);
 
-        MainApp.HHForm.setH101(districtCodes.get(bi.h101.getSelectedItemPosition()));
-        MainApp.HHForm.setH102(cityCodes.get(bi.h102.getSelectedItemPosition()));
-        MainApp.HHForm.setH103(bi.h103.getText().toString());
-        MainApp.HHForm.setH104a(bi.h104.getText().toString());
+        MainApp.HHForm.setH201(districtCodes.get(bi.h101.getSelectedItemPosition()));
+        MainApp.HHForm.setH202(cityCodes.get(bi.h102.getSelectedItemPosition()));
+        MainApp.HHForm.setH203(bi.h103.getText().toString());
+        MainApp.HHForm.setH204a(bi.h104.getText().toString());
 
     }
 

@@ -17,24 +17,23 @@ import java.util.List;
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
-import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionH2Activity;
 
 
-public class LHWAdapter extends RecyclerView.Adapter<LHWAdapter.ViewHolder> {
+public class HHAdapter extends RecyclerView.Adapter<HHAdapter.ViewHolder> {
     private static final String TAG = "CustomAdapter";
     private final Context mContext;
-    private final List<LHWForm> lhws;
+    private final List<HHForm> hhForms;
     private final int mExpandedPosition = -1;
     private final int completeCount;
 
     /**
      * Initialize the dataset of the Adapter.
      *
-     * @param lhws List<FemaleMembersModel> containing the data to populate views to be used by RecyclerView.
+     * @param hhForms List<FemaleMembersModel> containing the data to populate views to be used by RecyclerView.
      */
-    public LHWAdapter(Context mContext, List<LHWForm> lhws) {
-        this.lhws = lhws;
+    public HHAdapter(Context mContext, List<HHForm> hhForms) {
+        this.hhForms = hhForms;
         this.mContext = mContext;
         completeCount = 0;
         MainApp.lhwComplete = false;
@@ -47,7 +46,7 @@ public class LHWAdapter extends RecyclerView.Adapter<LHWAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder viewHolder, int position1) {
         int position = viewHolder.getAdapterPosition();
         Log.d(TAG, "Element " + position + " set.");
-        LHWForm lhw = this.lhws.get(position);        // Get element from your dataset at this position and replace the contents of the view
+        HHForm hhForm = this.hhForms.get(position);        // Get element from your dataset at this position and replace the contents of the view
         // with that element
 
         TextView lhwName = viewHolder.lhwName;
@@ -60,10 +59,10 @@ public class LHWAdapter extends RecyclerView.Adapter<LHWAdapter.ViewHolder> {
 
         MainApp.lhwComplete = completeCount == MainApp.lhwCount;
 
-        lhwName.setText(lhw.getA104n() + " (" + lhw.getA106() + "y) ");
-        lhsName.setText(lhw.getA105());
-        area.setText(lhw.getA101() + " • " + lhw.getA102());
-        area2.setText(lhw.getA103());
+        lhwName.setText(hhForm.getH202());
+        //lhsName.setText(hhForm.getA105());
+        area.setText(hhForm.getH203());
+        //area2.setText(hhForm.getA103());
         String marStatus = "";
         String wifeOrDaughter = "";
 /*
@@ -141,7 +140,7 @@ public class LHWAdapter extends RecyclerView.Adapter<LHWAdapter.ViewHolder> {
 
     @Override
     public int getItemCount() {
-        return lhws.size();
+        return hhForms.size();
     }
 
     /**

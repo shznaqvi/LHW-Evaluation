@@ -17,6 +17,7 @@ import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.ui.IdentificationActivity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.LhwIdentificationActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.SyncActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportCluster;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportDate;
@@ -76,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.openLHWForm:
                 MainApp.LHWForm = new LHWForm();
-                startActivity(new Intent(this, IdentificationActivity.class));
+                startActivity(new Intent(this, LhwIdentificationActivity.class));
                 break;
             case R.id.seca:
                 MainApp.HHForm = new HHForm();
