@@ -18,7 +18,7 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 
 public class LHWForm extends BaseObservable implements Observable {
 
-    private final String TAG = "HHForm";
+    private final String TAG = "LHWForm";
     private final transient PropertyChangeRegistry propertyChangeRegistry = new PropertyChangeRegistry();
     private final String wuid = StringUtils.EMPTY;
     private final String cuid = StringUtils.EMPTY;
