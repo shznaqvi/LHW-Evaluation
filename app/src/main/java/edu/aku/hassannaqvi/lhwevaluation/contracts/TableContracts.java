@@ -273,6 +273,62 @@ public class TableContracts {
 
     }
 
+    public static abstract class DistrictTable implements BaseColumns {
+        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
+        public static final String TABLE_NAME = "district";
+        public static final String COLUMN_ID = "_id";
+        public static final String COLUMN_PROVINCE_NAME = "province";
+        public static final String COLUMN_PROVINCE_CODE = "pro_id";
+        public static final String COLUMN_DISTRICT_NAME = "district";
+        public static final String COLUMN_DISTRICT_CODE = "dist_id";
+
+    }
+
+    public static abstract class TehsilTable implements BaseColumns {
+        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
+        public static final String TABLE_NAME = "tehsil";
+        public static final String COLUMN_ID = "_id";
+        public static final String COLUMN_DISTRICT_NAME = "district";
+        public static final String COLUMN_DISTRICT_CODE = "dist_id";
+        public static final String COLUMN_TEHSIL_NAME = "tehsil";
+        public static final String COLUMN_TEHSIL_CODE = "tehsil_id";
+        public static final String COLUMN_F6 = "f6";
+
+    }
+
+    public static abstract class LhwTable implements BaseColumns {
+        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
+        public static final String TABLE_NAME = "lhw";
+        public static final String COLUMN_ID = "_id";
+        public static final String COLUMN_TEHSIL_NAME = "tehsil";
+        public static final String COLUMN_TEHSIL_CODE = "tehsil_id";
+        public static final String COLUMN_UC_NAME = "uc_name";
+        public static final String COLUMN_UC_CODE = "uc_id";
+        public static final String COLUMN_HF_NAME = "hf_name";
+        public static final String COLUMN_HF_CODE = "hfcode";
+        public static final String COLUMN_LHW_NAME = "lhw_name";
+        public static final String COLUMN_LHW_CODE = "lhw_code";
+        public static final String COLUMN_LHW_CNIC = "lhw_cnic";
+        public static final String COLUMN_LHW_SUPERVISOR = "lhw_supervisor";
+    }
+
+    public static abstract class LhwHfTable implements BaseColumns {
+        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
+        public static final String TABLE_NAME = "lhwhf";
+        public static final String COLUMN_ID = "_id";
+        public static final String COLUMN_PROVINCE_NAME = "province";
+        public static final String COLUMN_PROVINCE_CODE = "pro_id";
+        public static final String COLUMN_DISTRICT_NAME = "district";
+        public static final String COLUMN_DISTRICT_CODE = "dist_id";
+        public static final String COLUMN_TEHSIL_NAME = "tehsil";
+        public static final String COLUMN_TEHSIL_CODE = "tehsil_id";
+        public static final String COLUMN_UC_NAME = "uc_name";
+        public static final String COLUMN_UC_CODE = "uc_id";
+        public static final String COLUMN_HF_NAME = "hf_name";
+        public static final String COLUMN_HF_CODE = "hfcode";
+    }
+
+
     public static abstract class RandomTable implements BaseColumns {
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String TABLE_NAME = "rand_hh";

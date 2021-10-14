@@ -6,13 +6,17 @@ import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_VE
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_ANTHRO;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_CHILDLIST;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_CLUSTERS;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_DISTRICT;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_HH_FORMS;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHWHF;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHWHH;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW_FORMS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_MWRALIST;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_PREGNANCY;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_RANDOM;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_SAMPLES;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_TEHSIL;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_VERSIONAPP;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_ZSTANDARD;
@@ -67,6 +71,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
         db.execSQL(SQL_CREATE_CLUSTERS);
+        db.execSQL(SQL_CREATE_DISTRICT);
+        db.execSQL(SQL_CREATE_TEHSIL);
+        db.execSQL(SQL_CREATE_LHW);
+        db.execSQL(SQL_CREATE_LHWHF);
         db.execSQL(SQL_CREATE_RANDOM);
         db.execSQL(SQL_CREATE_HH_FORMS);
         db.execSQL(SQL_CREATE_LHW_FORMS);

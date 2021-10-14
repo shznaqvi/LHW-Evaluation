@@ -269,6 +269,63 @@ object CreateTable {
             )
 
 
+    const val SQL_CREATE_DISTRICT = ("CREATE TABLE "
+            + DistrictTable.TABLE_NAME + "("
+            + DistrictTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + DistrictTable.COLUMN_PROVINCE_NAME + " TEXT,"
+            + DistrictTable.COLUMN_PROVINCE_CODE + " TEXT,"
+            + DistrictTable.COLUMN_DISTRICT_NAME + " TEXT,"
+            + DistrictTable.COLUMN_DISTRICT_CODE + " TEXT"
+            + " );"
+            )
+
+
+    const val SQL_CREATE_TEHSIL = ("CREATE TABLE "
+            + TehsilTable.TABLE_NAME + "("
+            + TehsilTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + TehsilTable.COLUMN_DISTRICT_NAME + " TEXT,"
+            + TehsilTable.COLUMN_DISTRICT_CODE + " TEXT,"
+            + TehsilTable.COLUMN_TEHSIL_NAME + " TEXT,"
+            + TehsilTable.COLUMN_TEHSIL_CODE + " TEXT,"
+            + TehsilTable.COLUMN_F6 + " TEXT"
+            + " );"
+            )
+
+
+    const val SQL_CREATE_LHW = ("CREATE TABLE "
+            + LhwTable.TABLE_NAME + "("
+            + LhwTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + LhwTable.COLUMN_TEHSIL_NAME + " TEXT,"
+            + LhwTable.COLUMN_TEHSIL_CODE + " TEXT,"
+            + LhwTable.COLUMN_UC_NAME + " TEXT,"
+            + LhwTable.COLUMN_UC_CODE + " TEXT,"
+            + LhwTable.COLUMN_HF_NAME + " TEXT,"
+            + LhwTable.COLUMN_HF_CODE + " TEXT,"
+            + LhwTable.COLUMN_LHW_NAME + " TEXT,"
+            + LhwTable.COLUMN_LHW_CODE + " TEXT,"
+            + LhwTable.COLUMN_LHW_CNIC + " TEXT,"
+            + LhwTable.COLUMN_LHW_SUPERVISOR + " TEXT"
+            + " );"
+            )
+
+
+    const val SQL_CREATE_LHWHF = ("CREATE TABLE "
+            + LhwHfTable.TABLE_NAME + "("
+            + LhwHfTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + LhwHfTable.COLUMN_PROVINCE_NAME + " TEXT,"
+            + LhwHfTable.COLUMN_PROVINCE_CODE + " TEXT,"
+            + LhwHfTable.COLUMN_DISTRICT_NAME + " TEXT,"
+            + LhwHfTable.COLUMN_DISTRICT_CODE + " TEXT,"
+            + LhwHfTable.COLUMN_TEHSIL_NAME + " TEXT,"
+            + LhwHfTable.COLUMN_TEHSIL_CODE + " TEXT,"
+            + LhwHfTable.COLUMN_UC_NAME + " TEXT,"
+            + LhwHfTable.COLUMN_UC_CODE + " TEXT,"
+            + LhwHfTable.COLUMN_HF_NAME + " TEXT,"
+            + LhwHfTable.COLUMN_HF_CODE + " TEXT"
+            + " );"
+            )
+
+
     const val SQL_CREATE_RANDOM = ("CREATE TABLE "
             + RandomTable.TABLE_NAME + "("
             + RandomTable.COLUMN_ID + " INTEGER PRIMARY KEY,"
