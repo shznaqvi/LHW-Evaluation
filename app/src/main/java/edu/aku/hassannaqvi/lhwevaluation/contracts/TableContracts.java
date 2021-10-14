@@ -314,7 +314,7 @@ public class TableContracts {
 
     public static abstract class LhwHfTable implements BaseColumns {
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
-        public static final String TABLE_NAME = "lhwhf";
+        public static final String TABLE_NAME = "lhw_hf";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_PROVINCE_NAME = "province";
         public static final String COLUMN_PROVINCE_CODE = "pro_id";

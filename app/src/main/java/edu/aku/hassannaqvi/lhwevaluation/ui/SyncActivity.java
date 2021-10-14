@@ -47,8 +47,12 @@ import java.util.concurrent.TimeUnit;
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.adapters.SyncListAdapter;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.ClustersTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.DistrictTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.HHFormsTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LhwHfTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LhwTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.RandomTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TehsilTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
@@ -161,6 +165,10 @@ public class SyncActivity extends AppCompatActivity {
                 if (sync_flag) {
                     downloadTables.add(new SyncModel(UsersTable.TABLE_NAME));
                     downloadTables.add(new SyncModel(ClustersTable.TABLE_NAME));
+                    downloadTables.add(new SyncModel(DistrictTable.TABLE_NAME));
+                    downloadTables.add(new SyncModel(TehsilTable.TABLE_NAME));
+                    downloadTables.add(new SyncModel(LhwTable.TABLE_NAME));
+                    downloadTables.add(new SyncModel(LhwHfTable.TABLE_NAME));
                     downloadTables.add(new SyncModel(RandomTable.TABLE_NAME));
                     downloadTables.add(new SyncModel(VersionTable.TABLE_NAME));
                 } else {
@@ -248,6 +256,22 @@ public class SyncActivity extends AppCompatActivity {
                                     case ClustersTable.TABLE_NAME:
                                         jsonArray = new JSONArray(result);
                                         insertCount = db.syncClusters(jsonArray);
+                                        break;
+                                    case DistrictTable.TABLE_NAME:
+                                        jsonArray = new JSONArray(result);
+                                        insertCount = db.syncDistrict(jsonArray);
+                                        break;
+                                    case TehsilTable.TABLE_NAME:
+                                        jsonArray = new JSONArray(result);
+                                        insertCount = db.syncTehsil(jsonArray);
+                                        break;
+                                    case LhwTable.TABLE_NAME:
+                                        jsonArray = new JSONArray(result);
+                                        insertCount = db.syncLhw(jsonArray);
+                                        break;
+                                    case LhwHfTable.TABLE_NAME:
+                                        jsonArray = new JSONArray(result);
+                                        insertCount = db.syncLhwHf(jsonArray);
                                         break;
                                     case RandomTable.TABLE_NAME:
                                         jsonArray = new JSONArray(result);

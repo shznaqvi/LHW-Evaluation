@@ -42,11 +42,15 @@ import java.util.List;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.models.Clusters;
+import edu.aku.hassannaqvi.lhwevaluation.models.District;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWHouseholds;
+import edu.aku.hassannaqvi.lhwevaluation.models.Lhw;
+import edu.aku.hassannaqvi.lhwevaluation.models.LhwHf;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.models.RandomHH;
+import edu.aku.hassannaqvi.lhwevaluation.models.Tehsil;
 import edu.aku.hassannaqvi.lhwevaluation.models.Users;
 import edu.aku.hassannaqvi.lhwevaluation.models.VersionApp;
 
@@ -601,6 +605,127 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         } catch (Exception e) {
             Log.d(TAG, "syncClusters(e): " + e);
+            db.close();
+        } finally {
+            db.close();
+        }
+        return insertCount;
+    }
+
+    public int syncDistrict(JSONArray list) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TableContracts.DistrictTable.TABLE_NAME, null, null);
+        int insertCount = 0;
+        try {
+            for (int i = 0; i < list.length(); i++) {
+                JSONObject json = list.getJSONObject(i);
+                District dist = new District();
+                dist.sync(json);
+                ContentValues values = new ContentValues();
+                values.put(TableContracts.DistrictTable.COLUMN_PROVINCE_NAME, dist.getProvinceName());
+                values.put(TableContracts.DistrictTable.COLUMN_PROVINCE_CODE, dist.getProvinceCode());
+                values.put(TableContracts.DistrictTable.COLUMN_DISTRICT_NAME, dist.getDistrictName());
+                values.put(TableContracts.DistrictTable.COLUMN_DISTRICT_CODE, dist.getDistrictCode());
+                long rowID = db.insert(TableContracts.DistrictTable.TABLE_NAME, null, values);
+                if (rowID != -1) insertCount++;
+            }
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncDistrict(e): " + e);
+            db.close();
+        } finally {
+            db.close();
+        }
+        return insertCount;
+    }
+
+    public int syncTehsil(JSONArray list) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TableContracts.TehsilTable.TABLE_NAME, null, null);
+        int insertCount = 0;
+        try {
+            for (int i = 0; i < list.length(); i++) {
+                JSONObject json = list.getJSONObject(i);
+                Tehsil teh = new Tehsil();
+                teh.sync(json);
+                ContentValues values = new ContentValues();
+                values.put(TableContracts.TehsilTable.COLUMN_DISTRICT_NAME, teh.getDistrictName());
+                values.put(TableContracts.TehsilTable.COLUMN_DISTRICT_CODE, teh.getDistrictCode());
+                values.put(TableContracts.TehsilTable.COLUMN_TEHSIL_NAME, teh.getTehsilName());
+                values.put(TableContracts.TehsilTable.COLUMN_TEHSIL_CODE, teh.getTehsilCode());
+                values.put(TableContracts.TehsilTable.COLUMN_F6, teh.getF6());
+                long rowID = db.insert(TableContracts.TehsilTable.TABLE_NAME, null, values);
+                if (rowID != -1) insertCount++;
+            }
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncTehsil(e): " + e);
+            db.close();
+        } finally {
+            db.close();
+        }
+        return insertCount;
+    }
+
+    public int syncLhw(JSONArray list) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TableContracts.LhwTable.TABLE_NAME, null, null);
+        int insertCount = 0;
+        try {
+            for (int i = 0; i < list.length(); i++) {
+                JSONObject json = list.getJSONObject(i);
+                Lhw lhw = new Lhw();
+                lhw.sync(json);
+                ContentValues values = new ContentValues();
+                values.put(TableContracts.LhwTable.COLUMN_TEHSIL_NAME, lhw.getTehsilName());
+                values.put(TableContracts.LhwTable.COLUMN_TEHSIL_CODE, lhw.getTehsilCode());
+                values.put(TableContracts.LhwTable.COLUMN_UC_NAME, lhw.getUcName());
+                values.put(TableContracts.LhwTable.COLUMN_UC_CODE, lhw.getUcCode());
+                values.put(TableContracts.LhwTable.COLUMN_HF_NAME, lhw.getHfName());
+                values.put(TableContracts.LhwTable.COLUMN_HF_CODE, lhw.getHfCode());
+                values.put(TableContracts.LhwTable.COLUMN_LHW_NAME, lhw.getLhwName());
+                values.put(TableContracts.LhwTable.COLUMN_LHW_CODE, lhw.getLhwCode());
+                values.put(TableContracts.LhwTable.COLUMN_LHW_CNIC, lhw.getLhwCnic());
+                values.put(TableContracts.LhwTable.COLUMN_LHW_SUPERVISOR, lhw.getLhwSupervisor());
+                long rowID = db.insert(TableContracts.LhwTable.TABLE_NAME, null, values);
+                if (rowID != -1) insertCount++;
+            }
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncLHW(e): " + e);
+            db.close();
+        } finally {
+            db.close();
+        }
+        return insertCount;
+    }
+
+    public int syncLhwHf(JSONArray list) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TableContracts.LhwHfTable.TABLE_NAME, null, null);
+        int insertCount = 0;
+        try {
+            for (int i = 0; i < list.length(); i++) {
+                JSONObject json = list.getJSONObject(i);
+                LhwHf lhwHf = new LhwHf();
+                lhwHf.sync(json);
+                ContentValues values = new ContentValues();
+                values.put(TableContracts.LhwHfTable.COLUMN_PROVINCE_NAME, lhwHf.getProvinceName());
+                values.put(TableContracts.LhwHfTable.COLUMN_PROVINCE_CODE, lhwHf.getProvinceCode());
+                values.put(TableContracts.LhwHfTable.COLUMN_DISTRICT_NAME, lhwHf.getDistrictName());
+                values.put(TableContracts.LhwHfTable.COLUMN_DISTRICT_CODE, lhwHf.getDistrictCode());
+                values.put(TableContracts.LhwHfTable.COLUMN_TEHSIL_NAME, lhwHf.getTehsilName());
+                values.put(TableContracts.LhwHfTable.COLUMN_TEHSIL_CODE, lhwHf.getTehsilCode());
+                values.put(TableContracts.LhwHfTable.COLUMN_UC_NAME, lhwHf.getUcName());
+                values.put(TableContracts.LhwHfTable.COLUMN_UC_CODE, lhwHf.getUcCode());
+                values.put(TableContracts.LhwHfTable.COLUMN_HF_NAME, lhwHf.getHfName());
+                values.put(TableContracts.LhwHfTable.COLUMN_HF_CODE, lhwHf.getHfCode());
+                long rowID = db.insert(TableContracts.LhwHfTable.TABLE_NAME, null, values);
+                if (rowID != -1) insertCount++;
+            }
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncLhwHf(e): " + e);
             db.close();
         } finally {
             db.close();
