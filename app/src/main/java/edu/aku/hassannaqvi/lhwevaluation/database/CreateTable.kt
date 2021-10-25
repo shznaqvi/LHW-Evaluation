@@ -14,8 +14,9 @@ object CreateTable {
             + HHFormsTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + HHFormsTable.COLUMN_PROJECT_NAME + " TEXT,"
             + HHFormsTable.COLUMN_UID + " TEXT,"
-            + HHFormsTable.COLUMN_CLUSTER + " TEXT,"
-            + HHFormsTable.COLUMN_HHID + " TEXT,"
+            + HHFormsTable.COLUMN_LHW_UID + " TEXT,"
+            + HHFormsTable.COLUMN_LHW_CODE + " TEXT,"
+            + HHFormsTable.COLUMN_KHANDAN_NO + " TEXT,"
             + HHFormsTable.COLUMN_USERNAME + " TEXT,"
             + HHFormsTable.COLUMN_SYSDATE + " TEXT,"
             + HHFormsTable.COLUMN_ISTATUS + " TEXT,"
@@ -25,7 +26,7 @@ object CreateTable {
             + HHFormsTable.COLUMN_SYNCED_DATE + " TEXT,"
             + HHFormsTable.COLUMN_APPVERSION + " TEXT,"
             + HHFormsTable.COLUMN_SH2 + " TEXT,"
-            + HHFormsTable.COLUMN_SH3 + " TEXT,"
+       //     + HHFormsTable.COLUMN_SH3 + " TEXT,"
             + HHFormsTable.COLUMN_SAB + " TEXT,"
             + HHFormsTable.COLUMN_SM + " TEXT"
             + " );"
@@ -37,7 +38,6 @@ object CreateTable {
             + LHWFormsTable.COLUMN_PROJECT_NAME + " TEXT,"
             + LHWFormsTable.COLUMN_UID + " TEXT,"
             + LHWFormsTable.COLUMN_CLUSTER + " TEXT,"
-            + LHWFormsTable.COLUMN_HHID + " TEXT,"
             + LHWFormsTable.COLUMN_USERNAME + " TEXT,"
             + LHWFormsTable.COLUMN_SYSDATE + " TEXT,"
             + LHWFormsTable.COLUMN_ISTATUS + " TEXT,"
@@ -51,10 +51,10 @@ object CreateTable {
             + LHWFormsTable.COLUMN_A103 + " TEXT,"
             + LHWFormsTable.COLUMN_A104n + " TEXT,"
             + LHWFormsTable.COLUMN_A104c + " TEXT,"
-            + LHWFormsTable.COLUMN_SA + " TEXT,"
-            + LHWFormsTable.COLUMN_SB1 + " TEXT,"
-            + LHWFormsTable.COLUMN_SB2 + " TEXT,"
-            + LHWFormsTable.COLUMN_SC + " TEXT"
+            + LHWFormsTable.COLUMN_SL1 + " TEXT,"
+            + LHWFormsTable.COLUMN_SL2 + " TEXT,"
+            + LHWFormsTable.COLUMN_SL3 + " TEXT,"
+            + LHWFormsTable.COLUMN_SL4 + " TEXT"
             + " );"
             )
 
@@ -83,6 +83,8 @@ object CreateTable {
             + LHWHHTable.COLUMN_H104D + " TEXT,"
             + LHWHHTable.COLUMN_H104E + " TEXT,"
             + LHWHHTable.COLUMN_H104F + " TEXT,"
+            + LHWHHTable.COLUMN_SIDENT + " TEXT,"
+            + LHWHHTable.COLUMN_LHW_CODE + " TEXT,"
             + LHWHHTable.COLUMN_LHWPHOTO + " TEXT"
             + " );"
             )
@@ -257,74 +259,40 @@ object CreateTable {
             )
 
 
-    const val SQL_CREATE_CLUSTERS = ("CREATE TABLE "
-            + ClustersTable.TABLE_NAME + "("
-            + ClustersTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + ClustersTable.COLUMN_DISTRICT_NAME + " TEXT,"
-            + ClustersTable.COLUMN_DISTRICT_CODE + " TEXT,"
-            + ClustersTable.COLUMN_CITY_NAME + " TEXT,"
-            + ClustersTable.COLUMN_CITY_CODE + " TEXT,"
-            + ClustersTable.COLUMN_CLUSTER_NO + " TEXT"
-            + " );"
-            )
 
+    const val SQL_CREATE_DISTRICT = ("CREATE TABLE " + TableDistricts.TABLE_NAME + "("
+            + TableDistricts.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + TableDistricts.COLUMN_DISTRICT_NAME + " TEXT,"
+            + TableDistricts.COLUMN_DISTRICT_CODE + " TEXT"
+            + " );")
 
-    const val SQL_CREATE_DISTRICT = ("CREATE TABLE "
-            + DistrictTable.TABLE_NAME + "("
-            + DistrictTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + DistrictTable.COLUMN_PROVINCE_NAME + " TEXT,"
-            + DistrictTable.COLUMN_PROVINCE_CODE + " TEXT,"
-            + DistrictTable.COLUMN_DISTRICT_NAME + " TEXT,"
-            + DistrictTable.COLUMN_DISTRICT_CODE + " TEXT"
-            + " );"
-            )
+    
+    const val SQL_CREATE_LHW = ("CREATE TABLE " + TableLhw.TABLE_NAME + "("
+            + TableLhw.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            +TableLhw.COLUMN_HF_CODE + " TEXT,"
+            +TableLhw.COLUMN_LHW_CODE + " TEXT,"
+            +TableLhw.COLUMN_LHW_NAME + " TEXT"
+            + " );")
 
+    const val SQL_CREATE_TEHSIL = ("CREATE TABLE " +TableTehsil.TABLE_NAME + "("
+            +TableTehsil.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            +TableTehsil.COLUMN_DIST_ID + " TEXT,"
+            +TableTehsil.COLUMN_TEHSIL_NAME + " TEXT,"
+            +TableTehsil.COLUMN_TEHSIL_CODE + " TEXT"
+            + " );")
 
-    const val SQL_CREATE_TEHSIL = ("CREATE TABLE "
-            + TehsilTable.TABLE_NAME + "("
-            + TehsilTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + TehsilTable.COLUMN_DISTRICT_NAME + " TEXT,"
-            + TehsilTable.COLUMN_DISTRICT_CODE + " TEXT,"
-            + TehsilTable.COLUMN_TEHSIL_NAME + " TEXT,"
-            + TehsilTable.COLUMN_TEHSIL_CODE + " TEXT,"
-            + TehsilTable.COLUMN_F6 + " TEXT"
-            + " );"
-            )
+    const val SQL_CREATE_LHW_HF = ("CREATE TABLE " +TableHealthFacilities.TABLE_NAME + "("
+            +TableHealthFacilities.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            +TableHealthFacilities.COLUMN_HF_CODE + " TEXT,"
+            +TableHealthFacilities.COLUMN_HF_NAME + " TEXT,"
+            +TableHealthFacilities.COLUMN_DIST_ID + " TEXT"
+            + " );")
 
-
-    const val SQL_CREATE_LHW = ("CREATE TABLE "
-            + LhwTable.TABLE_NAME + "("
-            + LhwTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + LhwTable.COLUMN_TEHSIL_NAME + " TEXT,"
-            + LhwTable.COLUMN_TEHSIL_CODE + " TEXT,"
-            + LhwTable.COLUMN_UC_NAME + " TEXT,"
-            + LhwTable.COLUMN_UC_CODE + " TEXT,"
-            + LhwTable.COLUMN_HF_NAME + " TEXT,"
-            + LhwTable.COLUMN_HF_CODE + " TEXT,"
-            + LhwTable.COLUMN_LHW_NAME + " TEXT,"
-            + LhwTable.COLUMN_LHW_CODE + " TEXT,"
-            + LhwTable.COLUMN_LHW_CNIC + " TEXT,"
-            + LhwTable.COLUMN_LHW_SUPERVISOR + " TEXT"
-            + " );"
-            )
-
-
-    const val SQL_CREATE_LHWHF = ("CREATE TABLE "
-            + LhwHfTable.TABLE_NAME + "("
-            + LhwHfTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + LhwHfTable.COLUMN_PROVINCE_NAME + " TEXT,"
-            + LhwHfTable.COLUMN_PROVINCE_CODE + " TEXT,"
-            + LhwHfTable.COLUMN_DISTRICT_NAME + " TEXT,"
-            + LhwHfTable.COLUMN_DISTRICT_CODE + " TEXT,"
-            + LhwHfTable.COLUMN_TEHSIL_NAME + " TEXT,"
-            + LhwHfTable.COLUMN_TEHSIL_CODE + " TEXT,"
-            + LhwHfTable.COLUMN_UC_NAME + " TEXT,"
-            + LhwHfTable.COLUMN_UC_CODE + " TEXT,"
-            + LhwHfTable.COLUMN_HF_NAME + " TEXT,"
-            + LhwHfTable.COLUMN_HF_CODE + " TEXT"
-            + " );"
-            )
-
+    const val SQL_CREATE_PROVINCE = ("CREATE TABLE " +TableProvince.TABLE_NAME + "("
+            +TableProvince.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            +TableProvince.COLUMN_PROVINCE + " TEXT,"
+            +TableProvince.COLUMN_PRO_ID + " TEXT"
+            + " );")
 
     const val SQL_CREATE_RANDOM = ("CREATE TABLE "
             + RandomTable.TABLE_NAME + "("
@@ -344,15 +312,25 @@ object CreateTable {
             + VersionTable.COLUMN_PATH_NAME + " TEXT "
             + ");"
             )
-    const val SQL_CREATE_ZSTANDARD = "CREATE TABLE " + ZScoreTable.TABLE_NAME + " (" +
-            ZScoreTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
-            ZScoreTable.COLUMN_SEX + " TEXT, " +
-            ZScoreTable.COLUMN_AGE + " TEXT, " +
-            ZScoreTable.COLUMN_MEASURE + " TEXT, " +
-            ZScoreTable.COLUMN_L + " TEXT, " +
-            ZScoreTable.COLUMN_M + " TEXT, " +
-            ZScoreTable.COLUMN_S + " TEXT, " +
-            ZScoreTable.COLUMN_CAT + " TEXT " +
-            ");"
 
+    const val SQL_CREATE_FAMILY_MEMBERS = ("CREATE TABLE "
+            + FamilyMembersTable.TABLE_NAME + "("
+            + FamilyMembersTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + FamilyMembersTable.COLUMN_PROJECT_NAME + " TEXT,"
+            + FamilyMembersTable.COLUMN_UID + " TEXT,"
+            + FamilyMembersTable.COLUMN_UUID + " TEXT,"
+            + FamilyMembersTable.COLUMN_LHW_CODE + " TEXT,"
+            + FamilyMembersTable.COLUMN_KHANDAN_NO + " TEXT,"
+            + FamilyMembersTable.COLUMN_USERNAME + " TEXT,"
+            + FamilyMembersTable.COLUMN_SYSDATE + " TEXT,"
+            + FamilyMembersTable.COLUMN_INDEXED + " TEXT,"
+            + FamilyMembersTable.COLUMN_ISTATUS + " TEXT,"
+            + FamilyMembersTable.COLUMN_DEVICEID + " TEXT,"
+            + FamilyMembersTable.COLUMN_DEVICETAGID + " TEXT,"
+            + FamilyMembersTable.COLUMN_SYNCED + " TEXT,"
+            + FamilyMembersTable.COLUMN_SYNCED_DATE + " TEXT,"
+            + FamilyMembersTable.COLUMN_APPVERSION + " TEXT,"
+            + FamilyMembersTable.COLUMN_SH3 + " TEXT"
+            + " );"
+            )
 }

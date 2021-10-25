@@ -1,5 +1,7 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.adolList;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 
 import android.content.Intent;
@@ -15,12 +17,12 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
-import edu.aku.hassannaqvi.lhwevaluation.MainActivity;
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionW43Binding;
+import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
 
 public class SectionW43Activity extends AppCompatActivity {
@@ -61,14 +63,21 @@ public class SectionW43Activity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             finish();
-            startActivity(new Intent(this, MainActivity.class));
-        } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
+            if(adolList.size()>0){
+                startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
+
+            }else if(maleList.size()>0){
+                startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+
+            } else {
+                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+            }        } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
 
     public void btnEnd(View view) {
         finish();
-        startActivity(new Intent(this, MainActivity.class));
+        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
     }
 
 

@@ -84,6 +84,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/a105"
+                            android:inputType="textCapWords|textPersonName"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                             android:text="@={lhwForm.a105}" />
 
                     </LinearLayout>
@@ -232,7 +234,8 @@
                                 android:id="@+id/a10796x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                                android:inputType="text"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
                                 android:hint="@string/a10796"
                                 android:tag="a10796"
                                 android:text="@={lhwForm.a10796x}"

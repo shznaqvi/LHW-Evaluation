@@ -30,7 +30,6 @@ public class LHWForm extends BaseObservable implements Observable {
     private String userName = StringUtils.EMPTY;
     private String sysDate = StringUtils.EMPTY;
     private String cluster = StringUtils.EMPTY;
-    private String hhid = StringUtils.EMPTY;
     private String deviceId = StringUtils.EMPTY;
     private String deviceTag = StringUtils.EMPTY;
     private String appver = StringUtils.EMPTY;
@@ -41,10 +40,10 @@ public class LHWForm extends BaseObservable implements Observable {
     private String syncDate = StringUtils.EMPTY;
 
     // SECTION VARIABLES
-    private String sA = StringUtils.EMPTY;
-    private String sB1 = StringUtils.EMPTY;
-    private String sB2 = StringUtils.EMPTY;
-    private String sC = StringUtils.EMPTY;
+    private String sL1 = StringUtils.EMPTY;
+    private String sL2 = StringUtils.EMPTY;
+    private String sL3 = StringUtils.EMPTY;
+    private String sL4 = StringUtils.EMPTY;
 
     // FIELD VARIABLES
     private String a101 = StringUtils.EMPTY;
@@ -217,15 +216,6 @@ public class LHWForm extends BaseObservable implements Observable {
         notifyPropertyChanged(BR.cluster);
     }
 
-    @Bindable
-    public String getHhid() {
-        return hhid;
-    }
-
-    public void setHhid(String hhid) {
-        this.hhid = hhid;
-        notifyPropertyChanged(BR.hhid);
-    }
 
     public String getUserName() {
         return userName;
@@ -309,38 +299,38 @@ public class LHWForm extends BaseObservable implements Observable {
 
 
     /*JSON DATABASE VARIABLES*/
-    public String getsA() {
-        return sA;
+    public String getsL1() {
+        return sL1;
     }
 
-    public void setsA(String sA) {
-        this.sA = sA;
+    public void setsL1(String sL1) {
+        this.sL1 = sL1;
     }
 
-    public String getsB1() {
-        return sB1;
+    public String getsL2() {
+        return sL2;
     }
 
-    public void setsB1(String sB1) {
-        this.sB1 = sB1;
-    }
-
-
-    public String getsB2() {
-        return sB2;
-    }
-
-    public void setsB2(String sB2) {
-        this.sB2 = sB2;
+    public void setsL2(String sL2) {
+        this.sL2 = sL2;
     }
 
 
-    public String getsC() {
-        return sC;
+    public String getsL3() {
+        return sL3;
     }
 
-    public void setsC(String sC) {
-        this.sC = sC;
+    public void setsL3(String sL3) {
+        this.sL3 = sL3;
+    }
+
+
+    public String getsL4() {
+        return sL4;
+    }
+
+    public void setsL4(String sL4) {
+        this.sL4 = sL4;
     }
 
 
@@ -1656,7 +1646,6 @@ public class LHWForm extends BaseObservable implements Observable {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_UID));
         this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_CLUSTER));
-        this.hhid = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_HHID));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SYSDATE));
         this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_DEVICEID));
@@ -1673,10 +1662,10 @@ public class LHWForm extends BaseObservable implements Observable {
         this.a104n = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_A104n));
         this.a104c = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_A104c));
 
-        sAHydrate(cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SA)));
-        sB1Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SB1)));
-        sB2Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SB2)));
-        sCHydrate(cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SC)));
+        sAHydrate(cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SL1)));
+        sB1Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SL2)));
+        sB2Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SL3)));
+        sCHydrate(cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SL4)));
 
         return this;
     }
@@ -1996,7 +1985,6 @@ public class LHWForm extends BaseObservable implements Observable {
         json.put(LHWFormsTable.COLUMN_ID, this.id);
         json.put(LHWFormsTable.COLUMN_UID, this.uid);
         json.put(LHWFormsTable.COLUMN_CLUSTER, this.cluster);
-        json.put(LHWFormsTable.COLUMN_HHID, this.hhid);
         json.put(LHWFormsTable.COLUMN_USERNAME, this.userName);
         json.put(LHWFormsTable.COLUMN_SYSDATE, this.sysDate);
         json.put(LHWFormsTable.COLUMN_DEVICEID, this.deviceId);
@@ -2012,10 +2000,10 @@ public class LHWForm extends BaseObservable implements Observable {
         json.put(LHWFormsTable.COLUMN_A103, this.a103);
         json.put(LHWFormsTable.COLUMN_A104n, this.a104n);
         json.put(LHWFormsTable.COLUMN_A104c, this.a104c);
-        json.put(LHWFormsTable.COLUMN_SA, new JSONObject(sAtoString()));
-        json.put(LHWFormsTable.COLUMN_SB1, new JSONObject(sB1toString()));
-        json.put(LHWFormsTable.COLUMN_SB2, new JSONObject(sB2toString()));
-        json.put(LHWFormsTable.COLUMN_SC, new JSONObject(sCtoString()));
+        json.put(LHWFormsTable.COLUMN_SL1, new JSONObject(sAtoString()));
+        json.put(LHWFormsTable.COLUMN_SL2, new JSONObject(sB1toString()));
+        json.put(LHWFormsTable.COLUMN_SL3, new JSONObject(sB2toString()));
+        json.put(LHWFormsTable.COLUMN_SL4, new JSONObject(sCtoString()));
         return json;
     }
 

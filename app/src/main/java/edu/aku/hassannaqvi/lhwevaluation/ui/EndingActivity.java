@@ -29,8 +29,7 @@ public class EndingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_ending);
-        bi.setHHForm(HHForm);
-        setSupportActionBar(bi.toolbar);
+
         setSupportActionBar(bi.toolbar);
         //setTitle(R.string.section1_mainheading);
 
@@ -87,7 +86,7 @@ public class EndingActivity extends AppCompatActivity {
 
 
     private boolean UpdateDB() {
-        int updcount = db.updatesFormColumn(TableContracts.HHFormsTable.COLUMN_ISTATUS, HHForm.getiStatus());
+        int updcount = db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_ISTATUS, HHForm.getiStatus());
         return updcount > 0;
     }
 

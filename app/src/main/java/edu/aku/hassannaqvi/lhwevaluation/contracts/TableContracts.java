@@ -11,13 +11,13 @@ public class TableContracts {
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_LHW_UID = "_lhwuid";
-        public static final String COLUMN_CLUSTER = "cluster";
-        public static final String COLUMN_HHID = "hhid";
+        public static final String COLUMN_LHW_CODE = "lhwcode";
+        public static final String COLUMN_KHANDAN_NO = "kno";
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_SYSDATE = "sysdate";
 
         public static final String COLUMN_SH2 = "sH2";
-        public static final String COLUMN_SH3 = "sH3";
+      //  public static final String COLUMN_SH3 = "sH3";
         public static final String COLUMN_SAB = "sAB";
         public static final String COLUMN_SM = "sM";
 
@@ -36,7 +36,6 @@ public class TableContracts {
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_CLUSTER = "cluster";
-        public static final String COLUMN_HHID = "hhid";
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_SYSDATE = "sysdate";
         public static final String COLUMN_A101 = "a101";
@@ -44,10 +43,10 @@ public class TableContracts {
         public static final String COLUMN_A103 = "a103";
         public static final String COLUMN_A104n = "a104n";
         public static final String COLUMN_A104c = "a104c";
-        public static final String COLUMN_SA = "sA";
-        public static final String COLUMN_SB1 = "sB1";
-        public static final String COLUMN_SB2 = "sB2";
-        public static final String COLUMN_SC = "sC";
+        public static final String COLUMN_SL1 = "sL1";
+        public static final String COLUMN_SL2 = "sL2";
+        public static final String COLUMN_SL3 = "sL3";
+        public static final String COLUMN_SL4 = "sL4";
 
         public static final String COLUMN_DEVICEID = "deviceid";
         public static final String COLUMN_DEVICETAGID = "devicetagid";
@@ -85,6 +84,8 @@ public class TableContracts {
         public static final String COLUMN_SYNCED_DATE = "synced_date";
         public static final String COLUMN_APPVERSION = "appversion";
         public static final String COLUMN_ISTATUS = "istatus";
+        public static final String COLUMN_SIDENT = "sIdent";
+        public static final String COLUMN_LHW_CODE = "lhwCode";
     }
 
     public static abstract class MWRAListTable implements BaseColumns {
@@ -261,71 +262,45 @@ public class TableContracts {
 
     }
 
-    public static abstract class ClustersTable implements BaseColumns {
-        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
-        public static final String TABLE_NAME = "clusters";
-        public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_DISTRICT_NAME = "district_name";
-        public static final String COLUMN_DISTRICT_CODE = "dist_code";
-        public static final String COLUMN_CITY_NAME = "city_name";
-        public static final String COLUMN_CITY_CODE = "city_code";
-        public static final String COLUMN_CLUSTER_NO = "cluster_no";
-
-    }
-
-    public static abstract class DistrictTable implements BaseColumns {
+    public static abstract class TableDistricts implements BaseColumns {
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String TABLE_NAME = "district";
         public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_PROVINCE_NAME = "province";
-        public static final String COLUMN_PROVINCE_CODE = "pro_id";
         public static final String COLUMN_DISTRICT_NAME = "district";
         public static final String COLUMN_DISTRICT_CODE = "dist_id";
 
     }
 
-    public static abstract class TehsilTable implements BaseColumns {
-        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
+    public static abstract class TableTehsil implements BaseColumns {
+
         public static final String TABLE_NAME = "tehsil";
-        public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_DISTRICT_NAME = "district";
-        public static final String COLUMN_DISTRICT_CODE = "dist_id";
-        public static final String COLUMN_TEHSIL_NAME = "tehsil";
+        public static final String COLUMN_NAME_NULLABLE = "nullColumnHack";
+        public static final String COLUMN_ID = "_ID";
         public static final String COLUMN_TEHSIL_CODE = "tehsil_id";
-        public static final String COLUMN_F6 = "f6";
+        public static final String COLUMN_TEHSIL_NAME = "tehsil";
+        public static final String COLUMN_DIST_ID = "dist_id";
+
 
     }
 
-    public static abstract class LhwTable implements BaseColumns {
-        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
+    public static abstract class TableLhw implements BaseColumns {
+
         public static final String TABLE_NAME = "lhw";
-        public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_TEHSIL_NAME = "tehsil";
-        public static final String COLUMN_TEHSIL_CODE = "tehsil_id";
-        public static final String COLUMN_UC_NAME = "uc_name";
-        public static final String COLUMN_UC_CODE = "uc_id";
-        public static final String COLUMN_HF_NAME = "hf_name";
+        public static final String COLUMN_NAME_NULLABLE = "nullColumnHack";
+        public static final String COLUMN_ID = "_ID";
         public static final String COLUMN_HF_CODE = "hfcode";
         public static final String COLUMN_LHW_NAME = "lhw_name";
         public static final String COLUMN_LHW_CODE = "lhw_code";
-        public static final String COLUMN_LHW_CNIC = "lhw_cnic";
-        public static final String COLUMN_LHW_SUPERVISOR = "lhw_supervisor";
+
     }
 
-    public static abstract class LhwHfTable implements BaseColumns {
-        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
-        public static final String TABLE_NAME = "lhwhf";
-        public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_PROVINCE_NAME = "province";
-        public static final String COLUMN_PROVINCE_CODE = "pro_id";
-        public static final String COLUMN_DISTRICT_NAME = "district";
-        public static final String COLUMN_DISTRICT_CODE = "dist_id";
-        public static final String COLUMN_TEHSIL_NAME = "tehsil";
-        public static final String COLUMN_TEHSIL_CODE = "tehsil_id";
-        public static final String COLUMN_UC_NAME = "uc_name";
-        public static final String COLUMN_UC_CODE = "uc_id";
-        public static final String COLUMN_HF_NAME = "hf_name";
+    public static abstract class TableHealthFacilities implements BaseColumns {
+        public static final String TABLE_NAME = "lhw_hf";
+        public static final String COLUMN_NAME_NULLABLE = "nullColumnHack";
+        public static final String COLUMN_ID = "_ID";
+        public static final String COLUMN_DIST_ID = "dist_id";
         public static final String COLUMN_HF_CODE = "hfcode";
+        public static final String COLUMN_HF_NAME = "hf_name";
     }
 
 
@@ -352,28 +327,33 @@ public class TableContracts {
 
     }
 
-    public static abstract class ZScoreTable implements BaseColumns {
-        public static final String TABLE_NAME = "zstandards";
-        public static final String _ID = "_id";
-        public static final String COLUMN_SEX = "sex";
-        public static final String COLUMN_AGE = "age";
-        public static final String COLUMN_MEASURE = "measure";
-        public static final String COLUMN_L = "l";
-        public static final String COLUMN_M = "m";
-        public static final String COLUMN_S = "s";
-        public static final String COLUMN_CAT = "cat";
-        public static final String SERVER_URI = "zstandards.php";
-        public static String PATH = "zstandards";
-       /* public static final String CONTENT_TYPE =
-                ContentResolver.CURSOR_DIR_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH;
-        public static final String CONTENT_ITEM_TYPE =
-                ContentResolver.CURSOR_ITEM_BASE_TYPE + "/" + CONTENT_AUTHORITY + "/" + PATH;
-        //        public static final String REGION_DSS = "region";
-        public static Uri CONTENT_URI = Uri.parse("content://" + CONTENT_AUTHORITY)
-                .buildUpon().appendPath(PATH).build();*/
-
-/*        public static Uri buildUriWithId(long id) {
-            return ContentUris.withAppendedId(CONTENT_URI, id);
-        }*/
+    public static abstract class TableProvince implements BaseColumns {
+        public static final String TABLE_NAME = "province";
+        public static final String COLUMN_NAME_NULLABLE = "nullColumnHack";
+        public static final String COLUMN_ID = "_ID";
+        public static final String COLUMN_PROVINCE = "province";
+        public static final String COLUMN_PRO_ID = "pro_id";
     }
+    public static abstract class FamilyMembersTable implements BaseColumns {
+        public static final String TABLE_NAME = "FamilyMembersList";
+        public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
+        public static final String COLUMN_PROJECT_NAME = "projectName";
+        public static final String COLUMN_ID = "_id";
+        public static final String COLUMN_UID = "_uid";
+        public static final String COLUMN_UUID = "_uuid";
+        public static final String COLUMN_LHW_CODE = "lhwCode";
+        public static final String COLUMN_KHANDAN_NO = "kno";
+        public static final String COLUMN_USERNAME = "username";
+        public static final String COLUMN_SYSDATE = "sysdate";
+        public static final String COLUMN_INDEXED = "indexed";
+        public static final String COLUMN_SH3 = "sH3";
+
+        public static final String COLUMN_DEVICEID = "deviceid";
+        public static final String COLUMN_DEVICETAGID = "devicetagid";
+        public static final String COLUMN_SYNCED = "synced";
+        public static final String COLUMN_SYNCED_DATE = "synced_date";
+        public static final String COLUMN_APPVERSION = "appversion";
+        public static final String COLUMN_ISTATUS = "istatus";
+    }
+
 }

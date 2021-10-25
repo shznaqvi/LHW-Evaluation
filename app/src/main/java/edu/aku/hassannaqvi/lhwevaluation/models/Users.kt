@@ -3,7 +3,6 @@ package edu.aku.hassannaqvi.lhwevaluation.models
 import android.database.Cursor
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.UsersTable
 import org.apache.commons.lang3.StringUtils
-import org.json.JSONException
 import org.json.JSONObject
 
 /**
@@ -24,7 +23,6 @@ class Users {
         this.fullname = fullname
     }
 
-    @Throws(JSONException::class)
     fun sync(jsonObject: JSONObject): Users {
         userName = jsonObject.getString(UsersTable.COLUMN_USERNAME)
         password = jsonObject.getString(UsersTable.COLUMN_PASSWORD)

@@ -80,13 +80,13 @@
 
                         </LinearLayout>
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatSpinner
                             android:id="@+id/w101"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                             android:hint="@string/w101"
-                            android:text="@={mwra.w101}" />
+                            android:enabled="@{mwra.w101.equals(``)}"
+                            />
 
                     </LinearLayout>
 

@@ -28,8 +28,8 @@ public class HHForm extends BaseObservable implements Observable {
     private String lhwuid = StringUtils.EMPTY;
     private String userName = StringUtils.EMPTY;
     private String sysDate = StringUtils.EMPTY;
-    private String cluster = StringUtils.EMPTY;
-    private String hhid = StringUtils.EMPTY;
+    private String lhwCode = StringUtils.EMPTY;
+    private String khandandNo = StringUtils.EMPTY;
     private String deviceId = StringUtils.EMPTY;
     private String deviceTag = StringUtils.EMPTY;
     private String appver = StringUtils.EMPTY;
@@ -40,7 +40,9 @@ public class HHForm extends BaseObservable implements Observable {
     private String syncDate = StringUtils.EMPTY;
     // SECTION VARIABLES
     private String sH2 = StringUtils.EMPTY;
+/*
     private String sH3 = StringUtils.EMPTY;
+*/
 
     private String sAB = StringUtils.EMPTY;
     private String sM = StringUtils.EMPTY;
@@ -56,7 +58,7 @@ public class HHForm extends BaseObservable implements Observable {
     private String h204e = StringUtils.EMPTY;
     private String h204f = StringUtils.EMPTY;
     private String h205 = StringUtils.EMPTY;
-    private String h301 = StringUtils.EMPTY;
+  /*  private String h301 = StringUtils.EMPTY;
     private String h302 = StringUtils.EMPTY;
     private String h303 = StringUtils.EMPTY;
     private String h304d = StringUtils.EMPTY;
@@ -66,7 +68,7 @@ public class HHForm extends BaseObservable implements Observable {
     private String h306 = StringUtils.EMPTY;
     private String h307 = StringUtils.EMPTY;
     private String h308 = StringUtils.EMPTY;
-    private String h309 = StringUtils.EMPTY;
+    private String h309 = StringUtils.EMPTY;*/
     private String ab101 = StringUtils.EMPTY;
     private String ab102 = StringUtils.EMPTY;
     private String ab103 = StringUtils.EMPTY;
@@ -197,22 +199,22 @@ public class HHForm extends BaseObservable implements Observable {
     }
 
     @Bindable
-    public String getCluster() {
-        return cluster;
+    public String getLhwCode() {
+        return lhwCode;
     }
 
-    public void setCluster(String cluster) {
-        this.cluster = cluster;
+    public void setLhwCode(String lhwCode) {
+        this.lhwCode = lhwCode;
         notifyPropertyChanged(BR.cluster);
     }
 
     @Bindable
-    public String getHhid() {
-        return hhid;
+    public String getKhandandNo() {
+        return khandandNo;
     }
 
-    public void setHhid(String hhid) {
-        this.hhid = hhid;
+    public void setKhandandNo(String khandandNo) {
+        this.khandandNo = khandandNo;
         notifyPropertyChanged(BR.hhid);
     }
 
@@ -309,6 +311,7 @@ public class HHForm extends BaseObservable implements Observable {
     }
 
 
+/*
     public String getsH3() {
         return sH3;
     }
@@ -316,6 +319,7 @@ public class HHForm extends BaseObservable implements Observable {
     public void setsH3(String sH3) {
         this.sH3 = sH3;
     }
+*/
 
 
     public String getsAB() {
@@ -435,6 +439,7 @@ public class HHForm extends BaseObservable implements Observable {
         notifyPropertyChanged(BR.h205);
     }
 
+/*
     @Bindable
     public String getH301() {
         return h301;
@@ -544,6 +549,7 @@ public class HHForm extends BaseObservable implements Observable {
         this.h309 = h309;
         notifyPropertyChanged(BR.h309);
     }
+*/
 
     @Bindable
     public String getAb101() {
@@ -1585,8 +1591,8 @@ public class HHForm extends BaseObservable implements Observable {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_UID));
         this.lhwuid = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_LHW_UID));
-        this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_CLUSTER));
-        this.hhid = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_HHID));
+        this.lhwCode = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_LHW_CODE));
+        this.khandandNo = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_KHANDAN_NO));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SYSDATE));
         this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_DEVICEID));
@@ -1597,7 +1603,7 @@ public class HHForm extends BaseObservable implements Observable {
         this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SYNCED_DATE));
 
         sH2Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SH2)));
-        sH3Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SH3)));
+        //sH3Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SH3)));
         sABHydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SAB)));
         sMHydrate(cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SM)));
 
@@ -1622,7 +1628,7 @@ public class HHForm extends BaseObservable implements Observable {
         }
     }
 
-    public void sH3Hydrate(String string) throws JSONException {
+ /*   public void sH3Hydrate(String string) throws JSONException {
         Log.d(TAG, "sH3Hydrate: " + string);
         if (string != null) {
             JSONObject json = null;
@@ -1640,7 +1646,7 @@ public class HHForm extends BaseObservable implements Observable {
             this.h309 = json.getString("h309");
         }
     }
-
+*/
     public void sABHydrate(String string) throws JSONException {
         Log.d(TAG, "sABHydrate: " + string);
         if (string != null) {
@@ -1765,7 +1771,7 @@ public class HHForm extends BaseObservable implements Observable {
         return json.toString();
     }
 
-    public String sH3toString() throws JSONException {
+  /*  public String sH3toString() throws JSONException {
         Log.d(TAG, "sH3toString: ");
         JSONObject json = new JSONObject();
         json.put("h301", h301)
@@ -1780,7 +1786,7 @@ public class HHForm extends BaseObservable implements Observable {
                 .put("h308", h308)
                 .put("h309", h309);
         return json.toString();
-    }
+    }*/
 
     public String sABtoString() throws JSONException {
         Log.d(TAG, "sABtoString: ");
@@ -1890,8 +1896,8 @@ public class HHForm extends BaseObservable implements Observable {
         json.put(HHFormsTable.COLUMN_ID, this.id);
         json.put(HHFormsTable.COLUMN_UID, this.uid);
         json.put(HHFormsTable.COLUMN_LHW_UID, this.lhwuid);
-        json.put(HHFormsTable.COLUMN_CLUSTER, this.cluster);
-        json.put(HHFormsTable.COLUMN_HHID, this.hhid);
+        json.put(HHFormsTable.COLUMN_LHW_CODE, this.lhwCode);
+        json.put(HHFormsTable.COLUMN_KHANDAN_NO, this.khandandNo);
         json.put(HHFormsTable.COLUMN_USERNAME, this.userName);
         json.put(HHFormsTable.COLUMN_SYSDATE, this.sysDate);
         json.put(HHFormsTable.COLUMN_DEVICEID, this.deviceId);
@@ -1902,7 +1908,7 @@ public class HHForm extends BaseObservable implements Observable {
 
         // Household
         json.put(HHFormsTable.COLUMN_SH2, new JSONObject(sH2toString()));
-        json.put(HHFormsTable.COLUMN_SH3, new JSONObject(sH3toString()));
+     //   json.put(HHFormsTable.COLUMN_SH3, new JSONObject(sH3toString()));
         json.put(HHFormsTable.COLUMN_SAB, new JSONObject(sABtoString()));
         json.put(HHFormsTable.COLUMN_SM, new JSONObject(sMtoString()));
         return json;

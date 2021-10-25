@@ -73,13 +73,13 @@
                             android:layout_weight="1"
                             android:text="@string/a101" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatSpinner
                             android:id="@+id/a101"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:hint="@string/a101"
-                            android:text="@={lhwForm.a101}" />
+                             />
 
                     </LinearLayout>
 
@@ -109,13 +109,13 @@
                             android:layout_weight="1"
                             android:text="@string/a102" />
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatSpinner
                             android:id="@+id/a102"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="2"
                             android:hint="@string/a102"
-                            android:text="@={lhwForm.a102}" />
+                            />
 
                     </LinearLayout>
 
@@ -151,12 +151,12 @@
 
                         </LinearLayout>
 
-                        <EditText
+                        <androidx.appcompat.widget.AppCompatSpinner
                             android:id="@+id/a103"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/a103"
-                            android:text="@={lhwForm.a103}" />
+                      />
 
                     </LinearLayout>
 
@@ -191,8 +191,14 @@
                                 android:text="@string/a104" />
 
                         </LinearLayout>
+                        <androidx.appcompat.widget.AppCompatSpinner
+                            android:id="@+id/a104"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/a103"
+                            />
 
-                        <LinearLayout
+                 <!--       <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
@@ -241,7 +247,7 @@
                                 app:minValue="0"
                                 app:type="range" />
 
-                        </LinearLayout>
+                        </LinearLayout>-->
 
                     </LinearLayout>
 

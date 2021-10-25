@@ -102,6 +102,7 @@
                             android:gravity="center"
                             android:hint="###"
                             android:inputType="number"
+                            android:enabled="false"
                             android:maxLength="3"
                             android:text="@={LHWHouseholds.h101}"
                             app:maxValue="999"
@@ -189,6 +190,8 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/h103"
+                            android:inputType="textPersonName|textCapWords"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                             android:text="@={LHWHouseholds.h103}" />
 
                     </LinearLayout>
@@ -244,13 +247,11 @@
                                 android:layout_height="match_parent"
                                 android:layout_weight="5"
                                 android:gravity="center"
-                                android:hint="###########"
-                                android:inputType="number"
-                                android:maxLength="11"
+                                android:inputType="text"
+                                digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
+                                android:maxLength="10"
                                 android:text="@={LHWHouseholds.h104a}"
-                                app:maxValue="99999999999"
-                                app:minValue="0"
-                                app:type="range" />
+                                />
 
                         </LinearLayout>
 
@@ -279,6 +280,7 @@
                                 android:text="@={LHWHouseholds.h104b}"
                                 app:maxValue="99999999999"
                                 app:minValue="0"
+                                android:tag="-1"
                                 app:type="range" />
 
                         </LinearLayout>
@@ -301,8 +303,10 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="5"
-                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
-                                android:hint="@string/h104c"
+                                android:gravity="center"
+                                android:inputType="text"
+                                digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
+                                android:maxLength="10"
                                 android:text="@={LHWHouseholds.h104c}" />
 
                         </LinearLayout>
@@ -325,8 +329,10 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="5"
-                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
-                                android:hint="@string/h104d"
+                                android:gravity="center"
+                                android:inputType="text"
+                                digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
+                                android:maxLength="10"
                                 android:text="@={LHWHouseholds.h104d}" />
 
                         </LinearLayout>
@@ -349,8 +355,10 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="5"
-                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
-                                android:hint="@string/h104e"
+                                android:gravity="center"
+                                android:inputType="text"
+                                digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
+                                android:maxLength="10"
                                 android:text="@={LHWHouseholds.h104e}" />
 
                         </LinearLayout>
@@ -373,8 +381,10 @@
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="5"
-                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
-                                android:hint="@string/h104f"
+                                android:gravity="center"
+                                android:inputType="text"
+                                digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
+                                android:maxLength="10"
                                 android:text="@={LHWHouseholds.h104f}" />
 
                         </LinearLayout>
@@ -443,20 +453,38 @@
                         android:background="@android:color/transparent"
                         android:onClick="btnEnd"
                         android:text="Cancel"
+                        android:layout_marginStart="12dp"
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
                     <Button
-                        android:id="@+id/btn_Continue"
+                        android:id="@+id/btn_SaveClose"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
+                        android:layout_weight="2"
                         android:background="@drawable/capsule"
                         android:backgroundTint="@color/colorAccent"
                         android:backgroundTintMode="src_atop"
                         android:onClick="btnContinue"
-                        android:text="Save"
+                        android:text="Save &amp; Close"
+                        android:layout_marginStart="12dp"
+
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                    <Button
+                        android:id="@+id/btn_SaveAddMore"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:background="@drawable/capsule"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:backgroundTintMode="src_atop"
+                        android:onClick="btnContinue"
+                        android:layout_marginStart="12dp"
+
+                        android:text="Save &amp; Add More"
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />

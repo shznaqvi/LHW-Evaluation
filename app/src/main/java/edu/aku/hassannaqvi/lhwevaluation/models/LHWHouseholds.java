@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.lhwevaluation.models;
 
 import android.database.Cursor;
+import android.util.Log;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -12,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import edu.aku.hassannaqvi.lhwevaluation.BR;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LHWHHTable;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 
@@ -26,7 +28,7 @@ public class LHWHouseholds extends BaseObservable implements Observable {
     // APP VARIABLES
     private String id = StringUtils.EMPTY;
     private String uid = StringUtils.EMPTY;
-    private String uuid = StringUtils.EMPTY;
+    private String luid = StringUtils.EMPTY;
     private String userName = StringUtils.EMPTY;
     private String sysDate = StringUtils.EMPTY;
     private String cluster = StringUtils.EMPTY;
@@ -36,12 +38,21 @@ public class LHWHouseholds extends BaseObservable implements Observable {
     private String appver = StringUtils.EMPTY;
     private String endTime = StringUtils.EMPTY;
     private String iStatus = StringUtils.EMPTY;
+    private String lhwCode = StringUtils.EMPTY;
     private String iStatus96x = StringUtils.EMPTY;
     private String synced = StringUtils.EMPTY;
     private String syncDate = StringUtils.EMPTY;
 
     // FIELD VARIABLES
-    private String h101 = StringUtils.EMPTY;
+    private String a101 = StringUtils.EMPTY;
+    private String a102 = StringUtils.EMPTY;
+    private String a103 = StringUtils.EMPTY;
+    private String a104n = StringUtils.EMPTY;
+    private String a104c = StringUtils.EMPTY;
+    private final String sIdent = StringUtils.EMPTY;
+
+
+   private String h101 = StringUtils.EMPTY;
     private String h102 = StringUtils.EMPTY;
     private String h103 = StringUtils.EMPTY;
     private String h104a = StringUtils.EMPTY;
@@ -81,12 +92,12 @@ public class LHWHouseholds extends BaseObservable implements Observable {
         this.uid = uid;
     }
 
-    public String getUuid() {
-        return uuid;
+    public String getLuid() {
+        return luid;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setLuid(String luid) {
+        this.luid = luid;
     }
 
     @Bindable
@@ -189,6 +200,53 @@ public class LHWHouseholds extends BaseObservable implements Observable {
         this.syncDate = syncDate;
     }
 
+    public String getA101() {
+        return a101;
+    }
+
+    public void setA101(String a101) {
+        this.a101 = a101;
+    }
+
+    public String getA102() {
+        return a102;
+    }
+
+    public void setA102(String a102) {
+        this.a102 = a102;
+    }
+
+    public String getA103() {
+        return a103;
+    }
+
+    public void setA103(String a103) {
+        this.a103 = a103;
+    }
+
+    public String getA104n() {
+        return a104n;
+    }
+
+    public void setA104n(String a104n) {
+        this.a104n = a104n;
+    }
+
+    public String getA104c() {
+        return a104c;
+    }
+
+    public void setA104c(String a104c) {
+        this.a104c = a104c;
+    }
+
+    public String getLhwCode() {
+        return lhwCode;
+    }
+
+    public void setLhwCode(String lhwCode) {
+        this.lhwCode = lhwCode;
+    }
 
     @Bindable
     public String getH101() {
@@ -294,7 +352,7 @@ public class LHWHouseholds extends BaseObservable implements Observable {
     public LHWHouseholds Hydrate(Cursor cursor) throws JSONException {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_UID));
-        this.uuid = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_UUID));
+        this.luid = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_UUID));
         this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_CLUSTER));
         this.hhid = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_HHID));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_USERNAME));
@@ -305,6 +363,7 @@ public class LHWHouseholds extends BaseObservable implements Observable {
         this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_ISTATUS));
         this.synced = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_SYNCED));
         this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_SYNCED_DATE));
+        this.lhwCode = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_LHW_CODE));
 
         this.h101 = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_H101));
         this.h102 = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_H102));
@@ -317,7 +376,23 @@ public class LHWHouseholds extends BaseObservable implements Observable {
         this.h104f = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_H104F));
         this.lhwphoto = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_LHWPHOTO));
 
+        sIdentHydrate(cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_SIDENT)));
+
         return this;
+    }
+
+    public void sIdentHydrate(String string) throws JSONException {
+        Log.d(TAG, "sA1Hydrate: " + string);
+        if (string != null) {
+            JSONObject json = null;
+            json = new JSONObject(string);
+            this.a101 = json.getString("a101");
+            this.a102 = json.getString("a102");
+            this.a103 = json.getString("a103");
+            this.a104n = json.getString("a104n");
+            this.a104c = json.getString("a104c");
+
+        }
     }
 
 
@@ -326,7 +401,7 @@ public class LHWHouseholds extends BaseObservable implements Observable {
 
         json.put(LHWHHTable.COLUMN_ID, this.id);
         json.put(LHWHHTable.COLUMN_UID, this.uid);
-        json.put(LHWHHTable.COLUMN_UUID, this.uuid);
+        json.put(LHWHHTable.COLUMN_UUID, this.luid);
         json.put(LHWHHTable.COLUMN_CLUSTER, this.cluster);
         json.put(LHWHHTable.COLUMN_HHID, this.hhid);
         json.put(LHWHHTable.COLUMN_USERNAME, this.userName);
@@ -334,6 +409,7 @@ public class LHWHouseholds extends BaseObservable implements Observable {
         json.put(LHWHHTable.COLUMN_DEVICEID, this.deviceId);
         json.put(LHWHHTable.COLUMN_DEVICETAGID, this.deviceTag);
         json.put(LHWHHTable.COLUMN_ISTATUS, this.iStatus);
+        json.put(LHWHHTable.COLUMN_LHW_CODE, this.lhwCode);
 
         json.put(LHWHHTable.COLUMN_H101, this.h101);
         json.put(LHWHHTable.COLUMN_H102, this.h102);
@@ -345,8 +421,23 @@ public class LHWHouseholds extends BaseObservable implements Observable {
         json.put(LHWHHTable.COLUMN_H104E, this.h104e);
         json.put(LHWHHTable.COLUMN_H104F, this.h104f);
         json.put(LHWHHTable.COLUMN_LHWPHOTO, this.lhwphoto);
+
+        json.put(TableContracts.LHWHHTable.COLUMN_SIDENT, new JSONObject(sIdenttoString()));
+
         return json;
     }
+
+    public String sIdenttoString() throws JSONException {
+            Log.d(TAG, "sA1toString: ");
+            JSONObject json = new JSONObject();
+            json.put("a101", a101)
+                    .put("a102", a102)
+                    .put("a103", a103)
+                    .put("a104n", a104n)
+                    .put("a104c", a104c);
+            return json.toString();
+        }
+
 
 
 }

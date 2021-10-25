@@ -5,13 +5,13 @@ import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_NA
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_VERSION;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_ANTHRO;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_CHILDLIST;
-import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_CLUSTERS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_DISTRICT;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_HH_FORMS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW;
-import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHWHF;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHWHH;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW_FORMS;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW_HF;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_MWRALIST;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_PREGNANCY;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_RANDOM;
@@ -19,7 +19,6 @@ import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_TEHSIL;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_VERSIONAPP;
-import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_ZSTANDARD;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -40,8 +39,17 @@ import java.util.Date;
 import java.util.List;
 
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.FamilyMembersTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.HHFormsTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LHWFormsTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LHWHHTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.MWRAListTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableDistricts;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableHealthFacilities;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableLhw;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableTehsil;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
-import edu.aku.hassannaqvi.lhwevaluation.models.Clusters;
+import edu.aku.hassannaqvi.lhwevaluation.models.FamilyMembers;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWHouseholds;
@@ -49,6 +57,10 @@ import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.models.RandomHH;
 import edu.aku.hassannaqvi.lhwevaluation.models.Users;
 import edu.aku.hassannaqvi.lhwevaluation.models.VersionApp;
+import edu.aku.hassannaqvi.smk_ce.models.Districts;
+import edu.aku.hassannaqvi.smk_ce.models.HealthFacilities;
+import edu.aku.hassannaqvi.smk_ce.models.LHW;
+import edu.aku.hassannaqvi.smk_ce.models.Tehsil;
 
 
 
@@ -70,14 +82,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_USERS);
-        db.execSQL(SQL_CREATE_CLUSTERS);
         db.execSQL(SQL_CREATE_DISTRICT);
         db.execSQL(SQL_CREATE_TEHSIL);
         db.execSQL(SQL_CREATE_LHW);
-        db.execSQL(SQL_CREATE_LHWHF);
+        db.execSQL(SQL_CREATE_LHW_HF);
         db.execSQL(SQL_CREATE_RANDOM);
         db.execSQL(SQL_CREATE_HH_FORMS);
         db.execSQL(SQL_CREATE_LHW_FORMS);
+        db.execSQL(SQL_CREATE_FAMILY_MEMBERS);
         db.execSQL(SQL_CREATE_LHWHH);
         db.execSQL(SQL_CREATE_MWRALIST);
         db.execSQL(SQL_CREATE_CHILDLIST);
@@ -87,7 +99,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_PREGNANCY);
         db.execSQL(SQL_CREATE_SAMPLES);
         db.execSQL(SQL_CREATE_VERSIONAPP);
-        db.execSQL(SQL_CREATE_ZSTANDARD);
 
     }
 
@@ -101,7 +112,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //ADDITION in DB
-    public Long addForm(HHForm HHForm) throws JSONException {
+    public long addHHForm(HHForm HHForm) throws JSONException {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
@@ -110,17 +121,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(TableContracts.HHFormsTable.COLUMN_PROJECT_NAME, HHForm.getProjectName());
         values.put(TableContracts.HHFormsTable.COLUMN_UID, HHForm.getUid());
-        values.put(TableContracts.HHFormsTable.COLUMN_CLUSTER, HHForm.getCluster());
-        values.put(TableContracts.HHFormsTable.COLUMN_HHID, HHForm.getHhid());
-        values.put(TableContracts.HHFormsTable.COLUMN_LHW_UID, HHForm.getHhid());
+        values.put(TableContracts.HHFormsTable.COLUMN_LHW_CODE, HHForm.getLhwCode());
+        values.put(TableContracts.HHFormsTable.COLUMN_KHANDAN_NO, HHForm.getKhandandNo());
+        values.put(TableContracts.HHFormsTable.COLUMN_LHW_UID, HHForm.getKhandandNo());
         values.put(TableContracts.HHFormsTable.COLUMN_USERNAME, HHForm.getUserName());
         values.put(TableContracts.HHFormsTable.COLUMN_SYSDATE, HHForm.getSysDate());
 
 
         values.put(TableContracts.HHFormsTable.COLUMN_SH2, HHForm.sH2toString());
-        values.put(TableContracts.HHFormsTable.COLUMN_SH3, HHForm.sH3toString());
+     /*   values.put(TableContracts.HHFormsTable.COLUMN_SH3, HHForm.sH3toString());
         values.put(TableContracts.HHFormsTable.COLUMN_SAB, HHForm.sABtoString());
-        values.put(TableContracts.HHFormsTable.COLUMN_SM, HHForm.sMtoString());
+        values.put(TableContracts.HHFormsTable.COLUMN_SM, HHForm.sMtoString());*/
 
         values.put(TableContracts.HHFormsTable.COLUMN_ISTATUS, HHForm.getiStatus());
         values.put(TableContracts.HHFormsTable.COLUMN_DEVICETAGID, HHForm.getDeviceTag());
@@ -137,7 +148,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-    public Long addLhwForm(LHWForm lhwForm) throws JSONException {
+
+    public long addFamilyMember(FamilyMembers familyMembers) throws JSONException {
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase();
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(TableContracts.FamilyMembersTable.COLUMN_PROJECT_NAME, familyMembers.getProjectName());
+        values.put(TableContracts.FamilyMembersTable.COLUMN_UID, familyMembers.getUid());
+        values.put(TableContracts.FamilyMembersTable.COLUMN_UUID, familyMembers.getUuid());
+        values.put(TableContracts.FamilyMembersTable.COLUMN_LHW_CODE, familyMembers.getLhwCode());
+        values.put(TableContracts.FamilyMembersTable.COLUMN_KHANDAN_NO, familyMembers.getkNo());
+        values.put(TableContracts.FamilyMembersTable.COLUMN_USERNAME, familyMembers.getUserName());
+        values.put(TableContracts.FamilyMembersTable.COLUMN_SYSDATE, familyMembers.getSysDate());
+
+
+        values.put(FamilyMembersTable.COLUMN_SH3, familyMembers.sH3toString());
+     /*   values.put(TableContracts.FamilyMemberssTable.COLUMN_SH3, familyMembers.sH3toString());
+        values.put(TableContracts.FamilyMemberssTable.COLUMN_SAB, familyMembers.sABtoString());
+        values.put(TableContracts.FamilyMemberssTable.COLUMN_SM, familyMembers.sMtoString());*/
+
+        values.put(TableContracts.FamilyMembersTable.COLUMN_ISTATUS, familyMembers.getiStatus());
+        values.put(TableContracts.FamilyMembersTable.COLUMN_DEVICETAGID, familyMembers.getDeviceTag());
+        values.put(TableContracts.FamilyMembersTable.COLUMN_DEVICEID, familyMembers.getDeviceId());
+        values.put(TableContracts.FamilyMembersTable.COLUMN_APPVERSION, familyMembers.getAppver());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                TableContracts.FamilyMembersTable.TABLE_NAME,
+                TableContracts.FamilyMembersTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+    public long addLhwForm(LHWForm lhwForm) throws JSONException {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
@@ -147,8 +194,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.LHWFormsTable.COLUMN_PROJECT_NAME, lhwForm.getProjectName());
         values.put(TableContracts.LHWFormsTable.COLUMN_UID, lhwForm.getUid());
         values.put(TableContracts.LHWFormsTable.COLUMN_CLUSTER, lhwForm.getCluster());
-        values.put(TableContracts.LHWFormsTable.COLUMN_HHID, lhwForm.getHhid());
-        /*values.put(TableContracts.LHWFormsTable.COLUMN_LHW_UID, lhwForm.getHhid());*/
         values.put(TableContracts.LHWFormsTable.COLUMN_USERNAME, lhwForm.getUserName());
         values.put(TableContracts.LHWFormsTable.COLUMN_SYSDATE, lhwForm.getSysDate());
 
@@ -158,10 +203,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.LHWFormsTable.COLUMN_A104n, lhwForm.getA104n());
         values.put(TableContracts.LHWFormsTable.COLUMN_A104c, lhwForm.getA104c());
 
-        values.put(TableContracts.LHWFormsTable.COLUMN_SA, lhwForm.sAtoString());
-        values.put(TableContracts.LHWFormsTable.COLUMN_SB1, lhwForm.sB1toString());
-        values.put(TableContracts.LHWFormsTable.COLUMN_SB2, lhwForm.sB2toString());
-        values.put(TableContracts.LHWFormsTable.COLUMN_SC, lhwForm.sCtoString());
+        values.put(TableContracts.LHWFormsTable.COLUMN_SL1, lhwForm.sAtoString());
+
 
         values.put(TableContracts.LHWFormsTable.COLUMN_ISTATUS, lhwForm.getiStatus());
         values.put(TableContracts.LHWFormsTable.COLUMN_DEVICETAGID, lhwForm.getDeviceTag());
@@ -187,7 +230,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(TableContracts.LHWHHTable.COLUMN_PROJECT_NAME, LHWHouseholds.getProjectName());
         values.put(TableContracts.LHWHHTable.COLUMN_UID, LHWHouseholds.getUid());
-        values.put(TableContracts.LHWHHTable.COLUMN_UUID, LHWHouseholds.getUuid());
+        values.put(TableContracts.LHWHHTable.COLUMN_UUID, LHWHouseholds.getLuid());
         values.put(TableContracts.LHWHHTable.COLUMN_CLUSTER, LHWHouseholds.getCluster());
         values.put(TableContracts.LHWHHTable.COLUMN_HHID, LHWHouseholds.getHhid());
         values.put(TableContracts.LHWHHTable.COLUMN_USERNAME, LHWHouseholds.getUserName());
@@ -195,15 +238,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
         values.put(TableContracts.LHWHHTable.COLUMN_H101, LHWHouseholds.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H102, LHWHouseholds.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H103, LHWHouseholds.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H104A, LHWHouseholds.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H104B, LHWHouseholds.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H104C, LHWHouseholds.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H104D, LHWHouseholds.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H104E, LHWHouseholds.getH101());
-        values.put(TableContracts.LHWHHTable.COLUMN_H104F, LHWHouseholds.getH101());
+        values.put(TableContracts.LHWHHTable.COLUMN_H102, LHWHouseholds.getH102());
+        values.put(TableContracts.LHWHHTable.COLUMN_H103, LHWHouseholds.getH103());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104A, LHWHouseholds.getH104a());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104B, LHWHouseholds.getH104b());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104C, LHWHouseholds.getH104c());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104D, LHWHouseholds.getH104d());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104E, LHWHouseholds.getH104e());
+        values.put(TableContracts.LHWHHTable.COLUMN_H104F, LHWHouseholds.getH104f());
+        values.put(TableContracts.LHWHHTable.COLUMN_SIDENT, LHWHouseholds.sIdenttoString());
         values.put(TableContracts.LHWHHTable.COLUMN_LHWPHOTO, LHWHouseholds.getLhwphoto());
+        values.put(TableContracts.LHWHHTable.COLUMN_LHW_CODE, LHWHouseholds.getLhwCode());
 
         values.put(TableContracts.LHWHHTable.COLUMN_ISTATUS, LHWHouseholds.getiStatus());
         values.put(TableContracts.LHWHHTable.COLUMN_DEVICETAGID, LHWHouseholds.getDeviceTag());
@@ -220,7 +265,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-    public Long addMWRAList(MWRA mwra) throws JSONException {
+    public Long addMWRA(MWRA mwra) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(TableContracts.MWRAListTable.COLUMN_PROJECT_NAME, mwra.getProjectName());
@@ -233,11 +278,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.MWRAListTable.COLUMN_INDEXED, mwra.getIndexed());
 
         values.put(TableContracts.MWRAListTable.COLUMN_SW1, mwra.sW1toString());
-        values.put(TableContracts.MWRAListTable.COLUMN_SW2, mwra.sW2toString());
+      /*  values.put(TableContracts.MWRAListTable.COLUMN_SW2, mwra.sW2toString());
         values.put(TableContracts.MWRAListTable.COLUMN_SW3, mwra.sW3toString());
         values.put(TableContracts.MWRAListTable.COLUMN_SW41, mwra.sW41toString());
         values.put(TableContracts.MWRAListTable.COLUMN_SW42, mwra.sW42toString());
-        values.put(TableContracts.MWRAListTable.COLUMN_SW43, mwra.sW43toString());
+        values.put(TableContracts.MWRAListTable.COLUMN_SW43, mwra.sW43toString());*/
 
         values.put(TableContracts.MWRAListTable.COLUMN_DEVICEID, mwra.getDeviceId());
         values.put(TableContracts.MWRAListTable.COLUMN_DEVICETAGID, mwra.getDeviceTag());
@@ -256,7 +301,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //UPDATE in DB
-    public int updatesFormColumn(String column, String value) {
+    public int updatesHHFormColumn(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
 
         ContentValues values = new ContentValues();
@@ -270,7 +315,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selection,
                 selectionArgs);
     }
+    
+    public int updatesFamilyMembersColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
 
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = TableContracts.FamilyMembersTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.familyMembers.getId())};
+
+        return db.update(TableContracts.FamilyMembersTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    public int updatesLHWFormColumn(String column, String value) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = TableContracts.LHWFormsTable._ID + " =? ";
+        String[] selectionArgs = {String.valueOf(MainApp.LHWForm.getId())};
+
+        return db.update(TableContracts.LHWFormsTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+    
     public int updatesMwraColumn(String column, String value) {
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -348,7 +423,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = TableContracts.UsersTable.COLUMN_ID + " ASC";
 
         Users loggedInUser = null;
-        try {
             c = db.query(
                     TableContracts.UsersTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -361,14 +435,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 loggedInUser = new Users().hydrate(c);
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
+
         MainApp.user = loggedInUser;
         return c.getCount() > 0;
     }
@@ -393,7 +463,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String having = null;
         String orderBy = TableContracts.HHFormsTable.COLUMN_ID + " ASC";
         ArrayList<HHForm> allHHForms = new ArrayList<>();
-        try {
             c = db.query(
                     TableContracts.HHFormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -411,14 +480,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 forms.setUserName(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_USERNAME)));
                 allHHForms.add(forms);
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
         return allHHForms;
     }
 
@@ -441,7 +505,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = TableContracts.HHFormsTable.COLUMN_ID + " ASC";
 
         HHForm allFC = null;
-        try {
             c = db.query(
                     TableContracts.HHFormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -454,14 +517,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 allFC = new HHForm().Hydrate(c);
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
         return allFC;
     }
 
@@ -522,11 +580,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }*/
 
 
-    public int syncVersionApp(JSONObject VersionList) {
+    public int syncVersionApp(JSONObject VersionList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TableContracts.VersionTable.TABLE_NAME, null, null);
         long count = 0;
-        try {
             JSONObject jsonObjectCC = ((JSONArray) VersionList.get(TableContracts.VersionTable.COLUMN_VERSION_PATH)).getJSONObject(0);
             VersionApp Vc = new VersionApp();
             Vc.sync(jsonObjectCC);
@@ -540,19 +597,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             count = db.insert(TableContracts.VersionTable.TABLE_NAME, null, values);
             if (count > 0) count = 1;
 
-        } catch (Exception ignored) {
-        } finally {
+
             db.close();
-        }
+
 
         return (int) count;
     }
 
-    public int syncUser(JSONArray userList) {
+    public int syncUser(JSONArray userList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete(TableContracts.UsersTable.TABLE_NAME, null, null);
         int insertCount = 0;
-        try {
             for (int i = 0; i < userList.length(); i++) {
 
                 JSONObject jsonObjectUser = userList.getJSONObject(i);
@@ -568,6 +623,146 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 if (rowID != -1) insertCount++;
             }
 
+
+            db.close();
+        return insertCount;
+    }
+
+    /*
+     * Download data functions
+     * */
+    public int syncDistricts(JSONArray Districtslist) throws JSONException {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TableDistricts.TABLE_NAME, null, null);
+        int insertCount = 0;
+            for (int i = 0; i < Districtslist.length(); i++) {
+                JSONObject jsonObjectDistrict = Districtslist.getJSONObject(i);
+                Districts District = new Districts();
+                District.sync(jsonObjectDistrict);
+                ContentValues values = new ContentValues();
+
+                values.put(TableDistricts.COLUMN_DISTRICT_CODE, District.getDistrictCode());
+                values.put(TableDistricts.COLUMN_DISTRICT_NAME, District.getDistrictName());
+                long rowID = db.insert(TableDistricts.TABLE_NAME, null, values);
+                if (rowID != -1) insertCount++;
+            }
+
+
+            db.close();
+
+        return insertCount;
+    }
+
+/*    public int syncCluster(JSONArray clusterList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TableClusters.TABLE_NAME, null, null);
+        int insertCount = 0;
+        try {
+
+            for (int i = 0; i < clusterList.length(); i++) {
+                JSONObject jsonObjectCluster = clusterList.getJSONObject(i);
+                Clusters cluster = new Clusters();
+                cluster.sync(jsonObjectCluster);
+                ContentValues values = new ContentValues();
+
+                values.put(TableClusters.COLUMN_CLUSTER_CODE, cluster.getClusterCode());
+                values.put(TableClusters.COLUMN_CLUSTER_NAME, cluster.getClustername());
+                values.put(TableClusters.COLUMN_DIST_CODE, cluster.getDistCode());
+
+                long rowID = db.insert(TableClusters.TABLE_NAME, null, values);
+                if (rowID != -1) insertCount++;
+            }
+            db.close();
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncCluster(e): " + e);
+            db.close();
+        } finally {
+            db.close();
+        }
+        return insertCount;
+    }*/
+
+
+   /* public int syncUCs(JSONArray ucList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TableUCs.TABLE_NAME, null, null);
+        int insertCount = 0;
+        try {
+
+            for (int i = 0; i < ucList.length(); i++) {
+                JSONObject jsonObjectUc = ucList.getJSONObject(i);
+                UCs uc = new UCs();
+                uc.sync(jsonObjectUc);
+                ContentValues values = new ContentValues();
+
+                values.put(TableUCs.COLUMN_UC_CODE, uc.getUcCode());
+                values.put(TableUCs.COLUMN_UC_NAME, uc.getUcName());
+                values.put(TableUCs.COLUMN_DISTRICT_CODE, uc.getDistrictCode());
+
+                long rowID = db.insert(TableUCs.TABLE_NAME, null, values);
+                if (rowID != -1) insertCount++;
+            }
+            db.close();
+
+        } catch (Exception e) {
+            Log.d(TAG, "syncUc(e): " + e);
+            db.close();
+        } finally {
+            db.close();
+        }
+        return insertCount;
+    }
+*/
+/*
+    public int syncVersionApp(JSONObject VersionList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(VersionTable.TABLE_NAME, null, null);
+        long count = 0;
+        try {
+            JSONObject jsonObjectCC = ((JSONArray) VersionList.get(VersionTable.COLUMN_VERSION_PATH)).getJSONObject(0);
+            VersionApp Vc = new VersionApp();
+            Vc.sync(jsonObjectCC);
+
+            ContentValues values = new ContentValues();
+
+            values.put(VersionTable.COLUMN_PATH_NAME, Vc.getPathname());
+            values.put(VersionTable.COLUMN_VERSION_CODE, Vc.getVersioncode());
+            values.put(VersionTable.COLUMN_VERSION_NAME, Vc.getVersionname());
+
+            count = db.insert(VersionTable.TABLE_NAME, null, values);
+            if (count > 0) count = 1;
+
+        } catch (Exception ignored) {
+        } finally {
+            db.close();
+        }
+
+        return (int) count;
+    }*/
+
+
+ /*   public int syncUser(JSONArray userList) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(UsersTable.TABLE_NAME, null, null);
+        int insertCount = 0;
+        try {
+            for (int i = 0; i < userList.length(); i++) {
+
+                JSONObject jsonObjectUser = userList.getJSONObject(i);
+
+                Users user = new Users();
+                user.sync(jsonObjectUser);
+                ContentValues values = new ContentValues();
+
+                values.put(UsersTable.COLUMN_USERNAME, user.getUserName());
+                values.put(UsersTable.COLUMN_PASSWORD, user.getPassword());
+                values.put(UsersTable.COLUMN_FULLNAME, user.getFullname());
+               // values.put(UsersTable.COLUMN_DIST_ID, user.getDist_id());
+                long rowID = db.insert(UsersTable.TABLE_NAME, null, values);
+                if (rowID != -1) insertCount++;
+            }
+
         } catch (Exception e) {
             Log.d(TAG, "syncUser(e): " + e);
             db.close();
@@ -575,72 +770,96 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             db.close();
         }
         return insertCount;
-    }
+    }*/
 
-    public int syncClusters(JSONArray clusterList) {
+    //    Sync LHW
+    public int syncLhw(JSONArray lhwList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TableContracts.ClustersTable.TABLE_NAME, null, null);
+        db.delete(TableLhw.TABLE_NAME, null, null);
         int insertCount = 0;
-        try {
-            for (int i = 0; i < clusterList.length(); i++) {
 
-                JSONObject json = clusterList.getJSONObject(i);
-
-                Clusters cluster = new Clusters();
-                cluster.sync(json);
+            for (int i = 0; i < lhwList.length(); i++) {
+                JSONObject json = lhwList.getJSONObject(i);
+                LHW lhw = new LHW();
+                lhw.sync(json);
                 ContentValues values = new ContentValues();
 
-                values.put(TableContracts.ClustersTable.COLUMN_DISTRICT_NAME, cluster.getDistrictName());
-                values.put(TableContracts.ClustersTable.COLUMN_DISTRICT_CODE, cluster.getDistrictCode());
-                values.put(TableContracts.ClustersTable.COLUMN_CITY_NAME, cluster.getCityName());
-                values.put(TableContracts.ClustersTable.COLUMN_CITY_CODE, cluster.getCityCode());
-                values.put(TableContracts.ClustersTable.COLUMN_CLUSTER_NO, cluster.getClusterNo());
-                long rowID = db.insert(TableContracts.ClustersTable.TABLE_NAME, null, values);
+                values.put(TableLhw.COLUMN_HF_CODE, lhw.getHf_Code());
+                values.put(TableLhw.COLUMN_LHW_CODE, lhw.getLhw_Code());
+                values.put(TableLhw.COLUMN_LHW_NAME, lhw.getLhw_Name());
+
+                long rowID = db.insert(TableLhw.TABLE_NAME, null, values);
                 if (rowID != -1) insertCount++;
             }
+            db.close();
 
-        } catch (Exception e) {
-            Log.d(TAG, "syncClusters(e): " + e);
-            db.close();
-        } finally {
-            db.close();
-        }
+
+
+
         return insertCount;
     }
 
-    public int syncRandom(JSONArray list) {
+    //    Sync Tehsil
+    public int syncTehsil(JSONArray tehsilList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TableContracts.RandomTable.TABLE_NAME, null, null);
+        db.delete(TableTehsil.TABLE_NAME, null, null);
         int insertCount = 0;
-        try {
-            for (int i = 0; i < list.length(); i++) {
 
-                JSONObject json = list.getJSONObject(i);
 
-                RandomHH ran = new RandomHH();
-                ran.sync(json);
+            for (int i = 0; i < tehsilList.length(); i++) {
+                JSONObject json = tehsilList.getJSONObject(i);
+                Tehsil tehsil = new Tehsil();
+                tehsil.sync(json);
                 ContentValues values = new ContentValues();
-                values.put(TableContracts.RandomTable.COLUMN_ID, ran.getID());
-                values.put(TableContracts.RandomTable.COLUMN_SNO, ran.getSno());
-                values.put(TableContracts.RandomTable.COLUMN_CLUSTER_NO, ran.getClusterNo());
-                values.put(TableContracts.RandomTable.COLUMN_HH_NO, ran.getHhno());
-                values.put(TableContracts.RandomTable.COLUMN_HEAD_HH, ran.getHeadhh());
-                long rowID = db.insert(TableContracts.RandomTable.TABLE_NAME, null, values);
+
+                values.put(TableTehsil.COLUMN_DIST_ID, tehsil.getDist_id());
+                values.put(TableTehsil.COLUMN_TEHSIL_NAME, tehsil.getTehsilName());
+                values.put(TableTehsil.COLUMN_TEHSIL_CODE, tehsil.getTehsilCode());
+
+                long rowID = db.insert(TableTehsil.TABLE_NAME, null, values);
                 if (rowID != -1) insertCount++;
             }
+            db.close();
 
-        } catch (Exception e) {
-            Log.d(TAG, "syncRandom(e): " + e);
+
             db.close();
-        } finally {
-            db.close();
-        }
+
         return insertCount;
     }
+
+    //    Sync LHWHF
+    public int syncLhwHF(JSONArray lhwHFList) throws JSONException {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TableHealthFacilities.TABLE_NAME, null, null);
+        int insertCount = 0;
+
+            for (int i = 0; i < lhwHFList.length(); i++) {
+                JSONObject json = lhwHFList.getJSONObject(i);
+                HealthFacilities lhwHF = new HealthFacilities();
+                lhwHF.sync(json);
+                ContentValues values = new ContentValues();
+
+                values.put(TableHealthFacilities.COLUMN_HF_CODE, lhwHF.getHfCode());
+                values.put(TableHealthFacilities.COLUMN_HF_NAME, lhwHF.getHfName());
+                values.put(TableHealthFacilities.COLUMN_DIST_ID, lhwHF.getDist_id());
+
+                long rowID = db.insert(TableHealthFacilities.TABLE_NAME, null, values);
+                if (rowID != -1) insertCount++;
+            }
+            db.close();
+
+
+            db.close();
+
+        return insertCount;
+    }
+
+
+
 
 
     //get UnSyncedTables
-    public JSONArray getUnsyncedForms() {
+    public JSONArray getUnsyncedForms() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = null;
@@ -658,7 +877,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = TableContracts.HHFormsTable.COLUMN_ID + " ASC";
 
         JSONArray allForms = new JSONArray();
-        try {
+
             c = db.query(
                     TableContracts.HHFormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -678,18 +897,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Log.d(TAG, "getUnsyncedForms: getUnsyncedForms " + e.getMessage()
-            );
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
         Log.d(TAG, "getUnsyncedForms: " + allForms.toString().length());
         Log.d(TAG, "getUnsyncedForms: " + allForms);
         return allForms;
@@ -785,18 +995,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //get Distinct Districts
-    public Collection<Clusters> getAllDistricts() {
+    public Collection<Districts> getAllDistricts() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
-        String[] columns = {TableContracts.ClustersTable.COLUMN_DISTRICT_CODE, TableContracts.ClustersTable.COLUMN_DISTRICT_NAME};
+        String[] columns = {TableContracts.TableDistricts.COLUMN_DISTRICT_CODE, TableContracts.TableDistricts.COLUMN_DISTRICT_NAME};
 
-        String orderBy = TableContracts.ClustersTable.COLUMN_DISTRICT_NAME + " ASC";
+        String orderBy = TableContracts.TableDistricts.COLUMN_DISTRICT_NAME + " ASC";
 
-        Collection<Clusters> allDistricts = new ArrayList<>();
-        try {
+        Collection<Districts> allDistricts = new ArrayList<>();
             c = db.query(
                     true,
-                    TableContracts.ClustersTable.TABLE_NAME,  // The table to query
+                    TableContracts.TableDistricts.TABLE_NAME,  // The table to query
                     columns,
                     null,
                     null,
@@ -811,67 +1020,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
                 Log.d(TAG, "getUnsyncedPreg: " + c.getCount());
-                Clusters cluster = new Clusters();
-                cluster.setDistrictCode(c.getString(c.getColumnIndexOrThrow(TableContracts.ClustersTable.COLUMN_DISTRICT_CODE)));
-                cluster.setDistrictName(c.getString(c.getColumnIndexOrThrow(TableContracts.ClustersTable.COLUMN_DISTRICT_NAME)));
+                Districts cluster = new Districts();
+                cluster.setDistrictCode(c.getString(c.getColumnIndexOrThrow(TableContracts.TableDistricts.COLUMN_DISTRICT_CODE)));
+                cluster.setDistrictName(c.getString(c.getColumnIndexOrThrow(TableContracts.TableDistricts.COLUMN_DISTRICT_NAME)));
                 allDistricts.add(cluster);
 
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
+
 
         return allDistricts;
     }
 
-    //get Distinct cities
-    public Collection<Clusters> getCitiesByDistrict(String dist_code) {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = {TableContracts.ClustersTable.COLUMN_CITY_CODE, TableContracts.ClustersTable.COLUMN_CITY_NAME};
-        String selection = TableContracts.ClustersTable.COLUMN_DISTRICT_CODE + "= ?";
-        String[] selectionArgs = {dist_code};
-        String orderBy = TableContracts.ClustersTable.COLUMN_CITY_NAME + " ASC";
-
-        Collection<Clusters> allCities = new ArrayList<>();
-        try {
-            c = db.query(
-                    true,
-                    TableContracts.ClustersTable.TABLE_NAME,  // The table to query
-                    columns,
-                    selection,
-                    selectionArgs,
-                    null,
-                    null,
-                    orderBy,
-                    "5000"
-
-                    // The sort order
-            );
-            while (c.moveToNext()) {
-
-                Log.d(TAG, "getUnsyncedPreg: " + c.getCount());
-                Clusters cluster = new Clusters();
-                cluster.setCityCode(c.getString(c.getColumnIndexOrThrow(TableContracts.ClustersTable.COLUMN_CITY_CODE)));
-                cluster.setCityName(c.getString(c.getColumnIndexOrThrow(TableContracts.ClustersTable.COLUMN_CITY_NAME)));
-                allCities.add(cluster);
-            }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
-                db.close();
-            }
-        }
-
-        return allCities;
-    }
 
     public RandomHH checkHousehold(String cluster_no, String hh_no) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -883,7 +1045,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int cCount;
         RandomHH hh = null;
-        try {
             c = db.query(
                     TableContracts.RandomTable.TABLE_NAME,
                     columns,
@@ -898,14 +1059,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 hh = new RandomHH().hydrate(c);
 
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
 
         return hh;
 
@@ -917,8 +1073,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String[] columns = null;
 
         String whereClause;
-        whereClause = TableContracts.HHFormsTable.COLUMN_CLUSTER + "=? AND " +
-                TableContracts.HHFormsTable.COLUMN_HHID + " =? ";
+        whereClause = TableContracts.HHFormsTable.COLUMN_LHW_CODE + "=? AND " +
+                TableContracts.HHFormsTable.COLUMN_KHANDAN_NO + " =? ";
 
         String[] whereArgs = {cluster_no, hh_no};
 
@@ -928,7 +1084,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = TableContracts.HHFormsTable.COLUMN_ID + " ASC";
 
         HHForm HHForm = null;
-        try {
+
             c = db.query(
                     TableContracts.HHFormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -941,14 +1097,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 HHForm = new HHForm().Hydrate(c);
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
         return HHForm;
     }
 
@@ -959,7 +1110,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = null;
-        String whereClause = TableContracts.HHFormsTable.COLUMN_CLUSTER + " = ? ";
+        String whereClause = TableContracts.HHFormsTable.COLUMN_LHW_CODE + " = ? ";
         String[] whereArgs = new String[]{cluster};
 //        String[] whereArgs = new String[]{"%" + spDateT.substring(0, 8).trim() + "%"};
         String groupBy = null;
@@ -969,7 +1120,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 TableContracts.HHFormsTable.COLUMN_ID + " ASC";
 
         Collection<HHForm> allFC = new ArrayList<>();
-        try {
+
             c = db.query(
                     TableContracts.HHFormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -984,20 +1135,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 fc.setId(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_ID)));
                 fc.setUid(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_UID)));
                 fc.setSysDate(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_SYSDATE)));
-                fc.setCluster(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_CLUSTER)));
-                fc.setHhid(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_HHID)));
+                fc.setLhwCode(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_LHW_CODE)));
+                fc.setKhandandNo(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_KHANDAN_NO)));
                 fc.setiStatus(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_ISTATUS)));
                 fc.setSynced(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
         return allFC;
     }
 
@@ -1016,7 +1162,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = TableContracts.HHFormsTable.COLUMN_ID + " DESC";
 
         Collection<HHForm> allFC = new ArrayList<>();
-        try {
+
             c = db.query(
                     TableContracts.HHFormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -1032,20 +1178,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 fc.setUid(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_UID)));
                 fc.setLhwuid(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_LHW_UID)));
                 fc.setSysDate(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_SYSDATE)));
-                fc.setCluster(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_CLUSTER)));
-                fc.setHhid(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_HHID)));
+                fc.setLhwCode(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_LHW_CODE)));
+                fc.setKhandandNo(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_KHANDAN_NO)));
                 fc.setiStatus(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_ISTATUS)));
                 fc.setSynced(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
         return allFC;
     }
 
@@ -1065,7 +1206,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = TableContracts.HHFormsTable.COLUMN_ID + " DESC";
 
         Collection<HHForm> allFC = new ArrayList<>();
-        try {
             c = db.query(
                     TableContracts.HHFormsTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -1081,20 +1221,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 fc.setUid(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_UID)));
                 fc.setLhwuid(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_LHW_UID)));
                 fc.setSysDate(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_SYSDATE)));
-                fc.setCluster(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_CLUSTER)));
-                fc.setHhid(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_HHID)));
+                fc.setLhwCode(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_LHW_CODE)));
+                fc.setKhandandNo(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_KHANDAN_NO)));
                 fc.setiStatus(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_ISTATUS)));
                 fc.setSynced(c.getString(c.getColumnIndexOrThrow(TableContracts.HHFormsTable.COLUMN_SYNCED)));
                 allFC.add(fc);
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
         return allFC;
     }
 
@@ -1115,7 +1250,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = TableContracts.LHWFormsTable.COLUMN_ID + " ASC";
 
         List<LHWForm> lhws = new ArrayList<>();
-        try {
+
             c = db.query(
                     TableContracts.MWRAListTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -1131,14 +1266,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
         return lhws;
     }
 
@@ -1160,7 +1290,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String orderBy = TableContracts.HHFormsTable.COLUMN_ID + " ASC";
 
         List<HHForm> hhs = new ArrayList<>();
-        try {
+
             c = db.query(
                     TableContracts.MWRAListTable.TABLE_NAME,  // The table to query
                     columns,                   // The columns to return
@@ -1176,14 +1306,391 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
             }
-        } finally {
-            if (c != null) {
-                c.close();
-            }
-            if (db != null) {
+
                 db.close();
-            }
-        }
+
         return hhs;
+    }
+
+    public Collection<Tehsil> getTehsilByDist(String distCode) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = TableTehsil.COLUMN_DIST_ID + " = ? ";
+
+        String[] whereArgs = {distCode};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.TableTehsil.COLUMN_ID + " ASC";
+
+        List<Tehsil> tehsils = new ArrayList<>();
+
+            c = db.query(
+                    TableContracts.TableTehsil.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+
+                tehsils.add(new Tehsil().hydrate(c));
+
+
+            }
+
+                db.close();
+
+        return tehsils;
+    }
+
+    public Collection<HealthFacilities> getHealthFacilityByDist(String distCode) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = TableHealthFacilities.COLUMN_DIST_ID + " = ? ";
+
+        String[] whereArgs = {distCode};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.TableHealthFacilities.COLUMN_ID + " ASC";
+
+        List<HealthFacilities> healthFacilities = new ArrayList<>();
+
+            c = db.query(
+                    TableContracts.TableHealthFacilities.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+
+                healthFacilities.add(new HealthFacilities().hydrate(c));
+
+
+            }
+
+                db.close();
+
+        return healthFacilities;
+    }
+
+    public Collection<LHW> getLHWByHF(String hfCode) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = TableLhw.COLUMN_HF_CODE + " = ? ";
+
+        String[] whereArgs = {hfCode};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.TableLhw.COLUMN_ID + " ASC";
+
+        List<LHW> lhws = new ArrayList<>();
+
+            c = db.query(
+                    TableContracts.TableLhw.TABLE_NAME,  // The table to query
+                    columns,                   // The columns to return
+                    whereClause,               // The columns for the WHERE clause
+                    whereArgs,                 // The values for the WHERE clause
+                    groupBy,                   // don't group the rows
+                    having,                    // don't filter by row groups
+                    orderBy                    // The sort order
+            );
+            while (c.moveToNext()) {
+
+                lhws.add(new LHW().hydrate(c));
+
+
+            }
+
+                db.close();
+
+        return lhws;
+    }
+
+    public LHWForm getLHWFormByLHWCode(String lhwCode) throws JSONException {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = LHWFormsTable.COLUMN_A104c + "=? ";
+
+        String[] whereArgs = {lhwCode};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.LHWFormsTable.COLUMN_ID + " ASC";
+
+        LHWForm LhwForm = null;
+
+        c = db.query(
+                TableContracts.LHWFormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            LhwForm = new LHWForm().Hydrate(c);
+        }
+
+        db.close();
+
+        return LhwForm;
+    }
+
+    public LHWHouseholds getLHWHHBySNo(String lhwCode, String lhwHHSno) throws JSONException {
+
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = LHWHHTable.COLUMN_LHW_CODE + "=? AND " +
+                LHWHHTable.COLUMN_H101 + "=?";
+
+        String[] whereArgs = {lhwCode, lhwHHSno};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.LHWHHTable.COLUMN_ID + " ASC";
+
+        LHWHouseholds Lhwhousehold = null;
+
+        c = db.query(
+                TableContracts.LHWHHTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            Lhwhousehold = new LHWHouseholds().Hydrate(c);
+        }
+
+        db.close();
+
+        return Lhwhousehold;
+    }
+
+    public Collection<LHWForm> getRegisteredLhws()  {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = {LHWFormsTable.COLUMN_A104c,LHWFormsTable.COLUMN_A104n} ;
+
+        String whereClause;
+        whereClause = null;
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.LHWFormsTable.COLUMN_ID + " ASC";
+
+        List<LHWForm> lhws = new ArrayList<>();
+
+        c = db.query(
+                TableContracts.LHWFormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+
+            LHWForm lhw = new LHWForm();
+            lhw.setA104c(c.getString(c.getColumnIndexOrThrow(TableContracts.LHWFormsTable.COLUMN_A104c)));
+            lhw.setA104n(c.getString(c.getColumnIndexOrThrow(TableContracts.LHWFormsTable.COLUMN_A104n)));
+
+            lhws.add(lhw);
+
+        }
+
+        db.close();
+
+        return lhws;    }
+
+    public List<LHWHouseholds> getKhandanNoByLHW(String lhwCode) throws JSONException {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = LHWHHTable.COLUMN_LHW_CODE + "=? ";
+
+        String[] whereArgs = {lhwCode};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.LHWHHTable.COLUMN_ID + " ASC";
+
+        List<LHWHouseholds>  lhwhhs = new ArrayList<>();
+
+        c = db.query(
+                TableContracts.LHWHHTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+
+            lhwhhs.add(new LHWHouseholds().Hydrate(c));
+        }
+
+        db.close();
+
+        return lhwhhs;
+    }
+
+    public HHForm getHHFormByLHWCode(String lhwCode, String kNo) throws JSONException {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = HHFormsTable.COLUMN_LHW_CODE + "=? AND " +
+                HHFormsTable.COLUMN_KHANDAN_NO + "=?";
+
+        String[] whereArgs = {lhwCode, kNo};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.HHFormsTable.COLUMN_ID + " ASC";
+
+        HHForm hhForm = null;
+
+        c = db.query(
+                TableContracts.HHFormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            hhForm = new HHForm().Hydrate(c);
+        }
+
+        db.close();
+
+        return hhForm;
+    }
+
+
+        public List<FamilyMembers> getMemberBYUID(String uid) throws JSONException {
+            SQLiteDatabase db = this.getReadableDatabase();
+            Cursor c = null;
+            String[] columns = null;
+
+            String whereClause;
+            whereClause = FamilyMembersTable.COLUMN_UUID + "=?";
+
+            String[] whereArgs = {uid};
+
+            String groupBy = null;
+            String having = null;
+
+            String orderBy = FamilyMembersTable.COLUMN_ID + " ASC";
+
+            ArrayList<FamilyMembers> membersByUID = new ArrayList<>();
+            try {
+                c = db.query(
+                        FamilyMembersTable.TABLE_NAME,  // The table to query
+                        columns,                   // The columns to return
+                        whereClause,               // The columns for the WHERE clause
+                        whereArgs,                 // The values for the WHERE clause
+                        groupBy,                   // don't group the rows
+                        having,                    // don't filter by row groups
+                        orderBy                    // The sort order
+                );
+                while (c.moveToNext()) {
+                    FamilyMembers mwra = new FamilyMembers().Hydrate(c);
+
+                    membersByUID.add(mwra);
+                }
+            } finally {
+                if (c != null) {
+                    c.close();
+                }
+                if (db != null) {
+                    db.close();
+                }
+            }
+            return membersByUID;
+        }
+
+    public MWRA getMwraByUUid() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = MWRAListTable.COLUMN_UUID + "=? ";
+
+        String[] whereArgs = {MainApp.HHForm.getUid()};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.MWRAListTable.COLUMN_ID + " ASC";
+
+        MWRA mwra = null;
+
+        c = db.query(
+                TableContracts.MWRAListTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            mwra = new MWRA().Hydrate(c);
+        }
+
+        db.close();
+
+        return mwra;
     }
 }

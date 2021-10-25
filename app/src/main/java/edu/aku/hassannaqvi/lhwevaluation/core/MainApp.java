@@ -17,6 +17,7 @@ import java.io.File;
 import java.util.List;
 
 import edu.aku.hassannaqvi.lhwevaluation.BuildConfig;
+import edu.aku.hassannaqvi.lhwevaluation.models.FamilyMembers;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWHouseholds;
@@ -29,14 +30,14 @@ public class MainApp extends Application {
     public static final String PROJECT_NAME = "lhwevaluation";
     public static final String DIST_ID = null;
     public static final String SYNC_LOGIN = "sync_login";
-    //public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
-    public static final String _IP = "http://f38158/prosystem";// .TEST server
+    public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
+    // public static final String _IP = "http://f38158/prosystem";// .TEST server
     //public static final String _IP = "http://43.245.131.159:8080";// .TEST server
-    public static final String _HOST_URL = MainApp._IP + "/anemia_study_tj/api/";// .TEST server;
+    public static final String _HOST_URL = MainApp._IP + "/smk_fi/api/";// .TEST server;
     public static final String _SERVER_URL = "sync.php";
     public static final String _SERVER_GET_URL = "getData.php";
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
-    public static final String _UPDATE_URL = MainApp._IP + "/anemia_study_tj/app/";
+    public static final String _UPDATE_URL = MainApp._IP + "/smk_fi/app/smk_ce";
 
     //COUNTRIES
     public static int PAKISTAN = 1;
@@ -49,6 +50,13 @@ public class MainApp extends Application {
     public static List<LHWForm> lhwList;
     public static LHWForm LHWForm;
     public static MWRA mwra;
+    public static LHWHouseholds LHWHouseholds;
+    public static FamilyMembers familyMembers;
+    public static List<FamilyMembers> familyList;
+    //public static List<FamilyMembers> selectedMembersList;
+    public static List<FamilyMembers> mwraList;
+    public static List<FamilyMembers> adolList;
+    public static List<FamilyMembers> maleList;
 
     public static String DeviceURL = "devices.php";
     public static AppInfo appInfo;
@@ -66,18 +74,24 @@ public class MainApp extends Application {
     public static int idType = 0;
 
     public static int mwraCount = 0;
+    public static int adolCount = 0;
+    public static int maleCount = 0;
     public static int HHCount = 0;
     public static int lhwCount = 0;
+    public static int lhwHHCount = 0;
+    public static int memberCount = 0;
 
 
     public static int selectedLHW = 0;
     public static int selectedHH = 0;
+    public static String selectedMember = "";
 
     public static int mwraCountComplete = 0;
     public static int lhwCountComplete = 0;
+    public static int memberCountComplete = 0;
 
     public static boolean lhwComplete;
-    public static LHWHouseholds LHWHouseholds;
+    public static boolean memberComplete;
 
 
     public static void hideSystemUI(View decorView) {

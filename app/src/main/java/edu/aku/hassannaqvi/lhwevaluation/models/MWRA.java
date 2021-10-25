@@ -3738,27 +3738,27 @@ public class MWRA extends BaseObservable {
 
 
     public MWRA Hydrate(Cursor cursor) throws JSONException {
-        this.id = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_ID));
-        this.uid = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_UID));
-        this.uuid = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_UUID));
-        this.cluster = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_CLUSTER));
-        this.hhid = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_HHID));
-        this.userName = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_USERNAME));
-        this.sysDate = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_SYSDATE));
-        this.indexed = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_INDEXED));
-        this.deviceId = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_DEVICEID));
-        this.deviceTag = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_DEVICETAGID));
-        this.appver = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_APPVERSION));
-        this.iStatus = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_ISTATUS));
-        this.synced = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_SYNCED));
-        this.syncDate = cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_SYNCED_DATE));
+        this.id = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_ID));
+        this.uid = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_UID));
+        this.uuid = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_UUID));
+        this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_CLUSTER));
+        this.hhid = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_HHID));
+        this.userName = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_USERNAME));
+        this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SYSDATE));
+        this.indexed = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_INDEXED));
+        this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_DEVICEID));
+        this.deviceTag = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_DEVICETAGID));
+        this.appver = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_APPVERSION));
+        this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_ISTATUS));
+        this.synced = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SYNCED));
+        this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SYNCED_DATE));
 
-        sW1Hydrate(cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_SW1)));
-        sW2Hydrate(cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_SW2)));
-        sW3Hydrate(cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_SW3)));
-        sW41Hydrate(cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_SW41)));
-        sW42Hydrate(cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_SW42)));
-        sW43Hydrate(cursor.getString(cursor.getColumnIndex(MWRAListTable.COLUMN_SW43)));
+        sW1Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SW1)));
+        sW2Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SW2)));
+        sW3Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SW3)));
+        sW41Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SW41)));
+        sW42Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SW42)));
+        sW43Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SW43)));
 
         return this;
     }

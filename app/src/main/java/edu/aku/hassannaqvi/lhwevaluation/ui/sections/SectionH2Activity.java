@@ -4,7 +4,6 @@ import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.HHForm;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -21,6 +20,7 @@ import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionH2Binding;
+import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FamilyMambersListActivity;
 
 
 public class SectionH2Activity extends AppCompatActivity {
@@ -36,33 +36,64 @@ public class SectionH2Activity extends AppCompatActivity {
         bi.setCallback(this);
         bi.setHHForm(HHForm);
 
+        // Initialize Database
+        db = MainApp.appInfo.getDbHelper();
+
     }
 
 
-    private boolean updateDB() {
-        db = MainApp.appInfo.getDbHelper();
-        long updcount = 0;
+    private boolean insertNewRecord() {
+        if (!MainApp.HHForm.getUid().equals("")) return true;
+        long rowId = 0;
         try {
-            updcount = db.updatesFormColumn(TableContracts.HHFormsTable.COLUMN_SH2, HHForm.sH2toString());
+            rowId = db.addHHForm(MainApp.HHForm);
         } catch (JSONException e) {
             e.printStackTrace();
-            Log.d(TAG, R.string.upd_db_form + e.getMessage());
-            Toast.makeText(this, R.string.upd_db_form + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, R.string.db_excp_error, Toast.LENGTH_SHORT).show();
+            return false;
         }
-        if (updcount > 0) return true;
-        else {
+        MainApp.HHForm.setId(String.valueOf(rowId));
+        if (rowId > 0) {
+            MainApp.HHForm.setUid(MainApp.HHForm.getDeviceId() + MainApp.HHForm.getId());
+            db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_UID, MainApp.HHForm.getUid());
+            return true;
+        } else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
             return false;
         }
     }
 
+    private boolean updateDB() {
+        int updcount = 0;
+        try {
+            updcount = db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_SH2, MainApp.HHForm.sH2toString());
+        } catch (JSONException e) {
+            Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        if (updcount == 1) {
+            return true;
+        } else {
+            Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
 
     public void btnContinue(View view) {
         if (!formValidation()) return;
+        if (!insertNewRecord()) return;
+        // saveDraft();
         if (updateDB()) {
+            Intent i;
+            //      if (bi.h111a.isChecked()) {
+            i = new Intent(this, FamilyMambersListActivity.class).putExtra("complete", true);
+           /* } else {
+                i = new Intent(this, EndingActivity.class).putExtra("complete", false);
+            }*/
             finish();
-            startActivity(new Intent(this, MainActivity.class));
-        } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
+            startActivity(i);
+        } else {
+            Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -70,6 +101,7 @@ public class SectionH2Activity extends AppCompatActivity {
         finish();
         startActivity(new Intent(this, MainActivity.class));
     }
+
 
 
     private boolean formValidation() {

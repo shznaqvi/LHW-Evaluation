@@ -3,7 +3,6 @@ package edu.aku.hassannaqvi.lhwevaluation.models
 import android.database.Cursor
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.VersionTable
 import org.apache.commons.lang3.StringUtils
-import org.json.JSONException
 import org.json.JSONObject
 
 class VersionApp {
@@ -11,7 +10,6 @@ class VersionApp {
     var versionname: String = StringUtils.EMPTY
     var pathname: String = StringUtils.EMPTY
 
-    @Throws(JSONException::class)
     fun sync(jsonObject: JSONObject): VersionApp {
         versioncode = jsonObject.getString(VersionTable.COLUMN_VERSION_CODE)
         pathname = jsonObject.getString(VersionTable.COLUMN_PATH_NAME)

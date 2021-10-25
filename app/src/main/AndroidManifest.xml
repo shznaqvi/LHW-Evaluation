@@ -176,6 +176,13 @@
             android:label="Forms Report"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme" />
+
+        <activity
+            android:name=".ui.lists.FamilyMambersListActivity"
+            android:exported="false"
+            android:label="Family Members List"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
     </application>
 
 </manifest>
