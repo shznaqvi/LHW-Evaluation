@@ -54,7 +54,8 @@
                 <!-- w413  RadioGroup   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw413"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{mwra.w405h.equals(`8`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -326,7 +327,8 @@
                 <!-- w414  RadioGroup   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw414"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{mwra.w405i.equals(`9`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -678,7 +680,8 @@
                 <!-- w415  RadioGroup   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw415"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{mwra.w405j.equals(`10`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -882,7 +885,8 @@
                 <!-- w421  RadioGroup   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw421"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{mwra.w405k.equals(`11`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1188,7 +1192,8 @@
                 <!-- w416  RadioGroup   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw416"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{mwra.w405l.equals(`12`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1432,7 +1437,8 @@
                 <!-- w417  RadioGroup   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw417"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{mwra.w405m.equals(`13`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1716,7 +1722,8 @@
                 <!-- w418  RadioGroup   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw418"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{mwra.w405n.equals(`14`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
