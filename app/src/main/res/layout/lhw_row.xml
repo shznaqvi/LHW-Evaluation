@@ -12,9 +12,7 @@
         style="@style/cardView"
         android:layout_margin="2dp"
         android:background="?android:attr/selectableItemBackground"
-        android:paddingBottom="0dp"
-
-        >
+        android:paddingBottom="0dp">
 
         <RelativeLayout
             android:layout_width="match_parent"

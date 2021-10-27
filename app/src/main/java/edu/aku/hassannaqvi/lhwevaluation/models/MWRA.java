@@ -329,6 +329,14 @@ public class MWRA extends BaseObservable {
     private String w419d = StringUtils.EMPTY;
     private String w420 = StringUtils.EMPTY;
     private String w42096x = StringUtils.EMPTY;
+    private String w421a = StringUtils.EMPTY;
+    private String w421b = StringUtils.EMPTY;
+    private String w421c = StringUtils.EMPTY;
+    private String w421d = StringUtils.EMPTY;
+    private String w421e = StringUtils.EMPTY;
+    private String w421f = StringUtils.EMPTY;
+    private String w421g = StringUtils.EMPTY;
+    private String w421h = StringUtils.EMPTY;
     private boolean expanded;
 
 
@@ -1287,6 +1295,7 @@ public class MWRA extends BaseObservable {
 
     public void setW207g(String w207g) {
         if (this.w207g.equals(w207g)) return;
+        this.w207g = w207g;
         notifyPropertyChanged(BR.w207g);
     }
 
@@ -2485,6 +2494,11 @@ public class MWRA extends BaseObservable {
     public void setW405a(String w405a) {
         if (this.w405a.equals(w405a)) return;
         this.w405a = w405a;
+        setW406a(w405a.equals("1") ? this.w406a : "");
+        setW406b(w405a.equals("1") ? this.w406b : "");
+        setW406c(w405a.equals("1") ? this.w406c : "");
+        setW406d(w405a.equals("1") ? this.w406d : "");
+        setW406e(w405a.equals("1") ? this.w406e : "");
         notifyPropertyChanged(BR.w405a);
     }
 
@@ -2496,6 +2510,15 @@ public class MWRA extends BaseObservable {
     public void setW405b(String w405b) {
         if (this.w405b.equals(w405b)) return;
         this.w405b = w405b;
+        setW407a(w405b.equals("2") ? this.w407a : "");
+        setW407b(w405b.equals("2") ? this.w407b : "");
+        setW407c(w405b.equals("2") ? this.w407c : "");
+        setW407d(w405b.equals("2") ? this.w407d : "");
+        setW407e(w405b.equals("2") ? this.w407e : "");
+        setW407f(w405b.equals("2") ? this.w407f : "");
+        setW407g(w405b.equals("2") ? this.w407g : "");
+        setW407h(w405b.equals("2") ? this.w407h : "");
+        setW407i(w405b.equals("2") ? this.w407i : "");
         notifyPropertyChanged(BR.w405b);
     }
 
@@ -2507,6 +2530,10 @@ public class MWRA extends BaseObservable {
     public void setW405c(String w405c) {
         if (this.w405c.equals(w405c)) return;
         this.w405c = w405c;
+        setW408a(w405c.equals("3") ? this.w408a : "");
+        setW408b(w405c.equals("3") ? this.w408b : "");
+        setW408c(w405c.equals("3") ? this.w408c : "");
+        setW408d(w405c.equals("3") ? this.w408d : "");
         notifyPropertyChanged(BR.w405c);
     }
 
@@ -2518,6 +2545,16 @@ public class MWRA extends BaseObservable {
     public void setW405d(String w405d) {
         if (this.w405d.equals(w405d)) return;
         this.w405d = w405d;
+        setW409a(w405d.equals("4") ? this.w409a : "");
+        setW409b(w405d.equals("4") ? this.w409b : "");
+        setW409c(w405d.equals("4") ? this.w409c : "");
+        setW409d(w405d.equals("4") ? this.w409d : "");
+        setW409e(w405d.equals("4") ? this.w409e : "");
+        setW409f(w405d.equals("4") ? this.w409f : "");
+        setW409g(w405d.equals("4") ? this.w409g : "");
+        setW409h(w405d.equals("4") ? this.w409h : "");
+        setW409i(w405d.equals("4") ? this.w409i : "");
+        setW409j(w405d.equals("4") ? this.w409j : "");
         notifyPropertyChanged(BR.w405d);
     }
 
@@ -2529,6 +2566,18 @@ public class MWRA extends BaseObservable {
     public void setW405e(String w405e) {
         if (this.w405e.equals(w405e)) return;
         this.w405e = w405e;
+        setW410a(w405e.equals("5") ? this.w410a : "");
+        setW410b(w405e.equals("5") ? this.w410b : "");
+        setW410c(w405e.equals("5") ? this.w410c : "");
+        setW410d(w405e.equals("5") ? this.w410d : "");
+        setW410e(w405e.equals("5") ? this.w410e : "");
+        setW410f(w405e.equals("5") ? this.w410f : "");
+        setW410g(w405e.equals("5") ? this.w410g : "");
+        setW410h(w405e.equals("5") ? this.w410h : "");
+        setW410i(w405e.equals("5") ? this.w410i : "");
+        setW410j(w405e.equals("5") ? this.w410j : "");
+        setW410k(w405e.equals("5") ? this.w410k : "");
+        setW410l(w405e.equals("5") ? this.w410l : "");
         notifyPropertyChanged(BR.w405e);
     }
 
@@ -2540,6 +2589,15 @@ public class MWRA extends BaseObservable {
     public void setW405f(String w405f) {
         if (this.w405f.equals(w405f)) return;
         this.w405f = w405f;
+        setW411a(w405f.equals("6") ? this.w411a : "");
+        setW411b(w405f.equals("6") ? this.w411b : "");
+        setW411c(w405f.equals("6") ? this.w411c : "");
+        setW411d(w405f.equals("6") ? this.w411d : "");
+        setW411e(w405f.equals("6") ? this.w411e : "");
+        setW411f(w405f.equals("6") ? this.w411f : "");
+        setW411g(w405f.equals("6") ? this.w411g : "");
+        setW411h(w405f.equals("6") ? this.w411h : "");
+        setW411i(w405f.equals("6") ? this.w411i : "");
         notifyPropertyChanged(BR.w405f);
     }
 
@@ -2551,6 +2609,16 @@ public class MWRA extends BaseObservable {
     public void setW405g(String w405g) {
         if (this.w405g.equals(w405g)) return;
         this.w405g = w405g;
+        setW412a(w405g.equals("7") ? this.w412a : "");
+        setW412b(w405g.equals("7") ? this.w412b : "");
+        setW412c(w405g.equals("7") ? this.w412c : "");
+        setW412d(w405g.equals("7") ? this.w412d : "");
+        setW412e(w405g.equals("7") ? this.w412e : "");
+        setW412f(w405g.equals("7") ? this.w412f : "");
+        setW412g(w405g.equals("7") ? this.w412g : "");
+        setW412h(w405g.equals("7") ? this.w412h : "");
+        setW412i(w405g.equals("7") ? this.w412i : "");
+        setW412j(w405g.equals("7") ? this.w412j : "");
         notifyPropertyChanged(BR.w405g);
     }
 
@@ -2562,6 +2630,13 @@ public class MWRA extends BaseObservable {
     public void setW405h(String w405h) {
         if (this.w405h.equals(w405h)) return;
         this.w405h = w405h;
+        setW413a(w405h.equals("8") ? this.w413a : "");
+        setW413b(w405h.equals("8") ? this.w413b : "");
+        setW413c(w405h.equals("8") ? this.w413c : "");
+        setW413d(w405h.equals("8") ? this.w413d : "");
+        setW413e(w405h.equals("8") ? this.w413e : "");
+        setW413f(w405h.equals("8") ? this.w413f : "");
+        setW413g(w405h.equals("8") ? this.w413g : "");
         notifyPropertyChanged(BR.w405h);
     }
 
@@ -2573,6 +2648,15 @@ public class MWRA extends BaseObservable {
     public void setW405i(String w405i) {
         if (this.w405i.equals(w405i)) return;
         this.w405i = w405i;
+        setW414a(w405i.equals("9") ? this.w414a : "");
+        setW414b(w405i.equals("9") ? this.w414b : "");
+        setW414c(w405i.equals("9") ? this.w414c : "");
+        setW414d(w405i.equals("9") ? this.w414d : "");
+        setW414e(w405i.equals("9") ? this.w414e : "");
+        setW414f(w405i.equals("9") ? this.w414f : "");
+        setW414g(w405i.equals("9") ? this.w414g : "");
+        setW414h(w405i.equals("9") ? this.w414h : "");
+        setW414i(w405i.equals("9") ? this.w414i : "");
         notifyPropertyChanged(BR.w405i);
     }
 
@@ -2584,6 +2668,11 @@ public class MWRA extends BaseObservable {
     public void setW405j(String w405j) {
         if (this.w405j.equals(w405j)) return;
         this.w405j = w405j;
+        setW415a(w405j.equals("10") ? this.w415a : "");
+        setW415b(w405j.equals("10") ? this.w415b : "");
+        setW415c(w405j.equals("10") ? this.w415c : "");
+        setW415d(w405j.equals("10") ? this.w415d : "");
+        setW415e(w405j.equals("10") ? this.w415e : "");
         notifyPropertyChanged(BR.w405j);
     }
 
@@ -2595,6 +2684,14 @@ public class MWRA extends BaseObservable {
     public void setW405k(String w405k) {
         if (this.w405k.equals(w405k)) return;
         this.w405k = w405k;
+        setW421a(w405k.equals("11") ? this.w421a : "");
+        setW421b(w405k.equals("11") ? this.w421b : "");
+        setW421c(w405k.equals("11") ? this.w421c : "");
+        setW421d(w405k.equals("11") ? this.w421d : "");
+        setW421e(w405k.equals("11") ? this.w421e : "");
+        setW421f(w405k.equals("11") ? this.w421f : "");
+        setW421g(w405k.equals("11") ? this.w421g : "");
+        setW421h(w405k.equals("11") ? this.w421h : "");
         notifyPropertyChanged(BR.w405k);
     }
 
@@ -2606,6 +2703,12 @@ public class MWRA extends BaseObservable {
     public void setW405l(String w405l) {
         if (this.w405l.equals(w405l)) return;
         this.w405l = w405l;
+        setW416a(w405l.equals("12") ? this.w416a : "");
+        setW416b(w405l.equals("12") ? this.w416b : "");
+        setW416c(w405l.equals("12") ? this.w416c : "");
+        setW416d(w405l.equals("12") ? this.w416d : "");
+        setW416e(w405l.equals("12") ? this.w416e : "");
+        setW416f(w405l.equals("12") ? this.w416f : "");
         notifyPropertyChanged(BR.w405l);
     }
 
@@ -2617,6 +2720,13 @@ public class MWRA extends BaseObservable {
     public void setW405m(String w405m) {
         if (this.w405m.equals(w405m)) return;
         this.w405m = w405m;
+        setW417a(w405m.equals("13") ? this.w417a : "");
+        setW417b(w405m.equals("13") ? this.w417b : "");
+        setW417c(w405m.equals("13") ? this.w417c : "");
+        setW417d(w405m.equals("13") ? this.w417d : "");
+        setW417e(w405m.equals("13") ? this.w417e : "");
+        setW417f(w405m.equals("13") ? this.w417f : "");
+        setW417g(w405m.equals("13") ? this.w417g : "");
         notifyPropertyChanged(BR.w405m);
     }
 
@@ -2628,6 +2738,16 @@ public class MWRA extends BaseObservable {
     public void setW405n(String w405n) {
         if (this.w405n.equals(w405n)) return;
         this.w405n = w405n;
+        setW418a(w405n.equals("14") ? this.w418a : "");
+        setW418b(w405n.equals("14") ? this.w418b : "");
+        setW418c(w405n.equals("14") ? this.w418c : "");
+        setW418d(w405n.equals("14") ? this.w418d : "");
+        setW418e(w405n.equals("14") ? this.w418e : "");
+        setW418f(w405n.equals("14") ? this.w418f : "");
+        setW418g(w405n.equals("14") ? this.w418g : "");
+        setW418h(w405n.equals("14") ? this.w418h : "");
+        setW418i(w405n.equals("14") ? this.w418i : "");
+        setW418j(w405n.equals("14") ? this.w418j : "");
         notifyPropertyChanged(BR.w405n);
     }
 
@@ -3736,6 +3856,86 @@ public class MWRA extends BaseObservable {
         notifyPropertyChanged(BR.w42096x);
     }
 
+    @Bindable
+    public String getW421a() {
+        return w421a;
+    }
+
+    public void setW421a(String w421a) {
+        this.w421a = w421a;
+        notifyPropertyChanged(BR.w421a);
+    }
+
+    @Bindable
+    public String getW421b() {
+        return w421b;
+    }
+
+    public void setW421b(String w421b) {
+        this.w421b = w421b;
+        notifyPropertyChanged(BR.w421b);
+    }
+
+    @Bindable
+    public String getW421c() {
+        return w421c;
+    }
+
+    public void setW421c(String w421c) {
+        this.w421c = w421c;
+        notifyPropertyChanged(BR.w421c);
+    }
+
+    @Bindable
+    public String getW421d() {
+        return w421d;
+    }
+
+    public void setW421d(String w421d) {
+        this.w421d = w421d;
+        notifyPropertyChanged(BR.w421d);
+    }
+
+    @Bindable
+    public String getW421e() {
+        return w421e;
+    }
+
+    public void setW421e(String w421e) {
+        this.w421e = w421e;
+        notifyPropertyChanged(BR.w421e);
+    }
+
+    @Bindable
+    public String getW421f() {
+        return w421f;
+    }
+
+    public void setW421f(String w421f) {
+        this.w421f = w421f;
+        notifyPropertyChanged(BR.w421f);
+    }
+
+    @Bindable
+    public String getW421g() {
+        return w421g;
+    }
+
+    public void setW421g(String w421g) {
+        this.w421g = w421g;
+        notifyPropertyChanged(BR.w421g);
+    }
+
+    @Bindable
+    public String getW421h() {
+        return w421h;
+    }
+
+    public void setW421h(String w421h) {
+        this.w421h = w421h;
+        notifyPropertyChanged(BR.w421h);
+    }
+
 
     public MWRA Hydrate(Cursor cursor) throws JSONException {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_ID));
@@ -4083,6 +4283,14 @@ public class MWRA extends BaseObservable {
             this.w419d = json.getString("w419d");
             this.w420 = json.getString("w420");
             this.w42096x = json.getString("w42096x");
+            this.w421a = json.getString("w421a");
+            this.w421b = json.getString("w421b");
+            this.w421c = json.getString("w421c");
+            this.w421d = json.getString("w421d");
+            this.w421e = json.getString("w421e");
+            this.w421f = json.getString("w421f");
+            this.w421g = json.getString("w421g");
+            this.w421h = json.getString("w421h");
         }
     }
 
@@ -4394,7 +4602,15 @@ public class MWRA extends BaseObservable {
                 .put("w419c", w419c)
                 .put("w419d", w419d)
                 .put("w420", w420)
-                .put("w42096x", w42096x);
+                .put("w42096x", w42096x)
+                .put("w421a", w421a)
+                .put("w421b", w421b)
+                .put("w421c", w421c)
+                .put("w421d", w421d)
+                .put("w421e", w421e)
+                .put("w421f", w421f)
+                .put("w421g", w421g)
+                .put("w421h", w421h);
         return json.toString();
     }
 
