@@ -47,13 +47,9 @@ import java.util.concurrent.TimeUnit;
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.adapters.SyncListAdapter;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
-import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.DistrictTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.HHFormsTable;
-import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LhwHfTable;
-import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LhwTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableDistricts;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableLhw;
-import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TehsilTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
@@ -362,7 +358,7 @@ public class SyncActivity extends AppCompatActivity {
                                         break;*/
 
                             }
-                            if (!exception) {
+                            if (exception) {
                                 downloadTables.get(position).setmessage("Received: " + jsonArray.length() + ", Saved: " + insertCount);
                                 downloadTables.get(position).setstatus(insertCount == 0 ? "Unsuccessful" : "Successful");
                                 downloadTables.get(position).setstatusID(insertCount == 0 ? 1 : 3);

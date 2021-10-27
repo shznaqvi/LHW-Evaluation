@@ -393,8 +393,8 @@
 
                 </androidx.cardview.widget.CardView>
 
-
-                <!-- lhwphoto  Input   -->
+<!--
+                &lt;!&ndash; lhwphoto  Input   &ndash;&gt;
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVlhwphoto"
                     style="@style/cardView">
@@ -433,7 +433,7 @@
 
                     </LinearLayout>
 
-                </androidx.cardview.widget.CardView>
+                </androidx.cardview.widget.CardView>-->
 
 
                 <!--EndButton LinearLayout-->

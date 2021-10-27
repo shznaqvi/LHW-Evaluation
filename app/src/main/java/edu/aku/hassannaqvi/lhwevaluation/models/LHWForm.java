@@ -57,6 +57,7 @@ public class LHWForm extends BaseObservable implements Observable {
     private String a10796x = StringUtils.EMPTY;
     private String a108 = StringUtils.EMPTY;
     private String a109 = StringUtils.EMPTY;
+    private String lhwphoto = StringUtils.EMPTY;
     private String b101 = StringUtils.EMPTY;
     private String b102 = StringUtils.EMPTY;
     private String b103 = StringUtils.EMPTY;
@@ -444,6 +445,15 @@ public class LHWForm extends BaseObservable implements Observable {
     public void setA109(String a109) {
         this.a109 = a109;
         notifyPropertyChanged(BR.a109);
+    }
+  @Bindable
+    public String getLhwphoto() {
+        return lhwphoto;
+    }
+
+    public void setLhwphoto(String lhwphoto) {
+        this.lhwphoto = lhwphoto;
+        notifyPropertyChanged(BR.lhwphoto);
     }
 
     @Bindable
@@ -1682,6 +1692,7 @@ public class LHWForm extends BaseObservable implements Observable {
             this.a10796x = json.getString("a10796x");
             this.a108 = json.getString("a108");
             this.a109 = json.getString("a109");
+            this.lhwphoto = json.getString("lhwphoto");
         }
     }
 
@@ -1838,7 +1849,8 @@ public class LHWForm extends BaseObservable implements Observable {
                 .put("a107", a107)
                 .put("a10796x", a10796x)
                 .put("a108", a108)
-                .put("a109", a109);
+                .put("a109", a109)
+                .put("lhwphoto", lhwphoto);
         return json.toString();
     }
 

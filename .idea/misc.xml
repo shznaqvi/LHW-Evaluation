@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable-v24/grad_lable.xml" value="0.56625" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable-v24/ic_camera.xml" value="0.33671875" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.34140625" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/camera.xml" value="0.34140625" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/camera_checked.xml" value="0.34140625" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/new_form.xml" value="0.34140625" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/search.xml" value="0.5875" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/sub_labels_separator.xml" value="0.34140625" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_camera.xml" value="0.27265625" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_ending.xml" value="0.21145833333333333" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_family_list.xml" value="0.5299145299145299" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_household.xml" value="0.56328125" />
@@ -46,8 +48,10 @@
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w3.xml" value="0.50875" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w41.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w42.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w43.xml" value="0.1667823270876706" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/famlily_member_row.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/fragment_blank.xml" value="0.3614583333333333" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/ic_camera.xml" value="0.3125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/lhw_row.xml" value="0.37552083333333336" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/pendingform_layout.xml" value="0.56328125" />
         <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_lhw_identification.xml" value="0.505" />

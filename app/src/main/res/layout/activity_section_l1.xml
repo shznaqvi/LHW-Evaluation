@@ -375,6 +375,76 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <!-- lhwphoto  Input   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVlhwphoto"
+                    style="@style/cardView">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_lhwphoto" />
+
+                            <TextView
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:text="@string/lhwphoto" />
+
+                        </LinearLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal">
+
+
+                            <TextView
+                                android:id="@+id/lhwphoto"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/white"
+                                android:enabled="false"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="14sp" />
+                            <!--android:onClick="@{(v) -> callback.takePhoto()}"-->
+                            <ImageButton
+                                android:id="@+id/Photo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerInParent="true"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginEnd="12dp"
+                                android:background="@color/grayLight"
+                                android:fontFamily="@font/roboto"
+                                android:minWidth="56dp"
+                                android:minHeight="56dp"
+                                android:onClick="TakePhoto"
+                                android:src="@drawable/ic_camera"
+                                android:textColor="@color/white" />
+                        </RelativeLayout>
+                    <!--    <EditText
+                            android:id="@+id/lhwphoto"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/lhwphoto"
+                            android:text="@={lhwForm.lhwphoto}" />
+-->
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
 
                 <!--EndButton LinearLayout-->
                 <LinearLayout
