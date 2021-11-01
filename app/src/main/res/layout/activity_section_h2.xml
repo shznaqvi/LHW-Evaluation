@@ -262,7 +262,7 @@
                                 android:hint="###########"
                                 android:inputType="number"
                                 android:maxLength="11"
-                                android:enabled="@{h205a.checked}"
+                                android:enabled="@{h205b.checked}"
                                 android:text="@={HHForm.h204b}"
                                 app:maxValue="99999999999"
                                 app:minValue="0"
@@ -290,7 +290,7 @@
                                 android:layout_weight="5"
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                                 android:hint="@string/h204c"
-                                android:enabled="@{h205a.checked}"
+                                android:enabled="@{h205b.checked}"
                                 android:text="@={HHForm.h204c}" />
 
                         </LinearLayout>
@@ -315,7 +315,7 @@
                                 android:layout_weight="5"
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                                 android:hint="@string/h204d"
-                                android:enabled="@{h205a.checked}"
+                                android:enabled="@{h205b.checked}"
                                 android:text="@={HHForm.h204d}" />
 
                         </LinearLayout>
@@ -340,7 +340,7 @@
                                 android:layout_weight="5"
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                                 android:hint="@string/h204e"
-                                android:enabled="@{h205a.checked}"
+                                android:enabled="@{h205b.checked}"
                                 android:text="@={HHForm.h204e}" />
 
                         </LinearLayout>
@@ -365,7 +365,7 @@
                                 android:layout_weight="5"
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                                 android:hint="@string/h204f"
-                                android:enabled="@{h205a.checked}"
+                                android:enabled="@{h205b.checked}"
                                 android:text="@={HHForm.h204f}" />
 
                         </LinearLayout>

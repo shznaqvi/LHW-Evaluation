@@ -48,7 +48,7 @@ public class SectionL1Activity extends AppCompatActivity {
 
                         String fileName = data.getStringExtra("FileName");
                         //   photolist = photolist + fileName + ";";
-                        PhotoSerial++;
+                        // PhotoSerial++;
 
                         bi.lhwphoto.setText(bi.lhwphoto.getText().toString() + PhotoSerial + " - " + fileName + ";\r\n");
                     } else {
@@ -75,7 +75,7 @@ public class SectionL1Activity extends AppCompatActivity {
 
         // Initialize Database
         db = MainApp.appInfo.getDbHelper();
-
+        PhotoSerial++;
     }
 
 

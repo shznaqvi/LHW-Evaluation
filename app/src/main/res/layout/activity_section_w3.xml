@@ -1038,7 +1038,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw311"
                     style="@style/cardView"
-                    android:visibility="@{mwra.w306.equals(`2`) || mwra.w309.equals(`1`)  || mwra.w309.equals(`2`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{mwra.w309.equals(`1`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1164,7 +1164,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw312"
                     style="@style/cardView"
-                    android:visibility="@{mwra.w309.equals(`1`) || mwra.w309.equals(`2`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{mwra.w309.equals(`2`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"

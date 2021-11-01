@@ -13,8 +13,8 @@
 
         <import type="android.view.View" />
         <!--<variable
-            name="HHForm"
-            type="edu.aku.hassannaqvi.tas.models.HHForm" />-->
+            name="hhForm"
+            type="edu.aku.hassannaqvi.tas.models.hhForm" />-->
 
         <variable
             name="callback"

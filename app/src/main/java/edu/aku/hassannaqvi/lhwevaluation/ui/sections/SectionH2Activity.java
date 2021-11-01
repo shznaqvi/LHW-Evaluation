@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.HHForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,7 +34,7 @@ public class SectionH2Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_h2);
         bi.setCallback(this);
-        bi.setHHForm(HHForm);
+        bi.setHHForm(hhForm);
 
         // Initialize Database
         db = MainApp.appInfo.getDbHelper();
@@ -43,19 +43,19 @@ public class SectionH2Activity extends AppCompatActivity {
 
 
     private boolean insertNewRecord() {
-        if (!MainApp.HHForm.getUid().equals("")) return true;
+        if (!MainApp.hhForm.getUid().equals("")) return true;
         long rowId = 0;
         try {
-            rowId = db.addHHForm(MainApp.HHForm);
+            rowId = db.addHHForm(MainApp.hhForm);
         } catch (JSONException e) {
             e.printStackTrace();
             Toast.makeText(this, R.string.db_excp_error, Toast.LENGTH_SHORT).show();
             return false;
         }
-        MainApp.HHForm.setId(String.valueOf(rowId));
+        MainApp.hhForm.setId(String.valueOf(rowId));
         if (rowId > 0) {
-            MainApp.HHForm.setUid(MainApp.HHForm.getDeviceId() + MainApp.HHForm.getId());
-            db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_UID, MainApp.HHForm.getUid());
+            MainApp.hhForm.setUid(MainApp.hhForm.getDeviceId() + MainApp.hhForm.getId());
+            db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_UID, MainApp.hhForm.getUid());
             return true;
         } else {
             Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
@@ -66,7 +66,7 @@ public class SectionH2Activity extends AppCompatActivity {
     private boolean updateDB() {
         int updcount = 0;
         try {
-            updcount = db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_SH2, MainApp.HHForm.sH2toString());
+            updcount = db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_SH2, MainApp.hhForm.sH2toString());
         } catch (JSONException e) {
             Toast.makeText(this, R.string.upd_db + e.getMessage(), Toast.LENGTH_SHORT).show();
         }

@@ -60,7 +60,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
             motherName = db.getWraName(fc.get(position).getUid());
         } catch (JSONException e) {
             e.printStackTrace();
-            Toast.makeText(c, "JSONException(HHForm): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(c, "JSONException(hhForm): " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }*/
 
      /*   String childName = "";
@@ -68,7 +68,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
             childName = db.getChildName(fc.get(position).getUid());
         } catch (JSONException e) {
             e.printStackTrace();
-            Toast.makeText(c, "JSONException(HHForm): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(c, "JSONException(hhForm): " + e.getMessage(), Toast.LENGTH_SHORT).show();
         }*/
 
         String iStatus = "Status  Unknown";
@@ -103,7 +103,7 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
                 iColor = Color.RED;
                 break;
             default:
-                iStatus = "Open HHForm";
+                iStatus = "Open hhForm";
                 iColor = Color.RED;
                 break;
 
@@ -123,9 +123,9 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
       /*  holder.itemView.setOnClickListener(v -> {
             // Get the current state of the item
 
-            MainApp.HHForm = fc.get(position);
+            MainApp.hhForm = fc.get(position);
             //MainApp.households.setVisitNo(String.valueOf(Integer.parseInt(MainApp.households.getVisitNo())+1));
-            if (!MainApp.HHForm.getiStatus().equals("1")) {
+            if (!MainApp.hhForm.getiStatus().equals("1")) {
 
                 editHousehold(position);
 
@@ -146,9 +146,9 @@ public class FormsAdapter extends RecyclerView.Adapter<FormsAdapter.ViewHolder> 
     }
 
     private void editHousehold(int position) {
-        MainApp.HHForm = new HHForm();
+        MainApp.hhForm = new HHForm();
         try {
-            MainApp.HHForm = db.getFormByClusterHHNo(fc.get(position).getLhwCode(), fc.get(position).getKhandandNo());
+            MainApp.hhForm = db.getFormByClusterHHNo(fc.get(position).getLhwCode(), fc.get(position).getKhandandNo());
         } catch (JSONException e) {
             Log.d(TAG, c.getString(R.string.hh_exists_form) + e.getMessage());
             Toast.makeText(c, c.getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();

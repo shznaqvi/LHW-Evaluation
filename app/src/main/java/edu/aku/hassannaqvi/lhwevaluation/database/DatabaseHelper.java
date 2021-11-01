@@ -121,9 +121,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
         values.put(TableContracts.HHFormsTable.COLUMN_SH2, HHForm.sH2toString());
-     /*   values.put(TableContracts.HHFormsTable.COLUMN_SH3, HHForm.sH3toString());
-        values.put(TableContracts.HHFormsTable.COLUMN_SAB, HHForm.sABtoString());
-        values.put(TableContracts.HHFormsTable.COLUMN_SM, HHForm.sMtoString());*/
+     /*   values.put(TableContracts.HHFormsTable.COLUMN_SH3, hhForm.sH3toString());
+        values.put(TableContracts.HHFormsTable.COLUMN_SAB, hhForm.sABtoString());
+        values.put(TableContracts.HHFormsTable.COLUMN_SM, hhForm.sMtoString());*/
 
         values.put(TableContracts.HHFormsTable.COLUMN_ISTATUS, HHForm.getiStatus());
         values.put(TableContracts.HHFormsTable.COLUMN_DEVICETAGID, HHForm.getDeviceTag());
@@ -300,7 +300,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(column, value);
 
         String selection = TableContracts.HHFormsTable._ID + " =? ";
-        String[] selectionArgs = {String.valueOf(MainApp.HHForm.getId())};
+        String[] selectionArgs = {String.valueOf(MainApp.hhForm.getId())};
 
         return db.update(TableContracts.HHFormsTable.TABLE_NAME,
                 values,
@@ -388,11 +388,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // New value for one column
         ContentValues values = new ContentValues();
-        values.put(TableContracts.HHFormsTable.COLUMN_ISTATUS, MainApp.HHForm.getiStatus());
+        values.put(TableContracts.HHFormsTable.COLUMN_ISTATUS, MainApp.hhForm.getiStatus());
 
         // Which row to update, based on the ID
         String selection = TableContracts.HHFormsTable.COLUMN_ID + " =? ";
-        String[] selectionArgs = {String.valueOf(MainApp.HHForm.getId())};
+        String[] selectionArgs = {String.valueOf(MainApp.hhForm.getId())};
 
         return db.update(TableContracts.HHFormsTable.TABLE_NAME,
                 values,
@@ -881,7 +881,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             );
             while (c.moveToNext()) {
                 /** WorkManager Upload
-                 /*HHForm fc = new HHForm();
+                 /*hhForm fc = new hhForm();
                  allFC.add(fc.Hydrate(c));*/
                 Log.d(TAG, "getUnsyncedForms: " + c.getCount());
                 HHForm HHForm = new HHForm();
@@ -1571,6 +1571,40 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return lhwhhs;
     }
 
+    public int getLHWHHbyLHWCode(String lhwCode) throws JSONException {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = LHWHHTable.COLUMN_LHW_CODE + "=? ";
+
+        String[] whereArgs = {lhwCode};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.LHWHHTable.COLUMN_ID + " ASC";
+
+        int lhwHHCount = 0;
+
+        c = db.query(
+                TableContracts.LHWHHTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+
+        c.getCount();
+        db.close();
+
+        return lhwHHCount;
+    }
+
     public HHForm getHHFormByLHWCode(String lhwCode, String kNo) throws JSONException {
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -1607,7 +1641,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         return hhForm;
     }
-
 
         public List<FamilyMembers> getMemberBYUID(String uid) throws JSONException {
             SQLiteDatabase db = this.getReadableDatabase();
@@ -1659,7 +1692,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String whereClause;
         whereClause = MWRAListTable.COLUMN_UUID + "=? ";
 
-        String[] whereArgs = {MainApp.HHForm.getUid()};
+        String[] whereArgs = {MainApp.hhForm.getUid()};
 
         String groupBy = null;
         String having = null;

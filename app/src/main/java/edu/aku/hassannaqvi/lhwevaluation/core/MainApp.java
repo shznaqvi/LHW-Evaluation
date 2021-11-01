@@ -46,7 +46,7 @@ public class MainApp extends Application {
     public static File sdDir;
     public static String[] downloadData;
     public static List<HHForm> hhList;
-    public static HHForm HHForm;
+    public static HHForm hhForm;
     public static List<LHWForm> lhwList;
     public static LHWForm LHWForm;
     public static MWRA mwra;

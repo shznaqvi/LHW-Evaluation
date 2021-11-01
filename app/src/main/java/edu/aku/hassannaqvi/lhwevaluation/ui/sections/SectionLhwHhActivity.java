@@ -145,18 +145,15 @@ public class SectionLhwHhActivity extends AppCompatActivity {
         MainApp.LHWHouseholds.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
         MainApp.LHWHouseholds.setDeviceId(MainApp.deviceid);
         MainApp.LHWHouseholds.setAppver(MainApp.versionName + "." + MainApp.versionCode);
-
         MainApp.LHWHouseholds.setA101(MainApp.LHWForm.getA101());
         MainApp.LHWHouseholds.setA102(MainApp.LHWForm.getA102());
         MainApp.LHWHouseholds.setA103(MainApp.LHWForm.getA103());
         MainApp.LHWHouseholds.setA104n(MainApp.LHWForm.getA104n());
         MainApp.LHWHouseholds.setA104c(MainApp.LHWForm.getA104c());
-
         MainApp.LHWHouseholds.setH101(String.valueOf(MainApp.lhwHHCount));
         MainApp.LHWHouseholds.setLhwCode(MainApp.LHWForm.getA104c());
 
         bi.btnSaveAddMore.setVisibility(MainApp.lhwHHCount==10?View.GONE:View.VISIBLE);
-
 
     }
 

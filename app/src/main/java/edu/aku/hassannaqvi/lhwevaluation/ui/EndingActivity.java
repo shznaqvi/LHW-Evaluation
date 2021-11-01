@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui;
 
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.HHForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
 
 import android.os.Bundle;
 import android.view.View;
@@ -45,7 +45,7 @@ public class EndingActivity extends AppCompatActivity {
     }
 
     private void saveDraft() {
-        HHForm.setiStatus(bi.istatusa.isChecked() ? "1"
+        hhForm.setiStatus(bi.istatusa.isChecked() ? "1"
                 : bi.istatusb.isChecked() ? "2"
                 : bi.istatusc.isChecked() ? "3"
                 : bi.istatusd.isChecked() ? "4"
@@ -53,7 +53,7 @@ public class EndingActivity extends AppCompatActivity {
                 : bi.istatusf.isChecked() ? "6"
                 : bi.istatus96.isChecked() ? "96"
                 : "-1");
-        // HHForm.setEndTime(new SimpleDateFormat("dd-MM-yy HH:mm", Locale.ENGLISH).format(new Date().getTime()));
+        // hhForm.setEndTime(new SimpleDateFormat("dd-MM-yy HH:mm", Locale.ENGLISH).format(new Date().getTime()));
     }
 
     public void BtnEnd(View view) {
@@ -75,11 +75,11 @@ public class EndingActivity extends AppCompatActivity {
     }
 
     private void cleanupProcess() {
-        HHForm = null;
+        hhForm = null;
     }
 
     private boolean UpdateDB() {
-        int updcount = db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_ISTATUS, HHForm.getiStatus());
+        int updcount = db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_ISTATUS, hhForm.getiStatus());
         return updcount > 0;
     }
 

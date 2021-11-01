@@ -31,7 +31,6 @@ import edu.aku.hassannaqvi.lhwevaluation.R;
 import id.zelory.compressor.Compressor;
 
 
-
 public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camera.PictureCallback {
 
     /*
@@ -40,7 +39,7 @@ public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camer
         - activity_camera.xml
 
     GRADLE:
-     implementation 'id.zelory:compressor:2.1.0'
+     implementation 'id.zelory:compressor:2.1.1'
 
     REQUIRE:
         Intent Extra:
@@ -254,11 +253,11 @@ public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camer
 
         }
 
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_mm_dd_hh_mm_ss");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_hh_mm_ss");
         String date = dateFormat.format(new Date());
 
         //TODO: PhotoID will be sent from calling Activity as StringExtra(). Replace "Cipture"
-        String photoFile = picID + "_" + date + "_" + picView.replace(" ","_") + ".jpg";
+        String photoFile = picID + "_" + date + "_" + picView.replace("/", "_") + ".jpg";
 
         String filename = pictureFileDir.getPath() + File.separator + photoFile;
 
@@ -302,7 +301,7 @@ public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camer
             tmpFile = null;
             Intent intent = new Intent();
             intent.putExtra("FileName", fileName);
-            setResult(1, intent);
+            setResult(RESULT_OK, intent);
             finish();//finishing activity
             //previewFlag = false;
         }

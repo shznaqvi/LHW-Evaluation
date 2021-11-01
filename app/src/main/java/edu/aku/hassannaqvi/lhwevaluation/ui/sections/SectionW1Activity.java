@@ -95,13 +95,13 @@ public class SectionW1Activity extends AppCompatActivity {
                 if (MainApp.mwra == null) {
                     MainApp.mwra = new MWRA();
 
-                    MainApp.mwra.setUuid(MainApp.HHForm.getUid());
-                    MainApp.mwra.setDeviceId(MainApp.HHForm.getDeviceId());
-                    MainApp.mwra.setCluster(MainApp.HHForm.getLhwCode());
-                    MainApp.mwra.setHhid(MainApp.HHForm.getKhandandNo());
-                    MainApp.mwra.setUserName(MainApp.HHForm.getUserName());
-                    MainApp.mwra.setSysDate(MainApp.HHForm.getSysDate());
-                    MainApp.mwra.setAppver(MainApp.HHForm.getAppver());
+                    MainApp.mwra.setUuid(MainApp.hhForm.getUid());
+                    MainApp.mwra.setDeviceId(MainApp.hhForm.getDeviceId());
+                    MainApp.mwra.setCluster(MainApp.hhForm.getLhwCode());
+                    MainApp.mwra.setHhid(MainApp.hhForm.getKhandandNo());
+                    MainApp.mwra.setUserName(MainApp.hhForm.getUserName());
+                    MainApp.mwra.setSysDate(MainApp.hhForm.getSysDate());
+                    MainApp.mwra.setAppver(MainApp.hhForm.getAppver());
                     MainApp.mwra.setW101(memberNames.get(position));
                 }
 
@@ -120,7 +120,16 @@ public class SectionW1Activity extends AppCompatActivity {
 
     public void valueSet(CharSequence s, int start, int before, int count) {
         if (TextUtils.isEmpty(s)) return;
+
+        // set maximum number of children at current age
+        int mwraReproductiveAge = (Integer.parseInt(bi.w102.getText().toString()) - 18) * 12;
+
+        bi.w105.setMaxvalue(String.valueOf(mwraReproductiveAge / 9));
+
+        // set age of last born child
         bi.w106y.setMaxvalue(Float.parseFloat(bi.w102.getText().toString()) > 30 ? 15f : Float.parseFloat(bi.w102.getText().toString()) - 15f);
+
+
     }
 
 
@@ -190,8 +199,8 @@ public class SectionW1Activity extends AppCompatActivity {
 
         if (!Validator.emptyCheckingContainer(this, bi.GrpName)) return false;
 
-        int ageInMonths = (Integer.valueOf(mwra.getW106y()) * 12) + Integer.valueOf(mwra.getW106m());
         if (bi.w103a.isChecked()) {
+            int ageInMonths = (Integer.valueOf(mwra.getW106y()) * 12) + Integer.valueOf(mwra.getW106m());
             if (ageInMonths <= Integer.valueOf(mwra.getW104())) {
                 Validator.emptyCustomTextBox(this, bi.w106m, "Age of last-born child in months cannot be equal to or less than current gestational age.");
                 return false;

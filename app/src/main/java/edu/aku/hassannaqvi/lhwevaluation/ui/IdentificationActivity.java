@@ -60,7 +60,7 @@ public class IdentificationActivity extends AppCompatActivity {
         switch (MainApp.idType) {
             case 1:
                 bi.btnContinue.setText(R.string.open_hh_form);
-                MainApp.HHForm = new HHForm();
+                MainApp.hhForm = new HHForm();
                 openIntent = new Intent(this, SectionH2Activity.class);
                 break;
          /*   case 2:
@@ -122,8 +122,10 @@ public class IdentificationActivity extends AppCompatActivity {
                 khandanNo.add("...");
                 hhheads.add("...");
                 for (LHWHouseholds lhwhh : lhwhhs) {
-                    khandanNo.add(lhwhh.getH102());
-                   // hhheads.add(lhwhh.getH103());
+
+                    if (!hhDone(lhwhh.getH102()))
+                        khandanNo.add(lhwhh.getH102());
+                    // hhheads.add(lhwhh.getH103());
                 }
 
                 // Apply the adapter to the spinner
@@ -174,21 +176,17 @@ public class IdentificationActivity extends AppCompatActivity {
 
 
     private void saveDraftForm() {
-        MainApp.HHForm = new HHForm();
+        MainApp.hhForm = new HHForm();
 
-        MainApp.HHForm.setUserName(MainApp.user.getUserName());
-        MainApp.HHForm.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
-        MainApp.HHForm.setDeviceId(MainApp.deviceid);
-        MainApp.HHForm.setAppver(MainApp.versionName + "." + MainApp.versionCode);
+        MainApp.hhForm.setUserName(MainApp.user.getUserName());
+        MainApp.hhForm.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
+        MainApp.hhForm.setDeviceId(MainApp.deviceid);
+        MainApp.hhForm.setAppver(MainApp.versionName + "." + MainApp.versionCode);
 
-        MainApp.HHForm.setH201(lhwCodes.get(bi.a104.getSelectedItemPosition()));
-        MainApp.HHForm.setH202(khandanNo.get(bi.h102.getSelectedItemPosition()));
-
+        MainApp.hhForm.setH201(lhwCodes.get(bi.a104.getSelectedItemPosition()));
+        MainApp.hhForm.setH202(khandanNo.get(bi.h102.getSelectedItemPosition()));
 
     }
-
-
-
 
     public void btnEnd(View view) {
         finish();
@@ -201,37 +199,49 @@ public class IdentificationActivity extends AppCompatActivity {
     }
 
 
-
     private boolean hhExists() {
-        MainApp.HHForm = new HHForm();
+        MainApp.hhForm = new HHForm();
         try {
-            MainApp.HHForm = db.getHHFormByLHWCode(MainApp.LHWHouseholds.getA104c(), MainApp.LHWHouseholds.getH102());
+            MainApp.hhForm = db.getHHFormByLHWCode(lhwCodes.get(bi.a104.getSelectedItemPosition()), bi.h102.getSelectedItem().toString());
         } catch (JSONException e) {
             Log.d(TAG, getString(R.string.hh_exists_form) + e.getMessage());
             Toast.makeText(this, getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
-        return MainApp.HHForm != null;
+        return MainApp.hhForm != null;
+    }
+
+    private boolean hhDone(String kNo) {
+        HHForm hhForm = new HHForm(); // local variable
+        try {
+            hhForm = db.getHHFormByLHWCode(lhwCodes.get(bi.a104.getSelectedItemPosition()), kNo);
+        } catch (JSONException e) {
+            Log.d(TAG, getString(R.string.hh_exists_form) + e.getMessage());
+            Toast.makeText(this, getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        if (hhForm != null)
+            return hhForm.getiStatus().equals("1");
+        return false;
     }
 
     private void saveDraftHHForm() {
-        MainApp.HHForm = new HHForm();
-        MainApp.HHForm.setUserName(MainApp.user.getUserName());
-        MainApp.HHForm.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
-        MainApp.HHForm.setDeviceId(MainApp.deviceid);
-        MainApp.HHForm.setAppver(MainApp.versionName + "." + MainApp.versionCode);
+        MainApp.hhForm = new HHForm();
+        MainApp.hhForm.setUserName(MainApp.user.getUserName());
+        MainApp.hhForm.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
+        MainApp.hhForm.setDeviceId(MainApp.deviceid);
+        MainApp.hhForm.setAppver(MainApp.versionName + "." + MainApp.versionCode);
 
-        MainApp.HHForm.setLhwCode(MainApp.LHWHouseholds.getA104c());
-        MainApp.HHForm.setKhandandNo(MainApp.LHWHouseholds.getH102());
-        MainApp.HHForm.setH201(MainApp.LHWHouseholds.getH101());
-        MainApp.HHForm.setH201(MainApp.LHWHouseholds.getH101());
-        MainApp.HHForm.setH202(MainApp.LHWHouseholds.getH102());
-        MainApp.HHForm.setH203(MainApp.LHWHouseholds.getH103());
-        MainApp.HHForm.setH204a(MainApp.LHWHouseholds.getH104a());
-        MainApp.HHForm.setH204b(MainApp.LHWHouseholds.getH104b());
-        MainApp.HHForm.setH204c(MainApp.LHWHouseholds.getH104c());
-        MainApp.HHForm.setH204d(MainApp.LHWHouseholds.getH104d());
-        MainApp.HHForm.setH204e(MainApp.LHWHouseholds.getH104e());
-        MainApp.HHForm.setH204f(MainApp.LHWHouseholds.getH104f());
+        MainApp.hhForm.setLhwCode(MainApp.LHWHouseholds.getA104c());
+        MainApp.hhForm.setKhandandNo(MainApp.LHWHouseholds.getH102());
+        MainApp.hhForm.setH201(MainApp.LHWHouseholds.getH101());
+        MainApp.hhForm.setH201(MainApp.LHWHouseholds.getH101());
+        MainApp.hhForm.setH202(MainApp.LHWHouseholds.getH102());
+        MainApp.hhForm.setH203(MainApp.LHWHouseholds.getH103());
+        MainApp.hhForm.setH204a(MainApp.LHWHouseholds.getH104a());
+        MainApp.hhForm.setH204b(MainApp.LHWHouseholds.getH104b());
+        MainApp.hhForm.setH204c(MainApp.LHWHouseholds.getH104c());
+        MainApp.hhForm.setH204d(MainApp.LHWHouseholds.getH104d());
+        MainApp.hhForm.setH204e(MainApp.LHWHouseholds.getH104e());
+        MainApp.hhForm.setH204f(MainApp.LHWHouseholds.getH104f());
 
 
     }

@@ -61,7 +61,7 @@ public class HouseholdActivity extends AppCompatActivity {
                                         (age >= 14 && age < 50 && !notMarried && isFemale )
 
                         ) {*/
-                        MainApp.hhList.add(MainApp.HHForm);
+                        MainApp.hhList.add(MainApp.hhForm);
 
                         MainApp.HHCount++;
 
@@ -127,7 +127,7 @@ public class HouseholdActivity extends AppCompatActivity {
         Toast.makeText(this, "Activity Resumed!", Toast.LENGTH_SHORT).show();
         MainApp.HHCount = Math.round(MainApp.hhList.size());
 
-        MainApp.HHForm = new HHForm();
+        MainApp.hhForm = new HHForm();
         if (MainApp.hhList.size() > 0) {
             //MainApp.fm.get(Integer.parseInt(String.valueOf(MainApp.selectedLHW))).setStatus("1");
             hhAdapter.notifyItemChanged(Integer.parseInt(String.valueOf(selectedHH)));
@@ -170,7 +170,7 @@ public class HouseholdActivity extends AppCompatActivity {
     }*/
 
     private void addMoreHousehold() {
-        MainApp.HHForm = new HHForm();
+        MainApp.hhForm = new HHForm();
         Intent intent = new Intent(this, SectionH2Activity.class);
         //   finish();
         MemberInfoLauncher.launch(intent);

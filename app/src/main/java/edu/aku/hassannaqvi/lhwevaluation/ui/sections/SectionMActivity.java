@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.HHForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -37,7 +37,7 @@ public class SectionMActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_m);
         bi.setCallback(this);
-        bi.setHHForm(HHForm);
+        bi.setHHForm(hhForm);
 /*        bi.m101a.isChecked();
         bi.m101.setEnabled(false);*/
         //populateSpinner();
@@ -53,8 +53,8 @@ public class SectionMActivity extends AppCompatActivity {
 
         // Apply the adapter to the spinner
         bi.m101.setAdapter(new ArrayAdapter<>(SectionMActivity.this, R.layout.custom_spinner, memberNames));
-        if (!MainApp.HHForm.getAb101().equals("")) {
-            int selectedPosition = memberNames.indexOf(MainApp.HHForm.getAb101());
+        if (!MainApp.hhForm.getAb101().equals("")) {
+            int selectedPosition = memberNames.indexOf(MainApp.hhForm.getAb101());
             bi.ab101.setSelection(selectedPosition);
         }
         bi.ab101.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -63,7 +63,7 @@ public class SectionMActivity extends AppCompatActivity {
                 Log.d(TAG, "onItemSelected: "+position);
 
                 if (position == 0) return;
-                MainApp.HHForm.setAb101(memberNames.get(position));
+                MainApp.hhForm.setAb101(memberNames.get(position));
 
 
             }
@@ -81,7 +81,7 @@ public class SectionMActivity extends AppCompatActivity {
         db = MainApp.appInfo.getDbHelper();
         long updcount = 0;
         try {
-            updcount = db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_SM, HHForm.sMtoString());
+            updcount = db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_SM, hhForm.sMtoString());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());

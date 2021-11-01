@@ -114,7 +114,7 @@ public class LHWAdapter extends RecyclerView.Adapter<LHWAdapter.ViewHolder> {
             // Get the current state of the item
 
             MainApp.LHWForm = MainApp.lhwList.get(position);
-            MainApp.HHForm = new HHForm();
+            MainApp.hhForm = new HHForm();
             Intent intent = new Intent(mContext, SectionH2Activity.class);
 
             intent.putExtra("position", position);

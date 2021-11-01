@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         switch (view.getId()) {
 
             case R.id.openHHForm:
-                MainApp.HHForm = new HHForm();
+                MainApp.hhForm = new HHForm();
                 startActivity(new Intent(this, IdentificationActivity.class));
                 break;
             case R.id.openLHWForm:
@@ -80,37 +80,37 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(this, LhwIdentificationActivity.class));
                 break;
             case R.id.seca:
-                MainApp.HHForm = new HHForm();
+                MainApp.hhForm = new HHForm();
                 startActivity(new Intent(this, SectionL1Activity.class));
                 break;
 
             case R.id.secb1:
-                MainApp.HHForm = new HHForm();
+                MainApp.hhForm = new HHForm();
                 startActivity(new Intent(this, SectionL2Activity.class));
                 break;
 
             case R.id.secb2:
-                MainApp.HHForm = new HHForm();
+                MainApp.hhForm = new HHForm();
                 startActivity(new Intent(this, SectionL3Activity.class));
                 break;
 
             case R.id.secc:
-                MainApp.HHForm = new HHForm();
+                MainApp.hhForm = new HHForm();
                 startActivity(new Intent(this, SectionL4Activity.class));
                 break;
 
             case R.id.sech1:
-                MainApp.HHForm = new HHForm();
+                MainApp.hhForm = new HHForm();
                 startActivity(new Intent(this, SectionLhwHhActivity.class));
                 break;
 
             case R.id.sech2:
-                MainApp.HHForm = new HHForm();
+                MainApp.hhForm = new HHForm();
                 startActivity(new Intent(this, SectionH2Activity.class));
                 break;
 
             case R.id.sech3:
-                MainApp.HHForm = new HHForm();
+                MainApp.hhForm = new HHForm();
                 startActivity(new Intent(this, SectionH3Activity.class));
                 break;
 
@@ -145,12 +145,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.secab:
-                MainApp.HHForm = new HHForm();
+                MainApp.hhForm = new HHForm();
                 startActivity(new Intent(this, SectionABActivity.class));
                 break;
 
             case R.id.secm:
-                MainApp.HHForm = new HHForm();
+                MainApp.hhForm = new HHForm();
                 startActivity(new Intent(this, SectionMActivity.class));
                 break;
 

@@ -117,7 +117,7 @@ public class FamilyMambersListActivity extends AppCompatActivity {
         //MainApp.mwraList = new ArrayList<Integer>();
         Log.d(TAG, "onCreate: familyList " + familyList.size());
         try {
-            familyList = db.getMemberBYUID(MainApp.HHForm.getUid());
+            familyList = db.getMemberBYUID(MainApp.hhForm.getUid());
             int fmCount = 0;
             for (FamilyMembers fm : familyList) {
                 fmCount++;
@@ -179,7 +179,7 @@ public class FamilyMambersListActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (!MainApp.HHForm.getiStatus().equals("1")) {
+                if (!MainApp.hhForm.getiStatus().equals("1")) {
                     //     Toast.makeText(MwraActivity.this, "Opening Mwra Form", Toast.LENGTH_LONG).show();
                     MainApp.familyMembers = new FamilyMembers();
                     addFemale();
@@ -383,10 +383,10 @@ public class FamilyMambersListActivity extends AppCompatActivity {
 
     private void addMoreMember() {
         MainApp.familyMembers = new FamilyMembers();
-        MainApp.familyMembers.setLhwCode(MainApp.HHForm.getLhwCode());
-        MainApp.familyMembers.setkNo(MainApp.HHForm.getKhandandNo());
-        MainApp.familyMembers.setUuid(MainApp.HHForm.getUid());
-        MainApp.familyMembers.setSysDate(MainApp.HHForm.getSysDate());
+        MainApp.familyMembers.setLhwCode(MainApp.hhForm.getLhwCode());
+        MainApp.familyMembers.setkNo(MainApp.hhForm.getKhandandNo());
+        MainApp.familyMembers.setUuid(MainApp.hhForm.getUid());
+        MainApp.familyMembers.setSysDate(MainApp.hhForm.getSysDate());
 
         Intent intent = new Intent(this, SectionH3Activity.class);
         //   finish();

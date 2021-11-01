@@ -62,7 +62,12 @@ public class SectionL4Activity extends AppCompatActivity {
             MainApp.LHWHouseholds = new LHWHouseholds();
 
             finish();
-            startActivity(new Intent(this, SectionLhwHhActivity.class).putExtra("complete", true));
+            try {
+                MainApp.lhwHHCount = db.getLHWHHbyLHWCode(MainApp.LHWForm.getA104c());
+                startActivity(new Intent(this, SectionLhwHhActivity.class).putExtra("complete", true));
+            } catch (JSONException e) {
+                Toast.makeText(this, "JSONException(LHWForm): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+            }
         } else {
             Toast.makeText(this, getString(R.string.upd_db_error), Toast.LENGTH_SHORT).show();
         }

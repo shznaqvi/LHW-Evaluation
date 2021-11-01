@@ -243,15 +243,13 @@
 
                             <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/h104a"
+                                digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="5"
                                 android:gravity="center"
                                 android:inputType="text"
-                                digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
-                                android:maxLength="10"
-                                android:text="@={LHWHouseholds.h104a}"
-                                />
+                                android:text="@={LHWHouseholds.h104a}" />
 
                         </LinearLayout>
 
@@ -306,7 +304,6 @@
                                 android:gravity="center"
                                 android:inputType="text"
                                 digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
-                                android:maxLength="10"
                                 android:text="@={LHWHouseholds.h104c}" />
 
                         </LinearLayout>
@@ -332,7 +329,6 @@
                                 android:gravity="center"
                                 android:inputType="text"
                                 digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
-                                android:maxLength="10"
                                 android:text="@={LHWHouseholds.h104d}" />
 
                         </LinearLayout>
@@ -358,7 +354,6 @@
                                 android:gravity="center"
                                 android:inputType="text"
                                 digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
-                                android:maxLength="10"
                                 android:text="@={LHWHouseholds.h104e}" />
 
                         </LinearLayout>
@@ -384,7 +379,6 @@
                                 android:gravity="center"
                                 android:inputType="text"
                                 digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
-                                android:maxLength="10"
                                 android:text="@={LHWHouseholds.h104f}" />
 
                         </LinearLayout>

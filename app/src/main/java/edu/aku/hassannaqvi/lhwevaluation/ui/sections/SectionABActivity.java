@@ -1,6 +1,6 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.HHForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 
 import android.content.Intent;
@@ -41,7 +41,7 @@ public class SectionABActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_ab);
         bi.setCallback(this);
-        bi.setHHForm(HHForm);
+        bi.setHHForm(hhForm);
 
         db = MainApp.appInfo.getDbHelper();
         populateSpinner();
@@ -59,17 +59,17 @@ public class SectionABActivity extends AppCompatActivity {
         // Apply the adapter to the spinner
 
         bi.ab101.setAdapter(new ArrayAdapter<String>(SectionABActivity.this, R.layout.custom_spinner, memberNames));
-        if (!MainApp.HHForm.getAb101().equals("")) {
-            int selectedPosition = memberNames.indexOf(MainApp.HHForm.getAb101());
+        if (!MainApp.hhForm.getAb101().equals("")) {
+            int selectedPosition = memberNames.indexOf(MainApp.hhForm.getAb101());
             bi.ab101.setSelection(selectedPosition);
         }
         bi.ab101.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(TAG, "onItemSelected: "+position);
+                Log.d(TAG, "onItemSelected: " + position);
 
                 if (position == 0) return;
-                MainApp.HHForm.setAb101(memberNames.get(position));
+                MainApp.hhForm.setAb101(memberNames.get(position));
 
 
             }
@@ -86,7 +86,7 @@ public class SectionABActivity extends AppCompatActivity {
     private boolean updateDB() {
         long updcount = 0;
         try {
-            updcount = db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_SAB, HHForm.sABtoString());
+            updcount = db.updatesHHFormColumn(TableContracts.HHFormsTable.COLUMN_SAB, hhForm.sABtoString());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());
