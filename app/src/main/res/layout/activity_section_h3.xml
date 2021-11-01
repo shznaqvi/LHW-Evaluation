@@ -262,6 +262,7 @@
                                 android:text="@={familyMember.h304d}"
                                 app:maxValue="30"
                                 app:minValue="1"
+                                app:defaultValue="98"
                                 app:type="range" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -276,6 +277,7 @@
                                 android:text="@={familyMember.h304m}"
                                 app:maxValue="12"
                                 app:minValue="1"
+                                app:defaultValue="98"
                                 app:type="range" />
 
                             <com.edittextpicker.aliazaz.EditTextPicker
@@ -290,6 +292,7 @@
                                 android:text="@={familyMember.h304y}"
                                 app:maxValue="2021"
                                 app:minValue="1950"
+                                app:defaultValue="9998"
                                 app:type="range" />
 
                         </LinearLayout>

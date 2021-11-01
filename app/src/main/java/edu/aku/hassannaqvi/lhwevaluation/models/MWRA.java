@@ -1959,6 +1959,8 @@ public class MWRA extends BaseObservable {
 
     public void setW306(String w306) {
         this.w306 = w306;
+
+        // if No: 7-8-9-10 are null
         setW307(w306.equals("2") ? "" : this.w307);
         setW308(w306.equals("2") ? "" : this.w308);
         setW309(w306.equals("2") ? "" : this.w309);
@@ -1968,15 +1970,19 @@ public class MWRA extends BaseObservable {
         setW310d(w306.equals("2") ? "" : this.w310d);
         setW310e(w306.equals("2") ? "" : this.w310e);
         setW31096(w306.equals("2") ? "" : this.w31096);
-/*        setW311a(w306.equals("2") ? "" : this.w311a);
-        setW311b(w306.equals("2") ? "" : this.w311b);
-        setW311c(w306.equals("2") ? "" : this.w311c);
-        setW311d(w306.equals("2") ? "" : this.w311d);
-        setW311e(w306.equals("2") ? "" : this.w311e);
-        setW311f(w306.equals("2") ? "" : this.w311f);
-        setW311g(w306.equals("2") ? "" : this.w311g);
-        setW311h(w306.equals("2") ? "" : this.w311h);
-        setW31196(w306.equals("2") ? "" : this.w31196);*/
+
+        // if Yes: 11-12-13 are null
+        setW311a(w306.equals("1") ? "" : this.w311a);
+        setW311b(w306.equals("1") ? "" : this.w311b);
+        setW311c(w306.equals("1") ? "" : this.w311c);
+        setW311d(w306.equals("1") ? "" : this.w311d);
+        setW311e(w306.equals("1") ? "" : this.w311e);
+        setW311f(w306.equals("1") ? "" : this.w311f);
+        setW311g(w306.equals("1") ? "" : this.w311g);
+        setW311h(w306.equals("1") ? "" : this.w311h);
+        setW31196(w306.equals("1") ? "" : this.w31196);
+        setW312(w306.equals("1") ? "" : this.w312);
+        setW313(w306.equals("1") ? "" : this.w313);
         notifyPropertyChanged(BR.w306);
     }
 
@@ -1988,6 +1994,7 @@ public class MWRA extends BaseObservable {
     public void setW307(String w307) {
         this.w307 = w307;
         setW30796x(w307.equals("96") ? this.w30796x : "");
+        setW308(w307.equals("12") || w307.equals("13") ? "10" : this.w308);
         notifyPropertyChanged(BR.w307);
     }
 
@@ -2024,7 +2031,7 @@ public class MWRA extends BaseObservable {
         setW310d(w309.equals("1") ? "" : this.w310d);
         setW310e(w309.equals("1") ? "" : this.w310e);
         setW31096(w309.equals("1") ? "" : this.w31096);
-        setW311a(!w309.equals("2") ? "" : this.w311a);
+      /*  setW311a(!w309.equals("2") ? "" : this.w311a);
         setW311b(!w309.equals("2") ? "" : this.w311b);
         setW311c(!w309.equals("2") ? "" : this.w311c);
         setW311d(!w309.equals("2") ? "" : this.w311d);
@@ -2034,7 +2041,7 @@ public class MWRA extends BaseObservable {
         setW311h(!w309.equals("2") ? "" : this.w311h);
         setW31196(!w309.equals("2") ? "" : this.w31196);
         setW312(!w309.equals("2") ? "" : this.w312);
-        setW313(!w309.equals("2") ? "" : this.w313);
+        setW313(!w309.equals("2") ? "" : this.w313);*/
         notifyPropertyChanged(BR.w309);
     }
 

@@ -124,7 +124,7 @@ public class SectionW1Activity extends AppCompatActivity {
         // set maximum number of children at current age
         int mwraReproductiveAge = (Integer.parseInt(bi.w102.getText().toString()) - 18) * 12;
 
-        bi.w105.setMaxvalue(String.valueOf(mwraReproductiveAge / 9));
+        bi.w105.setMaxvalue(mwraReproductiveAge / 9);
 
         // set age of last born child
         bi.w106y.setMaxvalue(Float.parseFloat(bi.w102.getText().toString()) > 30 ? 15f : Float.parseFloat(bi.w102.getText().toString()) - 15f);
