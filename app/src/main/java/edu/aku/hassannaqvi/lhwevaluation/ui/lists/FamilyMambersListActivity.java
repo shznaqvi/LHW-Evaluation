@@ -257,17 +257,19 @@ public class FamilyMambersListActivity extends AppCompatActivity {
 
         }*/
         //  MainApp.familyList = new ArrayList<>();
-        finish();
+
         if(mwraList.size()>0) {
             MainApp.mwra = new MWRA();
+            finish();
             startActivity(new Intent(this, SectionW1Activity.class).putExtra("complete", true));
         }else if(adolList.size()>0){
+            finish();
             startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
-
         }else if(maleList.size()>0){
+            finish();
             startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
-
         } else {
+            finish();
             startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
         }
         //MainApp.familyMember = MainApp.familyList.get(Integer.parseInt(MainApp.selectedMWRA));
@@ -396,7 +398,7 @@ public class FamilyMambersListActivity extends AppCompatActivity {
     public void btnEnd(View view) {
 
         finish();
-        startActivity(new Intent(this, MainActivity.class));
+        //startActivity(new Intent(this, MainActivity.class));
         /*   } else {
                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show()
            }*/

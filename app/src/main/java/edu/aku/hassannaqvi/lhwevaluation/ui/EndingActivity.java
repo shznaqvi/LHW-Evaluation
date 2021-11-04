@@ -61,9 +61,9 @@ public class EndingActivity extends AppCompatActivity {
         saveDraft();
         if (UpdateDB()) {
 
-            cleanupProcess();
+          ///  cleanupProcess();
             finish();
-            setResult(RESULT_OK);
+            //    setResult(RESULT_OK);
            /* Intent i = new Intent(this, MainActivity.class);
             startActivity(i);
            */

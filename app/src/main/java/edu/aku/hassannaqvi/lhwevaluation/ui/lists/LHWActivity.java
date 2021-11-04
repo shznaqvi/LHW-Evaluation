@@ -193,7 +193,7 @@ public class LHWActivity extends AppCompatActivity {
     public void BtnEnd(View view) {
 
         Intent i = new Intent(this, EndingActivity.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+        //i.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
         i.putExtra("complete", false);
         startActivity(i);
         finish();
