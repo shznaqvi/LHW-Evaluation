@@ -165,6 +165,7 @@ public class FamilyMembers extends BaseObservable {
 
     public void setMemCate(String memCate) {
         this.memCate = memCate;
+       // notifyPropertyChanged(BR.memCate);
     }
 
     public String getUserName() {
@@ -391,6 +392,7 @@ public class FamilyMembers extends BaseObservable {
 
     public void setH309(String h309) {
         this.h309 = h309;
+        updateMemCategory();
         notifyPropertyChanged(BR.h309);
     }
 

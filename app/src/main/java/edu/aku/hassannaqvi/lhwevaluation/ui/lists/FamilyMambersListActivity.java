@@ -70,17 +70,17 @@ public class FamilyMambersListActivity extends AppCompatActivity {
                         ) {*/
                         familyList.add(MainApp.familyMembers);
                         if (!MainApp.familyMembers.getMemCate().equals("")) {
-                            switch (MainApp.familyMembers.getMemCate()) {
-                                case "1":
-                                    MainApp.mwraList.add(MainApp.familyMembers);
-                                    MainApp.mwraCount++;
-                                    break;
-                                case "2":
-                                    MainApp.adolList.add(MainApp.familyMembers);
-                                    MainApp.adolCount++;
-                                    break;
-                                case "3":
-                                    MainApp.maleList.add(MainApp.familyMembers);
+                                switch (MainApp.familyMembers.getMemCate()) {
+                                    case "1":
+                                        MainApp.mwraList.add(MainApp.familyMembers);
+                                        MainApp.mwraCount++;
+                                        break;
+                                    case "2":
+                                        MainApp.adolList.add(MainApp.familyMembers);
+                                        MainApp.adolCount++;
+                                        break;
+                                    case "3":
+                                        MainApp.maleList.add(MainApp.familyMembers);
                                     MainApp.maleCount++;
                                     break;
                             }
