@@ -169,8 +169,9 @@ public class IdentificationActivity extends AppCompatActivity {
   //      if (!formValidation()) return;
         if (!hhExists())
             saveDraftHHForm();
-        finish();
+
         startActivity(new Intent(this, SectionH2Activity.class));
+        finish();
     }
 
 
@@ -189,8 +190,9 @@ public class IdentificationActivity extends AppCompatActivity {
     }
 
     public void btnEnd(View view) {
-        finish();
+
         startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        finish();
     }
 
 

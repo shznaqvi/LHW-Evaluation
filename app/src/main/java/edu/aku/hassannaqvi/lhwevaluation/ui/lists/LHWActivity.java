@@ -179,8 +179,9 @@ public class LHWActivity extends AppCompatActivity {
     }
 
     public void btnContinue(View view) {
-        finish();
         startActivity(new Intent(this, MainActivity.class));
+        finish();
+
      /*   if (lhwList.size() < Integer.parseInt(MainApp.households.getRa18())) {
             displayProceedDialog();
         } else {

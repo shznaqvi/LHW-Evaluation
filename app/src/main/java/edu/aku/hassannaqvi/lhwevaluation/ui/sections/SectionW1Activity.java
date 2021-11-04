@@ -180,8 +180,8 @@ public class SectionW1Activity extends AppCompatActivity {
            /* } else {
                 i = new Intent(this, EndingActivity.class).putExtra("complete", false);
             }*/
-            finish();
             startActivity(i);
+            finish();
         } else {
             Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
         }
@@ -189,8 +189,8 @@ public class SectionW1Activity extends AppCompatActivity {
 
 
     public void btnEnd(View view) {
-        finish();
         startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        finish();
     }
 
 

@@ -83,14 +83,16 @@ public class SectionH3Activity extends AppCompatActivity {
         if (!insertNewRecord()) return;
         // saveDraft();
         if (updateDB()) {
-            Intent i;
+            //   Intent i;
             //      if (bi.h111a.isChecked()) {
-            i = new Intent(this, FamilyMambersListActivity.class).putExtra("complete", true);
+            //   i = new Intent(this, FamilyMambersListActivity.class).putExtra("complete", true);
            /* } else {
                 i = new Intent(this, EndingActivity.class).putExtra("complete", false);
             }*/
+
+            //  startActivity(i);
+            setResult(RESULT_OK);
             finish();
-            startActivity(i);
         } else {
             Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
         }
@@ -100,8 +102,9 @@ public class SectionH3Activity extends AppCompatActivity {
 
 
     public void btnEnd(View view) {
+        setResult(RESULT_CANCELED);
+        // startActivity(new Intent(this, MainActivity.class));
         finish();
-        startActivity(new Intent(this, MainActivity.class));
     }
 
 

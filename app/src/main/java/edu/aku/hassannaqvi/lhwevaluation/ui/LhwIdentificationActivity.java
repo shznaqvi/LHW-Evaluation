@@ -238,14 +238,16 @@ public class LhwIdentificationActivity extends AppCompatActivity {
         if (!formValidation()) return;
         if (!hhExists())
             saveDraftLHWForm();
-        finish();
+
         startActivity(new Intent(this, SectionL1Activity.class));
+        finish();
     }
 
 
     public void btnEnd(View view) {
-        finish();
+
         startActivity(new Intent(this, MainActivity.class));
+        finish();
     }
 
 

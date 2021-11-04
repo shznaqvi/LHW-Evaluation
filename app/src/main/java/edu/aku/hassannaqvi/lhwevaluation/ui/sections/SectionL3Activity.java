@@ -58,8 +58,8 @@ public class SectionL3Activity extends AppCompatActivity {
         if (!formValidation()) return;
         // saveDraft();
         if (updateDB()) {
-            finish();
             startActivity(new Intent(this, SectionL4Activity.class).putExtra("complete", true));
+            finish();
         } else {
             Toast.makeText(this, getString(R.string.upd_db_error), Toast.LENGTH_SHORT).show();
         }
@@ -67,8 +67,8 @@ public class SectionL3Activity extends AppCompatActivity {
 
 
     public void btnEnd(View view) {
-        finish();
         startActivity(new Intent(this, MainActivity.class).putExtra("complete", false));
+        finish();
     }
 
     private boolean formValidation() {

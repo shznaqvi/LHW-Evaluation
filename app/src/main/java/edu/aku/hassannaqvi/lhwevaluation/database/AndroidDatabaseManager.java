@@ -263,7 +263,8 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
                 android.R.layout.simple_spinner_item, tablenames) {
 
             public View getView(int position, View convertView, ViewGroup parent) {
-                View v = super.getView(position, convertView, parent);
+
+                View v = this.getView(position, convertView, parent);
 
                 v.setBackgroundColor(Color.WHITE);
                 TextView adap = (TextView) v;
@@ -961,8 +962,8 @@ public class AndroidDatabaseManager extends Activity implements OnItemClickListe
 
     public void refreshactivity() {
 
-        finish();
         startActivity(getIntent());
+        finish();
     }
 
     public void refreshTable(int d) {

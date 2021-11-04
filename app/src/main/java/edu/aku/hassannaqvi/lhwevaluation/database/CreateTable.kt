@@ -116,7 +116,7 @@ object CreateTable {
             )
 
 
-    const val SQL_CREATE_CHILDLIST = ("CREATE TABLE "
+/*    const val SQL_CREATE_CHILDLIST = ("CREATE TABLE "
             + ChildListTable.TABLE_NAME + "("
             + ChildListTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + ChildListTable.COLUMN_PROJECT_NAME + " TEXT,"
@@ -137,10 +137,10 @@ object CreateTable {
             + ChildListTable.COLUMN_APPVERSION + " TEXT,"
             + ChildListTable.COLUMN_S1 + " TEXT"
             + " );"
-            )
+            )*/
 
 
-    const val SQL_CREATE_ANTHRO = ("CREATE TABLE "
+/*    const val SQL_CREATE_ANTHRO = ("CREATE TABLE "
             + AnthroTable.TABLE_NAME + "("
             + AnthroTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + AnthroTable.COLUMN_PROJECT_NAME + " TEXT,"
@@ -159,10 +159,10 @@ object CreateTable {
             + AnthroTable.COLUMN_APPVERSION + " TEXT,"
             + AnthroTable.COLUMN_S1 + " TEXT"
             + " );"
-            )
+            )*/
 
 
-    const val SQL_CREATE_BLOOD = ("CREATE TABLE "
+/*    const val SQL_CREATE_BLOOD = ("CREATE TABLE "
             + BloodTable.TABLE_NAME + "("
             + BloodTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + BloodTable.COLUMN_PROJECT_NAME + " TEXT,"
@@ -180,10 +180,10 @@ object CreateTable {
             + BloodTable.COLUMN_APPVERSION + " TEXT,"
             + BloodTable.COLUMN_S1 + " TEXT"
             + " );"
-            )
+            )*/
 
 
-    const val SQL_CREATE_STOOL = ("CREATE TABLE "
+/*    const val SQL_CREATE_STOOL = ("CREATE TABLE "
             + StoolTable.TABLE_NAME + "("
             + StoolTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + StoolTable.COLUMN_PROJECT_NAME + " TEXT,"
@@ -201,9 +201,10 @@ object CreateTable {
             + StoolTable.COLUMN_APPVERSION + " TEXT,"
             + StoolTable.COLUMN_S1 + " TEXT"
             + " );"
-            )
+            )*/
 
 
+/*
     const val SQL_CREATE_PREGNANCY = ("CREATE TABLE "
             + PregnancyTable.TABLE_NAME + "("
             + PregnancyTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -224,9 +225,10 @@ object CreateTable {
             + PregnancyTable.COLUMN_S1 + " TEXT"
             + " );"
             )
+*/
 
 
-    const val SQL_CREATE_SAMPLES = ("CREATE TABLE "
+/*    const val SQL_CREATE_SAMPLES = ("CREATE TABLE "
             + SamplesTable.TABLE_NAME + "("
             + SamplesTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + SamplesTable.COLUMN_PROJECT_NAME + " TEXT,"
@@ -246,7 +248,7 @@ object CreateTable {
             + SamplesTable.COLUMN_APPVERSION + " TEXT,"
             + SamplesTable.COLUMN_S1 + " TEXT"
             + " );"
-            )
+            )*/
 
 
     const val SQL_CREATE_USERS = ("CREATE TABLE "
