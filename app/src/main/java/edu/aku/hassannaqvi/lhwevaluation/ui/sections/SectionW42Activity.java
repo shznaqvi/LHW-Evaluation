@@ -60,8 +60,8 @@ public class SectionW42Activity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
-            finish();
             startActivity(new Intent(this, SectionW43Activity.class));
+            finish();
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
@@ -69,6 +69,7 @@ public class SectionW42Activity extends AppCompatActivity {
     public void btnEnd(View view) {
         finish();
         startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        finish();
     }
 
 

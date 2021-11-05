@@ -3,8 +3,6 @@ package edu.aku.hassannaqvi.lhwevaluation.database;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_NAME;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_VERSION;
-import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_ANTHRO;
-import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_CHILDLIST;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_DISTRICT;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_HH_FORMS;
@@ -13,9 +11,7 @@ import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW_FORMS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW_HF;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_MWRALIST;
-import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_PREGNANCY;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_RANDOM;
-import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_SAMPLES;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_TEHSIL;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_USERS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_VERSIONAPP;
@@ -92,12 +88,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_FAMILY_MEMBERS);
         db.execSQL(SQL_CREATE_LHWHH);
         db.execSQL(SQL_CREATE_MWRALIST);
-        db.execSQL(SQL_CREATE_CHILDLIST);
-        db.execSQL(SQL_CREATE_ANTHRO);
        /* db.execSQL(SQL_CREATE_BLOOD);
         db.execSQL(SQL_CREATE_STOOL);*/
-        db.execSQL(SQL_CREATE_PREGNANCY);
-        db.execSQL(SQL_CREATE_SAMPLES);
         db.execSQL(SQL_CREATE_VERSIONAPP);
 
     }

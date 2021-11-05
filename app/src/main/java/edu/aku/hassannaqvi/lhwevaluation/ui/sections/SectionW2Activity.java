@@ -60,15 +60,15 @@ public class SectionW2Activity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
-            finish();
             startActivity(new Intent(this, SectionW3Activity.class));
+            finish();
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
 
     public void btnEnd(View view) {
-        finish();
         startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        finish();
     }
 
 

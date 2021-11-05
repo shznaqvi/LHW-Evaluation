@@ -56,7 +56,7 @@ public class FamilyMambersListActivity extends AppCompatActivity {
                     if (result.getResultCode() == Activity.RESULT_OK) {
                         // There are no request codes
                         //Intent data = result.getData();
-                        Intent data = result.getData();
+                        // Intent data = result.getData();
                       /*  int age = Integer.parseInt(femalemembers.getHh05y());
                         boolean isFemale = femalemembers.getHh03().equals("2");
                         boolean notMarried = femalemembers.getHh06().equals("2");
@@ -70,17 +70,17 @@ public class FamilyMambersListActivity extends AppCompatActivity {
                         ) {*/
                         familyList.add(MainApp.familyMembers);
                         if (!MainApp.familyMembers.getMemCate().equals("")) {
-                            switch (MainApp.familyMembers.getMemCate()) {
-                                case "1":
-                                    MainApp.mwraList.add(MainApp.familyMembers);
-                                    MainApp.mwraCount++;
-                                    break;
-                                case "2":
-                                    MainApp.adolList.add(MainApp.familyMembers);
-                                    MainApp.adolCount++;
-                                    break;
-                                case "3":
-                                    MainApp.maleList.add(MainApp.familyMembers);
+                                switch (MainApp.familyMembers.getMemCate()) {
+                                    case "1":
+                                        MainApp.mwraList.add(MainApp.familyMembers);
+                                        MainApp.mwraCount++;
+                                        break;
+                                    case "2":
+                                        MainApp.adolList.add(MainApp.familyMembers);
+                                        MainApp.adolCount++;
+                                        break;
+                                    case "3":
+                                        MainApp.maleList.add(MainApp.familyMembers);
                                     MainApp.maleCount++;
                                     break;
                             }
@@ -257,19 +257,22 @@ public class FamilyMambersListActivity extends AppCompatActivity {
 
         }*/
         //  MainApp.familyList = new ArrayList<>();
-        finish();
+
         if(mwraList.size()>0) {
             MainApp.mwra = new MWRA();
+            //       finish();
             startActivity(new Intent(this, SectionW1Activity.class).putExtra("complete", true));
         }else if(adolList.size()>0){
+            //      finish();
             startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
-
         }else if(maleList.size()>0){
+            //    finish();
             startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
-
         } else {
+
             startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
         }
+        finish();
         //MainApp.familyMember = MainApp.familyList.get(Integer.parseInt(MainApp.selectedMWRA));
 
     /*    MainApp.familyMember = db.getSelectedMwraBYUID(MainApp.form.getUid());
@@ -396,11 +399,13 @@ public class FamilyMambersListActivity extends AppCompatActivity {
     public void btnEnd(View view) {
 
         finish();
-        startActivity(new Intent(this, MainActivity.class));
+        //startActivity(new Intent(this, MainActivity.class));
         /*   } else {
                Toast.makeText(this, "Failed to Update Database!", Toast.LENGTH_SHORT).show()
            }*/
     }
+
+
 
 /*    @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

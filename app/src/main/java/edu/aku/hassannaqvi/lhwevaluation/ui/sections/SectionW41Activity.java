@@ -60,7 +60,6 @@ public class SectionW41Activity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
-            finish();
             if (mwra.getW405a().equals("1")
                     || mwra.getW405b().equals("2")
                     || mwra.getW405c().equals("3")
@@ -73,13 +72,14 @@ public class SectionW41Activity extends AppCompatActivity {
             } else {
                 startActivity(new Intent(this, SectionW43Activity.class));
             }
+            finish();
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
 
 
     public void btnEnd(View view) {
-        finish();
         startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        finish();
     }
 
 

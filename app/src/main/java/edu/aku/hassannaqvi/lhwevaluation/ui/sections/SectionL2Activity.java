@@ -61,8 +61,9 @@ public class SectionL2Activity extends AppCompatActivity {
         if (!formValidation()) return;
        // saveDraft();
         if (updateDB()) {
-            finish();
+
             startActivity(new Intent(this, SectionL3Activity.class).putExtra("complete", true));
+            finish();
         } else {
             Toast.makeText(this, getString(R.string.upd_db_error), Toast.LENGTH_SHORT).show();
         }
@@ -70,8 +71,9 @@ public class SectionL2Activity extends AppCompatActivity {
 
 
     public void btnEnd(View view) {
-        finish();
         startActivity(new Intent(this, MainActivity.class).putExtra("complete", false));
+        finish();
+
     }
 
 

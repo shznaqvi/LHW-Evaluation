@@ -103,19 +103,22 @@ public class SectionABActivity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
-            finish();
-            if(maleList.size()>0){
+
+            if (maleList.size() > 0) {
                 startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
 
             } else {
                 startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-            }           } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
+            }
+        } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
+        finish();
     }
 
 
     public void btnEnd(View view) {
-        finish();
+
         startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        finish();
     }
 
 

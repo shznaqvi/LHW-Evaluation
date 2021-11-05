@@ -179,8 +179,9 @@ public class LHWActivity extends AppCompatActivity {
     }
 
     public void btnContinue(View view) {
-        finish();
         startActivity(new Intent(this, MainActivity.class));
+        finish();
+
      /*   if (lhwList.size() < Integer.parseInt(MainApp.households.getRa18())) {
             displayProceedDialog();
         } else {
@@ -193,7 +194,7 @@ public class LHWActivity extends AppCompatActivity {
     public void BtnEnd(View view) {
 
         Intent i = new Intent(this, EndingActivity.class);
-        i.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
+        //i.setFlags(Intent.FLAG_ACTIVITY_FORWARD_RESULT);
         i.putExtra("complete", false);
         startActivity(i);
         finish();

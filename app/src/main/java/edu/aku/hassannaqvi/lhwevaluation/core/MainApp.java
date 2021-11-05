@@ -33,11 +33,11 @@ public class MainApp extends Application {
     public static final String _IP = "https://vcoe1.aku.edu";// .LIVE server
     // public static final String _IP = "http://f38158/prosystem";// .TEST server
     //public static final String _IP = "http://43.245.131.159:8080";// .TEST server
-    public static final String _HOST_URL = MainApp._IP + "/smk_fi/api/";// .TEST server;
+    public static final String _HOST_URL = MainApp._IP + "/uen_ph2/api/";// .TEST server;
     public static final String _SERVER_URL = "sync.php";
     public static final String _SERVER_GET_URL = "getData.php";
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
-    public static final String _UPDATE_URL = MainApp._IP + "/smk_fi/app/smk_ce";
+    public static final String _UPDATE_URL = MainApp._IP + "/uen_ph2/app/lhweval";
 
     //COUNTRIES
     public static int PAKISTAN = 1;
