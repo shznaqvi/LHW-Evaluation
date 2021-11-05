@@ -39,7 +39,15 @@ import java.util.Date;
 import java.util.List;
 
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
-import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.*;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.FamilyMembersTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.HHFormsTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LHWFormsTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LHWHHTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.MWRAListTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableDistricts;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableHealthFacilities;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableLhw;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableTehsil;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.models.FamilyMembers;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
@@ -139,7 +147,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 values);
         return newRowId;
     }
-
 
     public long addFamilyMember(FamilyMembers familyMembers) throws JSONException {
         // Gets the data repository in write mode
@@ -847,11 +854,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-
-
-
     //get UnSyncedTables
-    public JSONArray getUnsyncedForms() throws JSONException {
+    public JSONArray getUnsyncedHHforms() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
         String[] columns = null;
@@ -883,17 +887,177 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 /** WorkManager Upload
                  /*hhForm fc = new hhForm();
                  allFC.add(fc.Hydrate(c));*/
-                Log.d(TAG, "getUnsyncedForms: " + c.getCount());
+                Log.d(TAG, "getUnsyncedHHforms: " + c.getCount());
                 HHForm HHForm = new HHForm();
                 allForms.put(HHForm.Hydrate(c).toJSONObject());
 
 
             }
 
-                db.close();
+        db.close();
 
-        Log.d(TAG, "getUnsyncedForms: " + allForms.toString().length());
-        Log.d(TAG, "getUnsyncedForms: " + allForms);
+        Log.d(TAG, "getUnsyncedHHforms: " + allForms.toString().length());
+        Log.d(TAG, "getUnsyncedHHforms: " + allForms);
+        return allForms;
+    }
+
+    public JSONArray getUnsyncedFamilyMembersList() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        //whereClause = null;
+        whereClause = FamilyMembersTable.COLUMN_SYNCED + " is null AND " +
+                FamilyMembersTable.COLUMN_ISTATUS + "!= ''";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = FamilyMembersTable.COLUMN_ID + " ASC";
+
+        JSONArray allForms = new JSONArray();
+
+        c = db.query(
+                FamilyMembersTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            Log.d(TAG, "getUnsyncedFamilyMembersList: " + c.getCount());
+            FamilyMembers familyMembers = new FamilyMembers();
+            allForms.put(familyMembers.Hydrate(c).toJSONObject());
+        }
+        db.close();
+
+        Log.d(TAG, "getUnsyncedFamilyMembersList: " + allForms.toString().length());
+        Log.d(TAG, "getUnsyncedFamilyMembersList: " + allForms);
+        return allForms;
+    }
+
+    public JSONArray getUnsyncedLHWForms() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        //whereClause = null;
+        whereClause = LHWFormsTable.COLUMN_SYNCED + " is null AND " +
+                LHWFormsTable.COLUMN_ISTATUS + "!= ''";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = LHWFormsTable.COLUMN_ID + " ASC";
+
+        JSONArray allForms = new JSONArray();
+
+        c = db.query(
+                LHWFormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            Log.d(TAG, "getUnsyncedLHWForms: " + c.getCount());
+            LHWForm lhwForm = new LHWForm();
+            allForms.put(lhwForm.Hydrate(c).toJSONObject());
+        }
+        db.close();
+
+        Log.d(TAG, "getUnsyncedLHWForms: " + allForms.toString().length());
+        Log.d(TAG, "getUnsyncedLHWForms: " + allForms);
+        return allForms;
+    }
+
+    public JSONArray getUnsyncedMWRAList() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        //whereClause = null;
+        whereClause = MWRAListTable.COLUMN_SYNCED + " is null AND " +
+                MWRAListTable.COLUMN_ISTATUS + "!= ''";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = MWRAListTable.COLUMN_ID + " ASC";
+
+        JSONArray allForms = new JSONArray();
+
+        c = db.query(
+                MWRAListTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            Log.d(TAG, "getUnsyncedMWRAList: " + c.getCount());
+            MWRA mwra = new MWRA();
+            allForms.put(mwra.Hydrate(c).toJSONObject());
+        }
+        db.close();
+
+        Log.d(TAG, "getUnsyncedMWRAList: " + allForms.toString().length());
+        Log.d(TAG, "getUnsyncedMWRAList: " + allForms);
+        return allForms;
+    }
+
+    public JSONArray getUnsyncedLHWHouseholds() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        //whereClause = null;
+        whereClause = LHWHHTable.COLUMN_SYNCED + " is null AND " +
+                LHWHHTable.COLUMN_ISTATUS + "!= ''";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = LHWHHTable.COLUMN_ID + " ASC";
+
+        JSONArray allForms = new JSONArray();
+
+        c = db.query(
+                LHWHHTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            Log.d(TAG, "getUnsyncedLHWHouseholds: " + c.getCount());
+            LHWHouseholds lhwHouseholds = new LHWHouseholds();
+            allForms.put(lhwHouseholds.Hydrate(c).toJSONObject());
+        }
+        db.close();
+
+        Log.d(TAG, "getUnsyncedLHWHouseholds: " + allForms.toString().length());
+        Log.d(TAG, "getUnsyncedLHWHouseholds: " + allForms);
         return allForms;
     }
 

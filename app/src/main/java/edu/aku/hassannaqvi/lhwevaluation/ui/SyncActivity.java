@@ -46,11 +46,17 @@ import java.util.concurrent.TimeUnit;
 
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.adapters.SyncListAdapter;
-import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.FamilyMembersTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.HHFormsTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LHWFormsTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LHWHHTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.MWRAListTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableDistricts;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableHealthFacilities;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableLhw;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableTehsil;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.UsersTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySyncBinding;
@@ -139,13 +145,49 @@ public class SyncActivity extends AppCompatActivity {
                 uploadTables.clear();
                 MainApp.uploadData.clear();
 
-                // Forms
+                // HHforms
                 uploadTables.add(new SyncModel(HHFormsTable.TABLE_NAME));
                 try {
-                    MainApp.uploadData.add(db.getUnsyncedForms());
+                    MainApp.uploadData.add(db.getUnsyncedHHforms());
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "JSONException(HHForms): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+                // FamilyMembersList
+                uploadTables.add(new SyncModel(FamilyMembersTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedFamilyMembersList());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "JSONException(FamilyMembersList): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+                // LHWForms
+                uploadTables.add(new SyncModel(LHWFormsTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedLHWForms());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "JSONException(LHWForms): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+                // MWRAList
+                uploadTables.add(new SyncModel(MWRAListTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedMWRAList());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "JSONException(MWRAList): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+                // LHWHHTable
+                uploadTables.add(new SyncModel(LHWHHTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedLHWHouseholds());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "JSONException(LHWHHTable): " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -164,11 +206,11 @@ public class SyncActivity extends AppCompatActivity {
                 downloadTables.clear();
                 boolean sync_flag = getIntent().getBooleanExtra("login", false);
                 downloadTables.add(new SyncModel(UsersTable.TABLE_NAME));
-                downloadTables.add(new SyncModel(TableContracts.VersionTable.TABLE_NAME));
+                downloadTables.add(new SyncModel(VersionTable.TABLE_NAME));
                 downloadTables.add(new SyncModel(TableDistricts.TABLE_NAME));
                 downloadTables.add(new SyncModel(TableLhw.TABLE_NAME));
-                downloadTables.add(new SyncModel(TableContracts.TableTehsil.TABLE_NAME));
-                downloadTables.add(new SyncModel(TableContracts.TableHealthFacilities.TABLE_NAME));
+                downloadTables.add(new SyncModel(TableTehsil.TABLE_NAME));
+                downloadTables.add(new SyncModel(TableHealthFacilities.TABLE_NAME));
                 // downloadTables.add(new SyncModel(TableProvince.TABLE_NAME));
                  /*   String select = " idCamp, camp_no, dist_id, district, ucCode, ucName, area_name, plan_date ";
                     String filter = " camp_status = 'Planned' AND locked = 0 ";
@@ -264,7 +306,7 @@ public class SyncActivity extends AppCompatActivity {
                                         jsonArray = new JSONArray(result);
                                         insertCount = db.syncRandom(jsonArray);
                                         break;*/
-                                case TableContracts.VersionTable.TABLE_NAME:
+                                case VersionTable.TABLE_NAME:
                                     try {
 
                                         // Modify table Sync Function here
@@ -317,7 +359,7 @@ public class SyncActivity extends AppCompatActivity {
 
                                     }
                                     break;
-                                case TableContracts.TableTehsil.TABLE_NAME:
+                                case TableTehsil.TABLE_NAME:
                                     try {
                                         jsonArray = new JSONArray(result);
 
@@ -334,7 +376,7 @@ public class SyncActivity extends AppCompatActivity {
 
                                     }
                                     break;
-                                case TableContracts.TableHealthFacilities.TABLE_NAME:
+                                case TableHealthFacilities.TABLE_NAME:
                                     try {
                                         jsonArray = new JSONArray(result);
 
