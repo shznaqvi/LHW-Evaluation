@@ -238,9 +238,13 @@ public class LhwIdentificationActivity extends AppCompatActivity {
         if (!formValidation()) return;
         if (!hhExists())
             saveDraftLHWForm();
+        if (MainApp.LHWForm.getSynced() != null) {
+            Toast.makeText(this, getString(R.string.form_locked), Toast.LENGTH_SHORT).show();
+        } else {
+            startActivity(new Intent(this, SectionL1Activity.class));
+            finish();
 
-        startActivity(new Intent(this, SectionL1Activity.class));
-        finish();
+        }
     }
 
 
@@ -265,6 +269,7 @@ public class LhwIdentificationActivity extends AppCompatActivity {
         MainApp.LHWForm = new LHWForm();
         try {
             MainApp.LHWForm = db.getLHWFormByLHWCode(lhwCodes.get(bi.a103.getSelectedItemPosition()));
+
         } catch (JSONException e) {
             Log.d(TAG, getString(R.string.hh_exists_form) + e.getMessage());
             Toast.makeText(this, getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();

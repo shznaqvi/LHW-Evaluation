@@ -46,11 +46,17 @@ import java.util.concurrent.TimeUnit;
 
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.adapters.SyncListAdapter;
-import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.FamilyMembersTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.HHFormsTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LHWFormsTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LHWHHTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.MWRAListTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableDistricts;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableHealthFacilities;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableLhw;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableTehsil;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.UsersTable;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.VersionTable;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySyncBinding;
@@ -139,13 +145,50 @@ public class SyncActivity extends AppCompatActivity {
                 uploadTables.clear();
                 MainApp.uploadData.clear();
 
+
+                // LHW Forms
+                uploadTables.add(new SyncModel(LHWFormsTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedLHWForms());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "JSONException(LHWForms): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+                // LHW Households
+                uploadTables.add(new SyncModel(LHWHHTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedLHWHHForms());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "JSONException(LHWHouseholds): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
                 // Forms
                 uploadTables.add(new SyncModel(HHFormsTable.TABLE_NAME));
                 try {
-                    MainApp.uploadData.add(db.getUnsyncedForms());
+                    MainApp.uploadData.add(db.getUnsyncedHHForms());
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "JSONException(HHForms): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+                // Family members
+                uploadTables.add(new SyncModel(FamilyMembersTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedFamilyMembers());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "JSONException(FamilyMembers): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+                // MWRA
+                uploadTables.add(new SyncModel(MWRAListTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedMWRA());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(this, "JSONException(FamilyMembers): " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
 
@@ -164,11 +207,12 @@ public class SyncActivity extends AppCompatActivity {
                 downloadTables.clear();
                 boolean sync_flag = getIntent().getBooleanExtra("login", false);
                 downloadTables.add(new SyncModel(UsersTable.TABLE_NAME));
-                downloadTables.add(new SyncModel(TableContracts.VersionTable.TABLE_NAME));
+                downloadTables.add(new SyncModel(VersionTable.TABLE_NAME));
                 downloadTables.add(new SyncModel(TableDistricts.TABLE_NAME));
                 downloadTables.add(new SyncModel(TableLhw.TABLE_NAME));
-                downloadTables.add(new SyncModel(TableContracts.TableTehsil.TABLE_NAME));
-                downloadTables.add(new SyncModel(TableContracts.TableHealthFacilities.TABLE_NAME));
+                downloadTables.add(new SyncModel(TableTehsil.TABLE_NAME));
+                downloadTables.add(new SyncModel(TableHealthFacilities.TABLE_NAME));
+
                 // downloadTables.add(new SyncModel(TableProvince.TABLE_NAME));
                  /*   String select = " idCamp, camp_no, dist_id, district, ucCode, ucName, area_name, plan_date ";
                     String filter = " camp_status = 'Planned' AND locked = 0 ";
@@ -210,186 +254,135 @@ public class SyncActivity extends AppCompatActivity {
         }
 
         // FOR SIMULTANEOUS WORKREQUESTS (ALL TABLES DOWNLOAD AT THE SAME TIME)
-        WorkManager wm = WorkManager.getInstance(this);
+        WorkManager wm = WorkManager.getInstance();
         WorkContinuation wc = wm.beginWith(workRequests);
         wc.enqueue();
 
-        wc.getWorkInfosLiveData().observe(this, workInfos -> {
-            Log.d(TAG, "workInfos: " + workInfos.size());
-            for (WorkInfo workInfo : workInfos) {
-                Log.d(TAG, "workInfo: getState " + workInfo.getState());
-                Log.d(TAG, "workInfo: data " + workInfo.getOutputData().getString("data"));
-                Log.d(TAG, "workInfo: error " + workInfo.getOutputData().getString("error"));
-                Log.d(TAG, "workInfo: position " + workInfo.getOutputData().getInt("position", 0));
-            }
-            for (WorkInfo workInfo : workInfos) {
-                int position = workInfo.getOutputData().getInt("position", 0);
-                String tableName = downloadTables.get(position).gettableName();
+        wc.getWorkInfosLiveData().observe(this, new Observer<List<WorkInfo>>() {
 
-                        /*String progress = workInfo.getProgress().getString("progress");
-                        bi.wmError.setText("Progress: " + progress);*/
 
-                if (workInfo.getState() != null &&
-                        workInfo.getState() == WorkInfo.State.SUCCEEDED) {
+            @Override
+            public void onChanged(List<WorkInfo> workInfos) {
+                Log.d(TAG, "workInfos: " + workInfos.size());
+                for (WorkInfo workInfo : workInfos) {
+                    Log.d(TAG, "workInfo: getState " + workInfo.getState());
+                    Log.d(TAG, "workInfo: data " + workInfo.getOutputData().getString("data"));
+                    Log.d(TAG, "workInfo: error " + workInfo.getOutputData().getString("error"));
+                    Log.d(TAG, "workInfo: position " + workInfo.getOutputData().getInt("position", 0));
+                }
+                for (WorkInfo workInfo : workInfos) {
+                    int position = workInfo.getOutputData().getInt("position", 0);
+                    String tableName = downloadTables.get(position).gettableName();
 
-                    //String result = workInfo.getOutputData().getString("data");
-                    String result = MainApp.downloadData[position];
+                            /*String progress = workInfo.getProgress().getString("progress");
+                            bi.wmError.setText("Progress: " + progress);*/
+
+                    if (workInfo.getState() != null &&
+                            workInfo.getState() == WorkInfo.State.SUCCEEDED) {
+
+                        //String result = workInfo.getOutputData().getString("data");
+                        String result = MainApp.downloadData[position];
 //Do something with the JSON string
-                    if (result != null) {
-                        if (result.length() > 0) {
-                            Log.d(TAG, "onChanged: result " + result);
-                            System.out.println("SYSTEM onChanged: result" + result);
-                            JSONArray jsonArray = new JSONArray();
-                            int insertCount = 0;
-                            boolean exception = false;
-                            switch (tableName) {
-                                case UsersTable.TABLE_NAME:
-                                    try {
-                                        jsonArray = new JSONArray(result);
+                        if (result != null) {
+                            if (result.length() > 0) {
+                                Log.d(TAG, "onChanged: result " + result);
+                                System.out.println("SYSTEM onChanged: result" + result);
+                                DatabaseHelper db = new DatabaseHelper(SyncActivity.this);
+                                try {
+                                    JSONArray jsonArray = new JSONArray();
+                                    int insertCount = 0;
+                                    switch (tableName) {
+                                        case UsersTable.TABLE_NAME:
+                                            jsonArray = new JSONArray(result);
+                                            insertCount = db.syncUser(jsonArray);
+                                            break;
+                                        case VersionTable.TABLE_NAME:
+                                            insertCount = db.syncVersionApp(new JSONObject(result));
+                                            if (insertCount == 1) jsonArray.put("1");
+                                            break;
+                                        case TableDistricts.TABLE_NAME:
+                                            jsonArray = new JSONArray(result);
+                                            insertCount = db.syncDistricts(jsonArray);
+                                            Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
+                                            break;
+                                        case TableHealthFacilities.TABLE_NAME:
+                                            jsonArray = new JSONArray(result);
+                                            insertCount = db.syncHealthFacilities(jsonArray);
+                                            Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
+                                            break;
 
-                                        // Modify table Sync Function here
-                                        insertCount = db.syncUser(jsonArray);
+                                        case TableTehsil.TABLE_NAME:
+                                            jsonArray = new JSONArray(result);
+                                            insertCount = db.syncTehsil(jsonArray);
+                                            Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
+                                            break;
 
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                        downloadTables.get(position).setstatus("Process Failed");
-                                        downloadTables.get(position).setstatusID(1);
-                                        downloadTables.get(position).setmessage("JSONException:" + e.getMessage());
-                                        syncListAdapter.updatesyncList(downloadTables);
-                                        exception = true;
-                                    }
-
-                                    break;
-                                  /*  case RandomTable.TABLE_NAME:
-                                        jsonArray = new JSONArray(result);
-                                        insertCount = db.syncRandom(jsonArray);
-                                        break;*/
-                                case TableContracts.VersionTable.TABLE_NAME:
-                                    try {
-
-                                        // Modify table Sync Function here
-                                        insertCount = db.syncVersionApp(new JSONObject(result));
-
-                                        if (insertCount == 1) jsonArray.put("1");
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                        downloadTables.get(position).setstatus("Process Failed");
-                                        downloadTables.get(position).setstatusID(1);
-                                        downloadTables.get(position).setmessage("JSONException:" + e.getMessage());
-                                        syncListAdapter.updatesyncList(downloadTables);
-                                        exception = true;
-
-                                    }
-                                    break;
-
-                                case TableDistricts.TABLE_NAME:
-                                    try {
-                                        jsonArray = new JSONArray(result);
-
-                                        // Modify table Sync Function here
-                                        insertCount = db.syncDistricts(jsonArray);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                        downloadTables.get(position).setstatus("Process Failed");
-                                        downloadTables.get(position).setstatusID(1);
-                                        downloadTables.get(position).setmessage("JSONException:" + e.getMessage());
-                                        syncListAdapter.updatesyncList(downloadTables);
-                                        exception = true;
+                                        case TableLhw.TABLE_NAME:
+                                            jsonArray = new JSONArray(result);
+                                            insertCount = db.syncLhw(jsonArray);
+                                            Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
+                                            break;
+                                      /*   case UCs.TableUCs.TABLE_NAME:
+                                            jsonArray = new JSONArray(result);
+                                            insertCount = db.syncUCs(jsonArray);
+                                            Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
+                                            break;
+                                        case Districts.TableDistricts.TABLE_NAME:
+                                            jsonArray = new JSONArray(result);
+                                            insertCount = db.syncDistricts(jsonArray);
+                                            Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
+                                            break;
+                                        case Clusters.TableClusters.TABLE_NAME:
+                                            jsonArray = new JSONArray(result);
+                                            insertCount = db.syncCluster(jsonArray);
+                                            Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
+                                            break;
+                                        case BLRandom.TableRandom.TABLE_NAME:
+                                            jsonArray = new JSONArray(result);
+                                            insertCount = db.syncBLRandom(jsonArray);
+                                            Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
+                                            break;*/
 
                                     }
-                                    break;
 
-                                case TableLhw.TABLE_NAME:
-                                    try {
-                                        jsonArray = new JSONArray(result);
+                                    downloadTables.get(position).setmessage("Received: " + jsonArray.length() + ", Saved: " + insertCount);
+                                    downloadTables.get(position).setstatus(insertCount == 0 ? "Unsuccessful" : "Successful");
+                                    downloadTables.get(position).setstatusID(insertCount == 0 ? 1 : 3);
+                                    syncListAdapter.updatesyncList(downloadTables);
 
-                                        // Modify table Sync Function here
-                                        insertCount = db.syncLhw(jsonArray);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                        downloadTables.get(position).setstatus("Process Failed");
-                                        downloadTables.get(position).setstatusID(1);
-                                        downloadTables.get(position).setmessage("JSONException:" + e.getMessage());
-                                        syncListAdapter.updatesyncList(downloadTables);
-                                        exception = true;
-
-                                    }
-                                    break;
-                                case TableContracts.TableTehsil.TABLE_NAME:
-                                    try {
-                                        jsonArray = new JSONArray(result);
-
-                                        // Modify table Sync Function here
-                                        insertCount = db.syncTehsil(jsonArray);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                        downloadTables.get(position).setstatus("Process Failed");
-                                        downloadTables.get(position).setstatusID(1);
-                                        downloadTables.get(position).setmessage("JSONException:" + e.getMessage());
-                                        syncListAdapter.updatesyncList(downloadTables);
-                                        exception = true;
-
-                                    }
-                                    break;
-                                case TableContracts.TableHealthFacilities.TABLE_NAME:
-                                    try {
-                                        jsonArray = new JSONArray(result);
-
-                                        // Modify table Sync Function here
-                                        insertCount = db.syncLhwHF(jsonArray);
-
-                                    } catch (JSONException e) {
-                                        e.printStackTrace();
-                                        downloadTables.get(position).setstatus("Process Failed");
-                                        downloadTables.get(position).setstatusID(1);
-                                        downloadTables.get(position).setmessage("JSONException:" + e.getMessage());
-                                        syncListAdapter.updatesyncList(downloadTables);
-                                        exception = true;
-
-                                    }
-                                    break;
-                                   /* case TableProvince.TABLE_NAME:
-                                        jsonArray = new JSONArray(result);
-                                        insertCount = db.syncProvince(jsonArray);
-                                        Log.d(TAG, "onChanged: " + tableName + " " + workInfo.getOutputData().getInt("position", 0));
-                                        break;*/
-
-                            }
-                            if (exception) {
-                                downloadTables.get(position).setmessage("Received: " + jsonArray.length() + ", Saved: " + insertCount);
-                                downloadTables.get(position).setstatus(insertCount == 0 ? "Unsuccessful" : "Successful");
-                                downloadTables.get(position).setstatusID(insertCount == 0 ? 1 : 3);
-                                syncListAdapter.updatesyncList(downloadTables);
-                            }
 //                    pd.show();
-
-                        } else {
-                            downloadTables.get(position).setmessage("Received: " + result.length() + "");
-                            downloadTables.get(position).setstatus("Successful");
-                            downloadTables.get(position).setstatusID(3);
-                            syncListAdapter.updatesyncList(downloadTables);
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                    downloadTables.get(position).setstatus("Process Failed");
+                                    downloadTables.get(position).setstatusID(1);
+                                    downloadTables.get(position).setmessage(result);
+                                    syncListAdapter.updatesyncList(downloadTables);
+                                }
+                            } else {
+                                downloadTables.get(position).setmessage("Received: " + result.length() + "");
+                                downloadTables.get(position).setstatus("Successful");
+                                downloadTables.get(position).setstatusID(3);
+                                syncListAdapter.updatesyncList(downloadTables);
 //                pd.show();
+                            }
+                        } else {
+                            downloadTables.get(position).setstatus("Process Failed");
+                            downloadTables.get(position).setstatusID(1);
+                            downloadTables.get(position).setmessage("Server not found!");
+                            syncListAdapter.updatesyncList(downloadTables);
+//            pd.show();
                         }
-                    } else {
+                    }
+                    //mTextView1.append("\n" + workInfo.getState().name());
+                    if (workInfo.getState() != null &&
+                            workInfo.getState() == WorkInfo.State.FAILED) {
+                        String message = workInfo.getOutputData().getString("error");
                         downloadTables.get(position).setstatus("Process Failed");
                         downloadTables.get(position).setstatusID(1);
-                        downloadTables.get(position).setmessage("Server not found!");
+                        downloadTables.get(position).setmessage(message);
                         syncListAdapter.updatesyncList(downloadTables);
-//            pd.show();
-                    }
-                }
-                //mTextView1.append("\n" + workInfo.getState().name());
-                if (workInfo.getState() != null &&
-                        workInfo.getState() == WorkInfo.State.FAILED) {
-                    String message = workInfo.getOutputData().getString("error");
-                    downloadTables.get(position).setstatus("Process Failed");
-                    downloadTables.get(position).setstatusID(1);
-                    downloadTables.get(position).setmessage(message);
-                    syncListAdapter.updatesyncList(downloadTables);
 
+                    }
                 }
             }
         });
@@ -628,7 +621,7 @@ public class SyncActivity extends AppCompatActivity {
 
 
                             WorkManager.getInstance(SyncActivity.this).enqueue(photoUpload);
-                            //Listening to the work status
+//Listening to the work status
                             final TextView[] mTextView1 = new TextView[1];
 
                             WorkManager.getInstance(SyncActivity.this).getWorkInfoByIdLiveData(photoUpload.getId())

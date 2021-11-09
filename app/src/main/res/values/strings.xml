@@ -1635,6 +1635,7 @@ she should be available during the interview, One MWRA per household will be sel
     <string name="info_hh_form_not_exist">INFO: Household information does not exist.</string>
     <string name="hh_not_found">Household not Found</string>
     <string name="hh_exists_form"> hhExists(HHForm): \t </string>
+    <string name="form_locked"> This form has been locked </string>
     <string name="w202t2">Probe for the type of person seen and record all answers given.</string>
     <string name="w311t2">Агар аз 24 соат камтар бошад, соатро нависед.</string>
     <string name="instrc3">Варақчаи Гуруҳи Ғизоҳоро истифода баред то ин ки ғизо муайян шавад ки ба кадом гурӯҳ дохил мебошад.</string>

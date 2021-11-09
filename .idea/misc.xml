@@ -14,6 +14,7 @@
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_camera.xml" value="0.55" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_ending.xml" value="0.21145833333333333" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_family_list.xml" value="0.53" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_forms_report.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_household.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_identification.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_lhw.xml" value="0.56328125" />
@@ -68,7 +69,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="16" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="16" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

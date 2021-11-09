@@ -5,7 +5,7 @@ import android.provider.BaseColumns;
 public class TableContracts {
 
     public static abstract class HHFormsTable implements BaseColumns {
-        public static final String TABLE_NAME = "HHforms";
+        public static final String TABLE_NAME = "HouseholdForm";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
@@ -30,7 +30,7 @@ public class TableContracts {
     }
 
     public static abstract class LHWFormsTable implements BaseColumns {
-        public static final String TABLE_NAME = "LHWForms";
+        public static final String TABLE_NAME = "LHWForm";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
@@ -57,7 +57,7 @@ public class TableContracts {
     }
 
     public static abstract class LHWHHTable implements BaseColumns {
-        public static final String TABLE_NAME = "LHWHouseholds";
+        public static final String TABLE_NAME = "LHWHousehold";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
@@ -89,7 +89,7 @@ public class TableContracts {
     }
 
     public static abstract class MWRAListTable implements BaseColumns {
-        public static final String TABLE_NAME = "MWRAList";
+        public static final String TABLE_NAME = "MwraForm";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
@@ -118,7 +118,7 @@ public class TableContracts {
 
     public static abstract class UsersTable implements BaseColumns {
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
-        public static final String TABLE_NAME = "users";
+        public static final String TABLE_NAME = "AppUser";
         public static final String COLUMN_ID = "_id";
         public static final String COLUMN_UID = "_uid";
         public static final String COLUMN_USERNAME = "username";
@@ -131,8 +131,8 @@ public class TableContracts {
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String TABLE_NAME = "district";
         public static final String COLUMN_ID = "_id";
-        public static final String COLUMN_DISTRICT_NAME = "district";
-        public static final String COLUMN_DISTRICT_CODE = "dist_id";
+        public static final String COLUMN_DISTRICT_NAME = "district_name";
+        public static final String COLUMN_DISTRICT_CODE = "district_code";
 
     }
 
@@ -160,7 +160,7 @@ public class TableContracts {
     }
 
     public static abstract class TableHealthFacilities implements BaseColumns {
-        public static final String TABLE_NAME = "lhw_hf";
+        public static final String TABLE_NAME = "HealthFacility";
         public static final String COLUMN_NAME_NULLABLE = "nullColumnHack";
         public static final String COLUMN_ID = "_ID";
         public static final String COLUMN_DIST_ID = "dist_id";
@@ -200,7 +200,7 @@ public class TableContracts {
         public static final String COLUMN_PRO_ID = "pro_id";
     }
     public static abstract class FamilyMembersTable implements BaseColumns {
-        public static final String TABLE_NAME = "FamilyMembersList";
+        public static final String TABLE_NAME = "FamilyMember";
         public static final String COLUMN_NAME_NULLABLE = "NULLHACK";
         public static final String COLUMN_PROJECT_NAME = "projectName";
         public static final String COLUMN_ID = "_id";
