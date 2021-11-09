@@ -140,7 +140,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
-
     public long addFamilyMember(FamilyMembers familyMembers) throws JSONException {
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
@@ -889,8 +888,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         db.close();
 
-        Log.d(TAG, "getUnsyncedForms: " + allForms.toString().length());
-        Log.d(TAG, "getUnsyncedForms: " + allForms);
+        Log.d(TAG, "getUnsyncedLHWHouseholds: " + allForms.toString().length());
+        Log.d(TAG, "getUnsyncedLHWHouseholds: " + allForms);
         return allForms;
     }
 
