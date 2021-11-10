@@ -20,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
@@ -37,15 +38,13 @@ public class IdentificationActivity extends AppCompatActivity {
 
     private static final String TAG = "IdentificationActivity";
     ActivityIdentificationBinding bi;
+    List<LHWHouseholds> lhwhhs = new ArrayList<>();
     private DatabaseHelper db;
-
     private Intent openIntent;
     private ArrayList<String> lhwNames;
     private ArrayList<String> lhwCodes;
     private ArrayList<String> khandanNo;
     private ArrayList<String> hhheads;
-    List<LHWHouseholds> lhwhhs = new ArrayList<>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,22 +110,34 @@ public class IdentificationActivity extends AppCompatActivity {
 
                 if (position == 0) return;
                 try {
-                    lhwhhs= db.getKhandanNoByLHW(lhwCodes.get(position));
+                    lhwhhs = db.getKhandanNoByLHW(lhwCodes.get(position));
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(IdentificationActivity.this, "JSONException(LHWHouseholds)"+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(IdentificationActivity.this, "JSONException(LHWHouseholds)" + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
                 khandanNo = new ArrayList<>();
                 hhheads = new ArrayList<>();
 
                 khandanNo.add("...");
                 hhheads.add("...");
-                for (LHWHouseholds lhwhh : lhwhhs) {
 
-                    if (!hhDone(lhwhh.getH102()))
+                Iterator<LHWHouseholds> i = lhwhhs.iterator();
+                while (i.hasNext()) {
+                    LHWHouseholds lhwhh = i.next();
+                    if (!hhDone(lhwhh.getH102())) {
                         khandanNo.add(lhwhh.getH102());
-                    // hhheads.add(lhwhh.getH103());
+                    } else {
+                        i.remove();
+                    }
                 }
+
+    /*            for (LHWHouseholds lhwhh : lhwhhs) {
+                    if (!hhDone(lhwhh.getH102())){
+                        khandanNo.add(lhwhh.getH102());} else {
+
+                    }
+                    // hhheads.add(lhwhh.getH103());
+                }*/
 
                 // Apply the adapter to the spinner
                 bi.h102.setAdapter(new ArrayAdapter<String>(IdentificationActivity.this, R.layout.custom_spinner, khandanNo));
@@ -150,8 +161,8 @@ public class IdentificationActivity extends AppCompatActivity {
 
                 if (position == 0) return;
                 // position -1, because lhwhhs does not have ... on 0 index`
-                bi.hhhead.setText(lhwhhs.get(position-1).getH103());
-                MainApp.LHWHouseholds = lhwhhs.get(position-1);
+                bi.hhhead.setText(lhwhhs.get(position - 1).getH103());
+                MainApp.LHWHouseholds = lhwhhs.get(position - 1);
                 bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(IdentificationActivity.this, R.color.colorAccent));
                 bi.btnContinue.setEnabled(true);
             }
@@ -166,14 +177,13 @@ public class IdentificationActivity extends AppCompatActivity {
 
 
     public void btnContinue(View view) {
-  //      if (!formValidation()) return;
+        //      if (!formValidation()) return;
         if (!hhExists())
             saveDraftHHForm();
 
         startActivity(new Intent(this, SectionH2Activity.class));
         finish();
     }
-
 
 
     private void saveDraftForm() {
@@ -228,6 +238,7 @@ public class IdentificationActivity extends AppCompatActivity {
     private void saveDraftHHForm() {
         MainApp.hhForm = new HHForm();
         MainApp.hhForm.setUserName(MainApp.user.getUserName());
+        MainApp.hhForm.setLhwuid(MainApp.LHWHouseholds.getUid());
         MainApp.hhForm.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
         MainApp.hhForm.setDeviceId(MainApp.deviceid);
         MainApp.hhForm.setAppver(MainApp.versionName + "." + MainApp.versionCode);
