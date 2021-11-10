@@ -238,7 +238,7 @@ public class LhwIdentificationActivity extends AppCompatActivity {
         if (!formValidation()) return;
         if (!hhExists())
             saveDraftLHWForm();
-        if (MainApp.LHWForm.getSynced() != null) {
+        if (!MainApp.LHWForm.getSynced().equals("")) {
             Toast.makeText(this, getString(R.string.form_locked), Toast.LENGTH_SHORT).show();
         } else {
             startActivity(new Intent(this, SectionL1Activity.class));
@@ -268,7 +268,7 @@ public class LhwIdentificationActivity extends AppCompatActivity {
     private boolean hhExists() {
         MainApp.LHWForm = new LHWForm();
         try {
-            MainApp.LHWForm = db.getLHWFormByLHWCode(lhwCodes.get(bi.a103.getSelectedItemPosition()));
+            MainApp.LHWForm = db.getLHWFormByLHWCode(lhwCodes.get(bi.a104.getSelectedItemPosition()));
 
         } catch (JSONException e) {
             Log.d(TAG, getString(R.string.hh_exists_form) + e.getMessage());
@@ -287,8 +287,8 @@ public class LhwIdentificationActivity extends AppCompatActivity {
         MainApp.LHWForm.setA101(distNames.get(bi.a101.getSelectedItemPosition()));
         MainApp.LHWForm.setA102(tehsilNames.get(bi.a102.getSelectedItemPosition()));
         MainApp.LHWForm.setA103(healthFacilityNames.get(bi.a103.getSelectedItemPosition()));
-        MainApp.LHWForm.setA104n(lhwNames.get(bi.a103.getSelectedItemPosition()));
-        MainApp.LHWForm.setA104c(lhwCodes.get(bi.a103.getSelectedItemPosition()));
+        MainApp.LHWForm.setA104n(lhwNames.get(bi.a104.getSelectedItemPosition()));
+        MainApp.LHWForm.setA104c(lhwCodes.get(bi.a104.getSelectedItemPosition()));
 
     }
 
