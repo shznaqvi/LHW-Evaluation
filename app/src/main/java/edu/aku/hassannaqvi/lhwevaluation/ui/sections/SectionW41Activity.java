@@ -63,17 +63,19 @@ public class SectionW41Activity extends AppCompatActivity {
             if(mwra.getW401().equals("2")) {
                 startActivity(new Intent(this, SectionABActivity.class));
             }
-            if (mwra.getW405a().equals("1")
-                    || mwra.getW405b().equals("2")
-                    || mwra.getW405c().equals("3")
-                    || mwra.getW405d().equals("4")
-                    || mwra.getW405e().equals("5")
-                    || mwra.getW405f().equals("6")
-                    || mwra.getW405h().equals("7")
-            ) {
-                startActivity(new Intent(this, SectionW42Activity.class));
-            } else {
-                startActivity(new Intent(this, SectionW43Activity.class));
+            else {
+                if (mwra.getW405a().equals("1")
+                        || mwra.getW405b().equals("2")
+                        || mwra.getW405c().equals("3")
+                        || mwra.getW405d().equals("4")
+                        || mwra.getW405e().equals("5")
+                        || mwra.getW405f().equals("6")
+                        || mwra.getW405h().equals("7")
+                ) {
+                    startActivity(new Intent(this, SectionW42Activity.class));
+                } else {
+                    startActivity(new Intent(this, SectionW43Activity.class));
+                }
             }
             finish();
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
