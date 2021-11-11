@@ -60,6 +60,9 @@ public class SectionW41Activity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
+            if(mwra.getW401().equals("2")) {
+                startActivity(new Intent(this, SectionABActivity.class));
+            }
             if (mwra.getW405a().equals("1")
                     || mwra.getW405b().equals("2")
                     || mwra.getW405c().equals("3")

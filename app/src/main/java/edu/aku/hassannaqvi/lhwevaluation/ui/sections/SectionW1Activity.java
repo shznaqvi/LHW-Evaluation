@@ -199,7 +199,7 @@ public class SectionW1Activity extends AppCompatActivity {
 
         if (!Validator.emptyCheckingContainer(this, bi.GrpName)) return false;
 
-        if (bi.w103a.isChecked()) {
+        if (bi.w103a.isChecked() && Integer.valueOf(mwra.getW105()) >0) {
             int ageInMonths = (Integer.valueOf(mwra.getW106y()) * 12) + Integer.valueOf(mwra.getW106m());
             if (ageInMonths <= Integer.valueOf(mwra.getW104())) {
                 Validator.emptyCustomTextBox(this, bi.w106m, "Age of last-born child in months cannot be equal to or less than current gestational age.");
