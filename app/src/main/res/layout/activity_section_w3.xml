@@ -1048,7 +1048,7 @@
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVw311"
                     style="@style/cardView"
-                    android:visibility="@{mwra.w309.equals(`2`) ? View.GONE : View.VISIBLE}">
+                    android:visibility="@{mwra.w306.equals(`1`) ? View.GONE : View.VISIBLE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -1060,7 +1060,7 @@
                             android:layout_height="wrap_content"
                             android:background="@drawable/bottom"
                             android:orientation="horizontal"
-                            android:visibility="@{mwra.w306.equals('2') ? View.VISIBLE : View.GONE}">
+                            >
 
                             <TextView
                                 style="@style/quesNum"
@@ -1080,7 +1080,6 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="vertical"
-                            android:visibility="@{mwra.w306.equals('2') ? View.VISIBLE : View.GONE}"
                             android:tag="0">
 
                             <CheckBox

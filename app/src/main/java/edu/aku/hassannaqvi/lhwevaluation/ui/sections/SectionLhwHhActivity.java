@@ -24,6 +24,7 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionLhwhhBinding;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWHouseholds;
+import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
 
 public class SectionLhwHhActivity extends AppCompatActivity {

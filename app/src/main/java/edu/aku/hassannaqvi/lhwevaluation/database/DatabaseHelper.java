@@ -180,6 +180,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase();
 
+
 // Create a new map of values, where column names are the keys
         ContentValues values = new ContentValues();
         values.put(TableContracts.LHWFormsTable.COLUMN_PROJECT_NAME, lhwForm.getProjectName());
@@ -187,6 +188,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.LHWFormsTable.COLUMN_CLUSTER, lhwForm.getCluster());
         values.put(TableContracts.LHWFormsTable.COLUMN_USERNAME, lhwForm.getUserName());
         values.put(TableContracts.LHWFormsTable.COLUMN_SYSDATE, lhwForm.getSysDate());
+        values.put(TableContracts.LHWFormsTable.COLUMN_SYNCED, lhwForm.getSynced());
+        values.put(TableContracts.LHWFormsTable.COLUMN_SYNCED_DATE, lhwForm.getSysDate());
 
         values.put(TableContracts.LHWFormsTable.COLUMN_A101, lhwForm.getA101());
         values.put(TableContracts.LHWFormsTable.COLUMN_A102, lhwForm.getA102());
