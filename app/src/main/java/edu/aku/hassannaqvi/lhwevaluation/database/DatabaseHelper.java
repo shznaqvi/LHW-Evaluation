@@ -118,6 +118,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.HHFormsTable.COLUMN_LHW_UID, HHForm.getLhwuid());
         values.put(TableContracts.HHFormsTable.COLUMN_USERNAME, HHForm.getUserName());
         values.put(TableContracts.HHFormsTable.COLUMN_SYSDATE, HHForm.getSysDate());
+        values.put(HHFormsTable.COLUMN_SYNCED, HHForm.getSynced());
+        values.put(HHFormsTable.COLUMN_SYNCED_DATE, HHForm.getSyncDate());
 
 
         values.put(TableContracts.HHFormsTable.COLUMN_SH2, HHForm.sH2toString());
@@ -153,7 +155,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.FamilyMembersTable.COLUMN_KHANDAN_NO, familyMembers.getkNo());
         values.put(TableContracts.FamilyMembersTable.COLUMN_USERNAME, familyMembers.getUserName());
         values.put(TableContracts.FamilyMembersTable.COLUMN_SYSDATE, familyMembers.getSysDate());
-
+        values.put(FamilyMembersTable.COLUMN_SYNCED, familyMembers.getSynced());
+        values.put(FamilyMembersTable.COLUMN_SYNCED_DATE, familyMembers.getSyncDate());
 
         values.put(FamilyMembersTable.COLUMN_SH3, familyMembers.sH3toString());
      /*   values.put(TableContracts.FamilyMemberssTable.COLUMN_SH3, familyMembers.sH3toString());
@@ -187,7 +190,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.LHWFormsTable.COLUMN_CLUSTER, lhwForm.getCluster());
         values.put(TableContracts.LHWFormsTable.COLUMN_USERNAME, lhwForm.getUserName());
         values.put(TableContracts.LHWFormsTable.COLUMN_SYSDATE, lhwForm.getSysDate());
-
+        values.put(LHWFormsTable.COLUMN_SYNCED, lhwForm.getSynced());
+        values.put(LHWFormsTable.COLUMN_SYNCED_DATE, lhwForm.getSyncDate());
         values.put(TableContracts.LHWFormsTable.COLUMN_A101, lhwForm.getA101());
         values.put(TableContracts.LHWFormsTable.COLUMN_A102, lhwForm.getA102());
         values.put(TableContracts.LHWFormsTable.COLUMN_A103, lhwForm.getA103());
@@ -226,7 +230,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.LHWHHTable.COLUMN_HHID, LHWHouseholds.getHhid());
         values.put(TableContracts.LHWHHTable.COLUMN_USERNAME, LHWHouseholds.getUserName());
         values.put(TableContracts.LHWHHTable.COLUMN_SYSDATE, LHWHouseholds.getSysDate());
-
+        values.put(LHWHHTable.COLUMN_SYNCED, LHWHouseholds.getSynced());
+        values.put(LHWHHTable.COLUMN_SYNCED_DATE, LHWHouseholds.getSyncDate());
 
         values.put(TableContracts.LHWHHTable.COLUMN_H101, LHWHouseholds.getH101());
         values.put(TableContracts.LHWHHTable.COLUMN_H102, LHWHouseholds.getH102());
@@ -267,7 +272,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.MWRAListTable.COLUMN_USERNAME, mwra.getUserName());
         values.put(TableContracts.MWRAListTable.COLUMN_SYSDATE, mwra.getSysDate());
         values.put(TableContracts.MWRAListTable.COLUMN_INDEXED, mwra.getIndexed());
-
+        values.put(MWRAListTable.COLUMN_SYNCED, mwra.getSynced());
+        values.put(MWRAListTable.COLUMN_SYNCED_DATE, mwra.getSyncDate());
         values.put(TableContracts.MWRAListTable.COLUMN_SW1, mwra.sW1toString());
       /*  values.put(TableContracts.MWRAListTable.COLUMN_SW2, mwra.sW2toString());
         values.put(TableContracts.MWRAListTable.COLUMN_SW3, mwra.sW3toString());
