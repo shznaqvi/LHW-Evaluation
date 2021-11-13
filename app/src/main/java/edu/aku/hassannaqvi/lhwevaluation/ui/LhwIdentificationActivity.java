@@ -239,7 +239,7 @@ public class LhwIdentificationActivity extends AppCompatActivity {
         if (!hhExists())
             saveDraftLHWForm();
         if (!MainApp.LHWForm.getSynced().equals("")) {
-            Toast.makeText(this, getString(R.string.form_locked), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, getString(R.string.lhw_locked), Toast.LENGTH_SHORT).show();
         } else {
             startActivity(new Intent(this, SectionL1Activity.class));
             finish();
