@@ -27,12 +27,12 @@ import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityLhwIdentificationBinding;
+import edu.aku.hassannaqvi.lhwevaluation.models.Districts;
+import edu.aku.hassannaqvi.lhwevaluation.models.HealthFacilities;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHW;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
+import edu.aku.hassannaqvi.lhwevaluation.models.Tehsil;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionL1Activity;
-import edu.aku.hassannaqvi.smk_ce.models.Districts;
-import edu.aku.hassannaqvi.smk_ce.models.HealthFacilities;
-import edu.aku.hassannaqvi.smk_ce.models.LHW;
-import edu.aku.hassannaqvi.smk_ce.models.Tehsil;
 
 
 public class LhwIdentificationActivity extends AppCompatActivity {

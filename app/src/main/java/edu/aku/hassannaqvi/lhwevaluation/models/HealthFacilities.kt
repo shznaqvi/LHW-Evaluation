@@ -1,4 +1,4 @@
-package edu.aku.hassannaqvi.smk_ce.models
+package edu.aku.hassannaqvi.lhwevaluation.models
 
 import android.database.Cursor
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableHealthFacilities
