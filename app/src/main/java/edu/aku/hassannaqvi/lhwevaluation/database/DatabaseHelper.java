@@ -853,6 +853,102 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
     //get UnSyncedTables
+
+    public JSONArray getUnsyncedLHWForms() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        //whereClause = null;
+        whereClause = TableContracts.LHWFormsTable.COLUMN_SYNCED + " = '' ";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.LHWFormsTable.COLUMN_ID + " ASC";
+
+        JSONArray allLHWForms = new JSONArray();
+
+        c = db.query(
+                TableContracts.LHWFormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            /** WorkManager Upload
+             /*hhForm fc = new hhForm();
+             allFC.add(fc.Hydrate(c));*/
+            Log.d(TAG, "getUnsyncedForms: " + c.getCount());
+            LHWForm lhwForm = new LHWForm().Hydrate(c);
+            List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwForm.getA104c());
+            if (lhwhhs.size() >= 10)
+                allLHWForms.put(lhwForm.toJSONObject());
+
+
+        }
+
+        db.close();
+
+    /*    Log.d(TAG, "getUnsyncedForms: " + LHWForm.toString().length());
+        Log.d(TAG, "getUnsyncedForms: " + LHWForm);*/
+        return allLHWForms;
+    }
+
+
+    public JSONArray getUnsyncedLHWHHForms() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        //whereClause = null;
+        whereClause = TableContracts.LHWHHTable.COLUMN_SYNCED + " = '' ";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.LHWHHTable.COLUMN_ID + " ASC";
+
+        JSONArray allLHWHHForms = new JSONArray();
+
+        c = db.query(
+                TableContracts.LHWHHTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            /** WorkManager Upload
+             /*hhForm fc = new hhForm();
+             allFC.add(fc.Hydrate(c));*/
+            Log.d(TAG, "getUnsyncedForms: " + c.getCount());
+            LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
+            List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getLhwCode());
+            if (lhwhhs.size() >= 10)
+                allLHWHHForms.put(lhwHousehold.toJSONObject());
+
+
+        }
+
+        db.close();
+
+    /*    Log.d(TAG, "getUnsyncedForms: " + LHWForm.toString().length());
+        Log.d(TAG, "getUnsyncedForms: " + LHWForm);*/
+        return allLHWHHForms;
+    }
+
     public JSONArray getUnsyncedHHForms() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = null;
@@ -860,7 +956,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String whereClause;
         //whereClause = null;
-        whereClause = TableContracts.HHFormsTable.COLUMN_SYNCED + " is null AND " +
+        whereClause = TableContracts.HHFormsTable.COLUMN_SYNCED + " ='' AND " +
                 TableContracts.HHFormsTable.COLUMN_ISTATUS + "!= ''";
 
         String[] whereArgs = null;
@@ -872,25 +968,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         JSONArray allForms = new JSONArray();
 
-            c = db.query(
-                    TableContracts.HHFormsTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                /** WorkManager Upload
-                 /*hhForm fc = new hhForm();
-                 allFC.add(fc.Hydrate(c));*/
-                Log.d(TAG, "getUnsyncedForms: " + c.getCount());
-                HHForm HHForm = new HHForm();
-                allForms.put(HHForm.Hydrate(c).toJSONObject());
+        c = db.query(
+                TableContracts.HHFormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            /** WorkManager Upload
+             /*hhForm fc = new hhForm();
+             allFC.add(fc.Hydrate(c));*/
+            Log.d(TAG, "getUnsyncedForms: " + c.getCount());
+            HHForm HHForm = new HHForm();
+            allForms.put(HHForm.Hydrate(c).toJSONObject());
 
 
-            }
+        }
 
         db.close();
 
@@ -907,7 +1003,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String whereClause;
         //whereClause = null;
-        whereClause = FamilyMembersTable.COLUMN_SYNCED + " is null ";
+        whereClause = FamilyMembersTable.COLUMN_SYNCED + " ='' ";
 
         String[] whereArgs = null;
 
@@ -949,96 +1045,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allFamilyMembers;
     }
 
-    public JSONArray getUnsyncedLHWForms() throws JSONException {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = null;
-
-        String whereClause;
-        //whereClause = null;
-        whereClause = TableContracts.LHWFormsTable.COLUMN_SYNCED + " is null ";
-
-        String[] whereArgs = null;
-
-        String groupBy = null;
-        String having = null;
-
-        String orderBy = TableContracts.LHWFormsTable.COLUMN_ID + " ASC";
-
-        JSONArray allLHWForms = new JSONArray();
-
-        c = db.query(
-                TableContracts.LHWFormsTable.TABLE_NAME,  // The table to query
-                columns,                   // The columns to return
-                whereClause,               // The columns for the WHERE clause
-                whereArgs,                 // The values for the WHERE clause
-                groupBy,                   // don't group the rows
-                having,                    // don't filter by row groups
-                orderBy                    // The sort order
-        );
-        while (c.moveToNext()) {
-            /** WorkManager Upload
-             /*hhForm fc = new hhForm();
-             allFC.add(fc.Hydrate(c));*/
-            Log.d(TAG, "getUnsyncedForms: " + c.getCount());
-            LHWForm LHWForm = new LHWForm();
-            allLHWForms.put(LHWForm.Hydrate(c).toJSONObject());
-
-
-        }
-
-        db.close();
-
-    /*    Log.d(TAG, "getUnsyncedForms: " + LHWForm.toString().length());
-        Log.d(TAG, "getUnsyncedForms: " + LHWForm);*/
-        return allLHWForms;
-    }
-
-
-    public JSONArray getUnsyncedLHWHHForms() throws JSONException {
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = null;
-        String[] columns = null;
-
-        String whereClause;
-        //whereClause = null;
-        whereClause = TableContracts.LHWHHTable.COLUMN_SYNCED + " is null ";
-
-        String[] whereArgs = null;
-
-        String groupBy = null;
-        String having = null;
-
-        String orderBy = TableContracts.LHWHHTable.COLUMN_ID + " ASC";
-
-        JSONArray allLHWHHForms = new JSONArray();
-
-        c = db.query(
-                TableContracts.LHWHHTable.TABLE_NAME,  // The table to query
-                columns,                   // The columns to return
-                whereClause,               // The columns for the WHERE clause
-                whereArgs,                 // The values for the WHERE clause
-                groupBy,                   // don't group the rows
-                having,                    // don't filter by row groups
-                orderBy                    // The sort order
-        );
-        while (c.moveToNext()) {
-            /** WorkManager Upload
-             /*hhForm fc = new hhForm();
-             allFC.add(fc.Hydrate(c));*/
-            Log.d(TAG, "getUnsyncedForms: " + c.getCount());
-            LHWHouseholds lhwHousehold = new LHWHouseholds();
-            allLHWHHForms.put(lhwHousehold.Hydrate(c).toJSONObject());
-
-
-        }
-
-        db.close();
-
-    /*    Log.d(TAG, "getUnsyncedForms: " + LHWForm.toString().length());
-        Log.d(TAG, "getUnsyncedForms: " + LHWForm);*/
-        return allLHWHHForms;
-    }
 
     public JSONArray getUnsyncedMWRA() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -1047,7 +1053,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         String whereClause;
         //whereClause = null;
-        whereClause = TableContracts.MWRAListTable.COLUMN_SYNCED + " is null ";
+        whereClause = TableContracts.MWRAListTable.COLUMN_SYNCED + " ='' ";
 
         String[] whereArgs = null;
 
