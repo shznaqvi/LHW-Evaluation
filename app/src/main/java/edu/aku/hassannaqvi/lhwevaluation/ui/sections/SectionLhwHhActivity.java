@@ -41,6 +41,8 @@ public class SectionLhwHhActivity extends AppCompatActivity {
         db = MainApp.appInfo.getDbHelper();
 
         MainApp.lhwHHCount++;
+        bi.btnSaveAddMore.setVisibility(MainApp.lhwHHCount == 10 ? View.GONE : View.VISIBLE);
+
         if (!hhExists()) {
             initializeLHWHHForm();
         }
@@ -154,7 +156,6 @@ public class SectionLhwHhActivity extends AppCompatActivity {
         MainApp.LHWHouseholds.setH101(String.valueOf(MainApp.lhwHHCount));
         MainApp.LHWHouseholds.setLhwCode(MainApp.LHWForm.getA104c());
 
-        bi.btnSaveAddMore.setVisibility(MainApp.lhwHHCount==10?View.GONE:View.VISIBLE);
 
     }
 
