@@ -1,5 +1,7 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.adolList;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 
 import android.content.Intent;
@@ -61,7 +63,15 @@ public class SectionW41Activity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             if(mwra.getW401().equals("2")) {
-                startActivity(new Intent(this, SectionABActivity.class));
+                if (adolList.size() > 0) {
+                    startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
+
+                } else if (maleList.size() > 0) {
+                    startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+
+                } else {
+                    startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                }
             }
             else {
                 if (mwra.getW405a().equals("1")
@@ -70,7 +80,7 @@ public class SectionW41Activity extends AppCompatActivity {
                         || mwra.getW405d().equals("4")
                         || mwra.getW405e().equals("5")
                         || mwra.getW405f().equals("6")
-                        || mwra.getW405h().equals("7")
+                        || mwra.getW405g().equals("7")
                 ) {
                     startActivity(new Intent(this, SectionW42Activity.class));
                 } else {
