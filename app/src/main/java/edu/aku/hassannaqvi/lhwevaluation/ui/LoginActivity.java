@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.lhwevaluation.ui;
 
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.TAJIKISTAN;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.editor;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_COPY;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_NAME;
@@ -65,6 +66,7 @@ import edu.aku.hassannaqvi.lhwevaluation.models.Users;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private static final String TAG = "LoginActivity";
     protected static LocationManager locationManager;
 
     // UI references.
@@ -149,7 +151,7 @@ public class LoginActivity extends AppCompatActivity {
         MainApp.user = new Users();
         bi.txtinstalldate.setText(MainApp.appInfo.getAppInfo());
 
-        dbBackup();
+
     }
 
     /*    private void settingCountryCode() {
@@ -201,56 +203,66 @@ public class LoginActivity extends AppCompatActivity {
     public void dbBackup() {
 
 
-        if (sharedPref.getBoolean("flag", false)) {
+        // if (sharedPref.getBoolean("flag", false)) {
 
-            String dt = sharedPref.getString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
+        String dt = sharedPref.getString("dt", new SimpleDateFormat("yyyy_mm_dd").format(new Date()));
 
-            if (!dt.equals(new SimpleDateFormat("dd-MM-yy").format(new Date()))) {
-                MainApp.editor.putString("dt", new SimpleDateFormat("dd-MM-yy").format(new Date()));
-                MainApp.editor.apply();
-            }
+        if (!dt.equals(new SimpleDateFormat("yyyy_mm_dd").format(new Date()))) {
+            MainApp.editor.putString("dt", new SimpleDateFormat("yyyy_mm_dd").format(new Date()));
+            MainApp.editor.apply();
+        }
 
-            File folder = new File(Environment.getExternalStorageDirectory() + File.separator + PROJECT_NAME);
-            boolean success = true;
-            if (!folder.exists()) {
-                success = folder.mkdirs();
-            }
-            if (success) {
+        // File folder = new File(Environment.getExternalStorageDirectory() + File.separator + PROJECT_NAME);
+        File folder = Environment
+                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        boolean success = true;
+        folder = new File(folder + File.separator + PROJECT_NAME);
 
-                DirectoryName = folder.getPath() + File.separator + sharedPref.getString("dt", "");
-                folder = new File(DirectoryName);
-                if (!folder.exists()) {
-                    success = folder.mkdirs();
-                }
-                if (success) {
 
-                    try {
-                        File dbFile = new File(this.getDatabasePath(DATABASE_NAME).getPath());
-                        FileInputStream fis = new FileInputStream(dbFile);
-                        String outFileName = DirectoryName + File.separator + DATABASE_COPY;
-                        // Open the empty db as the output stream
-                        OutputStream output = new FileOutputStream(outFileName);
+        DirectoryName = folder.getPath() + File.separator + sharedPref.getString("dt", "");
+        folder = new File(DirectoryName);
+        if (!folder.exists()) {
+            success = folder.mkdirs();
+        }
+        if (success) {
 
-                        // Transfer bytes from the inputfile to the outputfile
-                        byte[] buffer = new byte[1024];
-                        int length;
-                        while ((length = fis.read(buffer)) > 0) {
-                            output.write(buffer, 0, length);
-                        }
-                        // Close the streams
-                        output.flush();
-                        output.close();
-                        fis.close();
-                    } catch (IOException e) {
-                        Log.e("dbBackup:", Objects.requireNonNull(e.getMessage()));
+
+            File dbFile = new File(this.getDatabasePath(DATABASE_NAME).getPath());
+
+            Long oldDBFileSize = sharedPref.getLong("dbFileSize", 0);
+            Long newDBFileSize = dbFile.length();
+            sharedPref.edit().putLong("dbFileSize", newDBFileSize);
+            editor.apply();
+            if (newDBFileSize > oldDBFileSize) {
+                try {
+                    FileInputStream fis = new FileInputStream(dbFile);
+                    String outFileName = DirectoryName + File.separator + dt + "_" + DATABASE_COPY;
+                    Log.d(TAG, "dbBackup: " + outFileName);
+
+                    // Open the empty db as the output stream
+                    OutputStream output = new FileOutputStream(outFileName);
+
+                    // Transfer bytes from the inputfile to the outputfile
+                    byte[] buffer = new byte[1024];
+                    int length;
+                    while ((length = fis.read(buffer)) > 0) {
+                        output.write(buffer, 0, length);
                     }
 
+                    // Close the streams
+                    output.flush();
+                    output.close();
+                    fis.close();
+                } catch (IOException e) {
+                    Log.e("dbBackup:", Objects.requireNonNull(e.getMessage()));
                 }
+            }
+
 
             } else {
                 Toast.makeText(this, getString(R.string.folder_not_created), Toast.LENGTH_SHORT).show();
             }
-        }
+        // }
 
     }
 
@@ -316,7 +328,7 @@ public class LoginActivity extends AppCompatActivity {
             ) {
                 MainApp.admin = username.contains("@") || username.contains("test1234");
                 MainApp.user.setUserName(username);
-
+                dbBackup();
                 Intent iLogin = new Intent(edu.aku.hassannaqvi.lhwevaluation.ui.LoginActivity.this, MainActivity.class);
                 startActivity(iLogin);
             } else {

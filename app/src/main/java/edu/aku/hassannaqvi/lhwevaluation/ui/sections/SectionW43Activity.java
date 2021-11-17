@@ -92,5 +92,4 @@ public class SectionW43Activity extends AppCompatActivity {
         setResult(RESULT_CANCELED);
     }
 
-
 }
