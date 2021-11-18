@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_sync.xml" value="0.35625" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/sync_list_adapter.xml" value="0.35625" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/ic_girl.xml" value="0.34140625" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/male.xml" value="0.33240740740740743" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/new_form.xml" value="0.34140625" />
@@ -14,7 +16,6 @@
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_camera.xml" value="0.55" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_ending.xml" value="0.21145833333333333" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_family_list.xml" value="0.53" />
-        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_forms_report.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_household.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_identification.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_lhw.xml" value="0.56328125" />
@@ -43,7 +44,6 @@
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w41.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w42.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w43.xml" value="0.545" />
-        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_sync.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/custom_spinner.xml" value="0.3171875" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/fragment_blank.xml" value="0.3614583333333333" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/lhw_row.xml" value="0.37552083333333336" />
