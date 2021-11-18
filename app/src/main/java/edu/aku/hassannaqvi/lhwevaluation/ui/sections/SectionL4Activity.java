@@ -1,6 +1,8 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +33,9 @@ public class SectionL4Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(sharedPref.getString("lang", "0").equals("0") ? R.style.AppThemeEnglish1
+                : sharedPref.getString("lang", "1").equals("1") ? R.style.AppThemeUrdu
+                : R.style.AppThemeSindhi);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_l4);
         bi.setCallback(this);
         bi.setLhwForm(MainApp.LHWForm);

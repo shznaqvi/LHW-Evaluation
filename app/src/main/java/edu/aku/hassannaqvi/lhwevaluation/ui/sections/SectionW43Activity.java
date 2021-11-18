@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.adolList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,6 +35,9 @@ public class SectionW43Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(sharedPref.getString("lang", "0").equals("0") ? R.style.AppThemeEnglish1
+                : sharedPref.getString("lang", "1").equals("1") ? R.style.AppThemeUrdu
+                : R.style.AppThemeSindhi);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_w43);
         bi.setCallback(this);
         bi.setMwra(mwra);

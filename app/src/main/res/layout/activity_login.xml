@@ -201,7 +201,32 @@
 
                             </LinearLayout>
 
-                            <androidx.appcompat.widget.SwitchCompat
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:orientation="horizontal"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="20dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:minHeight="40dp"
+                                    android:text="@string/lang" />
+
+                                <androidx.appcompat.widget.AppCompatSpinner
+                                    android:id="@+id/countrySwitch"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:gravity="center"
+                                    android:hint="@string/lang"
+                                    android:minHeight="40dp" />
+
+                            </LinearLayout>
+
+                            <!--<androidx.appcompat.widget.SwitchCompat
                                 android:id="@+id/countrySwitch"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -210,7 +235,7 @@
                                 android:gravity="center_horizontal|center_vertical"
                                 android:padding="8dp"
                                 android:text="@string/country"
-                                android:textSize="16sp" />
+                                android:textSize="16sp" />-->
 
                             <Button
                                 android:id="@+id/syncData"

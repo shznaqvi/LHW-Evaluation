@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui;
 
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,9 @@ public class EndingActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(sharedPref.getString("lang", "0").equals("0") ? R.style.AppThemeEnglish1
+                : sharedPref.getString("lang", "1").equals("1") ? R.style.AppThemeUrdu
+                : R.style.AppThemeSindhi);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_ending);
 
         setSupportActionBar(bi.toolbar);
