@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.lhwevaluation.ui;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.editor;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.user;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_COPY;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_NAME;
 
@@ -323,8 +324,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if ((username.equals("dmu@aku") && password.equals("aku?dmu"))
                     || (username.equals("test1234") && password.equals("test1234"))
-                    || db.doLogin(username, password)
-            ) {
+                    || db.doLogin(username, password)) {
                 MainApp.admin = username.contains("@") || username.contains("test1234");
                 MainApp.user.setUserName(username);
                 dbBackup();

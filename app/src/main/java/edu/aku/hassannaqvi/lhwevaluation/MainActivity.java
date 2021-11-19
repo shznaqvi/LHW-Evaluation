@@ -54,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
         //getSupportActionBar().setIcon(R.drawable.app_icon);
         bi.adminView.setVisibility(MainApp.admin ? View.VISIBLE : View.GONE);
         bi.toolbar.setSubtitle("Welcome, " + MainApp.user.getFullname() + (MainApp.admin ? " (Admin)" : "") + "!");
+        bi.dbManager.setVisibility(MainApp.admin ? View.VISIBLE : View.GONE);
+
+
     }
 
     public void sectionPress(View view) {
