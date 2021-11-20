@@ -46,6 +46,9 @@ public class SectionLhwHhActivity extends AppCompatActivity {
 
         MainApp.lhwHHCount++;
         bi.btnSaveAddMore.setVisibility(MainApp.lhwHHCount == 10 ? View.GONE : View.VISIBLE);
+        bi.btnSaveClose.setVisibility(MainApp.lhwHHCount < 10 ? View.GONE : View.VISIBLE);
+
+
 
         if (!hhExists()) {
             initializeLHWHHForm();
