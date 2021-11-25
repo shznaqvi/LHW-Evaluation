@@ -93,6 +93,7 @@ public class MainApp extends Application {
 
     public static boolean lhwComplete;
     public static boolean memberComplete;
+    public static boolean superuser = false;
 
 
     public static void hideSystemUI(View decorView) {
