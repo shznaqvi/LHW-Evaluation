@@ -1,9 +1,9 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui;
 
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.PROJECT_NAME;
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.TAJIKISTAN;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.editor;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.user;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_COPY;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_NAME;
 
@@ -21,8 +21,8 @@ import android.text.method.PasswordTransformationMethod;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -114,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
-        initializingCountry();
+        //initializingCountry();
         Dexter.withContext(this)
                 .withPermissions(
                         Manifest.permission.ACCESS_NETWORK_STATE,
@@ -328,7 +328,7 @@ public class LoginActivity extends AppCompatActivity {
             ) {
                 MainApp.admin = username.contains("@") || username.contains("test1234");
                 MainApp.user.setUserName(username);
-                dbBackup();
+                //dbBackup();
                 Intent iLogin = new Intent(edu.aku.hassannaqvi.lhwevaluation.ui.LoginActivity.this, MainActivity.class);
                 startActivity(iLogin);
             } else {
@@ -392,12 +392,12 @@ public class LoginActivity extends AppCompatActivity {
     /*
      * Toggle Language
      * */
-    private void changeLanguage(int countryCode) {
+    private void changeLanguage(int code) {
         String lang;
         String country;
-        if (countryCode == TAJIKISTAN) {
-            lang = "tg";
-            country = "TJ";
+        /*if (code == TAJIKISTAN) {
+            lang = "ur";
+            country = "PK";
             MainApp.editor
                     .putString("lang", "3")
                     .apply();
@@ -407,6 +407,29 @@ public class LoginActivity extends AppCompatActivity {
             MainApp.editor
                     .putString("lang", "1")
                     .apply();
+        }*/
+        switch (code) {
+            case 1:
+                lang = "ur";
+                country = "PK";
+                MainApp.editor
+                        .putString("lang", "1")
+                        .apply();
+                break;
+            case 2:
+                lang = "sd";
+                country = "PK";
+                MainApp.editor
+                        .putString("lang", "2")
+                        .apply();
+                break;
+            default:
+                lang = "en";
+                country = "US";
+                MainApp.editor
+                        .putString("lang", "0")
+                        .apply();
+                break;
         }
         Locale locale = new Locale(lang, country);
         Locale.setDefault(locale);
@@ -419,7 +442,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private void settingCountryCode() {
 
-        bi.countrySwitch.setChecked(sharedPref.getString("lang", "1").equals("1"));
+        /*bi.countrySwitch.setChecked(sharedPref.getString("lang", "1").equals("1"));
 
         bi.countrySwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -431,6 +454,19 @@ public class LoginActivity extends AppCompatActivity {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
 
             }
+        });*/
+        bi.countrySwitch.setAdapter(new ArrayAdapter<>(LoginActivity.this, R.layout.custom_spinner, getResources().getStringArray(R.array.langs)));
+        bi.countrySwitch.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                changeLanguage(position);
+                /*startActivity(new Intent(LoginActivity.this, LoginActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);*/
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
     }
@@ -441,7 +477,7 @@ public class LoginActivity extends AppCompatActivity {
     private void initializingCountry() {
         countryCode = Integer.parseInt(sharedPref.getString("lang", "0"));
         if (countryCode == 0) {
-            MainApp.editor.putString("lang", "1").apply();
+            MainApp.editor.putString("lang", "0").apply();
         }
 
         changeLanguage(Integer.parseInt(sharedPref.getString("lang", "0")));

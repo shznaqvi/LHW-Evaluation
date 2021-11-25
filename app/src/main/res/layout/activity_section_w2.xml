@@ -163,8 +163,7 @@
                         <RadioGroup
                             android:id="@+id/w202"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:onCheckedChanged="@{()->w210.clearCheck()}">
+                            android:layout_height="wrap_content">
 
                             <RadioButton
                                 android:id="@+id/w202a"
@@ -211,7 +210,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{mwra.w202.equals(`6`)}"
-                                android:onClick="@{()->mwra.setW202(`6`)}"
+                                android:onClick="@{()->mwra.setW202(`6`) + w210.clearCheck()}"
                                 android:text="@string/w202f" />
 
                         </RadioGroup>

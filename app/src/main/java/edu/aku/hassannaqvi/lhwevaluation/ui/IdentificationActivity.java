@@ -1,5 +1,7 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui;
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -24,6 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
+import edu.aku.hassannaqvi.lhwevaluation.MainActivity;
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
@@ -49,6 +52,9 @@ public class IdentificationActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(sharedPref.getString("lang", "0").equals("0") ? R.style.AppThemeEnglish1
+                : sharedPref.getString("lang", "1").equals("1") ? R.style.AppThemeUrdu
+                : R.style.AppThemeSindhi);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_identification);
         bi.setCallback(this);
         db = MainApp.appInfo.dbHelper;
@@ -205,7 +211,7 @@ public class IdentificationActivity extends AppCompatActivity {
 
     public void btnEnd(View view) {
 
-        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        startActivity(new Intent(this, MainActivity.class).putExtra("complete", false));
         finish();
     }
 

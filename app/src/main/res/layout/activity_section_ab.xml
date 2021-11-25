@@ -100,10 +100,7 @@
                             android:layout_width="0dp"
                             android:layout_weight="3"
                             android:layout_height="wrap_content"
-                            android:hint="@string/w101"
-                            android:enabled="@{HHForm.ab101.equals(``)}"
-
-                            />
+                            android:hint="@string/w101" />
 
                     </LinearLayout>
 
@@ -208,7 +205,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:checked="@{HHForm.ab103.equals(`2`)}"
-                                android:onClick="@{()->HHForm.setAb103(`2`)}"
+                                android:onClick="@{()->HHForm.setAb103(`2`) + ab105.clearCheck()}"
                                 android:text="@string/ab103b" />
 
                         </RadioGroup>
@@ -406,7 +403,6 @@
                             android:id="@+id/ab106"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:onCheckedChanged="@{()->ab107.clearCheck() + ab109.clearCheck() + ab111.clearCheck()}"
                             android:orientation="horizontal">
 
                             <RadioButton
@@ -424,7 +420,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:checked="@{HHForm.ab106.equals(`2`)}"
-                                android:onClick="@{()->HHForm.setAb106(`2`)}"
+                                android:onClick="@{()->HHForm.setAb106(`2`) + ab107.clearCheck() + ab109.clearCheck() + ab111.clearCheck()}"
                                 android:text="@string/ab106b" />
 
                         </RadioGroup>
@@ -1089,7 +1085,6 @@
                             android:id="@+id/ab114"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:onCheckedChanged="@{()->ab115.clearCheck() + ab117.clearCheck()}"
                             android:orientation="horizontal">
 
                             <RadioButton
@@ -1107,7 +1102,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:checked="@{HHForm.ab114.equals(`2`)}"
-                                android:onClick="@{()->HHForm.setAb114(`2`)}"
+                                android:onClick="@{()->HHForm.setAb114(`2`) + ab115.clearCheck() + ab117.clearCheck()}"
                                 android:text="@string/ab114b" />
 
                         </RadioGroup>

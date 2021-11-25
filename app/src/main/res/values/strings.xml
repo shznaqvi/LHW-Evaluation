@@ -37,6 +37,7 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="country">Country (Click to change)</string>
+    <string name="lang"> Select Language </string>
     <string name="pakistan">Pakistan</string>
     <string name="tajikistan">Tajikistan</string>
     <string name="btnLogin">Login</string>
@@ -1660,6 +1661,12 @@ she should be available during the interview, One MWRA per household will be sel
     <string name="istatusg"> No Child or adolescent 18 years or below present in the HH </string>
     <string name="istatush"> No MWRA 18 or above of age live in this household ? </string>
     <string name="istatus96"> Other (Specify) </string>
+
+    <string-array name="langs">
+        <item> English </item>
+        <item> Urdu </item>
+        <item> Sindhi </item>
+    </string-array>
 
 
 </resources>

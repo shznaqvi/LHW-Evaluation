@@ -1,6 +1,8 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,13 +20,12 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
+import edu.aku.hassannaqvi.lhwevaluation.MainActivity;
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionL1Binding;
-import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
-import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.TakePhoto;
 
 
@@ -69,6 +70,9 @@ public class SectionL1Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(sharedPref.getString("lang", "0").equals("0") ? R.style.AppThemeEnglish1
+                : sharedPref.getString("lang", "1").equals("1") ? R.style.AppThemeUrdu
+                : R.style.AppThemeSindhi);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_l1);
         bi.setCallback(this);
         bi.setLhwForm(MainApp.LHWForm);
@@ -137,7 +141,7 @@ public class SectionL1Activity extends AppCompatActivity {
 
     public void btnEnd(View view) {
 
-        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
+        startActivity(new Intent(this, MainActivity.class).putExtra("complete", false));
         finish();
     }
 
