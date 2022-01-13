@@ -186,9 +186,13 @@ public class IdentificationActivity extends AppCompatActivity {
         //      if (!formValidation()) return;
         if (!hhExists())
             saveDraftHHForm();
+        if (MainApp.hhForm.getSynced().equals("1") && !MainApp.superuser) { // Do not allow synced form to be edited
+            Toast.makeText(this, "This form has been locked.", Toast.LENGTH_SHORT).show();
+        } else {
 
-        startActivity(new Intent(this, SectionH2Activity.class));
-        finish();
+            startActivity(new Intent(this, SectionH2Activity.class));
+            finish();
+        }
     }
 
 

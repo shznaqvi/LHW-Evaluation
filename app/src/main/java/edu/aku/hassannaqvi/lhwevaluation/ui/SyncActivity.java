@@ -199,7 +199,7 @@ public class SyncActivity extends AppCompatActivity {
                     MainApp.uploadData.add(db.getUnsyncedMWRA());
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    Toast.makeText(this, "JSONException(FamilyMembers): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, "JSONException(MWRA): " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
 
 
