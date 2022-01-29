@@ -16,6 +16,7 @@ import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
+import edu.aku.hassannaqvi.lhwevaluation.ui.ChangePasswordActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.IdentificationActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.LhwIdentificationActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.SyncActivity;
@@ -190,6 +191,10 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.formsReportCluster:
                 intent = new Intent(MainActivity.this, FormsReportCluster.class);
+                startActivity(intent);
+                break;
+            case R.id.changePassword:
+                intent = new Intent(MainActivity.this, ChangePasswordActivity.class);
                 startActivity(intent);
                 break;
         }

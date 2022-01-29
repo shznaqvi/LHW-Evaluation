@@ -3,7 +3,9 @@ package edu.aku.hassannaqvi.lhwevaluation.database;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.IBAHC;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
+import static edu.aku.hassannaqvi.lhwevaluation.core.UserAuth.checkPassword;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_DISTRICT;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_ENTRYLOGS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_HH_FORMS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW;
@@ -24,18 +26,22 @@ import android.database.SQLException;
 import android.util.Log;
 
 import net.sqlcipher.database.SQLiteDatabase;
+import net.sqlcipher.database.SQLiteException;
 import net.sqlcipher.database.SQLiteOpenHelper;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.EntryLogTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.FamilyMembersTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.HHFormsTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LHWFormsTable;
@@ -45,8 +51,10 @@ import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableDistricts
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableHealthFacilities;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableLhw;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.TableTehsil;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.UsersTable;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.models.Districts;
+import edu.aku.hassannaqvi.lhwevaluation.models.EntryLog;
 import edu.aku.hassannaqvi.lhwevaluation.models.FamilyMembers;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.HealthFacilities;
@@ -97,6 +105,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
        /* db.execSQL(SQL_CREATE_BLOOD);
         db.execSQL(SQL_CREATE_STOOL);*/
         db.execSQL(SQL_CREATE_VERSIONAPP);
+        db.execSQL(SQL_CREATE_ENTRYLOGS);
 
     }
 
@@ -412,40 +421,44 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    /*
-     * Functions that dealing with table data
-     * */
-    public boolean doLogin(String username, String password) {
+    //Functions that dealing with table data
+    public boolean doLogin(String username, String password) throws InvalidKeySpecException, NoSuchAlgorithmException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
-        String whereClause = TableContracts.UsersTable.COLUMN_USERNAME + "=? AND " + TableContracts.UsersTable.COLUMN_PASSWORD + "=?";
-        String[] whereArgs = {username, password};
+        String whereClause = TableContracts.UsersTable.COLUMN_USERNAME + "=? ";
+        String[] whereArgs = {username};
         String groupBy = null;
         String having = null;
         String orderBy = TableContracts.UsersTable.COLUMN_ID + " ASC";
 
-        Users loggedInUser = null;
-            c = db.query(
-                    TableContracts.UsersTable.TABLE_NAME,  // The table to query
-                    columns,                   // The columns to return
-                    whereClause,               // The columns for the WHERE clause
-                    whereArgs,                 // The values for the WHERE clause
-                    groupBy,                   // don't group the rows
-                    having,                    // don't filter by row groups
-                    orderBy                    // The sort order
-            );
-            while (c.moveToNext()) {
-                loggedInUser = new Users().hydrate(c);
-            }
+        Users loggedInUser = new Users();
+        c = db.query(
+                TableContracts.UsersTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            loggedInUser = new Users().hydrate(c);
 
-                db.close();
+        }
 
+        c.close();
 
-        MainApp.user = loggedInUser;
-        return c.getCount() > 0;
+        db.close();
+
+        if (checkPassword(password, loggedInUser.getPassword())) {
+            MainApp.user = loggedInUser;
+            //  MainApp.selectedDistrict = loggedInUser.getDist_id();
+            return c.getCount() > 0;
+        } else {
+            return false;
+        }
     }
-
 
     public ArrayList<HHForm> getFormsByDate(String sysdate) {
 
@@ -2006,5 +2019,108 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
         return mwra;
+    }
+
+    public Long addEntryLog(EntryLog entryLog) throws SQLiteException {
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
+        ContentValues values = new ContentValues();
+        values.put(EntryLogTable.COLUMN_PROJECT_NAME, entryLog.getProjectName());
+        values.put(EntryLogTable.COLUMN_UUID, entryLog.getUuid());
+        values.put(EntryLogTable.COLUMN_PSU_CODE, entryLog.getPsuCode());
+        values.put(EntryLogTable.COLUMN_HHID, entryLog.getHhid());
+        values.put(EntryLogTable.COLUMN_USERNAME, entryLog.getUserName());
+        values.put(EntryLogTable.COLUMN_SYSDATE, entryLog.getSysDate());
+        values.put(EntryLogTable.COLUMN_ISTATUS, entryLog.getiStatus());
+        values.put(EntryLogTable.COLUMN_ISTATUS96x, entryLog.getiStatus96x());
+        values.put(EntryLogTable.COLUMN_ENTRY_TYPE, entryLog.getEntryType());
+        values.put(EntryLogTable.COLUMN_ENTRY_DATE, entryLog.getEntryDate());
+        values.put(EntryLogTable.COLUMN_DEVICEID, entryLog.getDeviceId());
+        values.put(EntryLogTable.COLUMN_SYNCED, entryLog.getSynced());
+        values.put(EntryLogTable.COLUMN_SYNC_DATE, entryLog.getSyncDate());
+        values.put(EntryLogTable.COLUMN_APPVERSION, entryLog.getAppver());
+
+        long newRowId;
+        newRowId = db.insertOrThrow(
+                EntryLogTable.TABLE_NAME,
+                EntryLogTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+    public int updatesEntryLogColumn(String column, String value, String id) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+
+        ContentValues values = new ContentValues();
+        values.put(column, value);
+
+        String selection = EntryLogTable._ID + " =? ";
+        String[] selectionArgs = {id};
+
+        return db.update(EntryLogTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
+    }
+
+    public JSONArray getUnsyncedEntryLog() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+        String whereClause;
+        whereClause = EntryLogTable.COLUMN_SYNCED + " = '' ";
+
+        String[] whereArgs = null;
+        String groupBy = null;
+        String having = null;
+        String orderBy = EntryLogTable.COLUMN_ID + " ASC";
+
+        JSONArray all = new JSONArray();
+        c = db.query(
+                EntryLogTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            Log.d(TAG, "getUnsyncedEntryLog: " + c.getCount());
+            EntryLog entryLog = new EntryLog();
+            all.put(entryLog.Hydrate(c).toJSONObject());
+        }
+        Log.d(TAG, "getUnsyncedEntryLog: " + all.toString().length());
+        Log.d(TAG, "getUnsyncedEntryLog: " + all);
+        return all;
+    }
+
+    public void updateSyncedEntryLog(String id) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        ContentValues values = new ContentValues();
+        values.put(EntryLogTable.COLUMN_SYNCED, true);
+        values.put(EntryLogTable.COLUMN_SYNC_DATE, new Date().toString());
+        String where = EntryLogTable.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+        int count = db.update(
+                EntryLogTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public int updatePassword(String hashedPassword) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+
+        ContentValues values = new ContentValues();
+        values.put(UsersTable.COLUMN_PASSWORD, hashedPassword);
+        values.put(UsersTable.COLUMN_ISNEW_USER, "");
+
+        String selection = UsersTable.COLUMN_USERNAME + " =? ";
+        String[] selectionArgs = {MainApp.user.getUserName()};
+
+        return db.update(UsersTable.TABLE_NAME,
+                values,
+                selection,
+                selectionArgs);
     }
 }
