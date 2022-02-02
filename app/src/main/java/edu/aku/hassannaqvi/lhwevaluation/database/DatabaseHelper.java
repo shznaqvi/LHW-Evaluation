@@ -24,6 +24,7 @@ import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.database.SQLException;
 import android.util.Log;
+import android.widget.Toast;
 
 import net.sqlcipher.database.SQLiteDatabase;
 import net.sqlcipher.database.SQLiteException;
@@ -84,9 +85,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private final String TAG = "DatabaseHelper";
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_PASSWORD = IBAHC;
+    private final Context mContext;
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        mContext = context;
     }
 
     @Override
@@ -450,7 +453,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         c.close();
 
         db.close();
-
+        if (loggedInUser.getPassword().equals("")) {
+            Toast.makeText(mContext, "Stored password is invalid", Toast.LENGTH_SHORT).show();
+            return false;
+        }
         if (checkPassword(password, loggedInUser.getPassword())) {
             MainApp.user = loggedInUser;
             //  MainApp.selectedDistrict = loggedInUser.getDist_id();
@@ -632,9 +638,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 user.sync(jsonObjectUser);
                 ContentValues values = new ContentValues();
 
-                values.put(TableContracts.UsersTable.COLUMN_USERNAME, user.getUserName());
-                values.put(TableContracts.UsersTable.COLUMN_PASSWORD, user.getPassword());
-                values.put(TableContracts.UsersTable.COLUMN_FULLNAME, user.getFullname());
+                values.put(UsersTable.COLUMN_USERNAME, user.getUserName());
+                values.put(UsersTable.COLUMN_PASSWORD, user.getPassword());
+                values.put(UsersTable.COLUMN_FULLNAME, user.getFullname());
+                values.put(UsersTable.COLUMN_ENABLED, user.getEnabled());
+                values.put(UsersTable.COLUMN_ISNEW_USER, user.getNewUser());
+                values.put(UsersTable.COLUMN_PWD_EXPIRY, user.getPwdExpiry());
+                values.put(UsersTable.COLUMN_DESIGNATION, user.getDesignation());
+                values.put(UsersTable.COLUMN_DIST_ID, user.getDist_id());
                 long rowID = db.insert(TableContracts.UsersTable.TABLE_NAME, null, values);
                 if (rowID != -1) insertCount++;
             }

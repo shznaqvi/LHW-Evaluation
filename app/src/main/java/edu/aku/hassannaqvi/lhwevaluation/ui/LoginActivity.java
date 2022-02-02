@@ -3,6 +3,8 @@ package edu.aku.hassannaqvi.lhwevaluation.ui;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.editor;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
+import static edu.aku.hassannaqvi.lhwevaluation.core.UserAuth.checkPassword;
+import static edu.aku.hassannaqvi.lhwevaluation.core.UserAuth.generatePassword;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_COPY;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.DATABASE_NAME;
 
@@ -156,6 +158,17 @@ public class LoginActivity extends AppCompatActivity {
         MainApp.appInfo = new AppInfo(this);
         MainApp.user = new Users();
         bi.txtinstalldate.setText(MainApp.appInfo.getAppInfo());
+
+        try {
+            String testPass = generatePassword("test0001", null);
+            Log.d(TAG, "onCreate(testPass): " + testPass);
+            Log.d(TAG, "onCreate(checkPAss): " + checkPassword("test0001", testPass));
+
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
 
 
     }
@@ -344,9 +357,13 @@ public class LoginActivity extends AppCompatActivity {
                     MainApp.admin = username.contains("@") || username.contains("test1234");
                     MainApp.superuser = MainApp.user.getDesignation().equals("Supervisor");
                     Intent iLogin = null;
-                    if (MainApp.user.getEnabled().equals("1")) {
+                    if (MainApp.admin) {
+                        recordEntry("Successful Login (Admin)");
+                        iLogin = new Intent(LoginActivity.this, MainActivity.class);
+                        startActivity(iLogin);
+                    } else if (MainApp.user.getEnabled().equals("1")) {
                         if (!MainApp.user.getNewUser().equals("1")) { // TODO: getEnabled().equals("1")
-                            recordEntry("Successfull Login");
+                            recordEntry("Successful Login");
                             iLogin = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(iLogin);
                         } else if (MainApp.user.getNewUser().equals("1")) {
@@ -543,5 +560,61 @@ public class LoginActivity extends AppCompatActivity {
 
         changeLanguage(Integer.parseInt(sharedPref.getString("lang", "0")));
     }
+
+   /* private void GZIPTest() throws IOException, DataFormatException {
+        // deflater
+        Deflater d = new Deflater();
+
+        // get the text
+        String pattern = "QPmrkqaqWwqQzn4LkvVf9MQIC3Y9XvrolZRBmOhLvx5kuNnjTQ+5p85ukfMWJ+q6UwtDYO1SrWse4h7UOevmSLnVGIpiy2zZ";
+        String text = "QPmrkqaqWwqQzn4LkvVf9MQIC3Y9XvrolZRBmOhLvx5kuNnjTQ+5p85ukfMWJ+q6UwtDYO1SrWse4h7UOevmSLnVGIpiy2zZ";
+
+       generate the text
+        for (int i = 0; i < 4; i++)
+            text += pattern;
+
+        // set the input for deflator
+        d.setInput(text.getBytes("UTF-8"));
+
+        // finish
+        d.finish();
+
+        // output bytes
+        byte output[] = new byte[text.getBytes(StandardCharsets.UTF_8).length];
+
+        // compress the data
+        int size = d.deflate(output);
+
+        // compressed String
+        System.out.println("Compressed String :"
+                + new String(output)
+                + "\n Size " + size);
+        // compressed String
+        System.out.println("Compressed String (base64) :"
+                + Base64.encodeToString(output, Base64.NO_WRAP)
+        );
+
+        // original String
+        System.out.println("Original String :"
+                + text + "\n Size "
+                + text.length());
+
+        // compressed String
+        System.out.println("Original String (base64) :"
+                + Base64.encodeToString(text.getBytes(StandardCharsets.UTF_8), Base64.NO_WRAP)
+        );
+
+
+        //Decompresses the data
+        Inflater i = new Inflater();
+        i.setInput(output, 0, size);
+        byte[] result = new byte[output.length];
+        int resultLength = i.inflate(result);
+        i.end();
+        String outStr = new String(result, 0, resultLength, "UTF-8");
+        System.out.println("Deflated data: "+outStr);
+        // end
+        d.end();
+    }*/
 }
 
