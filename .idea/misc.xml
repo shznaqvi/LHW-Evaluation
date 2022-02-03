@@ -3,13 +3,16 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/drawable-v24/app_bg_effect.xml" value="0.365" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_change_password.xml" value="0.35625" />
         <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_identification.xml" value="0.25416666666666665" />
-        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_lhw_identification.xml" value="0.35625" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_lhw_identification.xml" value="0.29583333333333334" />
         <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_section_l1.xml" value="0.35625" />
         <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_section_lhwhh.xml" value="0.35625" />
         <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_sync.xml" value="0.2783333333333333" />
         <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/sync_list_adapter.xml" value="0.2783333333333333" />
-        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable-v24/app_bg_effect.xml" value="0.55125" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/menu/item_menu.xml" value="0.35625" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/menu/main_menu.xml" value="0.35625" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/ic_girl.xml" value="0.34140625" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/male.xml" value="0.33240740740740743" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/new_form.xml" value="0.34140625" />
@@ -19,7 +22,6 @@
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/top_round_shape.xml" value="0.34140625" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/top_round_shape_transparent.xml" value="0.34140625" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_camera.xml" value="0.55" />
-        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_change_password.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_ending.xml" value="0.21145833333333333" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_family_list.xml" value="0.53" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_forms_report.xml" value="0.56328125" />
@@ -53,12 +55,10 @@
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w43.xml" value="0.545" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_sync.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/custom_spinner.xml" value="0.3171875" />
-        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/famlily_member_row.xml" value="0.49375" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/fragment_blank.xml" value="0.3614583333333333" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/lhw_row.xml" value="0.37552083333333336" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/pendingform_layout.xml" value="0.56328125" />
         <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/sync_list_adapter.xml" value="0.3171875" />
-        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/menu/item_menu.xml" value="0.56328125" />
         <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/drawable/camera.xml" value="0.5828125" />
         <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/drawable/camera_checked.xml" value="0.5828125" />
         <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_camera.xml" value="0.55859375" />

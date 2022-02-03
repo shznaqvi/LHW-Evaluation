@@ -47,6 +47,7 @@ import java.util.concurrent.TimeUnit;
 
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.adapters.SyncListAdapter;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.EntryLogTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.FamilyMembersTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.HHFormsTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.LHWFormsTable;
@@ -195,6 +196,15 @@ public class SyncActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "JSONException(MWRA): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+
+                //Entry Log
+                uploadTables.add(new SyncModel(EntryLogTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedEntryLog());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(SyncActivity.this, "JSONException(EntryLog)" + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
 
 
