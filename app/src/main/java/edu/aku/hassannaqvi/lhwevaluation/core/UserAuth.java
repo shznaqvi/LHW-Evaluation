@@ -25,7 +25,6 @@ public class UserAuth {
             throws NoSuchAlgorithmException, InvalidKeySpecException {
         Log.d(TAG, "oldSalt: " + oldsalt);
         char[] chars = password.toCharArray();
-        char[] chars2 = "".toCharArray();
         byte[] salt;
         if (oldsalt == null) {
             salt = getSalt();
