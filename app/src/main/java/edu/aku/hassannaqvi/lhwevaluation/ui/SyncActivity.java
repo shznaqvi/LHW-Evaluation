@@ -238,9 +238,9 @@ public class SyncActivity extends AppCompatActivity {
                 } else {
 
                     select = " * ";
-                    filter = " col_flag is null AND dist_id = '" + MainApp.user.getDist_id() + "' ";
-                    downloadTables.add(new SyncModel(UsersTable.TABLE_NAME, select, filter));
-                    downloadTables.add(new SyncModel(VersionTable.TABLE_NAME, select, filter));
+                    filter = " colflag is null AND dist_id = '" + MainApp.user.getDist_id() + "' ";
+                    /*downloadTables.add(new SyncModel(UsersTable.TABLE_NAME, select, filter));
+                    downloadTables.add(new SyncModel(VersionTable.TABLE_NAME, select, filter));*/
                     downloadTables.add(new SyncModel(TableLhw.TABLE_NAME, select, filter));
                     downloadTables.add(new SyncModel(TableTehsil.TABLE_NAME, select, filter));
                     downloadTables.add(new SyncModel(TableHealthFacilities.TABLE_NAME, select, filter));
