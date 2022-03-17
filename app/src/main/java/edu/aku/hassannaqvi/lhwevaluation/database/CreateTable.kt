@@ -361,12 +361,22 @@ object CreateTable {
             + " );"
             )
 
-    const val SQL_ALTER_USERS = ("BEGIN TRANSACTION; "
-            + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_DIST_ID + " TEXT; "
+    /*const val SQL_ALTER_USERS = (
+            "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_DIST_ID + " TEXT; "
             + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_ENABLED + " TEXT; "
             + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_ISNEW_USER + " TEXT; "
             + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_PWD_EXPIRY + " TEXT; "
-            + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_DESIGNATION + " TEXT; " +
-            " COMMIT"
-            )
+            + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_DESIGNATION + " TEXT; "
+            )*/
+
+    const val SQL_ALTER_USERS_DIST_ID =
+        ("ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_DIST_ID + " TEXT; ")
+    const val SQL_ALTER_USERS_ENABLED =
+        ("ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_ENABLED + " TEXT; ")
+    const val SQL_ALTER_USERS_ISNEW_USER =
+        ("ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_ISNEW_USER + " TEXT; ")
+    const val SQL_ALTER_USERS_PWD_EXPIRY =
+        ("ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_PWD_EXPIRY + " TEXT; ")
+    const val SQL_ALTER_USERS_DESIGNATION =
+        ("ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_DESIGNATION + " TEXT; ")
 }

@@ -4,7 +4,11 @@ import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.IBAHC;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.core.UserAuth.checkPassword;
-import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_USERS;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_USERS_DESIGNATION;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_USERS_DIST_ID;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_USERS_ENABLED;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_USERS_ISNEW_USER;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_USERS_PWD_EXPIRY;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_DISTRICT;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_ENTRYLOGS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
@@ -84,7 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = PROJECT_NAME + ".db";
     public static final String DATABASE_COPY = PROJECT_NAME + "_copy.db";
     private final String TAG = "DatabaseHelper";
-    private static final int DATABASE_VERSION = 2;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_PASSWORD = IBAHC;
     private final Context mContext;
 
@@ -117,7 +121,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         switch (oldVersion) {
             case 1:
-                db.execSQL(SQL_ALTER_USERS);
+            case 2:
+                db.execSQL(SQL_ALTER_USERS_DIST_ID);
+                db.execSQL(SQL_ALTER_USERS_DESIGNATION);
+                db.execSQL(SQL_ALTER_USERS_ENABLED);
+                db.execSQL(SQL_ALTER_USERS_ISNEW_USER);
+                db.execSQL(SQL_ALTER_USERS_PWD_EXPIRY);
 
         }
     }
