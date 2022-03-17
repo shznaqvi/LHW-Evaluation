@@ -26,7 +26,7 @@ object CreateTable {
             + HHFormsTable.COLUMN_SYNCED_DATE + " TEXT,"
             + HHFormsTable.COLUMN_APPVERSION + " TEXT,"
             + HHFormsTable.COLUMN_SH2 + " TEXT,"
-       //     + HHFormsTable.COLUMN_SH3 + " TEXT,"
+            //     + HHFormsTable.COLUMN_SH3 + " TEXT,"
             + HHFormsTable.COLUMN_SAB + " TEXT,"
             + HHFormsTable.COLUMN_SM + " TEXT"
             + " );"
@@ -251,9 +251,6 @@ object CreateTable {
             )*/
 
 
-
-
-
     const val SQL_CREATE_ENTRYLOGS = ("CREATE TABLE "
             + EntryLogTable.TABLE_NAME + "("
             + EntryLogTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
@@ -282,32 +279,32 @@ object CreateTable {
             + TableDistricts.COLUMN_DISTRICT_CODE + " TEXT"
             + " );")
 
-    
+
     const val SQL_CREATE_LHW = ("CREATE TABLE " + TableLhw.TABLE_NAME + "("
             + TableLhw.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            +TableLhw.COLUMN_HF_CODE + " TEXT,"
-            +TableLhw.COLUMN_LHW_CODE + " TEXT,"
-            +TableLhw.COLUMN_LHW_NAME + " TEXT"
+            + TableLhw.COLUMN_HF_CODE + " TEXT,"
+            + TableLhw.COLUMN_LHW_CODE + " TEXT,"
+            + TableLhw.COLUMN_LHW_NAME + " TEXT"
             + " );")
 
-    const val SQL_CREATE_TEHSIL = ("CREATE TABLE " +TableTehsil.TABLE_NAME + "("
-            +TableTehsil.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            +TableTehsil.COLUMN_DIST_ID + " TEXT,"
-            +TableTehsil.COLUMN_TEHSIL_NAME + " TEXT,"
-            +TableTehsil.COLUMN_TEHSIL_CODE + " TEXT"
+    const val SQL_CREATE_TEHSIL = ("CREATE TABLE " + TableTehsil.TABLE_NAME + "("
+            + TableTehsil.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + TableTehsil.COLUMN_DIST_ID + " TEXT,"
+            + TableTehsil.COLUMN_TEHSIL_NAME + " TEXT,"
+            + TableTehsil.COLUMN_TEHSIL_CODE + " TEXT"
             + " );")
 
-    const val SQL_CREATE_LHW_HF = ("CREATE TABLE " +TableHealthFacilities.TABLE_NAME + "("
-            +TableHealthFacilities.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            +TableHealthFacilities.COLUMN_HF_CODE + " TEXT,"
-            +TableHealthFacilities.COLUMN_HF_NAME + " TEXT,"
-            +TableHealthFacilities.COLUMN_DIST_ID + " TEXT"
+    const val SQL_CREATE_LHW_HF = ("CREATE TABLE " + TableHealthFacilities.TABLE_NAME + "("
+            + TableHealthFacilities.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + TableHealthFacilities.COLUMN_HF_CODE + " TEXT,"
+            + TableHealthFacilities.COLUMN_HF_NAME + " TEXT,"
+            + TableHealthFacilities.COLUMN_DIST_ID + " TEXT"
             + " );")
 
-    const val SQL_CREATE_PROVINCE = ("CREATE TABLE " +TableProvince.TABLE_NAME + "("
-            +TableProvince.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            +TableProvince.COLUMN_PROVINCE + " TEXT,"
-            +TableProvince.COLUMN_PRO_ID + " TEXT"
+    const val SQL_CREATE_PROVINCE = ("CREATE TABLE " + TableProvince.TABLE_NAME + "("
+            + TableProvince.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + TableProvince.COLUMN_PROVINCE + " TEXT,"
+            + TableProvince.COLUMN_PRO_ID + " TEXT"
             + " );")
 
     const val SQL_CREATE_RANDOM = ("CREATE TABLE "
@@ -364,11 +361,12 @@ object CreateTable {
             + " );"
             )
 
-    const val SQL_ALTER_USERS =
-        "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " +
-                UsersTable.COLUMN_DIST_ID + " TEXT," +
-                " ADD " + UsersTable.COLUMN_ENABLED + " TEXT," +
-                " ADD " + UsersTable.COLUMN_ISNEW_USER + " TEXT," +
-                " ADD " + UsersTable.COLUMN_PWD_EXPIRY + " TEXT," +
-                " ADD " + UsersTable.COLUMN_DESIGNATION + " TEXT"
+    const val SQL_ALTER_USERS = ("BEGIN TRANSACTION; "
+            + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_DIST_ID + " TEXT; "
+            + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_ENABLED + " TEXT; "
+            + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_ISNEW_USER + " TEXT; "
+            + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_PWD_EXPIRY + " TEXT; "
+            + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_DESIGNATION + " TEXT; " +
+            " COMMIT"
+            )
 }
