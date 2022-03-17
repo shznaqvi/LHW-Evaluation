@@ -251,19 +251,7 @@ object CreateTable {
             )*/
 
 
-    const val SQL_CREATE_USERS = ("CREATE TABLE "
-            + UsersTable.TABLE_NAME + "("
-            + UsersTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
-            + UsersTable.COLUMN_USERNAME + " TEXT,"
-            + UsersTable.COLUMN_PASSWORD + " TEXT,"
-            + UsersTable.COLUMN_FULLNAME + " TEXT,"
-            + UsersTable.COLUMN_DIST_ID + " TEXT,"
-            + UsersTable.COLUMN_ENABLED + " TEXT,"
-            + UsersTable.COLUMN_ISNEW_USER + " TEXT,"
-            + UsersTable.COLUMN_PWD_EXPIRY + " TEXT,"
-            + UsersTable.COLUMN_DESIGNATION + " TEXT"
-            + " );"
-            )
+
 
 
     const val SQL_CREATE_ENTRYLOGS = ("CREATE TABLE "
@@ -361,4 +349,26 @@ object CreateTable {
             + FamilyMembersTable.COLUMN_SH3 + " TEXT"
             + " );"
             )
+
+    const val SQL_CREATE_USERS = ("CREATE TABLE "
+            + UsersTable.TABLE_NAME + "("
+            + UsersTable.COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+            + UsersTable.COLUMN_USERNAME + " TEXT,"
+            + UsersTable.COLUMN_PASSWORD + " TEXT,"
+            + UsersTable.COLUMN_FULLNAME + " TEXT,"
+            + UsersTable.COLUMN_DIST_ID + " TEXT,"
+            + UsersTable.COLUMN_ENABLED + " TEXT,"
+            + UsersTable.COLUMN_ISNEW_USER + " TEXT,"
+            + UsersTable.COLUMN_PWD_EXPIRY + " TEXT,"
+            + UsersTable.COLUMN_DESIGNATION + " TEXT"
+            + " );"
+            )
+
+    const val SQL_ALTER_USERS =
+        "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " +
+                UsersTable.COLUMN_DIST_ID + " TEXT," +
+                " ADD " + UsersTable.COLUMN_ENABLED + " TEXT," +
+                " ADD " + UsersTable.COLUMN_ISNEW_USER + " TEXT," +
+                " ADD " + UsersTable.COLUMN_PWD_EXPIRY + " TEXT," +
+                " ADD " + UsersTable.COLUMN_DESIGNATION + " TEXT"
 }
