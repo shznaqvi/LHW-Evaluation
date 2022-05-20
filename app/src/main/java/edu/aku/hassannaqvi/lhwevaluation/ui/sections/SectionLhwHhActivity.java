@@ -15,10 +15,6 @@ import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-
 import edu.aku.hassannaqvi.lhwevaluation.MainActivity;
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
@@ -152,7 +148,7 @@ public class SectionLhwHhActivity extends AppCompatActivity {
         MainApp.LHWHouseholds = new LHWHouseholds();
         MainApp.LHWHouseholds.setUserName(MainApp.user.getUserName());
         MainApp.LHWHouseholds.setLuid(MainApp.LHWForm.getUid());
-        MainApp.LHWHouseholds.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
+        MainApp.LHWHouseholds.setSysDate(MainApp.LHWForm.getSysDate());
         MainApp.LHWHouseholds.setDeviceId(MainApp.deviceid);
         MainApp.LHWHouseholds.setAppver(MainApp.versionName + "." + MainApp.versionCode);
         MainApp.LHWHouseholds.setA101(MainApp.LHWForm.getA101());
