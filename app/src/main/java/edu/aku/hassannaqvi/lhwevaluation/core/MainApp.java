@@ -41,15 +41,16 @@ public class MainApp extends Application {
     // public static final String _IP = "http://f38158/prosystem";// .TEST server
     //public static final String _IP = "http://43.245.131.159:8080";// .TEST server
     public static final String _HOST_URL = MainApp._IP + "/uen_ph2/api/";// .TEST server;
-    public static final String _SERVER_URL = "syncenc.php";
-    public static final String _SERVER_GET_URL = "getDataenc.php";
+    public static final String _SERVER_URL = "syncgcm.php";
+    public static final String _USER_URL = "resetpassword.php";
+    public static final String _SERVER_GET_URL = "getDatagcm.php";
     public static final String _PHOTO_UPLOAD_URL = _HOST_URL + "uploads.php";
     public static final String _UPDATE_URL = MainApp._IP + "/uen_ph2/app/lhweval";
-    public static final String _USER_URL = "resetpassword.php";
-
-    private static final String TAG = "MainApp";
-    public static String IBAHC = "";
+    public static final String _APP_FOLDER = "../app/survey";
     public static final String _EMPTY_ = "";
+    private static final String TAG = "MainApp";
+    public static int TRATS = 8;
+    public static String IBAHC = "";
 
     //COUNTRIES
     public static int PAKISTAN = 1;
