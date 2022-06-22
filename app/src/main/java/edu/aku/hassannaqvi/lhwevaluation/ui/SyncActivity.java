@@ -237,7 +237,7 @@ public class SyncActivity extends AppCompatActivity {
                     select = " * ";
                     filter = " enabled = '1' ";
 
-                    downloadTables.add(new SyncModel(UsersTable.TABLE_NAME));
+                    downloadTables.add(new SyncModel(UsersTable.TABLE_NAME, select, filter));
                     downloadTables.add(new SyncModel("versionApp"));
                 } else {
                     select = " * ";
