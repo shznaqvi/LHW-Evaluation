@@ -241,8 +241,9 @@ public class SyncActivity extends AppCompatActivity {
                     downloadTables.add(new SyncModel("versionApp"));
                 } else {
                     select = " * ";
-                    filter = " colflag is null AND dist_id = '" + MainApp.user.getDist_id() + "' ";
+                    filter = " colflag is null AND district_code = '" + MainApp.user.getDist_id() + "' ";
                     downloadTables.add(new SyncModel(TableDistricts.TABLE_NAME, select, filter));
+                    filter = " colflag is null AND dist_id = '" + MainApp.user.getDist_id() + "' ";
                     downloadTables.add(new SyncModel(TableLhw.TABLE_NAME, select, filter));
                     downloadTables.add(new SyncModel(TableTehsil.TABLE_NAME, select, filter));
                     downloadTables.add(new SyncModel(TableHealthFacilities.TABLE_NAME, select, filter));

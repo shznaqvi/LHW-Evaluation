@@ -1,5 +1,8 @@
 package edu.aku.hassannaqvi.lhwevaluation.core;
 
+import static edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper.DATABASE_NAME;
+import static edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper.DATABASE_PASSWORD;
+
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -161,7 +164,7 @@ public class MainApp extends Application {
         super.onCreate();
 
         /*
-        RootBeer rootBeer = new RootBeer(this);
+        RootBeer  rootBeer = new RootBeer(this);
         if (rootBeer.isRooted()) {
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(1);
@@ -180,14 +183,18 @@ public class MainApp extends Application {
     private void initSecure() {
         // Initialize SQLCipher library
         SQLiteDatabase.loadLibs(this);
-
+        File databaseFile = getDatabasePath(DATABASE_NAME);
+       /* databaseFile.mkdirs();
+        databaseFile.delete();*/
+        SQLiteDatabase database = SQLiteDatabase.openOrCreateDatabase(databaseFile, DATABASE_PASSWORD, null);
         // Prepare encryption KEY
         ApplicationInfo ai = null;
         try {
             ai = getPackageManager().getApplicationInfo(getPackageName(), PackageManager.GET_META_DATA);
             Bundle bundle = ai.metaData;
-            int TRATS = bundle.getInt("YEK_TRATS");
-            IBAHC = bundle.getString("YEK_REVRES").substring(TRATS, TRATS + 16);
+            TRATS = bundle.getInt("YEK_TRATS");
+            //IBAHC = bundle.getString("YEK_REVRES").substring(TRATS, TRATS + 16);
+            IBAHC = bundle.getString("YEK_REVRES");
             Log.d(TAG, "onCreate: YEK_REVRES = " + IBAHC);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

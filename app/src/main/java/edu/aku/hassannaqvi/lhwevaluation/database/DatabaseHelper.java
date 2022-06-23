@@ -89,7 +89,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_COPY = PROJECT_NAME + "_copy.db";
     private final String TAG = "DatabaseHelper";
     private static final int DATABASE_VERSION = 3;
-    private static final String DATABASE_PASSWORD = IBAHC;
+    public static final String DATABASE_PASSWORD = IBAHC;
     private final Context mContext;
 
     public DatabaseHelper(Context context) {
@@ -462,8 +462,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         c.close();
-
-        db.close();
         if (loggedInUser.getPassword().equals("")) {
             Toast.makeText(mContext, "Stored password is invalid", Toast.LENGTH_SHORT).show();
             return false;
@@ -514,8 +512,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 allHHForms.add(forms);
             }
 
-                db.close();
-
         return allHHForms;
     }
 
@@ -550,8 +546,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             while (c.moveToNext()) {
                 allFC = new HHForm().Hydrate(c);
             }
-
-                db.close();
 
         return allFC;
     }
@@ -631,13 +625,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             if (count > 0) count = 1;
 
 
-            db.close();
-
-
         return (int) count;
     }
 
-    public int syncUser(JSONArray userList) throws JSONException {
+    public int syncAppUser(JSONArray userList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(TableContracts.UsersTable.TABLE_NAME, null, null);
         int insertCount = 0;
@@ -661,15 +652,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 if (rowID != -1) insertCount++;
             }
 
-
-            db.close();
         return insertCount;
     }
 
     /*
      * Download data functions
      * */
-    public int syncDistricts(JSONArray Districtslist) throws JSONException {
+    public int syncdistrict(JSONArray Districtslist) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(TableDistricts.TABLE_NAME, null, null);
         int insertCount = 0;
@@ -685,8 +674,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 if (rowID != -1) insertCount++;
             }
 
-
-            db.close();
 
         return insertCount;
     }
@@ -811,7 +798,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }*/
 
     //    Sync LHW
-    public int syncLhw(JSONArray lhwList) throws JSONException {
+    public int synclhw(JSONArray lhwList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(TableLhw.TABLE_NAME, null, null);
         int insertCount = 0;
@@ -829,7 +816,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 long rowID = db.insert(TableLhw.TABLE_NAME, null, values);
                 if (rowID != -1) insertCount++;
             }
-            db.close();
 
 
 
@@ -838,7 +824,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //    Sync Tehsil
-    public int syncTehsil(JSONArray tehsilList) throws JSONException {
+    public int synctehsil(JSONArray tehsilList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(TableTehsil.TABLE_NAME, null, null);
         int insertCount = 0;
@@ -857,16 +843,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 long rowID = db.insert(TableTehsil.TABLE_NAME, null, values);
                 if (rowID != -1) insertCount++;
             }
-            db.close();
-
-
-            db.close();
 
         return insertCount;
     }
 
     //    Sync LHWHF
-    public int syncHealthFacilities(JSONArray healthfacilities) throws JSONException {
+    public int syncHealthFacility(JSONArray healthfacilities) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(TableHealthFacilities.TABLE_NAME, null, null);
         int insertCount = 0;
@@ -884,10 +866,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             long rowID = db.insert(TableHealthFacilities.TABLE_NAME, null, values);
             if (rowID != -1) insertCount++;
             }
-            db.close();
-
-
-            db.close();
 
         return insertCount;
     }
@@ -935,8 +913,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
 
-        db.close();
-
     /*    Log.d(TAG, "getUnsyncedForms: " + LHWForm.toString().length());
         Log.d(TAG, "getUnsyncedForms: " + LHWForm);*/
         return allLHWForms;
@@ -983,8 +959,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
 
-        db.close();
-
     /*    Log.d(TAG, "getUnsyncedForms: " + LHWForm.toString().length());
         Log.d(TAG, "getUnsyncedForms: " + LHWForm);*/
         return allLHWHHForms;
@@ -1028,8 +1002,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
         }
-
-        db.close();
 
         Log.d(TAG, "getUnsyncedLHWHouseholds: " + allForms.toString().length());
         Log.d(TAG, "getUnsyncedLHWHouseholds: " + allForms);
@@ -1079,8 +1051,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
 
-        db.close();
-
         Log.d(TAG, "getUnsyncedForms: " + allFamilyMembers.toString().length());
         Log.d(TAG, "getUnsyncedForms: " + allFamilyMembers);
         return allFamilyMembers;
@@ -1124,8 +1094,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 allMWRA.put(mwra.toJSONObject());
 
         }
-
-        db.close();
 
     /*    Log.d(TAG, "getUnsyncedForms: " + LHWForm.toString().length());
         Log.d(TAG, "getUnsyncedForms: " + LHWForm);*/
@@ -1309,8 +1277,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             }
 
-                db.close();
-
 
 
         return allDistricts;
@@ -1341,10 +1307,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 hh = new RandomHH().hydrate(c);
 
             }
-
-                db.close();
-
-
         return hh;
 
     }
@@ -1380,7 +1342,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             HHForm = new HHForm().Hydrate(c);
         }
 
-        db.close();
 
         return HHForm;
     }
@@ -1415,7 +1376,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         );
 
         int cCount = c.getCount();
-        db.close();
 
         return cCount > 0;
     }
@@ -1458,7 +1418,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 allFC.add(fc);
             }
 
-                db.close();
 
         return allFC;
     }
@@ -1501,7 +1460,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 allFC.add(fc);
             }
 
-                db.close();
 
         return allFC;
     }
@@ -1544,7 +1502,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 allFC.add(fc);
             }
 
-                db.close();
 
         return allFC;
     }
@@ -1583,7 +1540,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             }
 
-                db.close();
 
         return lhws;
     }
@@ -1623,7 +1579,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             }
 
-                db.close();
 
         return hhs;
     }
@@ -1662,7 +1617,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             }
 
-                db.close();
 
         return tehsils;
     }
@@ -1701,7 +1655,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             }
 
-                db.close();
 
         return healthFacilities;
     }
@@ -1739,7 +1692,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             }
 
-                db.close();
 
         return lhws;
     }
@@ -1775,7 +1727,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             LhwForm = new LHWForm().Hydrate(c);
         }
 
-        db.close();
 
         return LhwForm;
     }
@@ -1813,7 +1764,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Lhwhousehold = new LHWHouseholds().Hydrate(c);
         }
 
-        db.close();
+
 
         return Lhwhousehold;
     }
@@ -1854,7 +1805,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         }
 
-        db.close();
+
 
         return lhws;    }
 
@@ -1890,7 +1841,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             lhwhhs.add(new LHWHouseholds().Hydrate(c));
         }
 
-        db.close();
+
 
         return lhwhhs;
     }
@@ -1924,7 +1875,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         );
 
         c.getCount();
-        db.close();
 
         return lhwHHCount;
     }
@@ -1961,8 +1911,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             hhForm = new HHForm().Hydrate(c);
         }
 
-        db.close();
-
         return hhForm;
     }
 
@@ -1982,7 +1930,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             String orderBy = FamilyMembersTable.COLUMN_ID + " ASC";
 
             ArrayList<FamilyMembers> membersByUID = new ArrayList<>();
-            try {
                 c = db.query(
                         FamilyMembersTable.TABLE_NAME,  // The table to query
                         columns,                   // The columns to return
@@ -1997,14 +1944,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
                     membersByUID.add(mwra);
                 }
-            } finally {
                 if (c != null) {
                     c.close();
                 }
-                if (db != null) {
-                    db.close();
-                }
-            }
+
             return membersByUID;
         }
 
@@ -2037,8 +1980,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         while (c.moveToNext()) {
             mwra = new MWRA().Hydrate(c);
         }
-
-        db.close();
 
         return mwra;
     }
