@@ -607,17 +607,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }*/
 
 
-    public int syncVersionApp(JSONObject VersionList) throws JSONException {
+    public int syncversionApp(JSONObject VersionList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
         db.delete(TableContracts.VersionTable.TABLE_NAME, null, null);
         long count = 0;
-            JSONObject jsonObjectCC = ((JSONArray) VersionList.get(TableContracts.VersionTable.COLUMN_VERSION_PATH)).getJSONObject(0);
-            VersionApp Vc = new VersionApp();
-            Vc.sync(jsonObjectCC);
+        JSONObject jsonObjectCC = ((JSONArray) VersionList.get(TableContracts.VersionTable.COLUMN_VERSION_PATH)).getJSONObject(0);
+        VersionApp Vc = new VersionApp();
+        Vc.sync(jsonObjectCC);
 
-            ContentValues values = new ContentValues();
+        ContentValues values = new ContentValues();
 
-            values.put(TableContracts.VersionTable.COLUMN_PATH_NAME, Vc.getPathname());
+        values.put(TableContracts.VersionTable.COLUMN_PATH_NAME, Vc.getPathname());
             values.put(TableContracts.VersionTable.COLUMN_VERSION_CODE, Vc.getVersioncode());
             values.put(TableContracts.VersionTable.COLUMN_VERSION_NAME, Vc.getVersionname());
 
