@@ -71,7 +71,6 @@ import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.models.RandomHH;
 import edu.aku.hassannaqvi.lhwevaluation.models.Tehsil;
 import edu.aku.hassannaqvi.lhwevaluation.models.Users;
-import edu.aku.hassannaqvi.lhwevaluation.models.VersionApp;
 
 
 
@@ -607,23 +606,36 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }*/
 
 
-    public int syncversionApp(JSONObject VersionList) throws JSONException {
+    public int syncversionApp(JSONArray VersionList) throws JSONException {
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
-        db.delete(TableContracts.VersionTable.TABLE_NAME, null, null);
         long count = 0;
-        JSONObject jsonObjectCC = ((JSONArray) VersionList.get(TableContracts.VersionTable.COLUMN_VERSION_PATH)).getJSONObject(0);
-        VersionApp Vc = new VersionApp();
-        Vc.sync(jsonObjectCC);
 
-        ContentValues values = new ContentValues();
+        JSONObject jsonObjectVersion = ((JSONArray) VersionList.getJSONObject(0).get("elements")).getJSONObject(0);
 
-        values.put(TableContracts.VersionTable.COLUMN_PATH_NAME, Vc.getPathname());
-            values.put(TableContracts.VersionTable.COLUMN_VERSION_CODE, Vc.getVersioncode());
-            values.put(TableContracts.VersionTable.COLUMN_VERSION_NAME, Vc.getVersionname());
+        String appPath = jsonObjectVersion.getString("outputFile");
+        String versionCode = jsonObjectVersion.getString("versionCode");
 
-            count = db.insert(TableContracts.VersionTable.TABLE_NAME, null, values);
+        MainApp.editor.putString("outputFile", jsonObjectVersion.getString("outputFile"));
+        MainApp.editor.putString("versionCode", jsonObjectVersion.getString("versionCode"));
+        MainApp.editor.putString("versionName", jsonObjectVersion.getString("versionName") + ".");
+        MainApp.editor.apply();
+        count++;
+          /*  VersionApp Vc = new VersionApp();
+            Vc.sync(jsonObjectVersion);
+
+            ContentValues values = new ContentValues();
+
+            values.put(VersionTable.COLUMN_PATH_NAME, Vc.getPathname());
+            values.put(VersionTable.COLUMN_VERSION_CODE, Vc.getVersioncode());
+            values.put(VersionTable.COLUMN_VERSION_NAME, Vc.getVersionname());
+
+            count = db.insert(VersionTable.TABLE_NAME, null, values);
             if (count > 0) count = 1;
 
+        } catch (Exception ignored) {
+        } finally {
+            db.close();
+        }*/
 
         return (int) count;
     }

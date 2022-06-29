@@ -1,8 +1,8 @@
 package edu.aku.hassannaqvi.lhwevaluation.workers;
 
+
 import static edu.aku.hassannaqvi.lhwevaluation.core.CipherSecure.buildSslSocketFactory;
 import static edu.aku.hassannaqvi.lhwevaluation.core.CipherSecure.certIsValid;
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp._APP_FOLDER;
 
 import android.content.Context;
 import android.content.res.AssetManager;
@@ -244,7 +244,7 @@ public class DataDownWorkerALL extends Worker {
                 jsonTable.put("check", "");
 
                 if (uploadTable.equals("versionApp")) {
-                    jsonTable.put("folder", _APP_FOLDER);
+                    jsonTable.put("folder", MainApp._APP_FOLDER);
                 }
 
                 //jsonTable.put("limit", "3");
