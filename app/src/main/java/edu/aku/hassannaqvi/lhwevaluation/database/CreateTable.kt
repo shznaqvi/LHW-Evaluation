@@ -379,4 +379,7 @@ object CreateTable {
         ("ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_PWD_EXPIRY + " TEXT; ")
     const val SQL_ALTER_USERS_DESIGNATION =
         ("ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_DESIGNATION + " TEXT; ")
+
+    const val SQL_ALTER_USERS_PWD_ENC =
+        ("ALTER TABLE " + UsersTable.TABLE_NAME + " RENAME COLUMN " + "password" + " TO " + "passwordEnc")
 }
