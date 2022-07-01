@@ -88,7 +88,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = PROJECT_NAME + ".db";
     public static final String DATABASE_COPY = PROJECT_NAME + "_copy.db";
     private final String TAG = "DatabaseHelper";
-    private static final int DATABASE_VERSION = 4;
+    private static final int DATABASE_VERSION = 5;
     public static final String DATABASE_PASSWORD = IBAHC;
     private final Context mContext;
 
@@ -129,6 +129,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.execSQL(SQL_ALTER_USERS_PWD_EXPIRY);
             case 3:
                 db.execSQL(SQL_ALTER_USERS_PWD_ENC);
+            case 4:
+                db.execSQL(SQL_CREATE_ENTRYLOGS);
         }
     }
 
