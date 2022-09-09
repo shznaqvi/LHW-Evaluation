@@ -3,7 +3,7 @@
         <import type="android.view.View" />
         <variable
             name="form"
-            type="edu.aku.hassannaqvi.lhwevaluation.models.LHWForm"/>
+            type="edu.aku.hassannaqvi.lhwevaluation.models.LHW_GB"/>
     </data>
 
     <ScrollView
