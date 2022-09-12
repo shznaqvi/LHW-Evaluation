@@ -2242,10 +2242,11 @@
                             style="@style/textView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="2"
                             android:text="@string/g9061" />
 
                         <RadioGroup
+                            android:orientation="horizontal"
                             android:id="@+id/g9061"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -2283,7 +2284,7 @@
                             style="@style/textView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="2"
                             android:text="@string/g9062" />
 
                         <RadioGroup
@@ -2325,7 +2326,7 @@
                             style="@style/textView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="2"
                             android:text="@string/g9063" />
 
                         <RadioGroup
@@ -2367,7 +2368,7 @@
                             style="@style/textView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="2"
                             android:text="@string/g9064" />
 
                         <RadioGroup
@@ -2409,7 +2410,7 @@
                             style="@style/textView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="2"
                             android:text="@string/g9065" />
 
                         <RadioGroup
@@ -2452,7 +2453,7 @@
                             style="@style/textView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
+                            android:layout_weight="2"
                             android:text="@string/g9066" />
 
                         <RadioGroup
@@ -3130,6 +3131,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        style="@style/labelsHead"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/g10t" />
