@@ -29,7 +29,9 @@ import edu.aku.hassannaqvi.lhwevaluation.BuildConfig;
 import edu.aku.hassannaqvi.lhwevaluation.models.FamilyMembers;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWHouseholds;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHW_GB;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.models.Users;
 
@@ -63,6 +65,8 @@ public class MainApp extends Application {
     public static String[] downloadData;
     public static List<HHForm> hhList;
     public static HHForm hhForm;
+    public static LHWGB_HH lhwgbHhForm;
+    public static LHW_GB lhwgbForm;
     public static List<LHWForm> lhwList;
     public static LHWForm LHWForm;
     public static MWRA mwra;

@@ -1,7 +1,6 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
-import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwgbHhForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwgbForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 
@@ -12,8 +11,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.validatorcrawler.aliazaz.Validator;
@@ -26,16 +23,14 @@ import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
-import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionAbBinding;
-import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionGb02Binding;
-import edu.aku.hassannaqvi.lhwevaluation.models.FamilyMembers;
-import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
+import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionGb01ABinding;
+import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionGb01BBinding;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
-public class SectionGB02Activity extends AppCompatActivity {
+public class SectionGB01AActivity extends AppCompatActivity {
 
-    private static final String TAG = "SectionGB02Activity";
-    ActivitySectionGb02Binding bi;
+    private static final String TAG = "SectionGB01AActivity";
+    ActivitySectionGb01ABinding bi;
     private DatabaseHelper db;
     private ArrayList<String> memberNames;
 
@@ -45,55 +40,17 @@ public class SectionGB02Activity extends AppCompatActivity {
         setTheme(sharedPref.getString("lang", "0").equals("0") ? R.style.AppThemeEnglish1
                 : sharedPref.getString("lang", "1").equals("1") ? R.style.AppThemeUrdu
                 : R.style.AppThemeSindhi);
-        bi.setForm(lhwgbHhForm);
-
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_gb02);
+        bi.setForm(lhwgbForm);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_gb01A);
         bi.setCallback(this);
 
         db = MainApp.appInfo.getDbHelper();
-        populateSpinner();
-
-    }
-
-    private void populateSpinner() {
-
-        /*memberNames = new ArrayList<>();
-        memberNames.add("...");
-        for (FamilyMembers sfm : MainApp.adolList) {
-            memberNames.add(sfm.getH302());
-        }
-
-        // Apply the adapter to the spinner
-
-        bi.ab101.setAdapter(new ArrayAdapter<String>(SectionABActivity.this, R.layout.custom_spinner, memberNames));
-        if (!MainApp.hhForm.getAb101().equals("")) {
-            int selectedPosition = memberNames.indexOf(MainApp.hhForm.getAb101());
-            bi.ab101.setSelection(selectedPosition);
-        }
-        bi.ab101.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(TAG, "onItemSelected: " + position);
-
-                if (position == 0) return;
-                MainApp.hhForm.setAb101(memberNames.get(position));
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-
-        });
-*/
-
     }
 
     private boolean updateDB() {
         long updcount = 0;
         try {
-            updcount = db.updatesLHWGB_HHFormColumn(TableContracts.LHWGB_HHTable.COLUMN_GBV02, lhwgbHhForm.sGBV02toString());
+            updcount = db.updatesLHW_GBFormColumn(TableContracts.LHW_GBTable.COLUMN_GB01, lhwgbForm.sGB01toString());
         } catch (JSONException e) {
             e.printStackTrace();
             Log.d(TAG, R.string.upd_db_form + e.getMessage());
@@ -135,6 +92,5 @@ public class SectionGB02Activity extends AppCompatActivity {
         // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
     }
-
 
 }
