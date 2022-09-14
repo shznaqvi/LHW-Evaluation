@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwgbForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwgbHhForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
@@ -106,18 +107,45 @@ public class SectionGB02Activity extends AppCompatActivity {
         }
     }
 
+
+
+    private boolean insertNewRecord() {
+        if (!lhwgbHhForm.getUid().equals("")) return true;
+        long rowId = 0;
+        try {
+            rowId = db.addLHW_HHForm(lhwgbHhForm);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(this, R.string.db_excp_error, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        lhwgbHhForm.setId(String.valueOf(rowId));
+        if (rowId > 0) {
+            lhwgbHhForm.setUid(lhwgbHhForm.getDeviceId() + lhwgbHhForm.getId());
+            db.updatesLHWGB_HHFormColumn(TableContracts.LHWGB_HHTable.COLUMN_UID, lhwgbHhForm.getUid());
+            return true;
+        } else {
+            Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
+            return false;
+        }
+    }
+
     public void btnContinue(View view) {
         if (!formValidation()) return;
+        if (!insertNewRecord()) return;
+        // saveDraft();
         if (updateDB()) {
-
-            if (maleList.size() > 0) {
-                startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
-
-            } else {
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-            }
-        } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
-        finish();
+            Intent i;
+            //      if (bi.h111a.isChecked()) {
+            i = new Intent(this, SectionW2Activity.class).putExtra("complete", true);
+           /* } else {
+                i = new Intent(this, EndingActivity.class).putExtra("complete", false);
+            }*/
+            startActivity(i);
+            finish();
+        } else {
+            Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
+        }
     }
 
     public void btnEnd(View view) {

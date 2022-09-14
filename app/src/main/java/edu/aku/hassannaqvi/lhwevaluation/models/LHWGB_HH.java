@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Currency;
+import java.util.Locale;
 
 import edu.aku.hassannaqvi.lhwevaluation.BR;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
@@ -44,6 +45,8 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     private String iStatus96x = StringUtils.EMPTY;
     private String synced = StringUtils.EMPTY;
     private String syncDate = StringUtils.EMPTY;
+
+    private String sGbv02 = StringUtils.EMPTY;
 
 
     public String g701 = StringUtils.EMPTY;
@@ -339,6 +342,13 @@ public class LHWGB_HH extends BaseObservable implements Observable {
         this.syncDate = syncDate;
     }
 
+    public String getsGbv02() {
+        return sGbv02;
+    }
+
+    public void setsGbv02(String sGbv02) {
+        this.sGbv02 = sGbv02;
+    }
 
     @Bindable
     public String getG701() {
@@ -377,6 +387,17 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG7041(String g7041) {
         this.g7041 = g7041;
+        setG706a(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706a : "");
+        setG706b(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706b : "");
+        setG706c(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706c : "");
+        setG706d(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706d : "");
+        setG706e(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706e : "");
+        setG706f(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706f : "");
+        setG706g(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706g : "");
+        setG706h(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706h : "");
+        setG706i(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706i : "");
+        setG70696(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g70696 : "");
+
         notifyPropertyChanged(BR.g7041);
     }
 
@@ -387,6 +408,16 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG7042(String g7042) {
         this.g7042 = g7042;
+        setG706a(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706a : "");
+        setG706b(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706b : "");
+        setG706c(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706c : "");
+        setG706d(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706d : "");
+        setG706e(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706e : "");
+        setG706f(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706f : "");
+        setG706g(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706g : "");
+        setG706h(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706h : "");
+        setG706i(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706i : "");
+        setG70696(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g70696 : "");
         notifyPropertyChanged(BR.g7042);
     }
 
@@ -397,6 +428,16 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG7043(String g7043) {
         this.g7043 = g7043;
+        setG706a(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706a : "");
+        setG706b(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706b : "");
+        setG706c(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706c : "");
+        setG706d(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706d : "");
+        setG706e(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706e : "");
+        setG706f(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706f : "");
+        setG706g(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706g : "");
+        setG706h(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706h : "");
+        setG706i(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706i : "");
+        setG70696(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g70696 : "");
         notifyPropertyChanged(BR.g7043);
     }
 
@@ -598,6 +639,12 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG806(String g806) {
         this.g806 = g806;
+        setG807a(g806.equals("1") ? this.g807a : "");
+        setG807b(g806.equals("1") ? this.g807b : "");
+        setG807c(g806.equals("1") ? this.g807c : "");
+        setG807d(g806.equals("1") ? this.g807d : "");
+        setG807e(g806.equals("1") ? this.g807e : "");
+        setG80796(g806.equals("1") ? this.g80796 : "");
         notifyPropertyChanged(BR.g806);
     }
 
@@ -617,6 +664,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG807a(String g807a) {
+        if (this.g807a.equals(g807a)) return;
         this.g807a = g807a;
         notifyPropertyChanged(BR.g807a);
     }
@@ -627,6 +675,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG807b(String g807b) {
+        if (this.g807b.equals(g807b)) return;
         this.g807b = g807b;
         notifyPropertyChanged(BR.g807b);
     }
@@ -637,6 +686,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG807c(String g807c) {
+        if (this.g807c.equals(g807c)) return;
         this.g807c = g807c;
         notifyPropertyChanged(BR.g807c);
     }
@@ -647,6 +697,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG807d(String g807d) {
+        if (this.g807d.equals(g807d)) return;
         this.g807d = g807d;
         notifyPropertyChanged(BR.g807d);
     }
@@ -657,6 +708,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG807e(String g807e) {
+        if (this.g807e.equals(g807e)) return;
         this.g807e = g807e;
         notifyPropertyChanged(BR.g807e);
     }
@@ -667,7 +719,9 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG80796(String g80796) {
+        if (this.g80796.equals(g80796)) return;
         this.g80796 = g80796;
+        setG80796x(g80796.equals("96") ? this.g80796x : "");
         notifyPropertyChanged(BR.g80796);
     }
 
@@ -688,6 +742,13 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG808(String g808) {
         this.g808 = g808;
+        setG809a(g808.equals("1") ? this.g809a : "");
+        setG809b(g808.equals("1") ? this.g809b : "");
+        setG809c(g808.equals("1") ? this.g809c : "");
+        setG809d(g808.equals("1") ? this.g809d : "");
+        setG809e(g808.equals("1") ? this.g809e : "");
+        setG80996(g808.equals("1") ? this.g80996 : "");
+
         notifyPropertyChanged(BR.g808);
     }
 
@@ -707,6 +768,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG809a(String g809a) {
+        if (this.g809a.equals(g809a)) return;
         this.g809a = g809a;
         notifyPropertyChanged(BR.g809a);
     }
@@ -717,6 +779,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG809b(String g809b) {
+        if (this.g809b.equals(g809b)) return;
         this.g809b = g809b;
         notifyPropertyChanged(BR.g809b);
     }
@@ -727,6 +790,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG809c(String g809c) {
+        if (this.g809c.equals(g809c)) return;
         this.g809c = g809c;
         notifyPropertyChanged(BR.g809c);
     }
@@ -737,6 +801,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG809d(String g809d) {
+        if (this.g809d.equals(g809d)) return;
         this.g809d = g809d;
         notifyPropertyChanged(BR.g809d);
     }
@@ -747,6 +812,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG809e(String g809e) {
+        if (this.g809e.equals(g809e)) return;
         this.g809e = g809e;
         notifyPropertyChanged(BR.g809e);
     }
@@ -757,7 +823,9 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG80996(String g80996) {
+        if (this.g80996.equals(g80996)) return;
         this.g80996 = g80996;
+        setG80996x(g80996.equals("96") ? this.g80996x : "");
         notifyPropertyChanged(BR.g80996);
     }
 
@@ -887,6 +955,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG903a(String g903a) {
+        if (this.g903a.equals(g903a)) return;
         this.g903a = g903a;
         notifyPropertyChanged(BR.g903a);
     }
@@ -897,6 +966,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG903b(String g903b) {
+        if (this.g903b.equals(g903b)) return;
         this.g903b = g903b;
         notifyPropertyChanged(BR.g903b);
     }
@@ -907,6 +977,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG903c(String g903c) {
+        if (this.g903c.equals(g903c)) return;
         this.g903c = g903c;
         notifyPropertyChanged(BR.g903c);
     }
@@ -917,6 +988,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG903d(String g903d) {
+        if (this.g903d.equals(g903d)) return;
         this.g903d = g903d;
         notifyPropertyChanged(BR.g903d);
     }
@@ -927,6 +999,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG903e(String g903e) {
+        if (this.g903e.equals(g903e)) return;
         this.g903e = g903e;
         notifyPropertyChanged(BR.g903e);
     }
@@ -937,7 +1010,9 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG90396(String g90396) {
+        if (this.g90396.equals(g90396)) return;
         this.g90396 = g90396;
+        setG90396x(g90396.equals("96") ? this.g90396x : "");
         notifyPropertyChanged(BR.g90396);
     }
 
@@ -967,6 +1042,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG904a(String g904a) {
+        if (this.g904a.equals(g904a)) return;
         this.g904a = g904a;
         notifyPropertyChanged(BR.g904a);
     }
@@ -977,6 +1053,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG904b(String g904b) {
+        if (this.g904b.equals(g904b)) return;
         this.g904b = g904b;
         notifyPropertyChanged(BR.g904b);
     }
@@ -987,6 +1064,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG904c(String g904c) {
+        if (this.g904c.equals(g904c)) return;
         this.g904c = g904c;
         notifyPropertyChanged(BR.g904c);
     }
@@ -997,6 +1075,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG904d(String g904d) {
+        if (this.g904d.equals(g904d)) return;
         this.g904d = g904d;
         notifyPropertyChanged(BR.g904d);
     }
@@ -1007,6 +1086,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG904e(String g904e) {
+        if (this.g904e.equals(g904e)) return;
         this.g904e = g904e;
         notifyPropertyChanged(BR.g904e);
     }
@@ -1017,6 +1097,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG904f(String g904f) {
+        if (this.g904f.equals(g904f)) return;
         this.g904f = g904f;
         notifyPropertyChanged(BR.g904f);
     }
@@ -1027,7 +1108,9 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG90496(String g90496) {
+        if (this.g90496.equals(g90496)) return;
         this.g90496 = g90496;
+        setG90496x(g90496.equals("96") ? this.g90496x : "");
         notifyPropertyChanged(BR.g90496);
     }
 
@@ -1168,6 +1251,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG907(String g907) {
         this.g907 = g907;
+        setG90796x(g907.equals("96") ? this.g90796x : "");
         notifyPropertyChanged(BR.g907);
     }
 
@@ -1268,6 +1352,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG909(String g909) {
         this.g909 = g909;
+        setG90996x(g909.equals("96") ? this.g90996x : "");
         notifyPropertyChanged(BR.g909);
     }
 
@@ -1307,6 +1392,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1002a(String g1002a) {
+        if (this.g1002a.equals(g1002a)) return;
         this.g1002a = g1002a;
         notifyPropertyChanged(BR.g1002a);
     }
@@ -1317,6 +1403,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1002b(String g1002b) {
+        if (this.g1002b.equals(g1002b)) return;
         this.g1002b = g1002b;
         notifyPropertyChanged(BR.g1002b);
     }
@@ -1327,6 +1414,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1002c(String g1002c) {
+        if (this.g1002c.equals(g1002c)) return;
         this.g1002c = g1002c;
         notifyPropertyChanged(BR.g1002c);
     }
@@ -1337,6 +1425,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1002d(String g1002d) {
+        if (this.g1002d.equals(g1002d)) return;
         this.g1002d = g1002d;
         notifyPropertyChanged(BR.g1002d);
     }
@@ -1347,6 +1436,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1002e(String g1002e) {
+        if (this.g1002e.equals(g1002e)) return;
         this.g1002e = g1002e;
         notifyPropertyChanged(BR.g1002e);
     }
@@ -1357,6 +1447,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1002f(String g1002f) {
+        if (this.g1002f.equals(g1002f)) return;
         this.g1002f = g1002f;
         notifyPropertyChanged(BR.g1002f);
     }
@@ -1367,6 +1458,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1002g(String g1002g) {
+        if (this.g1002g.equals(g1002g)) return;
         this.g1002g = g1002g;
         notifyPropertyChanged(BR.g1002g);
     }
@@ -1377,7 +1469,9 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG100296(String g100296) {
+        if (this.g100296.equals(g100296)) return;
         this.g100296 = g100296;
+        setG100296x(g100296.equals("96") ? this.g100296x : "");
         notifyPropertyChanged(BR.g100296);
     }
 
@@ -1398,6 +1492,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG1003(String g1003) {
         this.g1003 = g1003;
+        setG100396x(g1003.equals("96") ? this.g100396x : "");
         notifyPropertyChanged(BR.g1003);
     }
 
@@ -1437,6 +1532,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1005a(String g1005a) {
+        if (this.g1005a.equals(g1005a)) return;
         this.g1005a = g1005a;
         notifyPropertyChanged(BR.g1005a);
     }
@@ -1447,6 +1543,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1005b(String g1005b) {
+        if (this.g1005b.equals(g1005b)) return;
         this.g1005b = g1005b;
         notifyPropertyChanged(BR.g1005b);
     }
@@ -1457,6 +1554,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1005c(String g1005c) {
+        if (this.g1005c.equals(g1005c)) return;
         this.g1005c = g1005c;
         notifyPropertyChanged(BR.g1005c);
     }
@@ -1467,7 +1565,9 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG100596(String g100596) {
+        if (this.g100596.equals(g100596)) return;
         this.g100596 = g100596;
+        setG100596x(g100596.equals("96") ? this.g100596x : "");
         notifyPropertyChanged(BR.g100596);
     }
 
@@ -1497,6 +1597,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1006a(String g1006a) {
+        if (this.g1006a.equals(g1006a)) return;
         this.g1006a = g1006a;
         notifyPropertyChanged(BR.g1006a);
     }
@@ -1507,6 +1608,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1006b(String g1006b) {
+        if (this.g1006b.equals(g1006b)) return;
         this.g1006b = g1006b;
         notifyPropertyChanged(BR.g1006b);
     }
@@ -1517,6 +1619,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1006c(String g1006c) {
+        if (this.g1006c.equals(g1006c)) return;
         this.g1006c = g1006c;
         notifyPropertyChanged(BR.g1006c);
     }
@@ -1527,6 +1630,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1006d(String g1006d) {
+        if (this.g1006d.equals(g1006d)) return;
         this.g1006d = g1006d;
         notifyPropertyChanged(BR.g1006d);
     }
@@ -1537,6 +1641,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1006e(String g1006e) {
+        if (this.g1006e.equals(g1006e)) return;
         this.g1006e = g1006e;
         notifyPropertyChanged(BR.g1006e);
     }
@@ -1547,7 +1652,9 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG100696(String g100696) {
+        if (this.g100696.equals(g100696)) return;
         this.g100696 = g100696;
+        setG100696x(g100696.equals("96") ? this.g100696x : "");
         notifyPropertyChanged(BR.g100696);
     }
 
@@ -1587,6 +1694,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1008a(String g1008a) {
+        if (this.g1008a.equals(g1008a)) return;
         this.g1008a = g1008a;
         notifyPropertyChanged(BR.g1008a);
     }
@@ -1597,6 +1705,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1008b(String g1008b) {
+        if (this.g1008b.equals(g1008b)) return;
         this.g1008b = g1008b;
         notifyPropertyChanged(BR.g1008b);
     }
@@ -1607,6 +1716,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1008c(String g1008c) {
+        if (this.g1008c.equals(g1008c)) return;
         this.g1008c = g1008c;
         notifyPropertyChanged(BR.g1008c);
     }
@@ -1617,7 +1727,9 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG100896(String g100896) {
+        if (this.g100896.equals(g100896)) return;
         this.g100896 = g100896;
+        setG100896x(g100896.equals("96") ? this.g100896x : "");
         notifyPropertyChanged(BR.g100896);
     }
 
@@ -1638,6 +1750,10 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG100898(String g100898) {
         this.g100898 = g100898;
+        setG1008a(g100898.equals("98") ? "" : this.g1008a);
+        setG1008b(g100898.equals("98") ? "" : this.g1008b);
+        setG1008c(g100898.equals("98") ? "" : this.g1008c);
+        setG100896(g100898.equals("98") ? "" : this.g100896);
         notifyPropertyChanged(BR.g100898);
     }
 
@@ -1657,6 +1773,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1009a(String g1009a) {
+        if (this.g1009a.equals(g1009a)) return;
         this.g1009a = g1009a;
         notifyPropertyChanged(BR.g1009a);
     }
@@ -1667,6 +1784,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1009b(String g1009b) {
+        if (this.g1009b.equals(g1009b)) return;
         this.g1009b = g1009b;
         notifyPropertyChanged(BR.g1009b);
     }
@@ -1677,6 +1795,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1009c(String g1009c) {
+        if (this.g1009c.equals(g1009c)) return;
         this.g1009c = g1009c;
         notifyPropertyChanged(BR.g1009c);
     }
@@ -1707,6 +1826,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1011a(String g1011a) {
+        if (this.g1011a.equals(g1011a)) return;
         this.g1011a = g1011a;
         notifyPropertyChanged(BR.g1011a);
     }
@@ -1717,6 +1837,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1011b(String g1011b) {
+        if (this.g1011b.equals(g1011b)) return;
         this.g1011b = g1011b;
         notifyPropertyChanged(BR.g1011b);
     }
@@ -1727,6 +1848,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1011c(String g1011c) {
+        if (this.g1011c.equals(g1011c)) return;
         this.g1011c = g1011c;
         notifyPropertyChanged(BR.g1011c);
     }
@@ -1737,6 +1859,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1011d(String g1011d) {
+        if (this.g1011d.equals(g1011d)) return;
         this.g1011d = g1011d;
         notifyPropertyChanged(BR.g1011d);
     }
@@ -1747,6 +1870,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1011e(String g1011e) {
+        if (this.g1011e.equals(g1011e)) return;
         this.g1011e = g1011e;
         notifyPropertyChanged(BR.g1011e);
     }
@@ -1757,6 +1881,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1011f(String g1011f) {
+        if (this.g1011f.equals(g1011f)) return;
         this.g1011f = g1011f;
         notifyPropertyChanged(BR.g1011f);
     }
@@ -1767,7 +1892,9 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG101196(String g101196) {
+        if (this.g101196.equals(g101196)) return;
         this.g101196 = g101196;
+        setG101196x(g101196.equals("96") ? this.g101196x : "");
         notifyPropertyChanged(BR.g101196);
     }
 

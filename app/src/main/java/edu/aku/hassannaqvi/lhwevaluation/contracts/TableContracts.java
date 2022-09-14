@@ -109,7 +109,7 @@ public class TableContracts {
         public static final String COLUMN_APPVERSION = "appversion";
         public static final String COLUMN_ISTATUS = "istatus";
 
-        public static final String COLUMN_GBV02 = "gbV02";
+        public static final String COLUMN_GBV02 = "gb_hh";
 
     }
 
@@ -134,7 +134,7 @@ public class TableContracts {
         public static final String COLUMN_APPVERSION = "appversion";
         public static final String COLUMN_ISTATUS = "istatus";
 
-        public static final String COLUMN_GB01 = "gb01";
+        public static final String COLUMN_GB01 = "gb_lhw";
 
     }
 

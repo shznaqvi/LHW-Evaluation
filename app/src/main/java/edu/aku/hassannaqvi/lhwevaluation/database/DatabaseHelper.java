@@ -15,6 +15,8 @@ import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_FAMILY_MEMBERS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_HH_FORMS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHWGB;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHWGBHH;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHWHH;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW_FORMS;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_CREATE_LHW_HF;
@@ -67,7 +69,9 @@ import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.HealthFacilities;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHW;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWHouseholds;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHW_GB;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.models.RandomHH;
 import edu.aku.hassannaqvi.lhwevaluation.models.Tehsil;
@@ -88,7 +92,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = PROJECT_NAME + ".db";
     public static final String DATABASE_COPY = PROJECT_NAME + "_copy.db";
     private final String TAG = "DatabaseHelper";
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 6;
     public static final String DATABASE_PASSWORD = IBAHC;
     private final Context mContext;
 
@@ -110,10 +114,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_FAMILY_MEMBERS);
         db.execSQL(SQL_CREATE_LHWHH);
         db.execSQL(SQL_CREATE_MWRALIST);
-       /* db.execSQL(SQL_CREATE_BLOOD);
-        db.execSQL(SQL_CREATE_STOOL);*/
         db.execSQL(SQL_CREATE_VERSIONAPP);
         db.execSQL(SQL_CREATE_ENTRYLOGS);
+        db.execSQL(SQL_CREATE_LHWGBHH);
+        db.execSQL(SQL_CREATE_LHWGB);
 
     }
 
@@ -131,6 +135,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.execSQL(SQL_ALTER_USERS_PWD_ENC);
             case 4:
                 db.execSQL(SQL_CREATE_ENTRYLOGS);
+            case 5:
+                db.execSQL(SQL_CREATE_LHWGBHH);
+                db.execSQL(SQL_CREATE_LHWGB);
         }
     }
 
@@ -174,6 +181,88 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return newRowId;
     }
 
+
+    //ADDITION in DB
+    public long addLHW_GBForm(LHW_GB lhw_gb) throws JSONException {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(TableContracts.LHW_GBTable.COLUMN_PROJECT_NAME, lhw_gb.getProjectName());
+        values.put(TableContracts.LHW_GBTable.COLUMN_UID, lhw_gb.getUid());
+        values.put(TableContracts.LHW_GBTable.COLUMN_LHW_CODE, lhw_gb.getLhwCode());
+        values.put(TableContracts.LHW_GBTable.COLUMN_HHID, lhw_gb.getHhid());
+        values.put(TableContracts.LHW_GBTable.COLUMN_LHWUID, lhw_gb.getLhwuid());
+        values.put(TableContracts.LHW_GBTable.COLUMN_USERNAME, lhw_gb.getUserName());
+        values.put(TableContracts.LHW_GBTable.COLUMN_CLUSTER, lhw_gb.getCluster());
+        //values.put(TableContracts.LHW_GBTable.COLUMN_UUID, );
+        values.put(TableContracts.LHW_GBTable.COLUMN_SYSDATE, lhw_gb.getSysDate());
+        values.put(TableContracts.LHW_GBTable.COLUMN_SYNCED, lhw_gb.getSynced());
+        values.put(TableContracts.LHW_GBTable.COLUMN_SYNCED_DATE, lhw_gb.getSyncDate());
+
+
+        values.put(TableContracts.LHW_GBTable.COLUMN_GB01, lhw_gb.getsGb_Lhw());
+     /*   values.put(TableContracts.HHFormsTable.COLUMN_SH3, hhForm.sH3toString());
+        values.put(TableContracts.HHFormsTable.COLUMN_SAB, hhForm.sABtoString());
+        values.put(TableContracts.HHFormsTable.COLUMN_SM, hhForm.sMtoString());*/
+
+        values.put(TableContracts.LHW_GBTable.COLUMN_ISTATUS, lhw_gb.getiStatus());
+        values.put(TableContracts.LHW_GBTable.COLUMN_DEVICETAGID, lhw_gb.getDeviceTag());
+        values.put(TableContracts.LHW_GBTable.COLUMN_DEVICEID, lhw_gb.getDeviceId());
+        values.put(TableContracts.LHW_GBTable.COLUMN_APPVERSION, lhw_gb.getAppver());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                TableContracts.LHW_GBTable.TABLE_NAME,
+                TableContracts.LHW_GBTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
+
+    //ADDITION in DB
+    public long addLHW_HHForm(LHWGB_HH lhw_gb) throws JSONException {
+
+        // Gets the data repository in write mode
+        SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
+
+// Create a new map of values, where column names are the keys
+        ContentValues values = new ContentValues();
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_PROJECT_NAME, lhw_gb.getProjectName());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_UID, lhw_gb.getUid());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_LHW_CODE, lhw_gb.getLhwCode());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_HHID, lhw_gb.getHhid());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_LHWUID, lhw_gb.getLhwuid());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_USERNAME, lhw_gb.getUserName());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_CLUSTER, lhw_gb.getCluster());
+        //values.put(TableContracts.LHW_GBTable.COLUMN_UUID, );
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_SYSDATE, lhw_gb.getSysDate());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_SYNCED, lhw_gb.getSynced());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_SYNCED_DATE, lhw_gb.getSyncDate());
+
+
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_GBV02, lhw_gb.getsGbv02());
+     /*   values.put(TableContracts.HHFormsTable.COLUMN_SH3, hhForm.sH3toString());
+        values.put(TableContracts.HHFormsTable.COLUMN_SAB, hhForm.sABtoString());
+        values.put(TableContracts.HHFormsTable.COLUMN_SM, hhForm.sMtoString());*/
+
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_ISTATUS, lhw_gb.getiStatus());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_DEVICETAGID, lhw_gb.getDeviceTag());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_DEVICEID, lhw_gb.getDeviceId());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_APPVERSION, lhw_gb.getAppver());
+
+
+        // Insert the new row, returning the primary key value of the new row
+        long newRowId;
+        newRowId = db.insert(
+                TableContracts.LHW_GBTable.TABLE_NAME,
+                TableContracts.LHW_GBTable.COLUMN_NAME_NULLABLE,
+                values);
+        return newRowId;
+    }
     public long addFamilyMember(FamilyMembers familyMembers) throws JSONException {
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);

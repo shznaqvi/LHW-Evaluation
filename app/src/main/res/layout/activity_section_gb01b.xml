@@ -176,7 +176,7 @@
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.g201f.equals(`6`)}"
                                 android:enabled="@{!form.g20197.equals(`97`)}"
-                                android:onClick="@{()->form.setG201f(form.g201f.equals(`6`)?``:`6`)}"
+                                android:onClick="@{()->form.setG201f(form.g201f.equals(`6`)?``:`6`) + g202.clearCheck() + g2031.clearCheck() + g2032.clearCheck() + g2033.clearCheck() + g2034.clearCheck() + g2035.clearCheck() + g2036.clearCheck() + g204.clearCheck() + g205.clearCheck()}"
                                 android:text="@string/g201f" />
 
                             <CheckBox
@@ -217,6 +217,12 @@
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{form.g201f.equals(`6`) ? View.VISIBLE : View.GONE}">
 
                 <!-- g202  Radio   -->
                 <androidx.cardview.widget.CardView
@@ -719,6 +725,8 @@
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                </LinearLayout>
+
                 <!-- g03t  Title   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVg03t"
@@ -787,12 +795,17 @@
                                 android:layout_weight="1"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.g301.equals(`2`)}"
-                                android:onClick="@{()->form.setG301(`2`)}"
+                                android:onClick="@{()->form.setG301(`2`) + g302.clearCheck() + g3031.clearCheck() + g3032.clearCheck() + g3033.clearCheck() + g3034.clearCheck() + g3035.clearCheck() + g3036.clearCheck() + g304.clearCheck() + g305.clearCheck() + g306.clearCheck() + g307.clearCheck() + g308.clearCheck()}"
                                 android:text="@string/g301b" />
                         </RadioGroup>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="@{form.g301.equals(`1`) ? View.VISIBLE : View.GONE}">
                 <!-- g302  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVg302"
@@ -1521,6 +1534,8 @@
                         </RadioGroup>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
+
+                </LinearLayout>
 
                 <!-- g04t  Title   -->
                 <androidx.cardview.widget.CardView
@@ -3132,7 +3147,8 @@
                 <!-- g507  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVg507"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.g506.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -3292,7 +3308,8 @@
                 <!-- g509  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVg509"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.g508.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -3470,7 +3487,8 @@
                 <!-- g602  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVg602"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.g601.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -3765,7 +3783,8 @@
                 <!-- g605  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVg605"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.g604.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -3853,7 +3872,8 @@
                 <!-- g606  CheckBox   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVg606"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.g604.equals(`2`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -3968,7 +3988,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:background="@color/redOverlay"
-                        android:onClick="@{() -> callback.btnEnd()}"
+                        android:onClick="btnEnd"
                         android:text="Cancel"
                         android:textColor="@color/white" />
 
@@ -3978,7 +3998,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:background="@color/green"
-                        android:onClick="@{() -> callback.btnContinue()}"
+                        android:onClick="btnContinue"
                         android:text="Save"
                         android:textColor="@color/white" />
                 </LinearLayout>

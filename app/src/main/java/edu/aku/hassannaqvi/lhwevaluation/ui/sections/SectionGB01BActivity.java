@@ -24,13 +24,12 @@ import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
-import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionGb01BBinding;
-import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionGb02Binding;
+import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionGb01bBinding;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
 public class SectionGB01BActivity extends AppCompatActivity {
     private static final String TAG = "SectionGB01BActivity";
-    ActivitySectionGb01BBinding bi;
+    ActivitySectionGb01bBinding bi;
     private DatabaseHelper db;
     private ArrayList<String> memberNames;
 
@@ -41,7 +40,7 @@ public class SectionGB01BActivity extends AppCompatActivity {
                 : sharedPref.getString("lang", "1").equals("1") ? R.style.AppThemeUrdu
                 : R.style.AppThemeSindhi);
         bi.setForm(lhwgbForm);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_gb01B);
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_gb01b);
         bi.setCallback(this);
 
         db = MainApp.appInfo.getDbHelper();
