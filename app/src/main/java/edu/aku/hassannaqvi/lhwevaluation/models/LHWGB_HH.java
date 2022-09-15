@@ -12,9 +12,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Currency;
-import java.util.Locale;
-
 import edu.aku.hassannaqvi.lhwevaluation.BR;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
@@ -31,7 +28,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     private String id = StringUtils.EMPTY;
     private String uid = StringUtils.EMPTY;
     private String uuid = StringUtils.EMPTY;
-    private String lhwuid = StringUtils.EMPTY;
+    private String muid = StringUtils.EMPTY;
     private String userName = StringUtils.EMPTY;
     private String sysDate = StringUtils.EMPTY;
     private String lhwCode = StringUtils.EMPTY;
@@ -197,6 +194,20 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     public LHWGB_HH() {
     }
 
+    public void populateMeta() {
+
+        setSysDate(MainApp.hhForm.getSysDate());
+        setUserName(MainApp.user.getUserName());
+        setDeviceId(MainApp.deviceid);
+        setUuid(MainApp.hhForm.getUid());  // not applicable in Form table
+        setAppver(MainApp.appInfo.getAppVersion());
+        setCluster(MainApp.hhForm.getLhwCode());
+        setHhid(MainApp.hhForm.getKhandandNo());
+        setMuid(MainApp.mwra.getUid());
+
+
+    }
+
 
     public String getProjectName() {
         return projectName;
@@ -230,12 +241,12 @@ public class LHWGB_HH extends BaseObservable implements Observable {
         this.uuid = uuid;
     }
 
-    public String getLhwuid() {
-        return lhwuid;
+    public String getMuid() {
+        return muid;
     }
 
-    public void setLhwuid(String lhwuid) {
-        this.lhwuid = lhwuid;
+    public void setMuid(String muid) {
+        this.muid = muid;
     }
 
     public String getCluster() {
@@ -1913,7 +1924,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_UID));
         this.uuid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_UUID));
-        this.lhwuid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_LHWUID));
+        this.muid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_LHWUID));
         this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_CLUSTER));
         this.hhid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_HHID));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_USERNAME));
@@ -2225,7 +2236,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
         json.put(TableContracts.LHWGB_HHTable.COLUMN_USERNAME, this.userName);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_SYSDATE, this.sysDate);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_HHID, this.hhid);
-        json.put(TableContracts.LHWGB_HHTable.COLUMN_LHWUID, this.lhwuid);
+        json.put(TableContracts.LHWGB_HHTable.COLUMN_LHWUID, this.muid);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_LHW_CODE, this.lhwCode);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_DEVICEID, this.deviceId);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_DEVICETAGID, this.deviceTag);

@@ -67,7 +67,8 @@ public class SectionW41Activity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             if(mwra.getW401().equals("2")) {
-                if (adolList.size() > 0) {
+                startActivity(new Intent(this, SectionGB02Activity.class));
+                /*if (adolList.size() > 0) {
                     startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
 
                 } else if (maleList.size() > 0) {
@@ -75,7 +76,7 @@ public class SectionW41Activity extends AppCompatActivity {
 
                 } else {
                     startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-                }
+                }*/
             }
             else {
                 if (mwra.getW405a().equals("1")

@@ -28,6 +28,7 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionW1Binding;
 import edu.aku.hassannaqvi.lhwevaluation.models.FamilyMembers;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
@@ -77,14 +78,18 @@ public class SectionW1Activity extends AppCompatActivity {
         if (!MainApp.mwra.getW101().equals("")) {
             int selectedPosition = memberNames.indexOf(MainApp.mwra.getW101());
             bi.w101.setSelection(selectedPosition);
+
         }
         bi.w101.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemSelected: " + position);
+
+                MainApp.name = bi.w101.getSelectedItem().toString();
                 bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(SectionW1Activity.this, R.color.gray));
                 bi.btnContinue.setEnabled(false);
                 MainApp.mwra = new MWRA();
+                MainApp.lhwgbHhForm = new LHWGB_HH();
 
                 if (position == 0) return;
 

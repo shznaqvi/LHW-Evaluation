@@ -233,33 +233,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(TableContracts.LHWGB_HHTable.COLUMN_PROJECT_NAME, lhw_gb.getProjectName());
         values.put(TableContracts.LHWGB_HHTable.COLUMN_UID, lhw_gb.getUid());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_UUID, lhw_gb.getUuid());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_LHWUID, lhw_gb.getMuid());
         values.put(TableContracts.LHWGB_HHTable.COLUMN_LHW_CODE, lhw_gb.getLhwCode());
-        values.put(TableContracts.LHWGB_HHTable.COLUMN_HHID, lhw_gb.getHhid());
-        values.put(TableContracts.LHWGB_HHTable.COLUMN_LHWUID, lhw_gb.getLhwuid());
-        values.put(TableContracts.LHWGB_HHTable.COLUMN_USERNAME, lhw_gb.getUserName());
         values.put(TableContracts.LHWGB_HHTable.COLUMN_CLUSTER, lhw_gb.getCluster());
-        //values.put(TableContracts.LHW_GBTable.COLUMN_UUID, );
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_HHID, lhw_gb.getHhid());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_USERNAME, lhw_gb.getUserName());
         values.put(TableContracts.LHWGB_HHTable.COLUMN_SYSDATE, lhw_gb.getSysDate());
-        values.put(TableContracts.LHWGB_HHTable.COLUMN_SYNCED, lhw_gb.getSynced());
-        values.put(TableContracts.LHWGB_HHTable.COLUMN_SYNCED_DATE, lhw_gb.getSyncDate());
-
-
-        values.put(TableContracts.LHWGB_HHTable.COLUMN_GBV02, lhw_gb.getsGbv02());
-     /*   values.put(TableContracts.HHFormsTable.COLUMN_SH3, hhForm.sH3toString());
-        values.put(TableContracts.HHFormsTable.COLUMN_SAB, hhForm.sABtoString());
-        values.put(TableContracts.HHFormsTable.COLUMN_SM, hhForm.sMtoString());*/
-
-        values.put(TableContracts.LHWGB_HHTable.COLUMN_ISTATUS, lhw_gb.getiStatus());
         values.put(TableContracts.LHWGB_HHTable.COLUMN_DEVICETAGID, lhw_gb.getDeviceTag());
         values.put(TableContracts.LHWGB_HHTable.COLUMN_DEVICEID, lhw_gb.getDeviceId());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_SYNCED, lhw_gb.getSynced());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_SYNCED_DATE, lhw_gb.getSyncDate());
         values.put(TableContracts.LHWGB_HHTable.COLUMN_APPVERSION, lhw_gb.getAppver());
-
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_ISTATUS, lhw_gb.getiStatus());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_GBV02, lhw_gb.getsGbv02());
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
-        newRowId = db.insert(
-                TableContracts.LHW_GBTable.TABLE_NAME,
-                TableContracts.LHW_GBTable.COLUMN_NAME_NULLABLE,
+        newRowId = db.insertOrThrow(
+                TableContracts.LHWGB_HHTable.TABLE_NAME,
+                TableContracts.LHWGB_HHTable.COLUMN_NAME_NULLABLE,
                 values);
         return newRowId;
     }
@@ -292,7 +285,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
-        newRowId = db.insert(
+        newRowId = db.insertOrThrow(
                 TableContracts.FamilyMembersTable.TABLE_NAME,
                 TableContracts.FamilyMembersTable.COLUMN_NAME_NULLABLE,
                 values);
@@ -442,7 +435,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(column, value);
 
-        String selection = TableContracts.LHWHHTable._ID + " =? ";
+        String selection = TableContracts.LHWGB_HHTable._ID + " =? ";
         String[] selectionArgs = {String.valueOf(MainApp.lhwgbHhForm.getId())};
 
         return db.update(TableContracts.LHWGB_HHTable.TABLE_NAME,

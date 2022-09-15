@@ -66,17 +66,19 @@ public class SectionW43Activity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
-            if (adolList.size() > 0) {
-                startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
-
-            } else if (maleList.size() > 0) {
-                startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
-
-            } else {
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-            }
+            startActivity(new Intent(this, SectionGB02Activity.class));
+            finish();
+//            if (adolList.size() > 0) {
+//                startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
+//
+//            } else if (maleList.size() > 0) {
+//                startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+//
+//            } else {
+//                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+//            }
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
-        finish();
+
     }
 
 

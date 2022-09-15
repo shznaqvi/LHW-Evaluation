@@ -78,6 +78,9 @@ public class MainApp extends Application {
     public static List<FamilyMembers> adolList;
     public static List<FamilyMembers> maleList;
 
+    public static String name = "";
+    public static String sno = "";
+
     public static String DeviceURL = "devices.php";
     public static AppInfo appInfo;
     public static Users user;

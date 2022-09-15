@@ -46,13 +46,18 @@ public class SectionGB02Activity extends AppCompatActivity {
         setTheme(sharedPref.getString("lang", "0").equals("0") ? R.style.AppThemeEnglish1
                 : sharedPref.getString("lang", "1").equals("1") ? R.style.AppThemeUrdu
                 : R.style.AppThemeSindhi);
-        bi.setForm(lhwgbHhForm);
-
+        //bi.setForm(lhwgbHhForm);
+        db = MainApp.appInfo.getDbHelper();
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_gb02);
         bi.setCallback(this);
+        bi.g702.setText(MainApp.name);
+        bi.setForm(lhwgbHhForm);
 
-        db = MainApp.appInfo.getDbHelper();
+
         populateSpinner();
+
+
+
 
     }
 
@@ -111,6 +116,8 @@ public class SectionGB02Activity extends AppCompatActivity {
 
     private boolean insertNewRecord() {
         if (!lhwgbHhForm.getUid().equals("")) return true;
+        lhwgbHhForm.populateMeta();
+
         long rowId = 0;
         try {
             rowId = db.addLHW_HHForm(lhwgbHhForm);
@@ -137,7 +144,7 @@ public class SectionGB02Activity extends AppCompatActivity {
         if (updateDB()) {
             Intent i;
             //      if (bi.h111a.isChecked()) {
-            i = new Intent(this, SectionW2Activity.class).putExtra("complete", true);
+            i = new Intent(this, SectionGB02BActivity.class).putExtra("complete", true);
            /* } else {
                 i = new Intent(this, EndingActivity.class).putExtra("complete", false);
             }*/

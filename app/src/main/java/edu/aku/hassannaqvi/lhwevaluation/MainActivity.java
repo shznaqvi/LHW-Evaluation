@@ -15,6 +15,8 @@ import edu.aku.hassannaqvi.lhwevaluation.database.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHW_GB;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.ui.ChangePasswordActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.IdentificationActivity;
@@ -84,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case R.id.openLHWForm:
                 MainApp.LHWForm = new LHWForm();
+                MainApp.lhwgbForm = new LHW_GB();
                 startActivity(new Intent(this, LhwIdentificationActivity.class));
                 break;
             case R.id.seca:

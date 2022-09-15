@@ -122,6 +122,8 @@ object CreateTable {
             + LHWGB_HHTable.COLUMN_UID + " TEXT,"
             + LHWGB_HHTable.COLUMN_UUID + " TEXT,"
             + LHWGB_HHTable.COLUMN_CLUSTER + " TEXT,"
+            + LHWGB_HHTable.COLUMN_LHWUID + " TEXT,"
+            + LHWGB_HHTable.COLUMN_LHW_CODE + " TEXT,"
             + LHWGB_HHTable.COLUMN_HHID + " TEXT,"
             + LHWGB_HHTable.COLUMN_USERNAME + " TEXT,"
             + LHWGB_HHTable.COLUMN_SYSDATE + " TEXT,"

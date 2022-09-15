@@ -33,6 +33,7 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityFamilyListBinding;
 import edu.aku.hassannaqvi.lhwevaluation.models.FamilyMembers;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.sections.SectionABActivity;
@@ -260,12 +261,15 @@ public class FamilyMambersListActivity extends AppCompatActivity {
 
         if(mwraList.size()>0) {
             MainApp.mwra = new MWRA();
+            MainApp.lhwgbHhForm = new LHWGB_HH();
             //       finish();
             startActivity(new Intent(this, SectionW1Activity.class).putExtra("complete", true));
         }else if(adolList.size()>0){
+            MainApp.lhwgbHhForm = new LHWGB_HH();
             //      finish();
             startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
         }else if(maleList.size()>0){
+            MainApp.lhwgbHhForm = new LHWGB_HH();
             //    finish();
             startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
         } else {

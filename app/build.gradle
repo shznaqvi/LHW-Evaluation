@@ -4,7 +4,6 @@ plugins {
 }
 
 android {
-    compileSdk 31
 
     buildFeatures {
         dataBinding true
@@ -58,6 +57,7 @@ android {
             versionName "${versionNumber}.${versionPatch}${versionType}"
             minSdkVersion 22
             targetSdkVersion 30
+            compileSdkVersion 31
         }
 
         applicationVariants.all { variant ->

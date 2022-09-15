@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +25,7 @@ import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionMBinding;
+import edu.aku.hassannaqvi.lhwevaluation.models.FamilyMembers;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
 
@@ -44,24 +47,24 @@ public class SectionMActivity extends AppCompatActivity {
         bi.setHHForm(hhForm);
 /*        bi.m101a.isChecked();
         bi.m101.setEnabled(false);*/
-        //populateSpinner();
+        populateSpinner();
 
     }
-   /* private void populateSpinner() {
+   private void populateSpinner() {
 
         memberNames = new ArrayList<>();
         memberNames.add("...");
-        for (FamilyMembers sfm : MainApp.adolList) {
+        for (FamilyMembers sfm : MainApp.maleList) {
             memberNames.add(sfm.getH302());
         }
 
         // Apply the adapter to the spinner
         bi.m101.setAdapter(new ArrayAdapter<>(SectionMActivity.this, R.layout.custom_spinner, memberNames));
-        if (!MainApp.hhForm.getAb101().equals("")) {
-            int selectedPosition = memberNames.indexOf(MainApp.hhForm.getAb101());
-            bi.ab101.setSelection(selectedPosition);
+        if (!MainApp.hhForm.getM101().equals("")) {
+            int selectedPosition = memberNames.indexOf(MainApp.hhForm.getM101());
+            bi.m101.setSelection(selectedPosition);
         }
-        bi.ab101.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        bi.m101.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemSelected: "+position);
@@ -79,7 +82,7 @@ public class SectionMActivity extends AppCompatActivity {
         });
 
 
-    }*/
+    }
 
     private boolean updateDB() {
         db = MainApp.appInfo.getDbHelper();
@@ -102,7 +105,7 @@ public class SectionMActivity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
-            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+            startActivity(new Intent(this, SectionGB02Activity.class));
             finish();
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }

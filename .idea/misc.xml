@@ -93,14 +93,22 @@
         <entry key="..\:/Users/abdul.sajid/Desktop/Android App/LHW-Evaluation/app/src/main/res/layout/activity_sync.xml" value="0.55859375" />
         <entry key="..\:/Users/abdul.sajid/Desktop/Android App/LHW-Evaluation/app/src/main/res/layout/date_error_dialog.xml" value="0.55859375" />
         <entry key="..\:/Users/abdul.sajid/Desktop/Android App/LHW-Evaluation/app/src/main/res/layout/sync_list_adapter.xml" value="0.55859375" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_ab.xml" value="0.1" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_main.xml" value="0.41171875" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_ab.xml" value="0.13604972375690608" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01.xml" value="0.1" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01A.xml" value="0.1" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01B.xml" value="0.1" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01a.xml" value="0.75" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01b.xml" value="0.13585090730750368" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01c.xml" value="0.15933275812482026" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb02.xml" value="0.33" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb02b.xml" value="0.10794602698650675" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb02.xml" value="0.4325" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb02b.xml" value="0.16025495105850215" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_h3.xml" value="0.41171875" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_m.xml" value="0.6641074856046065" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_w1.xml" value="0.3828125" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_w41.xml" value="0.3078125" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_w42.xml" value="0.75" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/famlily_member_row.xml" value="0.41171875" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb02.xml" value="0.1" />
       </map>

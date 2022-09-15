@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.PowerManager;
 import android.util.Log;
+import android.util.Size;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
@@ -110,13 +111,16 @@ public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camer
         surfaceView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (previewFlag == false) {
+                if (!previewFlag) {
                     Camera.Parameters parameters = camera.getParameters();
                     //parameters.setJpegQuality(88);
                     parameters.setAutoWhiteBalanceLock(true);
-                    parameters.setFlashMode(Camera.Parameters.WHITE_BALANCE_AUTO);
+                    if(parameters.getFlashMode() !=null) {
+                        parameters.setFlashMode(Camera.Parameters.WHITE_BALANCE_AUTO);
+                    }
                     parameters.set("rotation", 90);
                     parameters.set("iso", "auto");
+                    //parameters.setPictureSize(parameters.getSupportedPictureSizes());
                     //parameters.setPreviewSize(640, 480);
                     //parameters.setPictureSize(640, 480);
                     //parameters.setPictureSize(2576, 1932);
@@ -166,21 +170,23 @@ public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camer
         camera = Camera.open();
         Camera.Parameters parameters = camera.getParameters();
         List<String> focusModes = parameters.getSupportedFocusModes();
-//        for (String p : focusModes) {
-//            Log.d("TAH", "surfaceCreated: " + p + "\r\n");
-//        }
-//
+        for (String p : focusModes) {
+            Log.d(TAG, "focusModes: " + p + "\r\n");
+        }
+
 
         List<Integer> picFormat = parameters.getSupportedPictureFormats();
         for (Integer p : picFormat) {
-            Log.d("picFormat", "surfaceCreated: " + p + "\r\n");
+            Log.d(TAG, "picFormat: " + p + "\r\n");
         }
-//
+
         List<String> colorEffects = parameters.getSupportedColorEffects();
-//        for (String effect : colorEffects) {
-//            Log.d("TAG", effect);
-//        }
-        parameters.setColorEffect(Camera.Parameters.WHITE_BALANCE_AUTO);
+        for (String effect : colorEffects) {
+            Log.d(TAG, "colorEffects: " + effect + "\r\n");
+        }
+        if (colorEffects.contains(Camera.Parameters.WHITE_BALANCE_AUTO)) {
+            parameters.setColorEffect(Camera.Parameters.WHITE_BALANCE_AUTO);
+        }
         //parameters.setPreviewSize(640, 480);
         //parameters.setPictureSize(640, 480);
         if (focusModes.contains(Camera.Parameters.FOCUS_MODE_CONTINUOUS_PICTURE)) {
@@ -202,7 +208,7 @@ public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camer
                 Log.v("TakePhoto", "Orientation = 0");
                 break;
         }
-        //camera.setDisplayOrientation(180);
+        // camera.setDisplayOrientation(180);
 
         List<Camera.Size> previewSize = parameters.getSupportedPreviewSizes();
         List<Camera.Size> picSize = parameters.getSupportedPictureSizes();
@@ -229,6 +235,19 @@ public class TakePhoto extends Activity implements SurfaceHolder.Callback, Camer
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         //To change body of implemented methods use File | Settings | File Templates.
+
+        Camera.Parameters parameters = camera.getParameters();
+        List<Camera.Size> previewSizes = parameters.getSupportedPreviewSizes();
+
+        // You need to choose the most appropriate previewSize for your app
+
+        if (previewSizes.size() > 1) {
+            for (Camera.Size size : previewSizes) {
+                Log.d("TAG", size.height + " * " + size.width);
+            }
+        }
+        camera.setParameters(parameters);
+        camera.startPreview();
     }
 
     @Override

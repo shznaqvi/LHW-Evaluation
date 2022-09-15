@@ -24,6 +24,7 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionGb02Binding;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionGb02bBinding;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
 public class SectionGB02BActivity extends AppCompatActivity {
@@ -39,52 +40,20 @@ public class SectionGB02BActivity extends AppCompatActivity {
         setTheme(sharedPref.getString("lang", "0").equals("0") ? R.style.AppThemeEnglish1
                 : sharedPref.getString("lang", "1").equals("1") ? R.style.AppThemeUrdu
                 : R.style.AppThemeSindhi);
-        bi.setForm(lhwgbHhForm);
-
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_gb02);
-        bi.setCallback(this);
 
         db = MainApp.appInfo.getDbHelper();
-        populateSpinner();
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_gb02b);
+        bi.setCallback(this);
+        bi.setForm(lhwgbHhForm);
 
     }
 
-    private void populateSpinner() {
-
-        /*memberNames = new ArrayList<>();
-        memberNames.add("...");
-        for (FamilyMembers sfm : MainApp.adolList) {
-            memberNames.add(sfm.getH302());
-        }
-
-        // Apply the adapter to the spinner
-
-        bi.ab101.setAdapter(new ArrayAdapter<String>(SectionABActivity.this, R.layout.custom_spinner, memberNames));
-        if (!MainApp.hhForm.getAb101().equals("")) {
-            int selectedPosition = memberNames.indexOf(MainApp.hhForm.getAb101());
-            bi.ab101.setSelection(selectedPosition);
-        }
-        bi.ab101.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Log.d(TAG, "onItemSelected: " + position);
-
-                if (position == 0) return;
-                MainApp.hhForm.setAb101(memberNames.get(position));
-
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-
-        });
-*/
-
-    }
 
     private boolean updateDB() {
+
+        if (MainApp.superuser) return true;
+
+        db = MainApp.appInfo.getDbHelper();
         long updcount = 0;
         try {
             updcount = db.updatesLHWGB_HHFormColumn(TableContracts.LHWGB_HHTable.COLUMN_GBV02, lhwgbHhForm.sGBV02toString());
@@ -102,39 +71,23 @@ public class SectionGB02BActivity extends AppCompatActivity {
 
 
 
-    private boolean insertNewRecord() {
-        if (!lhwgbHhForm.getUid().equals("")) return true;
-        long rowId = 0;
-        try {
-            rowId = db.addLHW_HHForm(lhwgbHhForm);
-        } catch (JSONException e) {
-            e.printStackTrace();
-            Toast.makeText(this, R.string.db_excp_error, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-        lhwgbHhForm.setId(String.valueOf(rowId));
-        if (rowId > 0) {
-            lhwgbHhForm.setUid(lhwgbHhForm.getDeviceId() + lhwgbHhForm.getId());
-            db.updatesLHWGB_HHFormColumn(TableContracts.LHWGB_HHTable.COLUMN_UID, lhwgbHhForm.getUid());
-            return true;
-        } else {
-            Toast.makeText(this, R.string.upd_db_error, Toast.LENGTH_SHORT).show();
-            return false;
-        }
-    }
 
     public void btnContinue(View view) {
         if (!formValidation()) return;
-        if (!insertNewRecord()) return;
         // saveDraft();
         if (updateDB()) {
             Intent i;
-            //      if (bi.h111a.isChecked()) {
-            i = new Intent(this, SectionW2Activity.class).putExtra("complete", true);
-           /* } else {
-                i = new Intent(this, EndingActivity.class).putExtra("complete", false);
-            }*/
-            startActivity(i);
+            if (MainApp.adolList.size() > 0) {
+                lhwgbHhForm = new LHWGB_HH();
+                    startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
+
+                } else if (MainApp.maleList.size() > 0) {
+                lhwgbHhForm = new LHWGB_HH();
+                    startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+
+                } else {
+                    startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                }
             finish();
         } else {
             Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
