@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.adolList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwraCount;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 
 import android.content.Intent;
@@ -66,17 +67,10 @@ public class SectionW41Activity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
+            mwraCount--;
             if(mwra.getW401().equals("2")) {
                 startActivity(new Intent(this, SectionGB02Activity.class));
-                /*if (adolList.size() > 0) {
-                    startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
 
-                } else if (maleList.size() > 0) {
-                    startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
-
-                } else {
-                    startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-                }*/
             }
             else {
                 if (mwra.getW405a().equals("1")

@@ -50,9 +50,8 @@ public class SectionGB02Activity extends AppCompatActivity {
         db = MainApp.appInfo.getDbHelper();
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_gb02);
         bi.setCallback(this);
-        bi.g702.setText(MainApp.name);
         bi.setForm(lhwgbHhForm);
-
+        bi.g702.setText(MainApp.name);
 
         populateSpinner();
 

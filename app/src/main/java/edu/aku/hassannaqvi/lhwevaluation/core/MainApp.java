@@ -104,6 +104,9 @@ public class MainApp extends Application {
     public static int lhwHHCount = 0;
     public static int memberCount = 0;
 
+    public static boolean adolFlag = false;
+    public static boolean maleFlag = false;
+
 
     public static int selectedLHW = 0;
     public static int selectedHH = 0;

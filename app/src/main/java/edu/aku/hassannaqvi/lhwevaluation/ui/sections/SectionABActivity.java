@@ -107,6 +107,7 @@ public class SectionABActivity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
+            MainApp.adolFlag = true;
             startActivity(new Intent(this, SectionGB02Activity.class).putExtra("complete", true));
 
             /*if (maleList.size() > 0) {

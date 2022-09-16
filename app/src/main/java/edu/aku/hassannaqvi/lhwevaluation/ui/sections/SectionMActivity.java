@@ -34,6 +34,7 @@ public class SectionMActivity extends AppCompatActivity {
     ActivitySectionMBinding bi;
     private DatabaseHelper db;
     private ArrayList<String> memberNames;
+    private int listPosition = 0;
 
 
     @Override
@@ -71,6 +72,8 @@ public class SectionMActivity extends AppCompatActivity {
 
                 if (position == 0) return;
                 MainApp.hhForm.setAb101(memberNames.get(position));
+                listPosition = position;
+
 
 
             }
@@ -105,6 +108,7 @@ public class SectionMActivity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
+            MainApp.maleFlag = true;
             startActivity(new Intent(this, SectionGB02Activity.class));
             finish();
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();

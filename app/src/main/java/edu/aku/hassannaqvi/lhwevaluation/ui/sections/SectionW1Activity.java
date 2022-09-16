@@ -67,9 +67,9 @@ public class SectionW1Activity extends AppCompatActivity {
 
         memberNames = new ArrayList<>();
         memberNames.add("...");
+
         for (FamilyMembers sfm : MainApp.mwraList) {
             memberNames.add(sfm.getH302());
-
 
         }
 
@@ -89,7 +89,7 @@ public class SectionW1Activity extends AppCompatActivity {
                 bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(SectionW1Activity.this, R.color.gray));
                 bi.btnContinue.setEnabled(false);
                 MainApp.mwra = new MWRA();
-                MainApp.lhwgbHhForm = new LHWGB_HH();
+                //MainApp.lhwgbHhForm = new LHWGB_HH();
 
                 if (position == 0) return;
 

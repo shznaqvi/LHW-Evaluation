@@ -77,11 +77,11 @@ public class SectionGB02BActivity extends AppCompatActivity {
         // saveDraft();
         if (updateDB()) {
             Intent i;
-            if (MainApp.adolList.size() > 0) {
+            if (MainApp.adolList.size() > 0 && !MainApp.adolFlag) {
                 lhwgbHhForm = new LHWGB_HH();
                     startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
 
-                } else if (MainApp.maleList.size() > 0) {
+                } else if (MainApp.maleList.size() > 0 && !MainApp.maleFlag) {
                 lhwgbHhForm = new LHWGB_HH();
                     startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
 
