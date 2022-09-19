@@ -1,6 +1,8 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwraList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 
 import android.content.Intent;
@@ -35,6 +37,7 @@ public class SectionMActivity extends AppCompatActivity {
     private DatabaseHelper db;
     private ArrayList<String> memberNames;
     private int listPosition = 0;
+    int postion = 0;
 
 
     @Override
@@ -69,6 +72,7 @@ public class SectionMActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemSelected: "+position);
+                postion = position;
 
                 if (position == 0) return;
                 MainApp.hhForm.setAb101(memberNames.get(position));
@@ -83,6 +87,8 @@ public class SectionMActivity extends AppCompatActivity {
             }
 
         });
+
+       MainApp.selectedMemberUID = maleList.get(postion).getUid();
 
 
     }

@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwraList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 
 import android.content.Intent;
@@ -28,7 +29,6 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionW1Binding;
 import edu.aku.hassannaqvi.lhwevaluation.models.FamilyMembers;
-import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
@@ -38,6 +38,7 @@ public class SectionW1Activity extends AppCompatActivity {
     ActivitySectionW1Binding bi;
     private DatabaseHelper db;
     private ArrayList<String> memberNames;
+    int postion = 0;
 
 
     @Override
@@ -78,18 +79,22 @@ public class SectionW1Activity extends AppCompatActivity {
         if (!MainApp.mwra.getW101().equals("")) {
             int selectedPosition = memberNames.indexOf(MainApp.mwra.getW101());
             bi.w101.setSelection(selectedPosition);
+            //MainApp.selectedFemale = mwraList.get(selectedPosition).getUid();
 
         }
         bi.w101.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Log.d(TAG, "onItemSelected: " + position);
-
                 MainApp.name = bi.w101.getSelectedItem().toString();
+                //MainApp.selectedFemale = mwraList.get(position).getUid();
+                postion = position;
+
                 bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(SectionW1Activity.this, R.color.gray));
                 bi.btnContinue.setEnabled(false);
                 MainApp.mwra = new MWRA();
                 //MainApp.lhwgbHhForm = new LHWGB_HH();
+
 
                 if (position == 0) return;
 
@@ -123,6 +128,8 @@ public class SectionW1Activity extends AppCompatActivity {
             }
 
         });
+
+        MainApp.selectedMemberUID = mwraList.get(postion).getUid();
 
 
     }

@@ -29,7 +29,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
         android:theme="@style/CustomToolbarTheme"
         app:popupTheme="@style/CustomPopupTheme"
         app:subtitle="@string/secw4title"
@@ -147,7 +146,8 @@
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="match_parent"
-                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "                            android:hint="@string/g702"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
+                            android:hint="@string/g702"
                             android:text="@={form.g702}" />
 
                     </LinearLayout>

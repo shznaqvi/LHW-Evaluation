@@ -203,7 +203,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
         setAppver(MainApp.appInfo.getAppVersion());
         setCluster(MainApp.hhForm.getLhwCode());
         setHhid(MainApp.hhForm.getKhandandNo());
-        setMuid(MainApp.mwra.getUid());
+        setMuid(MainApp.selectedMemberUID);
 
 
     }
@@ -1384,6 +1384,14 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG1001(String g1001) {
         this.g1001 = g1001;
+        setG1002a(this.g1001.equals("1") ? this.g1002a : "");
+        setG1002b(this.g1001.equals("1") ? this.g1002b : "");
+        setG1002c(this.g1001.equals("1") ? this.g1002c : "");
+        setG1002d(this.g1001.equals("1") ? this.g1002d : "");
+        setG1002e(this.g1001.equals("1") ? this.g1002e : "");
+        setG1002f(this.g1001.equals("1") ? this.g1002f : "");
+        setG1002g(this.g1001.equals("1") ? this.g1002g : "");
+        setG100296(this.g1001.equals("1") ? this.g100296 : "");
         notifyPropertyChanged(BR.g1001);
     }
 
@@ -1523,6 +1531,17 @@ public class LHWGB_HH extends BaseObservable implements Observable {
     }
 
     public void setG1004(String g1004) {
+        setG1005a(this.g1004.equals("1") ? this.g1005a : "");
+        setG1005b(this.g1004.equals("1") ? this.g1005b : "");
+        setG1005c(this.g1004.equals("1") ? this.g1005c : "");
+        setG100596(this.g1004.equals("1") ? this.g100596 : "");
+
+        setG1006a(this.g1004.equals("1") ? this.g1006a : "");
+        setG1006b(this.g1004.equals("1") ? this.g1006b : "");
+        setG1006c(this.g1004.equals("1") ? this.g1006c : "");
+        setG1006d(this.g1004.equals("1") ? this.g1006d : "");
+        setG1006e(this.g1004.equals("1") ? this.g1006e : "");
+        setG100696(this.g1004.equals("1") ? this.g100696 : "");
         this.g1004 = g1004;
         notifyPropertyChanged(BR.g1004);
     }
@@ -1686,6 +1705,23 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG1007(String g1007) {
         this.g1007 = g1007;
+        setG1008a(this.g1007.equals("1") ? this.g1008a : "");
+        setG1008b(this.g1007.equals("1") ? this.g1008b : "");
+        setG1008c(this.g1007.equals("1") ? this.g1008c : "");
+        setG100896(this.g1007.equals("1") ? this.g100896 : "");
+        setG100898(this.g1007.equals("1") ? this.g100898 : "");
+        setG1009a(this.g1007.equals("1") ? this.g1009a : "");
+        setG1009b(this.g1007.equals("1") ? this.g1009b : "");
+        setG1009c(this.g1007.equals("1") ? this.g1009c : "");
+        setG1010(this.g1007.equals("1") ? this.g1010 : "");
+        setG1011a(this.g1007.equals("1") ? this.g1011a : "");
+        setG1011b(this.g1007.equals("1") ? this.g1011b : "");
+        setG1011c(this.g1007.equals("1") ? this.g1011c : "");
+        setG1011d(this.g1007.equals("1") ? this.g1011d : "");
+        setG1011e(this.g1007.equals("1") ? this.g1011e : "");
+        setG1011f(this.g1007.equals("1") ? this.g1011f : "");
+        setG101196(this.g1007.equals("1") ? this.g101196 : "");
+
         notifyPropertyChanged(BR.g1007);
     }
 
@@ -1818,6 +1854,13 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG1010(String g1010) {
         this.g1010 = g1010;
+        setG1011a(this.g1010.equals("1") ? this.g1011a : "");
+        setG1011b(this.g1010.equals("1") ? this.g1011b : "");
+        setG1011c(this.g1010.equals("1") ? this.g1011c : "");
+        setG1011d(this.g1010.equals("1") ? this.g1011d : "");
+        setG1011e(this.g1010.equals("1") ? this.g1011e : "");
+        setG1011f(this.g1010.equals("1") ? this.g1011f : "");
+        setG101196(this.g1010.equals("1") ? this.g101196 : "");
         notifyPropertyChanged(BR.g1010);
     }
 
@@ -1924,7 +1967,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_UID));
         this.uuid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_UUID));
-        this.muid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_LHWUID));
+        this.muid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_MUID));
         this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_CLUSTER));
         this.hhid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_HHID));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.LHWGB_HHTable.COLUMN_USERNAME));
@@ -2232,11 +2275,12 @@ public class LHWGB_HH extends BaseObservable implements Observable {
         json.put(TableContracts.LHWGB_HHTable.COLUMN_ID, this.id);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_UID, this.uid);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_UUID, this.uuid);
+        json.put(TableContracts.LHWGB_HHTable.COLUMN_MUID, this.muid);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_CLUSTER, this.cluster);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_USERNAME, this.userName);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_SYSDATE, this.sysDate);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_HHID, this.hhid);
-        json.put(TableContracts.LHWGB_HHTable.COLUMN_LHWUID, this.muid);
+        json.put(TableContracts.LHWGB_HHTable.COLUMN_MUID, this.muid);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_LHW_CODE, this.lhwCode);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_DEVICEID, this.deviceId);
         json.put(TableContracts.LHWGB_HHTable.COLUMN_DEVICETAGID, this.deviceTag);

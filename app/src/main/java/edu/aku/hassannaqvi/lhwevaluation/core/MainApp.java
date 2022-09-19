@@ -77,6 +77,7 @@ public class MainApp extends Application {
     public static List<FamilyMembers> mwraList;
     public static List<FamilyMembers> adolList;
     public static List<FamilyMembers> maleList;
+    public static String selectedMemberUID = "";
 
     public static String name = "";
     public static String sno = "";

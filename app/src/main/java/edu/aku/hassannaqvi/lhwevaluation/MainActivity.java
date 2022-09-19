@@ -82,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.openHHForm:
                 MainApp.hhForm = new HHForm();
+                MainApp.lhwgbHhForm = new LHWGB_HH();
                 startActivity(new Intent(this, IdentificationActivity.class));
                 break;
             case R.id.openLHWForm:

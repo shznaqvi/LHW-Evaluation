@@ -224,7 +224,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     //ADDITION in DB
-    public long addLHW_HHForm(LHWGB_HH lhw_gb) throws JSONException {
+    public long addLHWGB_HHForm(LHWGB_HH lhw_gb) throws JSONException {
 
         // Gets the data repository in write mode
         SQLiteDatabase db = this.getWritableDatabase(DATABASE_PASSWORD);
@@ -234,7 +234,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.LHWGB_HHTable.COLUMN_PROJECT_NAME, lhw_gb.getProjectName());
         values.put(TableContracts.LHWGB_HHTable.COLUMN_UID, lhw_gb.getUid());
         values.put(TableContracts.LHWGB_HHTable.COLUMN_UUID, lhw_gb.getUuid());
-        values.put(TableContracts.LHWGB_HHTable.COLUMN_LHWUID, lhw_gb.getMuid());
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_MUID, lhw_gb.getMuid());
         values.put(TableContracts.LHWGB_HHTable.COLUMN_LHW_CODE, lhw_gb.getLhwCode());
         values.put(TableContracts.LHWGB_HHTable.COLUMN_CLUSTER, lhw_gb.getCluster());
         values.put(TableContracts.LHWGB_HHTable.COLUMN_HHID, lhw_gb.getHhid());
@@ -1941,6 +1941,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c;
         String[] columns = null;
 
+
         String whereClause;
         whereClause = LHWHHTable.COLUMN_LHW_CODE + "=?";
 
@@ -2107,6 +2108,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return mwra;
+    }
+
+
+    public LHWGB_HH getLHWGB_HHByUUid(String uid) throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause = TableContracts.LHWGB_HHTable.COLUMN_UUID + "=? ";
+
+        String[] whereArgs = {uid};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.LHWGB_HHTable.COLUMN_ID + " ASC";
+
+        LHWGB_HH lhwgbHh = null;
+
+        c = db.query(
+                TableContracts.LHWGB_HHTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            lhwgbHh = new LHWGB_HH().Hydrate(c);
+        }
+
+        return lhwgbHh;
     }
 
     public Long addEntryLog(EntryLog entryLog) throws SQLiteException {
