@@ -160,6 +160,8 @@ public class HHForm extends BaseObservable implements Observable {
     private String m106b = StringUtils.EMPTY;
     private String m106c = StringUtils.EMPTY;
     private String m106d = StringUtils.EMPTY;
+    private String maleUID = StringUtils.EMPTY;
+    private String adolUID = StringUtils.EMPTY;
 
 
     public HHForm() {
@@ -298,6 +300,21 @@ public class HHForm extends BaseObservable implements Observable {
         this.syncDate = syncDate;
     }
 
+    public String getMaleUID() {
+        return maleUID;
+    }
+
+    public String getAdolUID() {
+        return adolUID;
+    }
+
+    public void setMaleUID(String maleUID) {
+        this.maleUID = maleUID;
+    }
+
+    public void setAdolUID(String adolUID) {
+        this.adolUID = adolUID;
+    }
 
     /*JSON DATABASE VARIABLES*/
 
@@ -1652,6 +1669,7 @@ public class HHForm extends BaseObservable implements Observable {
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
+            this.adolUID = json.getString("adolUID");
             this.ab101 = json.getString("ab101");
             this.ab102 = json.getString("ab102");
             this.ab103 = json.getString("ab103");
@@ -1730,6 +1748,7 @@ public class HHForm extends BaseObservable implements Observable {
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
+            this.maleUID = json.getString("maleUID");
             this.m101 = json.getString("m101");
             this.m102 = json.getString("m102");
             this.m103 = json.getString("m103");
@@ -1860,6 +1879,7 @@ public class HHForm extends BaseObservable implements Observable {
                 .put("ab118s", ab118s)
                 .put("ab118t", ab118t)
                 .put("ab118u", ab118u)
+                .put("adolUID", adolUID)
                 .put("ab119", ab119);
         return json.toString();
     }
@@ -1886,6 +1906,7 @@ public class HHForm extends BaseObservable implements Observable {
                 .put("m106a", m106a)
                 .put("m106b", m106b)
                 .put("m106c", m106c)
+                .put("maleUID", maleUID)
                 .put("m106d", m106d);
         return json.toString();
     }

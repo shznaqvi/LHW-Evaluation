@@ -198,12 +198,13 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
         setSysDate(MainApp.hhForm.getSysDate());
         setUserName(MainApp.user.getUserName());
-        setDeviceId(MainApp.deviceid);
+        setDeviceId(MainApp.hhForm.getDeviceId());
+        setProjectName(MainApp.PROJECT_NAME);
         setUuid(MainApp.hhForm.getUid());  // not applicable in Form table
         setAppver(MainApp.appInfo.getAppVersion());
         setCluster(MainApp.hhForm.getLhwCode());
         setHhid(MainApp.hhForm.getKhandandNo());
-        setMuid(MainApp.selectedMemberUID);
+        //setMuid(MainApp.selectedMemberUID);
 
 
     }

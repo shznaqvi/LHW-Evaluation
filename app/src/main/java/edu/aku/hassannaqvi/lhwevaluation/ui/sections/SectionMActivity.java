@@ -75,7 +75,7 @@ public class SectionMActivity extends AppCompatActivity {
                 postion = position;
 
                 if (position == 0) return;
-                MainApp.hhForm.setAb101(memberNames.get(position));
+                MainApp.hhForm.setM101(memberNames.get(position));
                 listPosition = position;
 
 
@@ -88,7 +88,7 @@ public class SectionMActivity extends AppCompatActivity {
 
         });
 
-       MainApp.selectedMemberUID = maleList.get(postion).getUid();
+       hhForm.setMaleUID(maleList.get(postion).getUid());
 
 
     }
@@ -115,6 +115,7 @@ public class SectionMActivity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             MainApp.maleFlag = true;
+            MainApp.UIDFlag = 2;
             startActivity(new Intent(this, SectionGB02Activity.class));
             finish();
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();

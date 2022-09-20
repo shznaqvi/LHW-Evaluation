@@ -38,6 +38,7 @@ public class SectionW1Activity extends AppCompatActivity {
     ActivitySectionW1Binding bi;
     private DatabaseHelper db;
     private ArrayList<String> memberNames;
+    private ArrayList<String> memberUID;
     int postion = 0;
 
 
@@ -50,7 +51,7 @@ public class SectionW1Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_w1);
         bi.setCallback(this);
         db = MainApp.appInfo.getDbHelper();
-        try {
+       /* try {
             MainApp.mwra = db.getMwraByUUid();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -60,17 +61,20 @@ public class SectionW1Activity extends AppCompatActivity {
         if (MainApp.mwra == null) MainApp.mwra = new MWRA();
         bi.setMwra(MainApp.mwra);
 
-
+*/
         populateSpinner();
     }
 
     private void populateSpinner() {
 
         memberNames = new ArrayList<>();
+        memberUID = new ArrayList<>();
+        memberUID.add("...");
         memberNames.add("...");
 
         for (FamilyMembers sfm : MainApp.mwraList) {
             memberNames.add(sfm.getH302());
+            memberUID.add(sfm.getUid());
 
         }
 
@@ -117,6 +121,7 @@ public class SectionW1Activity extends AppCompatActivity {
                     MainApp.mwra.setSysDate(MainApp.hhForm.getSysDate());
                     MainApp.mwra.setAppver(MainApp.hhForm.getAppver());
                     MainApp.mwra.setW101(memberNames.get(position));
+                    mwra.setWraUID(memberUID.get(position));
                 }
 
                 bi.setMwra(MainApp.mwra);
@@ -129,7 +134,7 @@ public class SectionW1Activity extends AppCompatActivity {
 
         });
 
-        MainApp.selectedMemberUID = mwraList.get(postion).getUid();
+        //mwra.setWraUID(mwraList.get(postion).getUid());
 
 
     }
@@ -189,6 +194,7 @@ public class SectionW1Activity extends AppCompatActivity {
         if (!insertNewRecord()) return;
         // saveDraft();
         if (updateDB()) {
+            MainApp.UIDFlag = 1;
             Intent i;
             //      if (bi.h111a.isChecked()) {
             i = new Intent(this, SectionW2Activity.class).putExtra("complete", true);

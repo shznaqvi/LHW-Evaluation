@@ -2116,7 +2116,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor c;
         String[] columns = null;
 
-        String whereClause = TableContracts.LHWGB_HHTable.COLUMN_UUID + "=? ";
+        String whereClause = TableContracts.LHWGB_HHTable.COLUMN_MUID + "=? ";
 
         String[] whereArgs = {uid};
 

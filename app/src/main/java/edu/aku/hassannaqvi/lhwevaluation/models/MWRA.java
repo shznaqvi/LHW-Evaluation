@@ -43,6 +43,7 @@ public class MWRA extends BaseObservable {
     private String iStatus96x = StringUtils.EMPTY;
     private String synced = StringUtils.EMPTY;
     private String syncDate = StringUtils.EMPTY;
+    private String wraUID = StringUtils.EMPTY;
 
     // SECTION VARIABLES
     private String sW1 = StringUtils.EMPTY;
@@ -409,6 +410,13 @@ public class MWRA extends BaseObservable {
         notifyPropertyChanged(BR.expanded);
     }
 
+    public String getWraUID() {
+        return wraUID;
+    }
+
+    public void setWraUID(String wraUID) {
+        this.wraUID = wraUID;
+    }
 
     public String getUserName() {
         return userName;
@@ -3975,6 +3983,7 @@ public class MWRA extends BaseObservable {
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
+            this.wraUID = json.getString("wraUID");
             this.w101 = json.getString("w101");
             this.w102 = json.getString("w102");
             this.w103 = json.getString("w103");
@@ -4306,6 +4315,7 @@ public class MWRA extends BaseObservable {
         Log.d(TAG, "sW1toString: ");
         JSONObject json = new JSONObject();
         json.put("w101", w101)
+                .put("wraUID", wraUID)
                 .put("w102", w102)
                 .put("w103", w103)
                 .put("w104", w104)

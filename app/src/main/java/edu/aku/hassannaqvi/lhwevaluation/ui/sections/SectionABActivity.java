@@ -89,7 +89,8 @@ public class SectionABActivity extends AppCompatActivity {
 
         });
 
-        MainApp.selectedMemberUID = adolList.get(postion).getUid();
+        hhForm.setAdolUID(adolList.get(postion).getUid());
+
 
 
     }
@@ -115,6 +116,7 @@ public class SectionABActivity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             MainApp.adolFlag = true;
+            MainApp.UIDFlag = 3;
             startActivity(new Intent(this, SectionGB02Activity.class).putExtra("complete", true));
 
             /*if (maleList.size() > 0) {
