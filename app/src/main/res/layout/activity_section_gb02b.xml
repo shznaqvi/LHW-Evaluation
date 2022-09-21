@@ -91,7 +91,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="@string/g901" />
                 </LinearLayout>
 
@@ -354,7 +354,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="@string/g902" />
                 </LinearLayout>
 
@@ -1499,7 +1499,7 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:text="@string/g908" />
 
                 </LinearLayout>

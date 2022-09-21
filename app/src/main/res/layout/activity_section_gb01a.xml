@@ -973,7 +973,7 @@
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:text="@string/g109" />
 
                         </LinearLayout>
@@ -1212,7 +1212,7 @@
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:text="@string/g110" />
                         </LinearLayout>
 
@@ -2296,7 +2296,7 @@
 
                             <TextView
                                 android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
+                                android:layout_height="match_parent"
                                 android:text="@string/g116" />
                         </LinearLayout>
 

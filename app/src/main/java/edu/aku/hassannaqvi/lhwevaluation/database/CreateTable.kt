@@ -100,6 +100,8 @@ object CreateTable {
             + MWRAListTable.COLUMN_USERNAME + " TEXT,"
             + MWRAListTable.COLUMN_SYSDATE + " TEXT,"
             + MWRAListTable.COLUMN_INDEXED + " TEXT,"
+            + MWRAListTable.COLUMN_WRAUID + " TEXT,"
+            + MWRAListTable.COLUMN_WRA_SNO + " TEXT,"
             + MWRAListTable.COLUMN_ISTATUS + " TEXT,"
             + MWRAListTable.COLUMN_DEVICEID + " TEXT,"
             + MWRAListTable.COLUMN_DEVICETAGID + " TEXT,"
@@ -145,6 +147,8 @@ object CreateTable {
             + LHW_GBTable.COLUMN_UUID + " TEXT,"
             + LHW_GBTable.COLUMN_CLUSTER + " TEXT,"
             + LHW_GBTable.COLUMN_HHID + " TEXT,"
+            + LHW_GBTable.COLUMN_LHWUID + " TEXT,"
+            + LHW_GBTable.COLUMN_LHW_CODE + " TEXT,"
             + LHW_GBTable.COLUMN_USERNAME + " TEXT,"
             + LHW_GBTable.COLUMN_SYSDATE + " TEXT,"
             + LHW_GBTable.COLUMN_ISTATUS + " TEXT,"
@@ -245,6 +249,7 @@ object CreateTable {
             + FamilyMembersTable.COLUMN_USERNAME + " TEXT,"
             + FamilyMembersTable.COLUMN_SYSDATE + " TEXT,"
             + FamilyMembersTable.COLUMN_INDEXED + " TEXT,"
+            + FamilyMembersTable.COLUMN_SNO + " TEXT,"
             + FamilyMembersTable.COLUMN_ISTATUS + " TEXT,"
             + FamilyMembersTable.COLUMN_DEVICEID + " TEXT,"
             + FamilyMembersTable.COLUMN_DEVICETAGID + " TEXT,"
@@ -292,4 +297,12 @@ object CreateTable {
 
     const val SQL_ALTER_USERS_PWD_ENC =
         ("ALTER TABLE " + UsersTable.TABLE_NAME + " RENAME COLUMN " + "password" + " TO " + "passwordEnc")
+
+    const val SQL_ALTER_FAMILY_MEMBERS_ADD_SNO =
+            ("ALTER TABLE " + FamilyMembersTable.TABLE_NAME + " ADD COLUMN " +  FamilyMembersTable.COLUMN_SNO + " TEXT;")
+
+    const val SQL_ALTER_MWRALIST_ADD_WRAUID =
+            ("ALTER TABLE " + MWRAListTable.TABLE_NAME + " ADD COLUMN " +  MWRAListTable.COLUMN_WRAUID + " TEXT;")
+    const val SQL_ALTER_MWRALIST_ADD_WRASNO =
+            ("ALTER TABLE " + MWRAListTable.TABLE_NAME + " ADD COLUMN " +  MWRAListTable.COLUMN_WRA_SNO + " TEXT;")
 }

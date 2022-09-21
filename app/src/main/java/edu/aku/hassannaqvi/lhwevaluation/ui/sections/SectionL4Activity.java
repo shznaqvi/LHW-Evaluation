@@ -64,16 +64,8 @@ public class SectionL4Activity extends AppCompatActivity {
         if (!formValidation()) return;
         // saveDraft();
         if (updateDB()) {
-            MainApp.LHWHouseholds = new LHWHouseholds();
-
-            try {
-                MainApp.lhwHHCount = db.getLHWHHbyLHWCode(MainApp.LHWForm.getA104c());
-                startActivity(new Intent(this, SectionLhwHhActivity.class).putExtra("complete", true));
-                finish();
-
-            } catch (JSONException e) {
-                Toast.makeText(this, "JSONException(LHWForm): " + e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
+            startActivity(new Intent(this, SectionGB01AActivity.class).putExtra("complete", true));
+            finish();
         } else {
             Toast.makeText(this, getString(R.string.upd_db_error), Toast.LENGTH_SHORT).show();
         }
@@ -91,7 +83,6 @@ public class SectionL4Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
     }
 

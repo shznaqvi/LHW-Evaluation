@@ -36,6 +36,7 @@ public class SectionGB02Activity extends AppCompatActivity {
     private ArrayList<String> memberNames;
     private String selectedMemberUID = "";
     private String selectedMemberName= "";
+    private String selectedMemberSno= "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +54,17 @@ public class SectionGB02Activity extends AppCompatActivity {
         {
             selectedMemberUID = MainApp.mwra.getWraUID();
             selectedMemberName = MainApp.mwra.getW101();
+            selectedMemberSno = MainApp.mwra.getWraSno();
             MainApp.UIDFlag = 0;
         }else if(MainApp.UIDFlag == 2){
             selectedMemberUID = MainApp.hhForm.getMaleUID();
             selectedMemberName = MainApp.hhForm.getM101();
+            selectedMemberSno = MainApp.hhForm.getMaleSno();
             MainApp.UIDFlag = 0;
         }else if(MainApp.UIDFlag == 3){
             selectedMemberUID = MainApp.hhForm.getAdolUID();
             selectedMemberName = MainApp.hhForm.getAb101();
+            selectedMemberSno = MainApp.hhForm.getAdolSno();
             MainApp.UIDFlag = 0;
         }
 
@@ -85,7 +89,9 @@ public class SectionGB02Activity extends AppCompatActivity {
             MainApp.lhwgbHhForm.setSysDate(MainApp.hhForm.getSysDate());
             MainApp.lhwgbHhForm.setAppver(MainApp.hhForm.getAppver());
             lhwgbHhForm.setMuid(selectedMemberUID);
+            lhwgbHhForm.setG701(selectedMemberSno);
             MainApp.lhwgbHhForm.setG702(selectedMemberName);
+
         }
 
         bi.setForm(lhwgbHhForm);

@@ -3770,14 +3770,6 @@ public class LHW_GB extends BaseObservable implements Observable {
         json.put(TableContracts.LHW_GBTable.COLUMN_DEVICETAGID, this.deviceTag);
         json.put(TableContracts.LHW_GBTable.COLUMN_ISTATUS, this.iStatus);
         json.put(TableContracts.LHW_GBTable.COLUMN_APPVERSION, this.appver);
-
-
-        //  json.put(LHWFormsTable.COLUMN_SYNCED, this.synced);
-        //  json.put(LHWFormsTable.COLUMN_SYNCED_DATE, this.syncDate);
-
-        // Household
-
-
         json.put(TableContracts.LHW_GBTable.COLUMN_GB01, new JSONObject(sGB01toString()));
 
 

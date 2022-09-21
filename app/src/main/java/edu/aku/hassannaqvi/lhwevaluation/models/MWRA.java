@@ -44,6 +44,7 @@ public class MWRA extends BaseObservable {
     private String synced = StringUtils.EMPTY;
     private String syncDate = StringUtils.EMPTY;
     private String wraUID = StringUtils.EMPTY;
+    private String wraSno = StringUtils.EMPTY;
 
     // SECTION VARIABLES
     private String sW1 = StringUtils.EMPTY;
@@ -344,6 +345,13 @@ public class MWRA extends BaseObservable {
     public MWRA() {
     }
 
+    public String getWraSno() {
+        return wraSno;
+    }
+
+    public void setWraSno(String wraSno) {
+        this.wraSno = wraSno;
+    }
 
     public String getProjectName() {
         return projectName;
@@ -3967,6 +3975,8 @@ public class MWRA extends BaseObservable {
         this.iStatus = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_ISTATUS));
         this.synced = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SYNCED));
         this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SYNCED_DATE));
+        this.wraUID = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_WRAUID));
+        this.wraSno = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_WRA_SNO));
 
         sW1Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SW1)));
         sW2Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SW2)));
@@ -3983,7 +3993,6 @@ public class MWRA extends BaseObservable {
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
-            this.wraUID = json.getString("wraUID");
             this.w101 = json.getString("w101");
             this.w102 = json.getString("w102");
             this.w103 = json.getString("w103");
@@ -4315,7 +4324,6 @@ public class MWRA extends BaseObservable {
         Log.d(TAG, "sW1toString: ");
         JSONObject json = new JSONObject();
         json.put("w101", w101)
-                .put("wraUID", wraUID)
                 .put("w102", w102)
                 .put("w103", w103)
                 .put("w104", w104)
@@ -4648,6 +4656,8 @@ public class MWRA extends BaseObservable {
             json.put(MWRAListTable.COLUMN_DEVICEID, this.deviceId);
             json.put(MWRAListTable.COLUMN_DEVICETAGID, this.deviceTag);
             json.put(MWRAListTable.COLUMN_ISTATUS, this.iStatus);
+            json.put(MWRAListTable.COLUMN_WRAUID, this.wraUID);
+            json.put(MWRAListTable.COLUMN_WRA_SNO, this.wraSno);
             //  json.put(MWRAListTable.COLUMN_SYNCED, this.synced);
             //  json.put(MWRAListTable.COLUMN_SYNCED_DATE, this.syncDate);
 

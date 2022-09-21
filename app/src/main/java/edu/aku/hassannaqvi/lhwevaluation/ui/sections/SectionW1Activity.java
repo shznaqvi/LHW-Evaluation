@@ -39,6 +39,7 @@ public class SectionW1Activity extends AppCompatActivity {
     private DatabaseHelper db;
     private ArrayList<String> memberNames;
     private ArrayList<String> memberUID;
+    private ArrayList<String> memberSno;
     int postion = 0;
 
 
@@ -51,7 +52,7 @@ public class SectionW1Activity extends AppCompatActivity {
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_w1);
         bi.setCallback(this);
         db = MainApp.appInfo.getDbHelper();
-       /* try {
+        try {
             MainApp.mwra = db.getMwraByUUid();
         } catch (JSONException e) {
             e.printStackTrace();
@@ -61,7 +62,7 @@ public class SectionW1Activity extends AppCompatActivity {
         if (MainApp.mwra == null) MainApp.mwra = new MWRA();
         bi.setMwra(MainApp.mwra);
 
-*/
+
         populateSpinner();
     }
 
@@ -69,12 +70,15 @@ public class SectionW1Activity extends AppCompatActivity {
 
         memberNames = new ArrayList<>();
         memberUID = new ArrayList<>();
+        memberSno = new ArrayList<>();
         memberUID.add("...");
+        memberSno.add("...");
         memberNames.add("...");
 
         for (FamilyMembers sfm : MainApp.mwraList) {
             memberNames.add(sfm.getH302());
             memberUID.add(sfm.getUid());
+            memberSno.add(sfm.getSno());
 
         }
 
@@ -122,6 +126,7 @@ public class SectionW1Activity extends AppCompatActivity {
                     MainApp.mwra.setAppver(MainApp.hhForm.getAppver());
                     MainApp.mwra.setW101(memberNames.get(position));
                     mwra.setWraUID(memberUID.get(position));
+                    mwra.setWraSno(memberSno.get(position));
                 }
 
                 bi.setMwra(MainApp.mwra);

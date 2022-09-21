@@ -25,6 +25,7 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionGb01bBinding;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionGb01cBinding;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWHouseholds;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
 public class SectionGB01CActivity extends AppCompatActivity {
@@ -39,12 +40,12 @@ public class SectionGB01CActivity extends AppCompatActivity {
         setTheme(sharedPref.getString("lang", "0").equals("0") ? R.style.AppThemeEnglish1
                 : sharedPref.getString("lang", "1").equals("1") ? R.style.AppThemeUrdu
                 : R.style.AppThemeSindhi);
-        bi.setForm(lhwgbForm);
-        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_gb01b);
-        bi.setCallback(this);
 
+        bi = DataBindingUtil.setContentView(this, R.layout.activity_section_gb01c);
+        bi.setCallback(this);
         db = MainApp.appInfo.getDbHelper();
 
+        bi.setForm(lhwgbForm);
     }
 
     private boolean updateDB() {
@@ -67,11 +68,15 @@ public class SectionGB01CActivity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
 
-            if (maleList.size() > 0) {
-                startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+            MainApp.LHWHouseholds = new LHWHouseholds();
 
-            } else {
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+            try {
+                MainApp.lhwHHCount = db.getLHWHHbyLHWCode(MainApp.LHWForm.getA104c());
+                startActivity(new Intent(this, SectionLhwHhActivity.class).putExtra("complete", true));
+                finish();
+
+            } catch (JSONException e) {
+                Toast.makeText(this, "JSONException(LHWForm): " + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
         finish();

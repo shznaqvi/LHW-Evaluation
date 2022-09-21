@@ -90,6 +90,7 @@ public class SectionABActivity extends AppCompatActivity {
         });
 
         hhForm.setAdolUID(adolList.get(postion).getUid());
+        hhForm.setAdolSno(adolList.get(postion).getSno());
 
 
 

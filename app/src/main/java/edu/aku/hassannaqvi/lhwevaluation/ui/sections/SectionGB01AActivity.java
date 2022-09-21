@@ -1,10 +1,12 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwgbForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwgbHhForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
@@ -24,6 +26,8 @@ import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionGb01aBinding;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHW_GB;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
 public class SectionGB01AActivity extends AppCompatActivity {
@@ -39,11 +43,38 @@ public class SectionGB01AActivity extends AppCompatActivity {
         setTheme(sharedPref.getString("lang", "0").equals("0") ? R.style.AppThemeEnglish1
                 : sharedPref.getString("lang", "1").equals("1") ? R.style.AppThemeUrdu
                 : R.style.AppThemeSindhi);
-        bi.setForm(lhwgbForm);
+
+        db = MainApp.appInfo.getDbHelper();
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_gb01a);
         bi.setCallback(this);
 
-        db = MainApp.appInfo.getDbHelper();
+
+        try {
+            lhwgbForm = db.getLHWGBByUUid();
+        } catch (JSONException e) {
+            e.printStackTrace();
+            Toast.makeText(this, "JSONException(LHW_GB_HH): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+
+        //if (lhwgbHhForm == null) lhwgbHhForm = new LHWGB_HH();
+        bi.btnContinue.setBackgroundTintList(ContextCompat.getColorStateList(SectionGB01AActivity.this, R.color.colorAccent));
+        bi.btnContinue.setEnabled(true);
+        if (lhwgbForm == null) {
+            MainApp.lhwgbForm = new LHW_GB();
+
+            MainApp.lhwgbForm.setUuid(MainApp.LHWForm.getUid());
+            MainApp.lhwgbForm.setDeviceId(MainApp.LHWForm.getDeviceId());
+            MainApp.lhwgbForm.setCluster(MainApp.LHWForm.getCluster());
+            MainApp.lhwgbForm.setLhwuid(MainApp.LHWForm.getUid());
+            //MainApp.lhwgbForm.setLhwCode(MainApp.LHWForm.get);
+            //MainApp.lhwgbForm.setHhid(MainApp.LHWForm.get());
+            MainApp.lhwgbForm.setUserName(MainApp.LHWForm.getUserName());
+            MainApp.lhwgbForm.setSysDate(MainApp.LHWForm.getSysDate());
+            MainApp.lhwgbForm.setAppver(MainApp.LHWForm.getAppver());
+        }
+
+
+        bi.setForm(lhwgbForm);
     }
 
     private boolean updateDB() {
@@ -86,14 +117,9 @@ public class SectionGB01AActivity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (!insertNewRecord()) return;
-        // saveDraft();
         if (updateDB()) {
             Intent i;
-            //      if (bi.h111a.isChecked()) {
-            i = new Intent(this, SectionW2Activity.class).putExtra("complete", true);
-           /* } else {
-                i = new Intent(this, EndingActivity.class).putExtra("complete", false);
-            }*/
+            i = new Intent(this, SectionGB01BActivity.class).putExtra("complete", true);
             startActivity(i);
             finish();
         } else {
@@ -113,7 +139,6 @@ public class SectionGB01AActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
     }
 

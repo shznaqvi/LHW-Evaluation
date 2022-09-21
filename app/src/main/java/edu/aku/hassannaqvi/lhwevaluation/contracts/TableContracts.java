@@ -150,6 +150,8 @@ public class TableContracts {
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_SYSDATE = "sysdate";
         public static final String COLUMN_INDEXED = "indexed";
+        public static final String COLUMN_WRAUID = "wraUID";
+        public static final String COLUMN_WRA_SNO = "wraSno";
         public static final String COLUMN_SW1 = "sW1";
         public static final String COLUMN_SW2 = "sW2";
         public static final String COLUMN_SW3 = "sW3";
@@ -265,6 +267,7 @@ public class TableContracts {
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_SYSDATE = "sysdate";
         public static final String COLUMN_INDEXED = "indexed";
+        public static final String COLUMN_SNO = "sno";
         public static final String COLUMN_SH3 = "sH3";
 
         public static final String COLUMN_DEVICEID = "deviceid";

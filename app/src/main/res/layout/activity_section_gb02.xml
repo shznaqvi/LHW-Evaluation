@@ -95,19 +95,17 @@
                             android:layout_height="match_parent"
                             android:text="@string/g701" />
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
+                        <TextView
                             android:id="@+id/g701"
+                            style="@style/sub_labels"
+                            android:textColor="@color/colorPrimaryDark"
                             android:layout_width="0dp"
                             android:layout_weight="1"
                             android:layout_height="match_parent"
                             android:gravity="center"
+                            android:enabled="false"
                             android:hint="@string/g701"
-                            android:inputType="number"
-                            android:maxLength="1"
-                            android:text="@={form.g701}"
-                            app:maxValue="0"
-                            app:minValue="0"
-                            app:type="range" />
+                            android:text="@={form.g701}" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -141,9 +139,12 @@
                             android:layout_height="match_parent"
                             android:text="@string/g702" />
 
-                        <EditText
+                        <TextView
+                            style="@style/sub_labels"
+                            android:gravity="center"
                             android:id="@+id/g702"
                             android:layout_width="0dp"
+                            android:enabled="false"
                             android:layout_weight="1"
                             android:layout_height="match_parent"
                             android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "

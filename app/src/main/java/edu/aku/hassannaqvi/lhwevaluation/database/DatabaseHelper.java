@@ -4,6 +4,9 @@ import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.IBAHC;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.core.UserAuth.checkPassword;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_FAMILY_MEMBERS_ADD_SNO;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_MWRALIST_ADD_WRASNO;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_MWRALIST_ADD_WRAUID;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_USERS_DESIGNATION;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_USERS_DIST_ID;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_USERS_ENABLED;
@@ -138,6 +141,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             case 5:
                 db.execSQL(SQL_CREATE_LHWGBHH);
                 db.execSQL(SQL_CREATE_LHWGB);
+                db.execSQL(SQL_ALTER_FAMILY_MEMBERS_ADD_SNO);
+                db.execSQL(SQL_ALTER_MWRALIST_ADD_WRAUID);
+                db.execSQL(SQL_ALTER_MWRALIST_ADD_WRASNO);
         }
     }
 
@@ -192,31 +198,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(TableContracts.LHW_GBTable.COLUMN_PROJECT_NAME, lhw_gb.getProjectName());
         values.put(TableContracts.LHW_GBTable.COLUMN_UID, lhw_gb.getUid());
-        values.put(TableContracts.LHW_GBTable.COLUMN_LHW_CODE, lhw_gb.getLhwCode());
+        values.put(TableContracts.LHW_GBTable.COLUMN_UUID, lhw_gb.getUuid());
+        values.put(TableContracts.LHW_GBTable.COLUMN_CLUSTER, lhw_gb.getCluster());
+        values.put(TableContracts.LHW_GBTable.COLUMN_USERNAME, lhw_gb.getUserName());
+        values.put(TableContracts.LHW_GBTable.COLUMN_SYSDATE, lhw_gb.getSysDate());
         values.put(TableContracts.LHW_GBTable.COLUMN_HHID, lhw_gb.getHhid());
         values.put(TableContracts.LHW_GBTable.COLUMN_LHWUID, lhw_gb.getLhwuid());
-        values.put(TableContracts.LHW_GBTable.COLUMN_USERNAME, lhw_gb.getUserName());
-        values.put(TableContracts.LHW_GBTable.COLUMN_CLUSTER, lhw_gb.getCluster());
-        //values.put(TableContracts.LHW_GBTable.COLUMN_UUID, );
-        values.put(TableContracts.LHW_GBTable.COLUMN_SYSDATE, lhw_gb.getSysDate());
+        values.put(TableContracts.LHW_GBTable.COLUMN_LHW_CODE, lhw_gb.getLhwCode());
+        values.put(TableContracts.LHW_GBTable.COLUMN_DEVICEID, lhw_gb.getDeviceId());
+        values.put(TableContracts.LHW_GBTable.COLUMN_DEVICETAGID, lhw_gb.getDeviceTag());
+        values.put(TableContracts.LHW_GBTable.COLUMN_ISTATUS, lhw_gb.getiStatus());
+        values.put(TableContracts.LHW_GBTable.COLUMN_APPVERSION, lhw_gb.getAppver());
         values.put(TableContracts.LHW_GBTable.COLUMN_SYNCED, lhw_gb.getSynced());
         values.put(TableContracts.LHW_GBTable.COLUMN_SYNCED_DATE, lhw_gb.getSyncDate());
-
-
         values.put(TableContracts.LHW_GBTable.COLUMN_GB01, lhw_gb.getsGb_Lhw());
-     /*   values.put(TableContracts.HHFormsTable.COLUMN_SH3, hhForm.sH3toString());
-        values.put(TableContracts.HHFormsTable.COLUMN_SAB, hhForm.sABtoString());
-        values.put(TableContracts.HHFormsTable.COLUMN_SM, hhForm.sMtoString());*/
-
-        values.put(TableContracts.LHW_GBTable.COLUMN_ISTATUS, lhw_gb.getiStatus());
-        values.put(TableContracts.LHW_GBTable.COLUMN_DEVICETAGID, lhw_gb.getDeviceTag());
-        values.put(TableContracts.LHW_GBTable.COLUMN_DEVICEID, lhw_gb.getDeviceId());
-        values.put(TableContracts.LHW_GBTable.COLUMN_APPVERSION, lhw_gb.getAppver());
-
-
         // Insert the new row, returning the primary key value of the new row
         long newRowId;
-        newRowId = db.insert(
+        newRowId = db.insertOrThrow(
                 TableContracts.LHW_GBTable.TABLE_NAME,
                 TableContracts.LHW_GBTable.COLUMN_NAME_NULLABLE,
                 values);
@@ -269,13 +267,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.FamilyMembersTable.COLUMN_KHANDAN_NO, familyMembers.getkNo());
         values.put(TableContracts.FamilyMembersTable.COLUMN_USERNAME, familyMembers.getUserName());
         values.put(TableContracts.FamilyMembersTable.COLUMN_SYSDATE, familyMembers.getSysDate());
+        values.put(FamilyMembersTable.COLUMN_SNO, familyMembers.getSno());
         values.put(FamilyMembersTable.COLUMN_SYNCED, familyMembers.getSynced());
         values.put(FamilyMembersTable.COLUMN_SYNCED_DATE, familyMembers.getSyncDate());
 
         values.put(FamilyMembersTable.COLUMN_SH3, familyMembers.sH3toString());
-     /*   values.put(TableContracts.FamilyMemberssTable.COLUMN_SH3, familyMembers.sH3toString());
-        values.put(TableContracts.FamilyMemberssTable.COLUMN_SAB, familyMembers.sABtoString());
-        values.put(TableContracts.FamilyMemberssTable.COLUMN_SM, familyMembers.sMtoString());*/
 
         values.put(TableContracts.FamilyMembersTable.COLUMN_ISTATUS, familyMembers.getiStatus());
         values.put(TableContracts.FamilyMembersTable.COLUMN_DEVICETAGID, familyMembers.getDeviceTag());
@@ -381,20 +377,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.MWRAListTable.COLUMN_PROJECT_NAME, mwra.getProjectName());
         values.put(TableContracts.MWRAListTable.COLUMN_UID, mwra.getUid());
         values.put(TableContracts.MWRAListTable.COLUMN_UUID, mwra.getUuid());
+        values.put(MWRAListTable.COLUMN_WRAUID, mwra.getWraUID());
+        values.put(MWRAListTable.COLUMN_WRA_SNO, mwra.getWraSno());
         values.put(TableContracts.MWRAListTable.COLUMN_CLUSTER, mwra.getCluster());
         values.put(TableContracts.MWRAListTable.COLUMN_HHID, mwra.getHhid());
         values.put(TableContracts.MWRAListTable.COLUMN_USERNAME, mwra.getUserName());
         values.put(TableContracts.MWRAListTable.COLUMN_SYSDATE, mwra.getSysDate());
         values.put(TableContracts.MWRAListTable.COLUMN_INDEXED, mwra.getIndexed());
+
         values.put(MWRAListTable.COLUMN_SYNCED, mwra.getSynced());
         values.put(MWRAListTable.COLUMN_SYNCED_DATE, mwra.getSyncDate());
         values.put(TableContracts.MWRAListTable.COLUMN_SW1, mwra.sW1toString());
-      /*  values.put(TableContracts.MWRAListTable.COLUMN_SW2, mwra.sW2toString());
-        values.put(TableContracts.MWRAListTable.COLUMN_SW3, mwra.sW3toString());
-        values.put(TableContracts.MWRAListTable.COLUMN_SW41, mwra.sW41toString());
-        values.put(TableContracts.MWRAListTable.COLUMN_SW42, mwra.sW42toString());
-        values.put(TableContracts.MWRAListTable.COLUMN_SW43, mwra.sW43toString());*/
-
         values.put(TableContracts.MWRAListTable.COLUMN_DEVICEID, mwra.getDeviceId());
         values.put(TableContracts.MWRAListTable.COLUMN_DEVICETAGID, mwra.getDeviceTag());
         values.put(TableContracts.MWRAListTable.COLUMN_APPVERSION, mwra.getAppver());
@@ -2141,6 +2134,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
 
         return lhwgbHh;
+    }
+
+    public LHW_GB getLHWGBByUUid() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause = TableContracts.LHW_GBTable.COLUMN_UUID + "=? ";
+
+        String[] whereArgs = {MainApp.LHWForm.getUid()};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.LHW_GBTable.COLUMN_ID + " ASC";
+
+        LHW_GB lhwgb = null;
+
+        c = db.query(
+                TableContracts.LHW_GBTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            lhwgb = new LHW_GB().Hydrate(c);
+        }
+
+        return lhwgb;
     }
 
     public Long addEntryLog(EntryLog entryLog) throws SQLiteException {

@@ -51,6 +51,7 @@ public class FamilyMembers extends BaseObservable {
     private String iStatus96x = StringUtils.EMPTY;
     private String synced = StringUtils.EMPTY;
     private String syncDate = StringUtils.EMPTY;
+    private String sno = StringUtils.EMPTY;
     // SECTION VARIABLES
     private String sH3 = StringUtils.EMPTY;
     // FIELD VARIABLES
@@ -117,6 +118,13 @@ public class FamilyMembers extends BaseObservable {
         this.uuid = uuid;
     }
 
+    public String getSno() {
+        return sno;
+    }
+
+    public void setSno(String sno) {
+        this.sno = sno;
+    }
 
     @Bindable
     public String getLhwCode() {
@@ -265,6 +273,7 @@ public class FamilyMembers extends BaseObservable {
 
     public void setH301(String h301) {
         this.h301 = h301;
+        setSno(h301);
         notifyPropertyChanged(BR.h301);
     }
 
@@ -419,6 +428,7 @@ public class FamilyMembers extends BaseObservable {
         this.kNo = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FamilyMembersTable.COLUMN_KHANDAN_NO));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FamilyMembersTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_SYSDATE));
+        this.sno = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_SNO));
 /*
         this.indexed = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_INDEXED));
 */
@@ -480,6 +490,7 @@ public class FamilyMembers extends BaseObservable {
             json.put(TableContracts.FamilyMembersTable.COLUMN_DEVICEID, this.deviceId);
             json.put(TableContracts.FamilyMembersTable.COLUMN_DEVICETAGID, this.deviceTag);
             json.put(TableContracts.FamilyMembersTable.COLUMN_ISTATUS, this.iStatus);
+            json.put(FamilyMembersTable.COLUMN_SNO, this.sno);
             //  json.put(FamilyMembersTable.COLUMN_SYNCED, this.synced);
             //  json.put(FamilyMembersTable.COLUMN_SYNCED_DATE, this.syncDate);
 
