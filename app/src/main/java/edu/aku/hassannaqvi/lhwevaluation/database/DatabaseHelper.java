@@ -1040,6 +1040,91 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allLHWForms;
     }
 
+    public JSONArray getUnsyncedLHWGBForms() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        //whereClause = null;
+        whereClause = TableContracts.LHW_GBTable.COLUMN_SYNCED + " = '' ";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.LHW_GBTable.COLUMN_ID + " ASC";
+
+        JSONArray allLHWGBForms = new JSONArray();
+
+        c = db.query(
+                TableContracts.LHW_GBTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            /** WorkManager Upload
+             /*hhForm fc = new hhForm();
+             allFC.add(fc.Hydrate(c));*/
+            Log.d(TAG, "getUnsyncedForms: " + c.getCount());
+            LHW_GB lhwgb = new LHW_GB().Hydrate(c);
+            //List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwgb.getA104c());
+            //if (lhwhhs.size() >= 10)
+                allLHWGBForms.put(lhwgb.toJSONObject());
+
+
+        }
+        return allLHWGBForms;
+    }
+
+
+    public JSONArray getUnsyncedLHWGBHHForms() throws JSONException {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c = null;
+        String[] columns = null;
+
+        String whereClause;
+        //whereClause = null;
+        whereClause = TableContracts.LHWGB_HHTable.COLUMN_SYNCED + " = '' ";
+
+        String[] whereArgs = null;
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.LHWGB_HHTable.COLUMN_ID + " ASC";
+
+        JSONArray allLHWGBForms = new JSONArray();
+
+        c = db.query(
+                TableContracts.LHWGB_HHTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            /** WorkManager Upload
+             /*hhForm fc = new hhForm();
+             allFC.add(fc.Hydrate(c));*/
+            Log.d(TAG, "getUnsyncedForms: " + c.getCount());
+            LHWGB_HH lhwgb = new LHWGB_HH().Hydrate(c);
+            //List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwgb.getA104c());
+            //if (lhwhhs.size() >= 10)
+            allLHWGBForms.put(lhwgb.toJSONObject());
+
+
+        }
+        return allLHWGBForms;
+    }
+
 
     public JSONArray getUnsyncedLHWHHForms() throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
@@ -1237,6 +1322,46 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         int count = db.update(
                 TableContracts.HHFormsTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+
+    //update SyncedTables
+    public void updateSyncedLHW_GB(String id) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(TableContracts.LHW_GBTable.COLUMN_SYNCED, true);
+        values.put(TableContracts.LHW_GBTable.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = TableContracts.LHW_GBTable.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                TableContracts.LHW_GBTable.TABLE_NAME,
+                values,
+                where,
+                whereArgs);
+    }
+
+    public void updateSyncedLHWGB_HH(String id) {
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+
+// New value for one column
+        ContentValues values = new ContentValues();
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_SYNCED, true);
+        values.put(TableContracts.LHWGB_HHTable.COLUMN_SYNCED_DATE, new Date().toString());
+
+// Which row to update, based on the title
+        String where = TableContracts.LHWGB_HHTable.COLUMN_ID + " = ?";
+        String[] whereArgs = {id};
+
+        int count = db.update(
+                TableContracts.LHWGB_HHTable.TABLE_NAME,
                 values,
                 where,
                 whereArgs);

@@ -3,6 +3,8 @@ package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Toast;
 
@@ -12,6 +14,8 @@ import androidx.databinding.DataBindingUtil;
 import com.validatorcrawler.aliazaz.Validator;
 
 import org.json.JSONException;
+
+import java.util.Calendar;
 
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
@@ -39,6 +43,29 @@ public class SectionH3Activity extends AppCompatActivity {
 
         // Initialize Database
         db = MainApp.appInfo.getDbHelper();
+
+        bi.h304y.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (bi.h304y.getText().toString().isEmpty()) return;
+                bi.h304d.setMaxvalue(Integer.parseInt(bi.h304y.getText().toString()) == Calendar.getInstance().get(Calendar.YEAR) ?
+                        Calendar.getInstance().get(Calendar.DAY_OF_MONTH) : 31f);
+                bi.h304m.setMaxvalue(Integer.parseInt(bi.h304m.getText().toString()) == Calendar.getInstance().get(Calendar.YEAR) ?
+                        Calendar.getInstance().get(Calendar.MONTH) + 1 : 12f);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+
+        });
 
     }
 

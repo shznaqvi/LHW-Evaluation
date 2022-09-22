@@ -52,6 +52,7 @@ import java.util.concurrent.TimeUnit;
 
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.adapters.SyncListAdapter;
+import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.EntryLogTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.FamilyMembersTable;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.HHFormsTable;
@@ -210,6 +211,25 @@ public class SyncActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(SyncActivity.this, "JSONException(EntryLog)" + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
+
+                //LHW GB
+                uploadTables.add(new SyncModel(TableContracts.LHW_GBTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedLHWGBForms());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(SyncActivity.this, "JSONException(LHWGB)" + e.getMessage(), Toast.LENGTH_LONG).show();
+                }
+
+                //LHW HH
+                uploadTables.add(new SyncModel(TableContracts.LHWGB_HHTable.TABLE_NAME));
+                try {
+                    MainApp.uploadData.add(db.getUnsyncedLHWGBHHForms());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    Toast.makeText(SyncActivity.this, "JSONException(LHWGB_HH)" + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
 
                 MainApp.downloadData = new String[uploadData.size()];
