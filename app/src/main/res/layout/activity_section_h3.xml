@@ -291,6 +291,8 @@
                                 android:inputType="number"
                                 android:maxLength="4"
                                 android:text="@={familyMember.h304y}"
+                                app:minValue="1975"
+                                app:maxValue="2022"
                                 app:defaultValue="9998"
                                 app:type="range" />
 

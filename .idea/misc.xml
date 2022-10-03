@@ -93,18 +93,24 @@
         <entry key="..\:/Users/abdul.sajid/Desktop/Android App/LHW-Evaluation/app/src/main/res/layout/activity_sync.xml" value="0.55859375" />
         <entry key="..\:/Users/abdul.sajid/Desktop/Android App/LHW-Evaluation/app/src/main/res/layout/date_error_dialog.xml" value="0.55859375" />
         <entry key="..\:/Users/abdul.sajid/Desktop/Android App/LHW-Evaluation/app/src/main/res/layout/sync_list_adapter.xml" value="0.55859375" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_household.xml" value="0.54921875" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_identification.xml" value="0.4419134396355353" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_lhw.xml" value="0.54921875" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_lhw_identification.xml" value="0.54921875" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_login.xml" value="0.17578125" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_main.xml" value="0.41171875" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_ab.xml" value="0.13604972375690608" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01.xml" value="0.1" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01A.xml" value="0.1" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01B.xml" value="0.1" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01a.xml" value="0.5766666666666667" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01b.xml" value="0.5" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01a.xml" value="0.1421647819063005" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01b.xml" value="0.18763326226012794" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01c.xml" value="0.6455223880597015" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb02.xml" value="0.3365200764818356" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb02b.xml" value="0.42452830188679247" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_h2.xml" value="0.54921875" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_h3.xml" value="0.41171875" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_l1.xml" value="0.55" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_l4.xml" value="0.4325" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_lhwhh.xml" value="0.4325" />
         <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_m.xml" value="0.6641074856046065" />
@@ -118,7 +124,7 @@
     </option>
   </component>
   <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="16" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="16" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

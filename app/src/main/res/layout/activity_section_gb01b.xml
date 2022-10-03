@@ -210,7 +210,6 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:checked="@{form.g20197.equals(`97`)}"
-                                android:enabled="@{!form.g20197.equals(`97`)}"
                                 android:onClick="@{()->form.setG20197(form.g20197.equals(`97`)?``:`97`)}"
                                 android:text="@string/g20197" />
                         </LinearLayout>
@@ -1205,6 +1204,16 @@
                                     android:text="@string/g3036b" />
                             </RadioGroup>
 
+                            <EditText
+                                android:id="@+id/g30396x"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                                android:hint="@string/g30396"
+                                android:tag="g30396"
+                                android:text="@={form.g30396x}"
+                                android:visibility="@{form.g30396.equals(`1`) ? View.VISIBLE : View.GONE}" />
+
                         </LinearLayout>
 
                     </LinearLayout>
@@ -1441,7 +1450,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:checked="@{form.g307.equals(`2`)}"
-                                android:onClick="@{()->form.setG307(`2`)}"
+                                android:onClick="@{()->form.setG307(`2`) + g308.clearCheck()}"
                                 android:text="@string/g307b" />
                         </RadioGroup>
                     </LinearLayout>
@@ -1450,7 +1459,8 @@
                 <!-- g308  Radio   -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/fldGrpCVg308"
-                    style="@style/cardView">
+                    style="@style/cardView"
+                    android:visibility="@{form.g307.equals(`1`) ? View.VISIBLE : View.GONE}">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -2289,6 +2299,16 @@
                                     android:onClick="@{()->form.setG40596(`2`)}"
                                     android:text="@string/g4057b" />
                             </RadioGroup>
+
+                            <EditText
+                                android:id="@+id/g40596x"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                                android:hint="@string/g40596"
+                                android:tag="g40596"
+                                android:text="@={form.g40596x}"
+                                android:visibility="@{form.g40596.equals(`1`) ? View.VISIBLE : View.GONE}" />
 
                         </LinearLayout>
 

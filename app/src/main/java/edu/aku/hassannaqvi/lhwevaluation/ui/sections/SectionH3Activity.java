@@ -53,11 +53,12 @@ public class SectionH3Activity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                if (bi.h304y.getText().toString().isEmpty()) return;
-                bi.h304d.setMaxvalue(Integer.parseInt(bi.h304y.getText().toString()) == Calendar.getInstance().get(Calendar.YEAR) ?
-                        Calendar.getInstance().get(Calendar.DAY_OF_MONTH) : 31f);
-                bi.h304m.setMaxvalue(Integer.parseInt(bi.h304m.getText().toString()) == Calendar.getInstance().get(Calendar.YEAR) ?
+                if (bi.h304y.getText().toString().isEmpty() || bi.h304m.getText().toString().isEmpty() || bi.h304d.getText().toString().isEmpty()) return;
+                bi.h304m.setMaxvalue(Integer.parseInt(bi.h304y.getText().toString()) == Calendar.getInstance().get(Calendar.YEAR) ?
                         Calendar.getInstance().get(Calendar.MONTH) + 1 : 12f);
+                bi.h304d.setMaxvalue(Integer.parseInt(bi.h304d.getText().toString()) == Calendar.getInstance().get(Calendar.YEAR)
+                        && Integer.parseInt(bi.h304m.getText().toString()) == Calendar.getInstance().get(Calendar.MONTH) + 1 ?
+                        Calendar.getInstance().get(Calendar.DAY_OF_MONTH) : 31f);
             }
 
             @Override
@@ -66,6 +67,32 @@ public class SectionH3Activity extends AppCompatActivity {
             }
 
         });
+
+        bi.h304m.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+                if (bi.h304m.getText().toString().isEmpty() || bi.h304d.getText().toString().isEmpty()) return;
+                bi.h304d.setMaxvalue(Integer.parseInt(bi.h304y.getText().toString()) == Calendar.getInstance().get(Calendar.YEAR)
+                        && Integer.parseInt(bi.h304m.getText().toString()) == Calendar.getInstance().get(Calendar.MONTH) + 1 ?
+                        Calendar.getInstance().get(Calendar.DAY_OF_MONTH) : 31f);
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+
+        });
+
+
+
 
     }
 

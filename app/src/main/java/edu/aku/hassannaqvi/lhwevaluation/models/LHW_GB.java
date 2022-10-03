@@ -146,6 +146,7 @@ public class LHW_GB extends BaseObservable implements Observable {
     public String g1145 = StringUtils.EMPTY;
     public String g1146 = StringUtils.EMPTY;
     public String g115 = StringUtils.EMPTY;
+    public String g11596x = StringUtils.EMPTY;
     public String g1161 = StringUtils.EMPTY;
     public String g1162 = StringUtils.EMPTY;
     public String g1163 = StringUtils.EMPTY;
@@ -193,6 +194,7 @@ public class LHW_GB extends BaseObservable implements Observable {
     public String g302 = StringUtils.EMPTY;
     public String g30296x = StringUtils.EMPTY;
     public String g30396 = StringUtils.EMPTY;
+    public String g30396x = StringUtils.EMPTY;
     public String g3031 = StringUtils.EMPTY;
     public String g3032 = StringUtils.EMPTY;
     public String g3033 = StringUtils.EMPTY;
@@ -220,6 +222,7 @@ public class LHW_GB extends BaseObservable implements Observable {
     public String g403 = StringUtils.EMPTY;
     public String g404 = StringUtils.EMPTY;
     public String g40596 = StringUtils.EMPTY;
+    public String g40596x = StringUtils.EMPTY;
     public String g4051 = StringUtils.EMPTY;
     public String g4052 = StringUtils.EMPTY;
     public String g4053 = StringUtils.EMPTY;
@@ -1168,7 +1171,7 @@ public class LHW_GB extends BaseObservable implements Observable {
     public void setG10796(String g10796) {
         if (this.g10796.equals(g10796)) return;
         this.g10796 = g10796;
-        setG10796(this.g10796.equals("96") ? this.g10796x : "");
+        setG10796x(g10796.equals("96") ? this.g10796x : "");
         notifyPropertyChanged(BR.g10796);
     }
 
@@ -1365,7 +1368,7 @@ public class LHW_GB extends BaseObservable implements Observable {
     public void setG11196(String g11196) {
         if (this.g11196.equals(g11196)) return;
         this.g11196 = g11196;
-        setG11196(this.g11196.equals("96") ? this.g11196x : "");
+        setG11196x(g11196.equals("96") ? this.g11196x : "");
         notifyPropertyChanged(BR.g11196);
     }
 
@@ -1463,7 +1466,7 @@ public class LHW_GB extends BaseObservable implements Observable {
     public void setG11296(String g11296) {
         if (this.g11296.equals(g11296)) return;
         this.g11296 = g11296;
-        setG11296(g11296.equals("96") ? this.g11296x : "");
+        setG11296x(g11296.equals("96") ? this.g11296x : "");
         notifyPropertyChanged(BR.g11296);
     }
 
@@ -1604,8 +1607,21 @@ public class LHW_GB extends BaseObservable implements Observable {
 
     public void setG115(String g115) {
         this.g115 = g115;
+        setG11596x(g115.equals("96") ? this.g11596x : "");
         notifyPropertyChanged(BR.g115);
     }
+
+
+    @Bindable
+    public String getG11596x() {
+        return g11596x;
+    }
+
+    public void setG11596x(String g11596x) {
+        this.g11596x = g11596x;
+        notifyPropertyChanged(BR.g11596x);
+    }
+
 
     @Bindable
     public String getG1161() {
@@ -2073,6 +2089,7 @@ public class LHW_GB extends BaseObservable implements Observable {
         setG3034(g301.equals("1") ? this.g3034 : "");
         setG3035(g301.equals("1") ? this.g3035 : "");
         setG3036(g301.equals("1") ? this.g3036 : "");
+        setG30396(g301.equals("1") ? this.g30396 : "");
         setG304(g301.equals("1") ? this.g304 : "");
         setG305(g301.equals("1") ? this.g305 : "");
         setG306(g301.equals("1") ? this.g306 : "");
@@ -2110,8 +2127,22 @@ public class LHW_GB extends BaseObservable implements Observable {
 
     public void setG30396(String g30396) {
         this.g30396 = g30396;
+        setG30396x(g30396.equals("1") ? this.g30396x : "");
         notifyPropertyChanged(BR.g30396);
     }
+
+
+    @Bindable
+    public String getG30396x() {
+        return g30396x;
+    }
+
+    public void setG30396x(String g30396x) {
+        this.g30396x = g30396x;
+        notifyPropertyChanged(BR.g30396x);
+    }
+
+
 
     @Bindable
     public String getG3031() {
@@ -2210,6 +2241,7 @@ public class LHW_GB extends BaseObservable implements Observable {
 
     public void setG307(String g307) {
         this.g307 = g307;
+        setG308(g307.equals("1") ? this.g308 : "");
         notifyPropertyChanged(BR.g307);
     }
 
@@ -2391,7 +2423,18 @@ public class LHW_GB extends BaseObservable implements Observable {
 
     public void setG40596(String g40596) {
         this.g40596 = g40596;
+        setG40596x(g40596.equals("1") ? this.g40596x : "");
         notifyPropertyChanged(BR.g40596);
+    }
+
+    @Bindable
+    public String getG40596x() {
+        return g40596x;
+    }
+
+    public void setG40596x(String g40596x) {
+        this.g40596x = g40596x;
+        notifyPropertyChanged(BR.g40596x);
     }
 
     @Bindable
@@ -3265,6 +3308,7 @@ public class LHW_GB extends BaseObservable implements Observable {
             this.g1145 = json.getString("g1145");
             this.g1146 = json.getString("g1146");
             this.g115 = json.getString("g115");
+            this.g11596x = json.getString("g11596x");
             this.g1161 = json.getString("g1161");
             this.g1162 = json.getString("g1162");
             this.g1163 = json.getString("g1163");
@@ -3311,6 +3355,7 @@ public class LHW_GB extends BaseObservable implements Observable {
             this.g302 = json.getString("g302");
             this.g30296x = json.getString("g30296x");
             this.g30396 = json.getString("g30396");
+            this.g30396x = json.getString("g30396x");
             this.g3031 = json.getString("g3031");
             this.g3032 = json.getString("g3032");
             this.g3033 = json.getString("g3033");
@@ -3337,6 +3382,7 @@ public class LHW_GB extends BaseObservable implements Observable {
             this.g403 = json.getString("g403");
             this.g404 = json.getString("g404");
             this.g40596 = json.getString("g40596");
+            this.g40596x = json.getString("g40596x");
             this.g4051 = json.getString("g4051");
             this.g4052 = json.getString("g4052");
             this.g4053 = json.getString("g4053");
@@ -3564,6 +3610,7 @@ public class LHW_GB extends BaseObservable implements Observable {
                 .put("g1145", g1145)
                 .put("g1146", g1146)
                 .put("g115", g115)
+                .put("g11596x", g11596x)
                 .put("g1161", g1161)
                 .put("g1162", g1162)
                 .put("g1163", g1163)
@@ -3620,6 +3667,7 @@ public class LHW_GB extends BaseObservable implements Observable {
                 .put("g302", g302)
                 .put("g30296x", g30296x)
                 .put("g30396", g30396)
+                .put("g30396x", g30396x)
                 .put("g3031", g3031)
                 .put("g3032", g3032)
                 .put("g3033", g3033)
@@ -3656,6 +3704,7 @@ public class LHW_GB extends BaseObservable implements Observable {
                 .put("g403", g403)
                 .put("g404", g404)
                 .put("g40596", g40596)
+                .put("g40596x", g40596x)
                 .put("g4051", g4051)
                 .put("g4052", g4052)
                 .put("g4053", g4053)
