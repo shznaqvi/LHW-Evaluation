@@ -907,6 +907,11 @@
     <string name="w413g">صرف اور صرف ماں کا دوھ پینے والے بچے کو چھ مہینے تک اضافی دودھ یا پانی کی ضرورت نہیں ہوتی (ہاں / نہیں)</string>
     <string name="w413ga">ہاں</string>
     <string name="w413gb">نہیں</string>
+
+    <string name="w413h"> روزانہ 3 کھانے اور 2 نمکین (ہاں / نہیں)</string>
+    <string name="w413ha">ہاں</string>
+    <string name="w413hb">نہیں</string>
+
     <string name="w414t1">جنسی تشدد (عورتوں کے خلاف تشدد) کے بارے میں آپ کیا جانتی ہیں؟</string>
     <string name="w414a">جنسی تشدد / کی تفصیل</string>
     <string name="w414aa">ہاں</string>

@@ -320,6 +320,40 @@
 
                         </RadioGroup>
 
+                        <!--W413h-->
+                        <RadioGroup
+                            android:id="@+id/w413h"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/textView"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="4"
+                                android:text="@string/w413h" />
+
+                            <RadioButton
+                                android:id="@+id/w413ha"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:checked="@{mwra.w413h.equals(`1`)}"
+                                android:onClick="@{()->mwra.setW413h(`1`)}"
+                                android:text="@string/w413ha" />
+
+                            <RadioButton
+                                android:id="@+id/w413hb"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:checked="@{mwra.w413h.equals(`2`)}"
+                                android:onClick="@{()->mwra.setW413h(`2`)}"
+                                android:text="@string/w413hb" />
+
+                        </RadioGroup>
+
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>

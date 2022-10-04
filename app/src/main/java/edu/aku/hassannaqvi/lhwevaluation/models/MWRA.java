@@ -45,6 +45,7 @@ public class MWRA extends BaseObservable {
     private String syncDate = StringUtils.EMPTY;
     private String wraUID = StringUtils.EMPTY;
     private String wraSno = StringUtils.EMPTY;
+    private String maritalStatus = StringUtils.EMPTY;
 
     // SECTION VARIABLES
     private String sW1 = StringUtils.EMPTY;
@@ -287,6 +288,7 @@ public class MWRA extends BaseObservable {
     private String w413e = StringUtils.EMPTY;
     private String w413f = StringUtils.EMPTY;
     private String w413g = StringUtils.EMPTY;
+    private String w413h = StringUtils.EMPTY;
     private String w414a = StringUtils.EMPTY;
     private String w414b = StringUtils.EMPTY;
     private String w414c = StringUtils.EMPTY;
@@ -344,6 +346,7 @@ public class MWRA extends BaseObservable {
 
     public MWRA() {
     }
+
 
     public String getWraSno() {
         return wraSno;
@@ -591,6 +594,16 @@ public class MWRA extends BaseObservable {
     public void setW102(String w102) {
         this.w102 = w102;
         notifyPropertyChanged(BR.w102);
+    }
+
+    @Bindable
+    public String getMaritalStatus() {
+        return maritalStatus;
+    }
+
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
+        notifyPropertyChanged(BR.maritalStatus);
     }
 
     @Bindable
@@ -2660,6 +2673,7 @@ public class MWRA extends BaseObservable {
         setW413e(w405h.equals("8") ? this.w413e : "");
         setW413f(w405h.equals("8") ? this.w413f : "");
         setW413g(w405h.equals("8") ? this.w413g : "");
+        setW413h(w405h.equals("8") ? this.w413h : "");
         notifyPropertyChanged(BR.w405h);
     }
 
@@ -3435,6 +3449,16 @@ public class MWRA extends BaseObservable {
     }
 
     @Bindable
+    public String getW413h() {
+        return w413h;
+    }
+
+    public void setW413h(String w413h) {
+        this.w413h = w413h;
+        notifyPropertyChanged(BR.w413h);
+    }
+
+    @Bindable
     public String getW414a() {
         return w414a;
     }
@@ -3993,6 +4017,7 @@ public class MWRA extends BaseObservable {
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
+            this.maritalStatus = json.getString("maritalStatus");
             this.w101 = json.getString("w101");
             this.w102 = json.getString("w102");
             this.w103 = json.getString("w103");
@@ -4264,6 +4289,7 @@ public class MWRA extends BaseObservable {
             this.w413e = json.getString("w413e");
             this.w413f = json.getString("w413f");
             this.w413g = json.getString("w413g");
+            this.w413h = json.getString("w413h");
             this.w414a = json.getString("w414a");
             this.w414b = json.getString("w414b");
             this.w414c = json.getString("w414c");
@@ -4324,6 +4350,7 @@ public class MWRA extends BaseObservable {
         Log.d(TAG, "sW1toString: ");
         JSONObject json = new JSONObject();
         json.put("w101", w101)
+                .put("maritalStatus", maritalStatus)
                 .put("w102", w102)
                 .put("w103", w103)
                 .put("w104", w104)
@@ -4584,6 +4611,7 @@ public class MWRA extends BaseObservable {
                 .put("w413e", w413e)
                 .put("w413f", w413f)
                 .put("w413g", w413g)
+                .put("w413h", w413h)
                 .put("w414a", w414a)
                 .put("w414b", w414b)
                 .put("w414c", w414c)

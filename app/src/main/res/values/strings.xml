@@ -909,6 +909,9 @@ she should be available during the interview, One MWRA per household will be sel
     <string name="w413g">No need of extra milk or water for EBF baby till 6 months</string>
     <string name="w413ga">Yes</string>
     <string name="w413gb">No</string>
+    <string name="w413h"> 3 meals and 2 Snacks daily</string>
+    <string name="w413ha">Yes</string>
+    <string name="w413hb">No</string>
     <string name="w414t1">What information do you know about Gender Based Violance (Violance Against Women)?</string>
     <string name="w414a">Definition of GBV</string>
     <string name="w414aa">Yes</string>

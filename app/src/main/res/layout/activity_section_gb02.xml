@@ -183,19 +183,16 @@
                             android:layout_height="match_parent"
                             android:text="@string/g703" />
 
-                        <com.edittextpicker.aliazaz.EditTextPicker
+                        <TextView
+                            style="@style/sub_labels"
+                            android:gravity="center"
                             android:id="@+id/g703"
                             android:layout_width="0dp"
+                            android:enabled="false"
                             android:layout_weight="1"
                             android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:hint="##"
-                            android:inputType="number"
-                            android:maxLength="2"
-                            android:text="@={form.g703}"
-                            app:maxValue="60"
-                            app:minValue="14"
-                            app:type="range" />
+                            android:hint="@string/g703"
+                            android:text="@={form.g703}" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -367,7 +364,7 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/fldGrpCVg706"
                 style="@style/cardView"
-                android:visibility="@{form.g7041.equals(`1`) || form.g7042.equals(`1`) || form.g7043.equals(`1`) ? View.VISIBLE : View.GONE}">
+                android:visibility="@{form.g7041.equals(`2`) &amp;&amp; form.g7042.equals(`2`) &amp;&amp; form.g7043.equals(`2`) ? View.GONE : View.VISIBLE}">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1181,34 +1178,43 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-           <!--EndButton LinearLayout-->
+            <!--EndButton LinearLayout-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="end"
                 android:layout_marginTop="24dp"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:padding="24dp">
 
                 <Button
                     android:id="@+id/btn_End"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:background="@color/redOverlay"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
                     android:onClick="btnEnd"
                     android:text="Cancel"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/btn_Continue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:background="@color/green"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/capsule"
+                    android:backgroundTint="@color/colorAccent"
+                    android:backgroundTintMode="src_atop"
                     android:onClick="btnContinue"
                     android:text="Save"
-                    android:textColor="@color/white" />
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
+            <!--EndButton LinearLayout-->
         </LinearLayout>
     </ScrollView>
 

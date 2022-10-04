@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.adolList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwraList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 
@@ -29,6 +30,7 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionAbBinding;
 import edu.aku.hassannaqvi.lhwevaluation.models.FamilyMembers;
+import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
 
@@ -37,6 +39,9 @@ public class SectionABActivity extends AppCompatActivity {
     ActivitySectionAbBinding bi;
     private DatabaseHelper db;
     private ArrayList<String> memberNames;
+    private ArrayList<String> age;
+    private ArrayList<String> maritalStatus;
+    private ArrayList<String> sno;
     int postion = 0;
 
 
@@ -49,7 +54,7 @@ public class SectionABActivity extends AppCompatActivity {
                 : R.style.AppThemeSindhi);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_ab);
         bi.setCallback(this);
-        bi.setHHForm(hhForm);
+        //bi.setHHForm(hhForm);
 
         db = MainApp.appInfo.getDbHelper();
         populateSpinner();
@@ -59,9 +64,20 @@ public class SectionABActivity extends AppCompatActivity {
     private void populateSpinner() {
 
         memberNames = new ArrayList<>();
+        age = new ArrayList<>();
+        maritalStatus = new ArrayList<>();
+        sno = new ArrayList<>();
+
         memberNames.add("...");
+        age.add("...");
+        maritalStatus.add("...");
+        sno.add("...");
+
         for (FamilyMembers sfm : MainApp.adolList) {
             memberNames.add(sfm.getH302());
+            age.add(sfm.getH305());
+            maritalStatus.add(sfm.getH306());
+            sno.add(sfm.getSno());
         }
 
         // Apply the adapter to the spinner
@@ -79,7 +95,9 @@ public class SectionABActivity extends AppCompatActivity {
 
                 if (position == 0) return;
                 MainApp.hhForm.setAb101(memberNames.get(position));
-
+                hhForm.setAb102(age.get(position));
+                hhForm.setAdolSno(sno.get(position));
+                hhForm.setMaritalStatus(maritalStatus.get(position));
 
             }
 
@@ -90,7 +108,28 @@ public class SectionABActivity extends AppCompatActivity {
         });
 
         hhForm.setAdolUID(adolList.get(postion).getUid());
-        hhForm.setAdolSno(adolList.get(postion).getSno());
+        hhForm.setAdolAge(adolList.get(postion).getH305());
+
+
+        bi.sno.setText(adolList.get(postion).getSno());
+
+        switch (hhForm.getMaritalStatus()) {
+            case "1":
+                bi.maritalStatus.setText("Married");
+                break;
+            case "2":
+                bi.maritalStatus.setText("Unmarried");
+                break;
+            case "3":
+                bi.maritalStatus.setText("Widow");
+                break;
+            case "4":
+                bi.maritalStatus.setText("Divorced");
+                break;
+        }
+
+        bi.setHHForm(hhForm);
+
 
 
 

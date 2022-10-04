@@ -90,6 +90,9 @@ public class SectionMActivity extends AppCompatActivity {
 
        hhForm.setMaleUID(maleList.get(postion).getUid());
        hhForm.setMaleSno(maleList.get(postion).getSno());
+       hhForm.setMaleAge(maleList.get(postion).getH305());
+
+
 
 
     }

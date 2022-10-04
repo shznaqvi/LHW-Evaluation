@@ -164,11 +164,22 @@ public class HHForm extends BaseObservable implements Observable {
     private String adolUID = StringUtils.EMPTY;
     private String maleSno = StringUtils.EMPTY;
     private String adolSno = StringUtils.EMPTY;
+    private String maleAge = StringUtils.EMPTY;
+    private String adolAge = StringUtils.EMPTY;
+    private String maritalStatus = StringUtils.EMPTY;
 
 
     public HHForm() {
     }
 
+
+    public String getMaritalStatus() {
+        return maritalStatus;
+    }
+
+    public void setMaritalStatus(String maritalStatus) {
+        this.maritalStatus = maritalStatus;
+    }
 
     public String getProjectName() {
         return projectName;
@@ -316,6 +327,22 @@ public class HHForm extends BaseObservable implements Observable {
 
     public void setAdolUID(String adolUID) {
         this.adolUID = adolUID;
+    }
+
+    public String getMaleAge() {
+        return maleAge;
+    }
+
+    public void setMaleAge(String maleAge) {
+        this.maleAge = maleAge;
+    }
+
+    public String getAdolAge() {
+        return adolAge;
+    }
+
+    public void setAdolAge(String adolAge) {
+        this.adolAge = adolAge;
     }
 
     /*JSON DATABASE VARIABLES*/
@@ -1689,6 +1716,8 @@ public class HHForm extends BaseObservable implements Observable {
             json = new JSONObject(string);
             this.adolUID = json.getString("adolUID");
             this.adolSno = json.getString("adolSno");
+            this.adolAge = json.getString("adolAge");
+            this.maritalStatus = json.getString("maritalStatus");
             this.ab101 = json.getString("ab101");
             this.ab102 = json.getString("ab102");
             this.ab103 = json.getString("ab103");
@@ -1769,6 +1798,7 @@ public class HHForm extends BaseObservable implements Observable {
             json = new JSONObject(string);
             this.maleUID = json.getString("maleUID");
             this.maleUID = json.getString("maleSno");
+            this.maleAge = json.getString("maleAge");
             this.m101 = json.getString("m101");
             this.m102 = json.getString("m102");
             this.m103 = json.getString("m103");
@@ -1901,6 +1931,8 @@ public class HHForm extends BaseObservable implements Observable {
                 .put("ab118u", ab118u)
                 .put("adolUID", adolUID)
                 .put("adolSno", adolSno)
+                .put("adolAge", adolAge)
+                .put("maritalStatus", maritalStatus)
                 .put("ab119", ab119);
         return json.toString();
     }
@@ -1929,6 +1961,7 @@ public class HHForm extends BaseObservable implements Observable {
                 .put("m106c", m106c)
                 .put("maleUID", maleUID)
                 .put("maleSno", maleSno)
+                .put("maleAge", maleAge)
                 .put("m106d", m106d);
         return json.toString();
     }

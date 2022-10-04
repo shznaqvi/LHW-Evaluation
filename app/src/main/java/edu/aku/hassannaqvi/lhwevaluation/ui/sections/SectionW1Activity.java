@@ -40,6 +40,8 @@ public class SectionW1Activity extends AppCompatActivity {
     private ArrayList<String> memberNames;
     private ArrayList<String> memberUID;
     private ArrayList<String> memberSno;
+    private ArrayList<String> age;
+    private ArrayList<String> maritalStatus;
     int postion = 0;
 
 
@@ -71,14 +73,21 @@ public class SectionW1Activity extends AppCompatActivity {
         memberNames = new ArrayList<>();
         memberUID = new ArrayList<>();
         memberSno = new ArrayList<>();
+        maritalStatus = new ArrayList<>();
+        age = new ArrayList<>();
+
         memberUID.add("...");
         memberSno.add("...");
         memberNames.add("...");
+        age.add("...");
+        maritalStatus.add("...");
 
         for (FamilyMembers sfm : MainApp.mwraList) {
             memberNames.add(sfm.getH302());
+            age.add(sfm.getH305());
             memberUID.add(sfm.getUid());
             memberSno.add(sfm.getSno());
+            maritalStatus.add(sfm.getH306());
 
         }
 
@@ -127,7 +136,29 @@ public class SectionW1Activity extends AppCompatActivity {
                     MainApp.mwra.setW101(memberNames.get(position));
                     mwra.setWraUID(memberUID.get(position));
                     mwra.setWraSno(memberSno.get(position));
+                    mwra.setW102(age.get(position));
+                    mwra.setMaritalStatus(maritalStatus.get(position));
                 }
+
+                bi.w102.setText(age.get(position));
+                bi.sno.setText(memberSno.get(position));
+
+                switch (mwra.getMaritalStatus()) {
+                    case "1":
+                        bi.maritalStatus.setText("Married");
+                        break;
+                    case "2":
+                        bi.maritalStatus.setText("Unmarried");
+                        break;
+                    case "3":
+                        bi.maritalStatus.setText("Widow");
+                        break;
+                    case "4":
+                        bi.maritalStatus.setText("Divorced");
+                        break;
+                }
+
+                //bi.maritalStatus.setText(mwra.getMaritalStatus().equals("1") ? "Married" : mwra.getMaritalStatus().equals("2") ? "Unmarried" : mwra.getMaritalStatus().equals("3") ? "Widow" : mwra.getMaritalStatus().equals("4") ? "Divorced" : "0" );
 
                 bi.setMwra(MainApp.mwra);
 

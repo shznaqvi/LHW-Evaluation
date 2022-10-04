@@ -16,6 +16,7 @@ import com.validatorcrawler.aliazaz.Validator;
 import org.json.JSONException;
 
 import java.util.Calendar;
+import java.util.Objects;
 
 import edu.aku.hassannaqvi.lhwevaluation.R;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
@@ -53,10 +54,11 @@ public class SectionH3Activity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                if (bi.h304y.getText().toString().isEmpty() || bi.h304m.getText().toString().isEmpty() || bi.h304d.getText().toString().isEmpty()) return;
+                if (bi.h304y.getText().toString().isEmpty() || bi.h304m.getText().toString().isEmpty() || bi.h304d.getText().toString().isEmpty())
+                    return;
                 bi.h304m.setMaxvalue(Integer.parseInt(bi.h304y.getText().toString()) == Calendar.getInstance().get(Calendar.YEAR) ?
                         Calendar.getInstance().get(Calendar.MONTH) + 1 : 12f);
-                bi.h304d.setMaxvalue(Integer.parseInt(bi.h304d.getText().toString()) == Calendar.getInstance().get(Calendar.YEAR)
+                bi.h304d.setMaxvalue(Integer.parseInt(bi.h304y.getText().toString()) == Calendar.getInstance().get(Calendar.YEAR)
                         && Integer.parseInt(bi.h304m.getText().toString()) == Calendar.getInstance().get(Calendar.MONTH) + 1 ?
                         Calendar.getInstance().get(Calendar.DAY_OF_MONTH) : 31f);
             }
@@ -77,7 +79,8 @@ public class SectionH3Activity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
-                if (bi.h304m.getText().toString().isEmpty() || bi.h304d.getText().toString().isEmpty()) return;
+                if (bi.h304y.getText().toString().isEmpty() || bi.h304m.getText().toString().isEmpty() || bi.h304d.getText().toString().isEmpty())
+                    return;
                 bi.h304d.setMaxvalue(Integer.parseInt(bi.h304y.getText().toString()) == Calendar.getInstance().get(Calendar.YEAR)
                         && Integer.parseInt(bi.h304m.getText().toString()) == Calendar.getInstance().get(Calendar.MONTH) + 1 ?
                         Calendar.getInstance().get(Calendar.DAY_OF_MONTH) : 31f);

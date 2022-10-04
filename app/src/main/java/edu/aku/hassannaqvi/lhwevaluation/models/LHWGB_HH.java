@@ -399,8 +399,17 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG7041(String g7041) {
         this.g7041 = g7041;
-        setG706a(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706a : "");
-        setG706b(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706b : "");
+        setG706a(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706a );
+        setG706b(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706b );
+        setG706c(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706c );
+        setG706d(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706d );
+        setG706e(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706e );
+        setG706f(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706f );
+        setG706g(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706g );
+        setG706h(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706h );
+        setG706i(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706i );
+        setG70696(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g70696 );
+        /*setG706b(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706b : "");
         setG706c(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706c : "");
         setG706d(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706d : "");
         setG706e(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706e : "");
@@ -409,7 +418,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
         setG706h(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706h : "");
         setG706i(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706i : "");
         setG70696(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g70696 : "");
-
+*/
         notifyPropertyChanged(BR.g7041);
     }
 
@@ -420,16 +429,16 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG7042(String g7042) {
         this.g7042 = g7042;
-        setG706a(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706a : "");
-        setG706b(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706b : "");
-        setG706c(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706c : "");
-        setG706d(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706d : "");
-        setG706e(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706e : "");
-        setG706f(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706f : "");
-        setG706g(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706g : "");
-        setG706h(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706h : "");
-        setG706i(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706i : "");
-        setG70696(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g70696 : "");
+        setG706a(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706a );
+        setG706b(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706b );
+        setG706c(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706c );
+        setG706d(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706d );
+        setG706e(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706e );
+        setG706f(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706f );
+        setG706g(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706g );
+        setG706h(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706h );
+        setG706i(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706i );
+        setG70696(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g70696 );
         notifyPropertyChanged(BR.g7042);
     }
 
@@ -440,16 +449,16 @@ public class LHWGB_HH extends BaseObservable implements Observable {
 
     public void setG7043(String g7043) {
         this.g7043 = g7043;
-        setG706a(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706a : "");
-        setG706b(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706b : "");
-        setG706c(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706c : "");
-        setG706d(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706d : "");
-        setG706e(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706e : "");
-        setG706f(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706f : "");
-        setG706g(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706g : "");
-        setG706h(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706h : "");
-        setG706i(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g706i : "");
-        setG70696(g7041.equals("1") || g7042.equals("1") || g7043.equals("1") ? this.g70696 : "");
+        setG706a(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706a );
+        setG706b(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706b );
+        setG706c(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706c );
+        setG706d(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706d );
+        setG706e(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706e );
+        setG706f(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706f );
+        setG706g(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706g );
+        setG706h(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706h );
+        setG706i(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g706i );
+        setG70696(g7041.equals("2") && g7042.equals("2") && g7043.equals("2") ? "" : this.g70696 );
         notifyPropertyChanged(BR.g7043);
     }
 
