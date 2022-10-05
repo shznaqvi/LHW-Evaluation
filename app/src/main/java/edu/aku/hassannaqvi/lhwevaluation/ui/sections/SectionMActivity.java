@@ -36,6 +36,9 @@ public class SectionMActivity extends AppCompatActivity {
     ActivitySectionMBinding bi;
     private DatabaseHelper db;
     private ArrayList<String> memberNames;
+    private ArrayList<String> age;
+    private ArrayList<String> maritalStatus;
+    private ArrayList<String> sno;
     private int listPosition = 0;
     int postion = 0;
 
@@ -48,7 +51,7 @@ public class SectionMActivity extends AppCompatActivity {
                 : R.style.AppThemeSindhi);
         bi = DataBindingUtil.setContentView(this, R.layout.activity_section_m);
         bi.setCallback(this);
-        bi.setHHForm(hhForm);
+        //bi.setHHForm(hhForm);
 /*        bi.m101a.isChecked();
         bi.m101.setEnabled(false);*/
         populateSpinner();
@@ -57,9 +60,19 @@ public class SectionMActivity extends AppCompatActivity {
    private void populateSpinner() {
 
         memberNames = new ArrayList<>();
+       age = new ArrayList<>();
+       maritalStatus = new ArrayList<>();
+       sno = new ArrayList<>();
         memberNames.add("...");
+       age.add("...");
+       maritalStatus.add("...");
+       sno.add("...");
         for (FamilyMembers sfm : MainApp.maleList) {
             memberNames.add(sfm.getH302());
+            age.add(sfm.getH305());
+            maritalStatus.add(sfm.getH306());
+            sno.add(sfm.getSno());
+
         }
 
         // Apply the adapter to the spinner
@@ -77,7 +90,27 @@ public class SectionMActivity extends AppCompatActivity {
                 if (position == 0) return;
                 MainApp.hhForm.setM101(memberNames.get(position));
                 listPosition = position;
+                hhForm.setMaleAge(age.get(position));
+                hhForm.setMaritalStatus(maritalStatus.get(
+                        position));
+                hhForm.setMaleSno(sno.get(position));
 
+                switch (hhForm.getMaritalStatus()) {
+                    case "1":
+                        bi.maritalStatus.setText("Married");
+                        break;
+                    case "2":
+                        bi.maritalStatus.setText("Unmarried");
+                        break;
+                    case "3":
+                        bi.maritalStatus.setText("Widow");
+                        break;
+                    case "4":
+                        bi.maritalStatus.setText("Divorced");
+                        break;
+                }
+
+                bi.setHHForm(hhForm);
 
 
             }
@@ -89,8 +122,7 @@ public class SectionMActivity extends AppCompatActivity {
         });
 
        hhForm.setMaleUID(maleList.get(postion).getUid());
-       hhForm.setMaleSno(maleList.get(postion).getSno());
-       hhForm.setMaleAge(maleList.get(postion).getH305());
+
 
 
 

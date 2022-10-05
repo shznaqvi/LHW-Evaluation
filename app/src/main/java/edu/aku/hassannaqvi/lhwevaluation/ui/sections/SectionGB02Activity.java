@@ -68,7 +68,7 @@ public class SectionGB02Activity extends AppCompatActivity {
             selectedMemberUID = MainApp.hhForm.getAdolUID();
             selectedMemberName = MainApp.hhForm.getAb101();
             selectedMemberSno = MainApp.hhForm.getAdolSno();
-            selectedMemberAge = MainApp.hhForm.getAdolAge();
+            selectedMemberAge = MainApp.hhForm.getAb102();
             MainApp.UIDFlag = 0;
         }
 

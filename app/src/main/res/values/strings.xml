@@ -1217,6 +1217,7 @@ she should be available during the interview, One MWRA per household will be sel
     <string name="ab119">From where you have heard about these?</string>
     <string name="secmtitle">Section M: Village Health Committee (VHC)</string>
     <string name="secmnote">Note: This section will appear Single time for any male member of HH greater than the age of 19</string>
+    <string name="nameOfResp">Name of Respondent</string>
     <string name="m101">Is there any male member available in household?</string>
     <string name="m101a">Yes</string>
     <string name="m101b">No</string>

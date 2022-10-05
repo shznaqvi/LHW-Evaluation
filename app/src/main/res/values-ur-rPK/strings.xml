@@ -1216,6 +1216,7 @@
     <string name="ab119">آپ نے ان کے بارے میں کہاں سے سنا ہے؟</string>
     <string name="secmtitle">سیکشن M: ویلج ہیلتھ کمیٹی (VHC)</string>
     <string name="secmnote">نوٹ: یہ سیکشن  گھرانے  کے 19 سال سے زیادہ عمر کے کسی بھی مرد رکن کے لیے  ایک بار  کھلے گا</string>
+    <string name="nameOfResp">جواب دہندہ کا نام</string>
     <string name="m101">کیا گھر میں کوئی مرد موجود ہے؟</string>
     <string name="m101a">ہاں</string>
     <string name="m101b">نہیں</string>

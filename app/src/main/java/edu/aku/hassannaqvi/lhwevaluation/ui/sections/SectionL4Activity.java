@@ -1,6 +1,7 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.LHWForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 
 import android.content.Intent;
@@ -64,9 +65,21 @@ public class SectionL4Activity extends AppCompatActivity {
         if (!formValidation()) return;
         // saveDraft();
         if (updateDB()) {
-            startActivity(new Intent(this, SectionGB01AActivity.class).putExtra("complete", true));
-            finish();
-        } else {
+            if (LHWForm.getA101().equals("218") || LHWForm.getA101().equals("234")) {
+                startActivity(new Intent(this, SectionGB01AActivity.class).putExtra("complete", true));
+                finish();
+            } else {
+                MainApp.LHWHouseholds = new LHWHouseholds();
+
+                try {
+                    MainApp.lhwHHCount = db.getLHWHHbyLHWCode(MainApp.LHWForm.getA104c());
+                    startActivity(new Intent(this, SectionLhwHhActivity.class).putExtra("complete", true));
+                    finish();
+                } catch (JSONException e) {
+                    Toast.makeText(this, "JSONException(LHWForm): " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+        }else {
             Toast.makeText(this, getString(R.string.upd_db_error), Toast.LENGTH_SHORT).show();
         }
     }

@@ -173,12 +173,14 @@ public class HHForm extends BaseObservable implements Observable {
     }
 
 
+    @Bindable
     public String getMaritalStatus() {
         return maritalStatus;
     }
 
     public void setMaritalStatus(String maritalStatus) {
         this.maritalStatus = maritalStatus;
+        notifyPropertyChanged(BR.maritalStatus);
     }
 
     public String getProjectName() {
@@ -393,12 +395,15 @@ public class HHForm extends BaseObservable implements Observable {
         this.maleSno = maleSno;
     }
 
+    @Bindable
     public String getAdolSno() {
+
         return adolSno;
     }
 
     public void setAdolSno(String adolSno) {
         this.adolSno = adolSno;
+        notifyPropertyChanged(BR.adolSno);
     }
 
     @Bindable
@@ -1690,25 +1695,7 @@ public class HHForm extends BaseObservable implements Observable {
         }
     }
 
- /*   public void sH3Hydrate(String string) throws JSONException {
-        Log.d(TAG, "sH3Hydrate: " + string);
-        if (string != null) {
-            JSONObject json = null;
-            json = new JSONObject(string);
-            this.h301 = json.getString("h301");
-            this.h302 = json.getString("h302");
-            this.h303 = json.getString("h303");
-            this.h304d = json.getString("h304d");
-            this.h304m = json.getString("h304m");
-            this.h304y = json.getString("h304y");
-            this.h305 = json.getString("h305");
-            this.h306 = json.getString("h306");
-            this.h307 = json.getString("h307");
-            this.h308 = json.getString("h308");
-            this.h309 = json.getString("h309");
-        }
-    }
-*/
+
     public void sABHydrate(String string) throws JSONException {
         Log.d(TAG, "sABHydrate: " + string);
         if (string != null) {
@@ -1799,6 +1786,7 @@ public class HHForm extends BaseObservable implements Observable {
             this.maleUID = json.getString("maleUID");
             this.maleUID = json.getString("maleSno");
             this.maleAge = json.getString("maleAge");
+            this.maritalStatus = json.getString("maritalStatus");
             this.m101 = json.getString("m101");
             this.m102 = json.getString("m102");
             this.m103 = json.getString("m103");
@@ -1840,22 +1828,6 @@ public class HHForm extends BaseObservable implements Observable {
         return json.toString();
     }
 
-  /*  public String sH3toString() throws JSONException {
-        Log.d(TAG, "sH3toString: ");
-        JSONObject json = new JSONObject();
-        json.put("h301", h301)
-                .put("h302", h302)
-                .put("h303", h303)
-                .put("h304d", h304d)
-                .put("h304m", h304m)
-                .put("h304y", h304y)
-                .put("h305", h305)
-                .put("h306", h306)
-                .put("h307", h307)
-                .put("h308", h308)
-                .put("h309", h309);
-        return json.toString();
-    }*/
 
     public String sABtoString() throws JSONException {
         Log.d(TAG, "sABtoString: ");
@@ -1979,8 +1951,6 @@ public class HHForm extends BaseObservable implements Observable {
         json.put(HHFormsTable.COLUMN_DEVICEID, this.deviceId);
         json.put(HHFormsTable.COLUMN_DEVICETAGID, this.deviceTag);
         json.put(HHFormsTable.COLUMN_ISTATUS, this.iStatus);
-        //  json.put(HHFormsTable.COLUMN_SYNCED, this.synced);
-        //  json.put(HHFormsTable.COLUMN_SYNCED_DATE, this.syncDate);
 
         // Household
         json.put(HHFormsTable.COLUMN_SH2, new JSONObject(sH2toString()));

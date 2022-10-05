@@ -3336,18 +3336,6 @@ public class LHW_GB extends BaseObservable implements Observable {
             this.g2034 = json.getString("g2034");
             this.g2035 = json.getString("g2035");
             this.g2036 = json.getString("g2036");
-            /*this.g2031a = json.getString("g2031a");
-            this.g2031b = json.getString("g2031b");
-            this.g2032a = json.getString("g2032a");
-            this.g2032b = json.getString("g2032b");
-            this.g2033a = json.getString("g2033a");
-            this.g2033b = json.getString("g2033b");
-            this.g2034a = json.getString("g2034a");
-            this.g2034b = json.getString("g2034b");
-            this.g2035a = json.getString("g2035a");
-            this.g2035b = json.getString("g2035b");
-            this.g2036a = json.getString("g2036a");
-            this.g2036b = json.getString("g2036b");*/
             this.g204 = json.getString("g204");
             this.g205 = json.getString("g205");
             this.g20596x = json.getString("g20596x");
@@ -3648,19 +3636,7 @@ public class LHW_GB extends BaseObservable implements Observable {
                 .put("g2034", g2034)
                 .put("g2035", g2035)
                 .put("g2036", g2036)
-                /*.put("g2031a", g2031a)
-                .put("g2031b", g2031b)
-                .put("g2032a", g2032a)
-                .put("g2032b", g2032b)
-                .put("g2033a", g2033a)
-                .put("g2033b", g2033b)
-                .put("g2034a", g2034a)
-                .put("g2034b", g2034b)
-                .put("g2035a", g2035a)
-                .put("g2035b", g2035b)
-                .put("g2036a", g2036a)
-                .put("g2036b", g2036b)
-                */.put("g204", g204)
+                .put("g204", g204)
                 .put("g205", g205)
                 .put("g20596x", g20596x)
                 .put("g301", g301)

@@ -81,6 +81,11 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:background="@drawable/bottom"
                         android:orientation="horizontal">
 
@@ -94,57 +99,43 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
-                            android:text="@string/ab101" />
+                            android:text="@string/nameOfResp" />
 
-                        <androidx.appcompat.widget.AppCompatSpinner
-                            android:id="@+id/ab101"
-                            android:layout_width="0dp"
-                            android:layout_weight="3"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/ab101" />
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/ab101"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/nameOfResp" />
 
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
 
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_w102"
-                            android:visibility="gone"/>
-
-                        <TextView
-                            style="@style/sub_labels"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/h301" />
-
-                    </LinearLayout>
 
                     <TextView
-                        style="@style/textView"
+                        style="@style/sub_labels"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/h301" />
+
+
+                    <TextView
                         android:id="@+id/sno"
-                        android:layout_weight="1"
+                        style="@style/textView"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:gravity="center"
-                        />
+                        android:text="@{HHForm.adolSno}" />
 
                 </LinearLayout>
 
@@ -154,39 +145,25 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_w102"
-                            android:visibility="gone"/>
-
-                        <TextView
-                            style="@style/sub_labels"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/ab102" />
-
-                    </LinearLayout>
 
                     <TextView
-                        style="@style/textView"
+                        style="@style/sub_labels"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:text="@string/ab102" />
+
+
+                    <TextView
                         android:id="@+id/ab102"
-                        android:layout_weight="1"
+                        style="@style/textView"
                         android:layout_width="0dp"
-                        android:text="@{HHForm.ab102}"
                         android:layout_height="match_parent"
-                        android:gravity="center" />
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@{HHForm.ab102}" />
 
                 </LinearLayout>
-
 
 
                 <LinearLayout
@@ -194,34 +171,21 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@drawable/bottom"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            style="@style/quesNum"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="@string/Q_w102"
-                            android:visibility="gone"/>
-
-                        <TextView
-                            style="@style/sub_labels"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="@string/h306" />
-
-                    </LinearLayout>
 
                     <TextView
-                        style="@style/textView"
-                        android:id="@+id/maritalStatus"
+                        style="@style/sub_labels"
+                        android:layout_height="match_parent"
+                        android:layout_width="0dp"
                         android:layout_weight="1"
+                        android:text="@string/h306" />
+
+
+                    <TextView
+                        android:id="@+id/maritalStatus"
+                        style="@style/textView"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:gravity="center" />
 
                 </LinearLayout>

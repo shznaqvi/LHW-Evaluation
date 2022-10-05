@@ -99,6 +99,23 @@ public class SectionABActivity extends AppCompatActivity {
                 hhForm.setAdolSno(sno.get(position));
                 hhForm.setMaritalStatus(maritalStatus.get(position));
 
+                switch (hhForm.getMaritalStatus()) {
+                    case "1":
+                        bi.maritalStatus.setText("Married");
+                        break;
+                    case "2":
+                        bi.maritalStatus.setText("Unmarried");
+                        break;
+                    case "3":
+                        bi.maritalStatus.setText("Widow");
+                        break;
+                    case "4":
+                        bi.maritalStatus.setText("Divorced");
+                        break;
+                }
+
+                bi.setHHForm(hhForm);
+
             }
 
             @Override
@@ -108,27 +125,12 @@ public class SectionABActivity extends AppCompatActivity {
         });
 
         hhForm.setAdolUID(adolList.get(postion).getUid());
-        hhForm.setAdolAge(adolList.get(postion).getH305());
+        //hhForm.setAdolAge(adolList.get(postion).getH305());
 
 
-        bi.sno.setText(adolList.get(postion).getSno());
+        //bi.sno.setText(adolList.get(postion).getSno());
 
-        switch (hhForm.getMaritalStatus()) {
-            case "1":
-                bi.maritalStatus.setText("Married");
-                break;
-            case "2":
-                bi.maritalStatus.setText("Unmarried");
-                break;
-            case "3":
-                bi.maritalStatus.setText("Widow");
-                break;
-            case "4":
-                bi.maritalStatus.setText("Divorced");
-                break;
-        }
 
-        bi.setHHForm(hhForm);
 
 
 
