@@ -130,7 +130,7 @@
                             android:gravity="center"
                             android:hint="###"
                             android:inputType="number"
-                            android:maxLength="3"
+                            android:maxLength="2"
                             android:text="@={lhwForm.a106}"
                             app:maxValue="65"
                             app:minValue="16"
@@ -231,7 +231,7 @@
                                 android:onClick="@{()->lhwForm.setA107(`96`)}"
                                 android:text="@string/a10796" />
 
-                            <com.edittextpicker.aliazaz.EditTextPicker
+                            <EditText
                                 android:id="@+id/a10796x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
