@@ -84,9 +84,9 @@
                             android:id="@+id/a105"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"
                             android:hint="@string/a105"
-                            android:inputType="textCapWords|textPersonName"
-                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
+                            android:inputType="textPersonName"
                             android:text="@={lhwForm.a105}" />
 
                     </LinearLayout>
@@ -231,12 +231,12 @@
                                 android:onClick="@{()->lhwForm.setA107(`96`)}"
                                 android:text="@string/a10796" />
 
-                            <EditText
+                            <com.edittextpicker.aliazaz.EditTextPicker
                                 android:id="@+id/a10796x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:inputType="text"
-                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
+                                android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz"
                                 android:hint="@string/a10796"
                                 android:tag="a10796"
                                 android:text="@={lhwForm.a10796x}"

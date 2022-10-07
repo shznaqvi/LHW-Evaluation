@@ -191,7 +191,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:hint="@string/h103"
-                            android:inputType="textPersonName|textCapWords"
+                            android:inputType="textPersonName"
                             android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
                             android:text="@={LHWHouseholds.h103}" />
 

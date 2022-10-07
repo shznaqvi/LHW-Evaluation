@@ -1850,6 +1850,16 @@ public class LHW_GB extends BaseObservable implements Observable {
 
     public void setG20197(String g20197) {
         if (this.g20197.equals(g20197)) return;
+        setG201a(g20197.equals("97") ? "" : this.g201a);
+        setG201b(g20197.equals("97") ? "" : this.g201b);
+        setG201c(g20197.equals("97") ? "" : this.g201c);
+        setG201d(g20197.equals("97") ? "" : this.g201d);
+        setG201e(g20197.equals("97") ? "" : this.g201e);
+        setG201f(g20197.equals("97") ? "" : this.g201f);
+        setG201g(g20197.equals("97") ? "" : this.g201g);
+        setG201h(g20197.equals("97") ? "" : this.g201h);
+        setG201i(g20197.equals("97") ? "" : this.g201i);
+
         this.g20197 = g20197;
         notifyPropertyChanged(BR.g20197);
     }

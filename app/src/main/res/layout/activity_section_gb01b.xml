@@ -717,6 +717,7 @@
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                                 android:hint="@string/g20596"
                                 android:tag="g20596"
+                                android:inputType="text"
                                 android:text="@={form.g20596x}"
                                 android:visibility="@{form.g205.equals(`96`) ? View.VISIBLE : View.GONE}" />
                         </RadioGroup>
@@ -877,6 +878,7 @@
                                 android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
                                 android:hint="@string/g30296"
                                 android:tag="g30296"
+                                android:inputType="text"
                                 android:text="@={form.g30296x}"
                                 android:visibility="@{form.g302.equals(`96`) ? View.VISIBLE : View.GONE}" />
                         </RadioGroup>
@@ -1204,22 +1206,23 @@
                                     android:text="@string/g3036b" />
                             </RadioGroup>
 
-                            <EditText
-                                android:id="@+id/g30396x"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
-                                android:hint="@string/g30396"
-                                android:tag="g30396"
-                                android:text="@={form.g30396x}"
-                                android:visibility="@{form.g30396.equals(`1`) ? View.VISIBLE : View.GONE}" />
 
                         </LinearLayout>
 
+                        <EditText
+                            android:id="@+id/g30396x"
+                            android:inputType="text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz "
+                            android:hint="@string/g30396"
+                            android:tag="g30396"
+                            android:text="@={form.g30396x}"
+                            android:visibility="@{form.g30396.equals(`1`) ? View.VISIBLE : View.GONE}" />
+
+
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-
-
 
 
                 <!-- g304  Radio   -->
@@ -1532,6 +1535,7 @@
                                 android:text="@string/g30896" />
 
                             <EditText
+                                android:inputType="text"
                                 android:id="@+id/g30896x"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -2300,17 +2304,20 @@
                                     android:text="@string/g4057b" />
                             </RadioGroup>
 
-                            <EditText
-                                android:id="@+id/g40596x"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
-                                android:hint="@string/g40596"
-                                android:tag="g40596"
-                                android:text="@={form.g40596x}"
-                                android:visibility="@{form.g40596.equals(`1`) ? View.VISIBLE : View.GONE}" />
 
                         </LinearLayout>
+
+                        <EditText
+                            android:inputType="text"
+                            android:id="@+id/g40596x"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz0123456789,. "
+                            android:hint="@string/g40596"
+                            android:tag="g40596"
+                            android:text="@={form.g40596x}"
+                            android:visibility="@{form.g40596.equals(`1`) ? View.VISIBLE : View.GONE}" />
+
 
 
                     </LinearLayout>
