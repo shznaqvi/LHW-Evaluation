@@ -948,20 +948,20 @@
                         </LinearLayout>
 
                         <!--W421a-->
-                        <RadioGroup
+                        <!--<RadioGroup
                             android:id="@+id/w421a"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
+-->
                             <TextView
-                                style="@style/textView"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="4"
                                 android:text="@string/w421a" />
 
-                            <RadioButton
+                            <!--RadioButton
                                 android:id="@+id/w421aa"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
@@ -979,7 +979,7 @@
                                 android:onClick="@{()->mwra.setW421a(`2`)}"
                                 android:text="@string/w421ab" />
 
-                        </RadioGroup>
+                        </RadioGroup>-->
 
                         <!--W421b-->
                         <RadioGroup
@@ -1613,21 +1613,21 @@
                             android:layout_height="match_parent"
                             android:text="@string/w417t2" />
 
-                        <!--W417d-->
+                      <!--  &lt;!&ndash;W417d&ndash;&gt;
                         <RadioGroup
                             android:id="@+id/w417d"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal">
-
+-->
                             <TextView
-                                style="@style/textView"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                style="@style/sub_labels"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="4"
                                 android:text="@string/w417d" />
 
-                            <RadioButton
+                            <!--<RadioButton
                                 android:id="@+id/w417da"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
@@ -1646,7 +1646,7 @@
                                 android:text="@string/w417db" />
 
                         </RadioGroup>
-
+-->
                         <!--W417e-->
                         <RadioGroup
                             android:id="@+id/w417e"

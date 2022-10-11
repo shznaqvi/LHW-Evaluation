@@ -339,7 +339,7 @@
                                 android:layout_weight="1"
                                 android:layout_height="match_parent"
                                 android:checked="@{form.g7043.equals(`1`)}"
-                                android:onClick="@{()->form.setG7041(`1`)}"
+                                android:onClick="@{()->form.setG7043(`1`)}"
                                 android:text="@string/g7043a" />
 
                             <RadioButton

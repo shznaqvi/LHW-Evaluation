@@ -2721,7 +2721,7 @@ public class MWRA extends BaseObservable {
     public void setW405k(String w405k) {
         if (this.w405k.equals(w405k)) return;
         this.w405k = w405k;
-        setW421a(w405k.equals("11") ? this.w421a : "");
+        //setW421a(w405k.equals("11") ? this.w421a : "");
         setW421b(w405k.equals("11") ? this.w421b : "");
         setW421c(w405k.equals("11") ? this.w421c : "");
         setW421d(w405k.equals("11") ? this.w421d : "");
@@ -2760,7 +2760,7 @@ public class MWRA extends BaseObservable {
         setW417a(w405m.equals("13") ? this.w417a : "");
         setW417b(w405m.equals("13") ? this.w417b : "");
         setW417c(w405m.equals("13") ? this.w417c : "");
-        setW417d(w405m.equals("13") ? this.w417d : "");
+        //setW417d(w405m.equals("13") ? this.w417d : "");
         setW417e(w405m.equals("13") ? this.w417e : "");
         setW417f(w405m.equals("13") ? this.w417f : "");
         setW417g(w405m.equals("13") ? this.w417g : "");
@@ -3688,7 +3688,7 @@ public class MWRA extends BaseObservable {
         notifyPropertyChanged(BR.w417c);
     }
 
-    @Bindable
+   /* @Bindable
     public String getW417d() {
         return w417d;
     }
@@ -3697,7 +3697,7 @@ public class MWRA extends BaseObservable {
         this.w417d = w417d;
         notifyPropertyChanged(BR.w417d);
     }
-
+*/
     @Bindable
     public String getW417e() {
         return w417e;
@@ -3903,7 +3903,7 @@ public class MWRA extends BaseObservable {
         notifyPropertyChanged(BR.w42096x);
     }
 
-    @Bindable
+   /* @Bindable
     public String getW421a() {
         return w421a;
     }
@@ -3911,7 +3911,7 @@ public class MWRA extends BaseObservable {
     public void setW421a(String w421a) {
         this.w421a = w421a;
         notifyPropertyChanged(BR.w421a);
-    }
+    }*/
 
     @Bindable
     public String getW421b() {
@@ -4313,7 +4313,7 @@ public class MWRA extends BaseObservable {
             this.w417a = json.getString("w417a");
             this.w417b = json.getString("w417b");
             this.w417c = json.getString("w417c");
-            this.w417d = json.getString("w417d");
+            //this.w417d = json.getString("w417d");
             this.w417e = json.getString("w417e");
             this.w417f = json.getString("w417f");
             this.w417g = json.getString("w417g");
@@ -4334,7 +4334,7 @@ public class MWRA extends BaseObservable {
             this.w419d = json.getString("w419d");
             this.w420 = json.getString("w420");
             this.w42096x = json.getString("w42096x");
-            this.w421a = json.getString("w421a");
+            //this.w421a = json.getString("w421a");
             this.w421b = json.getString("w421b");
             this.w421c = json.getString("w421c");
             this.w421d = json.getString("w421d");
@@ -4635,7 +4635,7 @@ public class MWRA extends BaseObservable {
                 .put("w417a", w417a)
                 .put("w417b", w417b)
                 .put("w417c", w417c)
-                .put("w417d", w417d)
+                //.put("w417d", w417d)
                 .put("w417e", w417e)
                 .put("w417f", w417f)
                 .put("w417g", w417g)
@@ -4656,7 +4656,7 @@ public class MWRA extends BaseObservable {
                 .put("w419d", w419d)
                 .put("w420", w420)
                 .put("w42096x", w42096x)
-                .put("w421a", w421a)
+                //.put("w421a", w421a)
                 .put("w421b", w421b)
                 .put("w421c", w421c)
                 .put("w421d", w421d)
