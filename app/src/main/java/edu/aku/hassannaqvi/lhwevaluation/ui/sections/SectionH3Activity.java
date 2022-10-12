@@ -138,18 +138,8 @@ public class SectionH3Activity extends AppCompatActivity {
 
     public void btnContinue(View view) {
         if (!formValidation()) return;
-        //updateMemCategory();
         if (!insertNewRecord()) return;
-        // saveDraft();
         if (updateDB()) {
-            //   Intent i;
-            //      if (bi.h111a.isChecked()) {
-            //   i = new Intent(this, FamilyMambersListActivity.class).putExtra("complete", true);
-           /* } else {
-                i = new Intent(this, EndingActivity.class).putExtra("complete", false);
-            }*/
-
-            //  startActivity(i);
             setResult(RESULT_OK);
             finish();
         } else {
@@ -162,7 +152,6 @@ public class SectionH3Activity extends AppCompatActivity {
 
     public void btnEnd(View view) {
         setResult(RESULT_CANCELED);
-        // startActivity(new Intent(this, MainActivity.class));
         finish();
     }
 
@@ -173,7 +162,6 @@ public class SectionH3Activity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        // Toast.makeText(this, "Back Press Not Allowed", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
     }
 

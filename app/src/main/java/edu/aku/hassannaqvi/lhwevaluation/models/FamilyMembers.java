@@ -596,9 +596,11 @@ public class FamilyMembers extends BaseObservable {
 
         // Adolescent
         if (
-                memAge >= 10 && memAge <= 19   // 15 to 49 year old
+                (memAge >= 10 && memAge <= 19   // 15 to 49 year old Unmarried girl
                         && memMaritalStatus.equals("2")
-        ) {
+                        && memGender.equals("2"))
+                        || memAge >= 10 && memAge <= 19   // 15 to 49 year old male
+                        && memGender.equals("1") ) {
             setMemCate("2");
         }
 
