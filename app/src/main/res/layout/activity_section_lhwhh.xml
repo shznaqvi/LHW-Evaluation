@@ -304,7 +304,7 @@
                                 android:layout_weight="5"
                                 android:gravity="center"
                                 android:inputType="text"
-                                digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
                                 android:text="@={LHWHouseholds.h104c}" />
 
                         </LinearLayout>
@@ -329,7 +329,7 @@
                                 android:layout_weight="5"
                                 android:gravity="center"
                                 android:inputType="text"
-                                digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
                                 android:text="@={LHWHouseholds.h104d}" />
 
                         </LinearLayout>
@@ -354,7 +354,7 @@
                                 android:layout_weight="5"
                                 android:gravity="center"
                                 android:inputType="text"
-                                digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
                                 android:text="@={LHWHouseholds.h104e}" />
 
                         </LinearLayout>
@@ -379,7 +379,7 @@
                                 android:layout_weight="5"
                                 android:gravity="center"
                                 android:inputType="text"
-                                digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
                                 android:text="@={LHWHouseholds.h104f}" />
 
                         </LinearLayout>

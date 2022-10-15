@@ -160,6 +160,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.HHFormsTable.COLUMN_UID, HHForm.getUid());
         values.put(TableContracts.HHFormsTable.COLUMN_LHW_CODE, HHForm.getLhwCode());
         values.put(TableContracts.HHFormsTable.COLUMN_KHANDAN_NO, HHForm.getKhandandNo());
+        values.put(HHFormsTable.COLUMN_DISTRICT, HHForm.getDistrict());
         values.put(TableContracts.HHFormsTable.COLUMN_LHW_UID, HHForm.getLhwuid());
         values.put(TableContracts.HHFormsTable.COLUMN_USERNAME, HHForm.getUserName());
         values.put(TableContracts.HHFormsTable.COLUMN_SYSDATE, HHForm.getSysDate());

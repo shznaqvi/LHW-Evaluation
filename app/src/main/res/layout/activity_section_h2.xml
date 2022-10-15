@@ -226,20 +226,17 @@
                                 android:layout_weight="3"
                                 android:text="@string/h204a" />
 
-                            <com.edittextpicker.aliazaz.EditTextPicker
+                            <EditText
                                 android:id="@+id/h204a"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="5"
                                 android:gravity="center"
                                 android:hint="###########"
-                                android:inputType="number"
-                                android:maxLength="11"
+                                android:digits="AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890-.,#()"
+                                android:inputType="text"
                                 android:enabled="@{h205b.checked}"
-                                android:text="@={HHForm.h204a}"
-                                app:maxValue="99999999999"
-                                app:minValue="0"
-                                app:type="range" />
+                                android:text="@={HHForm.h204a}" />
 
                         </LinearLayout>
 
@@ -269,6 +266,7 @@
                                 android:text="@={HHForm.h204b}"
                                 app:maxValue="99999999999"
                                 app:minValue="0"
+                                android:tag="-1"
                                 app:type="range" />
 
                         </LinearLayout>

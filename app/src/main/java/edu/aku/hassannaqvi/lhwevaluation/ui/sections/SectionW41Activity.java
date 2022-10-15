@@ -1,6 +1,8 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.LHWForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.adolList;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwraCount;
@@ -69,8 +71,9 @@ public class SectionW41Activity extends AppCompatActivity {
         if (updateDB()) {
             mwraCount--;
             if(mwra.getW401().equals("2")) {
-                startActivity(new Intent(this, SectionGB02Activity.class));
-
+                if(LHWForm.getA101().equals("218") || LHWForm.getA101().equals("234")) {
+                    startActivity(new Intent(this, SectionGB02Activity.class));
+                }
             }
             else {
                 if (mwra.getW405a().equals("1")

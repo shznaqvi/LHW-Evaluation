@@ -30,6 +30,7 @@ public class HHForm extends BaseObservable implements Observable {
     private String sysDate = StringUtils.EMPTY;
     private String lhwCode = StringUtils.EMPTY;
     private String khandandNo = StringUtils.EMPTY;
+    private String district = StringUtils.EMPTY;
     private String deviceId = StringUtils.EMPTY;
     private String deviceTag = StringUtils.EMPTY;
     private String appver = StringUtils.EMPTY;
@@ -213,6 +214,14 @@ public class HHForm extends BaseObservable implements Observable {
 
     public void setLhwuid(String lhwuid) {
         this.lhwuid = lhwuid;
+    }
+
+    public String getDistrict() {
+        return district;
+    }
+
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
     @Bindable

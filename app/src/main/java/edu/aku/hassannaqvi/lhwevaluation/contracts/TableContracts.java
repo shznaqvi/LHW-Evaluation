@@ -13,6 +13,7 @@ public class TableContracts {
         public static final String COLUMN_LHW_UID = "_lhwuid";
         public static final String COLUMN_LHW_CODE = "lhwcode";
         public static final String COLUMN_KHANDAN_NO = "kno";
+        public static final String COLUMN_DISTRICT = "kno";
         public static final String COLUMN_USERNAME = "username";
         public static final String COLUMN_SYSDATE = "sysdate";
 

@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.lhwevaluation.database
 
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.*
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp.PROJECT_NAME
+import edu.aku.hassannaqvi.lhwevaluation.models.HHForm
 
 object CreateTable {
 
@@ -17,6 +18,7 @@ object CreateTable {
             + HHFormsTable.COLUMN_LHW_UID + " TEXT,"
             + HHFormsTable.COLUMN_LHW_CODE + " TEXT,"
             + HHFormsTable.COLUMN_KHANDAN_NO + " TEXT,"
+            + HHFormsTable.COLUMN_DISTRICT + " TEXT,"
             + HHFormsTable.COLUMN_USERNAME + " TEXT,"
             + HHFormsTable.COLUMN_SYSDATE + " TEXT,"
             + HHFormsTable.COLUMN_ISTATUS + " TEXT,"
@@ -305,4 +307,7 @@ object CreateTable {
             ("ALTER TABLE " + MWRAListTable.TABLE_NAME + " ADD COLUMN " +  MWRAListTable.COLUMN_WRAUID + " TEXT;")
     const val SQL_ALTER_MWRALIST_ADD_WRASNO =
             ("ALTER TABLE " + MWRAListTable.TABLE_NAME + " ADD COLUMN " +  MWRAListTable.COLUMN_WRA_SNO + " TEXT;")
+
+    const val SQL_ALTER_HHFORM_ADD_DISTRICT =
+            ("ALTER TABLE " + HHFormsTable.TABLE_NAME + " ADD COLUMN " +  HHFormsTable.COLUMN_DISTRICT + " TEXT;")
 }

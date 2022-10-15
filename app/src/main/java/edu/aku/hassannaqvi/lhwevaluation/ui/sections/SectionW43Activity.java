@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.LHWForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.adolList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
@@ -66,8 +67,13 @@ public class SectionW43Activity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
-            startActivity(new Intent(this, SectionGB02Activity.class));
-            finish();
+            if(LHWForm.getA101().equals("218") || LHWForm.getA101().equals("234")) {
+                startActivity(new Intent(this, SectionGB02Activity.class));
+                finish();
+            }else{
+                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                finish();
+            }
 //            if (adolList.size() > 0) {
 //                startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
 //

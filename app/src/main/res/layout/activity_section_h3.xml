@@ -489,7 +489,7 @@
                                 android:id="@+id/h307d"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{familyMember.h306.equals(`4`)}"
+                                android:checked="@{familyMember.h307.equals(`4`)}"
                                 android:onClick="@{()-> familyMember.setH307(`4`)}"
                                 android:text="@string/h307d" />
 
@@ -497,7 +497,7 @@
                                 android:id="@+id/h307e"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{familyMember.h306.equals(`5`)}"
+                                android:checked="@{familyMember.h307.equals(`5`)}"
                                 android:onClick="@{()-> familyMember.setH307(`5`)}"
                                 android:text="@string/h307e" />
 
@@ -505,7 +505,7 @@
                                 android:id="@+id/h307f"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{familyMember.h306.equals(`6`)}"
+                                android:checked="@{familyMember.h307.equals(`6`)}"
                                 android:onClick="@{()-> familyMember.setH307(`6`)}"
                                 android:text="@string/h307f" />
 
@@ -513,7 +513,7 @@
                                 android:id="@+id/h307g"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{familyMember.h306.equals(`7`)}"
+                                android:checked="@{familyMember.h307.equals(`7`)}"
                                 android:onClick="@{()-> familyMember.setH307(`7`)}"
                                 android:text="@string/h307g" />
 
@@ -521,7 +521,7 @@
                                 android:id="@+id/h307h"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{familyMember.h306.equals(`8`)}"
+                                android:checked="@{familyMember.h307.equals(`8`)}"
                                 android:onClick="@{()-> familyMember.setH307(`8`)}"
                                 android:text="@string/h307h" />
 
@@ -529,7 +529,7 @@
                                 android:id="@+id/h307i"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{familyMember.h306.equals(`9`)}"
+                                android:checked="@{familyMember.h307.equals(`9`)}"
                                 android:onClick="@{()-> familyMember.setH307(`9`)}"
                                 android:text="@string/h307i" />
 
@@ -537,7 +537,7 @@
                                 android:id="@+id/h307j"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{familyMember.h306.equals(`10`)}"
+                                android:checked="@{familyMember.h307.equals(`10`)}"
                                 android:onClick="@{()-> familyMember.setH307(`10`)}"
                                 android:text="@string/h307j" />
 
@@ -545,7 +545,7 @@
                                 android:id="@+id/h307k"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{familyMember.h306.equals(`11`)}"
+                                android:checked="@{familyMember.h307.equals(`11`)}"
                                 android:onClick="@{()-> familyMember.setH307(`11`)}"
                                 android:text="@string/h307k" />
 
@@ -553,7 +553,7 @@
                                 android:id="@+id/h30798"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{familyMember.h306.equals(`98`)}"
+                                android:checked="@{familyMember.h307.equals(`98`)}"
                                 android:onClick="@{()-> familyMember.setH307(`98`)}"
                                 android:text="@string/h30798" />
 
@@ -561,7 +561,7 @@
                                 android:id="@+id/h30799"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:checked="@{familyMember.h306.equals(`99`)}"
+                                android:checked="@{familyMember.h307.equals(`99`)}"
                                 android:onClick="@{()-> familyMember.setH307(`99`)}"
                                 android:text="@string/h30799" />
 
