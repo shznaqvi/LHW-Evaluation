@@ -32,6 +32,7 @@ public class LHWHouseholds extends BaseObservable implements Observable {
     private String userName = StringUtils.EMPTY;
     private String sysDate = StringUtils.EMPTY;
     private String cluster = StringUtils.EMPTY;
+    private String disctrict = StringUtils.EMPTY;
     private String hhid = StringUtils.EMPTY;
     private String deviceId = StringUtils.EMPTY;
     private String deviceTag = StringUtils.EMPTY;
@@ -248,6 +249,14 @@ public class LHWHouseholds extends BaseObservable implements Observable {
         this.lhwCode = lhwCode;
     }
 
+    public String getDisctrict() {
+        return disctrict;
+    }
+
+    public void setDisctrict(String disctrict) {
+        this.disctrict = disctrict;
+    }
+
     @Bindable
     public String getH101() {
         return h101;
@@ -364,6 +373,7 @@ public class LHWHouseholds extends BaseObservable implements Observable {
         this.synced = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_SYNCED));
         this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_SYNCED_DATE));
         this.lhwCode = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_LHW_CODE));
+
 
         this.h101 = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_H101));
         this.h102 = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_H102));

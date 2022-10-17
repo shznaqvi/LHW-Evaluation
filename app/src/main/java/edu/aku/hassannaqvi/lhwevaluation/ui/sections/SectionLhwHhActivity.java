@@ -158,6 +158,7 @@ public class SectionLhwHhActivity extends AppCompatActivity {
         MainApp.LHWHouseholds.setA104c(MainApp.LHWForm.getA104c());
         MainApp.LHWHouseholds.setH101(String.valueOf(MainApp.lhwHHCount));
         MainApp.LHWHouseholds.setLhwCode(MainApp.LHWForm.getA104c());
+        MainApp.LHWHouseholds.setDisctrict(MainApp.LHWForm.getDisctrict());
 
 
     }

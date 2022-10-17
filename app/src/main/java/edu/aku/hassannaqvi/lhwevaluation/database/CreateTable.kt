@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.lhwevaluation.database
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.*
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp.PROJECT_NAME
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWHouseholds
 
 object CreateTable {
 
@@ -40,6 +41,7 @@ object CreateTable {
             + LHWFormsTable.COLUMN_PROJECT_NAME + " TEXT,"
             + LHWFormsTable.COLUMN_UID + " TEXT,"
             + LHWFormsTable.COLUMN_CLUSTER + " TEXT,"
+            + LHWFormsTable.COLUMN_DISTRICT + " TEXT,"
             + LHWFormsTable.COLUMN_USERNAME + " TEXT,"
             + LHWFormsTable.COLUMN_SYSDATE + " TEXT,"
             + LHWFormsTable.COLUMN_ISTATUS + " TEXT,"
@@ -67,6 +69,7 @@ object CreateTable {
             + LHWHHTable.COLUMN_UID + " TEXT,"
             + LHWHHTable.COLUMN_UUID + " TEXT,"
             + LHWHHTable.COLUMN_CLUSTER + " TEXT,"
+            + LHWHHTable.COLUMN_DISTRICT + " TEXT,"
             + LHWHHTable.COLUMN_HHID + " TEXT,"
             + LHWHHTable.COLUMN_USERNAME + " TEXT,"
             + LHWHHTable.COLUMN_SYSDATE + " TEXT,"
@@ -278,14 +281,6 @@ object CreateTable {
 
 
 
-    /*const val SQL_ALTER_USERS = (
-            "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_DIST_ID + " TEXT; "
-            + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_ENABLED + " TEXT; "
-            + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_ISNEW_USER + " TEXT; "
-            + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_PWD_EXPIRY + " TEXT; "
-            + "ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_DESIGNATION + " TEXT; "
-            )*/
-
     const val SQL_ALTER_USERS_DIST_ID =
         ("ALTER TABLE " + UsersTable.TABLE_NAME + " ADD " + UsersTable.COLUMN_DIST_ID + " TEXT; ")
     const val SQL_ALTER_USERS_ENABLED =
@@ -310,4 +305,11 @@ object CreateTable {
 
     const val SQL_ALTER_HHFORM_ADD_DISTRICT =
             ("ALTER TABLE " + HHFormsTable.TABLE_NAME + " ADD COLUMN " +  HHFormsTable.COLUMN_DISTRICT + " TEXT;")
+
+    const val SQL_ALTER_LHWHHFORM_ADD_DISTRICT =
+            ("ALTER TABLE " + LHWHHTable.TABLE_NAME + " ADD COLUMN " +  LHWHHTable.TABLE_NAME + " TEXT;")
+
+    const val SQL_ALTER_LHWFORM_ADD_DISTRICT =
+            ("ALTER TABLE " + LHWFormsTable.TABLE_NAME + " ADD COLUMN " +  LHWFormsTable.TABLE_NAME + " TEXT;")
+
 }

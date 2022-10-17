@@ -30,6 +30,7 @@ public class LHWForm extends BaseObservable implements Observable {
     private String userName = StringUtils.EMPTY;
     private String sysDate = StringUtils.EMPTY;
     private String cluster = StringUtils.EMPTY;
+    private String disctrict = StringUtils.EMPTY;
     private String deviceId = StringUtils.EMPTY;
     private String deviceTag = StringUtils.EMPTY;
     private String appver = StringUtils.EMPTY;
@@ -219,6 +220,13 @@ public class LHWForm extends BaseObservable implements Observable {
         notifyPropertyChanged(BR.cluster);
     }
 
+    public String getDisctrict() {
+        return disctrict;
+    }
+
+    public void setDisctrict(String disctrict) {
+        this.disctrict = disctrict;
+    }
 
     public String getUserName() {
         return userName;
@@ -1658,6 +1666,7 @@ public class LHWForm extends BaseObservable implements Observable {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_UID));
         this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_CLUSTER));
+        this.disctrict = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_DISTRICT));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_SYSDATE));
         this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(LHWFormsTable.COLUMN_DEVICEID));
@@ -2004,6 +2013,7 @@ public class LHWForm extends BaseObservable implements Observable {
         json.put(LHWFormsTable.COLUMN_DEVICEID, this.deviceId);
         json.put(LHWFormsTable.COLUMN_DEVICETAGID, this.deviceTag);
         json.put(LHWFormsTable.COLUMN_ISTATUS, this.iStatus);
+        json.put(LHWFormsTable.COLUMN_DISTRICT, this.disctrict);
         //  json.put(LHWFormsTable.COLUMN_SYNCED, this.synced);
         //  json.put(LHWFormsTable.COLUMN_SYNCED_DATE, this.syncDate);
 

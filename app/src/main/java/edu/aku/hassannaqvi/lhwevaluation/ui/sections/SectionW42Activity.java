@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwgbHhForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 
@@ -21,6 +22,7 @@ import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionW42Binding;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
 
@@ -64,7 +66,29 @@ public class SectionW42Activity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
-            startActivity(new Intent(this, SectionW43Activity.class));
+            if(mwra.getW405h().equals("8")
+                    || mwra.getW405i().equals("9")
+                    || mwra.getW405j().equals("10")
+                    || mwra.getW405k().equals("11")
+                    || mwra.getW405l().equals("12")
+                    || mwra.getW405m().equals("13")
+                    || mwra.getW405n().equals("14")
+
+            ) {
+                startActivity(new Intent(this, SectionW43Activity.class));
+            }else{
+                if (MainApp.adolList.size() > 0 && !MainApp.adolFlag) {
+                    lhwgbHhForm = new LHWGB_HH();
+                    startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
+
+                } else if (MainApp.maleList.size() > 0 && !MainApp.maleFlag) {
+                    lhwgbHhForm = new LHWGB_HH();
+                    startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+
+                } else {
+                    startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                }
+            }
             finish();
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }

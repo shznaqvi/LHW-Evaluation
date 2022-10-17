@@ -3,6 +3,7 @@ package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.LHWForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.adolList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwgbHhForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwraCount;
@@ -26,6 +27,8 @@ import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionW41Binding;
+import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
 
@@ -70,25 +73,41 @@ public class SectionW41Activity extends AppCompatActivity {
         if (!formValidation()) return;
         if (updateDB()) {
             mwraCount--;
-            if(mwra.getW401().equals("2")) {
-                if(LHWForm.getA101().equals("218") || LHWForm.getA101().equals("234")) {
-                    startActivity(new Intent(this, SectionGB02Activity.class));
-                }
-            }
-            else {
-                if (mwra.getW405a().equals("1")
-                        || mwra.getW405b().equals("2")
-                        || mwra.getW405c().equals("3")
-                        || mwra.getW405d().equals("4")
-                        || mwra.getW405e().equals("5")
-                        || mwra.getW405f().equals("6")
-                        || mwra.getW405g().equals("7")
-                ) {
-                    startActivity(new Intent(this, SectionW42Activity.class));
+
+            if(mwra.getW401().equals("1")){
+                startActivity(new Intent(this, SectionW42Activity.class));
+            }else if(mwra.getW401().equals("2") && (MainApp.hhForm.getDistrict().equals("218") || hhForm.getDistrict().equals("234"))){
+                startActivity(new Intent(this, SectionGB02Activity.class));
+            }else{
+                if (MainApp.adolList.size() > 0 && !MainApp.adolFlag) {
+                    lhwgbHhForm = new LHWGB_HH();
+                    startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
+
+                } else if (MainApp.maleList.size() > 0 && !MainApp.maleFlag) {
+                    lhwgbHhForm = new LHWGB_HH();
+                    startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+
                 } else {
-                    startActivity(new Intent(this, SectionW43Activity.class));
+                    startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
                 }
             }
+
+           /* if (mwra.getW401().equals("2") && (MainApp.hhForm.getDistrict().equals("218") || hhForm.getDistrict().equals("234"))) {
+                startActivity(new Intent(this, SectionGB02Activity.class));
+            }
+         else {
+            if (mwra.getW405a().equals("1")
+                    || mwra.getW405b().equals("2")
+                    || mwra.getW405c().equals("3")
+                    || mwra.getW405d().equals("4")
+                    || mwra.getW405e().equals("5")
+                    || mwra.getW405f().equals("6")
+                    || mwra.getW405g().equals("7")) {
+                startActivity(new Intent(this, SectionW42Activity.class));
+            } else {
+                startActivity(new Intent(this, SectionW43Activity.class));
+            }*/
+
             finish();
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }

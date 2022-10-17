@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.LHWForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.adolList;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwgbHhForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
@@ -24,6 +25,7 @@ import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionW43Binding;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
 
@@ -67,22 +69,22 @@ public class SectionW43Activity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
-            if(LHWForm.getA101().equals("218") || LHWForm.getA101().equals("234")) {
+            if(MainApp.hhForm.getDistrict().equals("218") || MainApp.hhForm.getDistrict().equals("234")) {
                 startActivity(new Intent(this, SectionGB02Activity.class));
                 finish();
-            }else{
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-                finish();
+            } else{
+                if (MainApp.adolList.size() > 0 && !MainApp.adolFlag) {
+                    lhwgbHhForm = new LHWGB_HH();
+                    startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
+
+                } else if (MainApp.maleList.size() > 0 && !MainApp.maleFlag) {
+                    lhwgbHhForm = new LHWGB_HH();
+                    startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+
+                } else {
+                    startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                }
             }
-//            if (adolList.size() > 0) {
-//                startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
-//
-//            } else if (maleList.size() > 0) {
-//                startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
-//
-//            } else {
-//                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-//            }
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
 
     }

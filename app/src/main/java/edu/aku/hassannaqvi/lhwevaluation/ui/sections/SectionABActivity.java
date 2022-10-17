@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.adolList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwgbHhForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.maleList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwraList;
@@ -31,6 +32,7 @@ import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionAbBinding;
 import edu.aku.hassannaqvi.lhwevaluation.models.FamilyMembers;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
+import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
 import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 
 
@@ -159,14 +161,18 @@ public class SectionABActivity extends AppCompatActivity {
         if (updateDB()) {
             MainApp.adolFlag = true;
             MainApp.UIDFlag = 3;
-            startActivity(new Intent(this, SectionGB02Activity.class).putExtra("complete", true));
+            if(hhForm.getDistrict().equals("218") || hhForm.getDistrict().equals("234")){
+                startActivity(new Intent(this, SectionGB02Activity.class).putExtra("complete", true));
+            }else{
+                if (MainApp.maleList.size() > 0 && !MainApp.maleFlag) {
+                    lhwgbHhForm = new LHWGB_HH();
+                    startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+                }else{
+                    startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                }
+            }
 
-            /*if (maleList.size() > 0) {
-                startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
 
-            } else {
-                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-            }*/
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
         finish();
     }

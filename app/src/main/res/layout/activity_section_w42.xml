@@ -78,6 +78,162 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <!-- w405  CheckBox   -->
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/fldGrpCVw405"
+                    style="@style/cardView"
+                    android:visibility="@{mwra.w401.equals(`2`) || mwra.w402.equals(`2`) ? View.GONE : View.VISIBLE}">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bottom"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                style="@style/quesNum"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="@string/Q_w405" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="@string/w405" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/w405check"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:tag="0">
+
+                            <CheckBox
+                                android:id="@+id/w405a"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405a.equals(`1`)}"
+                                android:onClick="@{()->mwra.setW405a(mwra.w405a.equals(`1`)?``:`1`)}"
+                                android:text="@string/w405a" />
+
+                            <CheckBox
+                                android:id="@+id/w405b"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405b.equals(`2`)}"
+                                android:onClick="@{()->mwra.setW405b(mwra.w405b.equals(`2`)?``:`2`)}"
+                                android:text="@string/w405b" />
+
+                            <CheckBox
+                                android:id="@+id/w405c"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405c.equals(`3`)}"
+                                android:onClick="@{()->mwra.setW405c(mwra.w405c.equals(`3`)?``:`3`)}"
+                                android:text="@string/w405c" />
+
+                            <CheckBox
+                                android:id="@+id/w405d"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405d.equals(`4`)}"
+                                android:onClick="@{()->mwra.setW405d(mwra.w405d.equals(`4`)?``:`4`)}"
+                                android:text="@string/w405d" />
+
+                            <CheckBox
+                                android:id="@+id/w405e"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405e.equals(`5`)}"
+                                android:onClick="@{()->mwra.setW405e(mwra.w405e.equals(`5`)?``:`5`)}"
+                                android:text="@string/w405e" />
+
+                            <CheckBox
+                                android:id="@+id/w405f"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405f.equals(`6`)}"
+                                android:onClick="@{()->mwra.setW405f(mwra.w405f.equals(`6`)?``:`6`)}"
+                                android:text="@string/w405f" />
+
+                            <CheckBox
+                                android:id="@+id/w405g"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405g.equals(`7`)}"
+                                android:onClick="@{()->mwra.setW405g(mwra.w405g.equals(`7`)?``:`7`)}"
+                                android:text="@string/w405g" />
+
+                            <CheckBox
+                                android:id="@+id/w405h"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405h.equals(`8`)}"
+                                android:onClick="@{()->mwra.setW405h(mwra.w405h.equals(`8`)?``:`8`)}"
+                                android:text="@string/w405h" />
+
+                            <CheckBox
+                                android:id="@+id/w405i"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405i.equals(`9`)}"
+                                android:onClick="@{()->mwra.setW405i(mwra.w405i.equals(`9`)?``:`9`)}"
+                                android:text="@string/w405i" />
+
+                            <CheckBox
+                                android:id="@+id/w405j"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405j.equals(`10`)}"
+                                android:onClick="@{()->mwra.setW405j(mwra.w405j.equals(`10`)?``:`10`)}"
+                                android:text="@string/w405j" />
+
+                            <CheckBox
+                                android:id="@+id/w405k"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405k.equals(`11`)}"
+                                android:onClick="@{()->mwra.setW405k(mwra.w405k.equals(`11`)?``:`11`)}"
+                                android:text="@string/w405k" />
+
+                            <CheckBox
+                                android:id="@+id/w405l"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405l.equals(`12`)}"
+                                android:onClick="@{()->mwra.setW405l(mwra.w405l.equals(`12`)?``:`12`)}"
+                                android:text="@string/w405l" />
+
+                            <CheckBox
+                                android:id="@+id/w405m"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405m.equals(`13`)}"
+                                android:onClick="@{()->mwra.setW405m(mwra.w405m.equals(`13`)?``:`13`)}"
+                                android:text="@string/w405m" />
+
+                            <CheckBox
+                                android:id="@+id/w405n"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:checked="@{mwra.w405n.equals(`14`)}"
+                                android:onClick="@{()->mwra.setW405n(mwra.w405n.equals(`14`)?``:`14`)}"
+                                android:text="@string/w405n" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
 
                 <!-- w406  RadioGroup   -->
                 <androidx.cardview.widget.CardView

@@ -252,6 +252,7 @@ public class IdentificationActivity extends AppCompatActivity {
         MainApp.hhForm.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
         MainApp.hhForm.setDeviceId(MainApp.deviceid);
         MainApp.hhForm.setAppver(MainApp.versionName + "." + MainApp.versionCode);
+        MainApp.hhForm.setDistrict(MainApp.LHWForm.getDisctrict());
 
         MainApp.hhForm.setLhwCode(MainApp.LHWHouseholds.getA104c());
         MainApp.hhForm.setKhandandNo(MainApp.LHWHouseholds.getH102());
@@ -265,6 +266,7 @@ public class IdentificationActivity extends AppCompatActivity {
         MainApp.hhForm.setH204d(MainApp.LHWHouseholds.getH104d());
         MainApp.hhForm.setH204e(MainApp.LHWHouseholds.getH104e());
         MainApp.hhForm.setH204f(MainApp.LHWHouseholds.getH104f());
+
 
 
     }

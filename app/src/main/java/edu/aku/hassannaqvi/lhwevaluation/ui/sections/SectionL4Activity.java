@@ -65,7 +65,7 @@ public class SectionL4Activity extends AppCompatActivity {
         if (!formValidation()) return;
         // saveDraft();
         if (updateDB()) {
-            if (LHWForm.getA101().equals("218") || LHWForm.getA101().equals("234")) {
+            if (LHWForm.getDisctrict().equals("218") || LHWForm.getDisctrict().equals("234")) {
                 startActivity(new Intent(this, SectionGB01AActivity.class).putExtra("complete", true));
                 finish();
             } else {

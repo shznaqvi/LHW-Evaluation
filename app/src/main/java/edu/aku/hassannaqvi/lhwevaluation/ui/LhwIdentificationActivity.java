@@ -288,6 +288,7 @@ public class LhwIdentificationActivity extends AppCompatActivity {
         MainApp.LHWForm.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
         MainApp.LHWForm.setDeviceId(MainApp.deviceid);
         MainApp.LHWForm.setAppver(MainApp.versionName + "." + MainApp.versionCode);
+        MainApp.LHWForm.setDisctrict(MainApp.user.getDist_id());
 
         MainApp.LHWForm.setA101(distNames.get(bi.a101.getSelectedItemPosition()));
         MainApp.LHWForm.setA102(tehsilNames.get(bi.a102.getSelectedItemPosition()));

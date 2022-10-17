@@ -47,15 +47,11 @@ public class FamilyMembersAdapter extends RecyclerView.Adapter<FamilyMembersAdap
 
         TextView fName = viewHolder.fName;
         TextView fAge = viewHolder.fAge;
-        // LinearLayout subItem = viewHolder.subItem;
         ImageView fmRow = viewHolder.fmRow;
         ImageView mainIcon = viewHolder.mainIcon;
-        // TextView addSec = viewHolder.addSec;
         TextView fMaritalStatus = viewHolder.fMatitalStatus;
         TextView secStatus = viewHolder.secStatus;
       View cloaked = viewHolder.cloak;
-
-        //String pregStatus = familyMember.getRb07().equals("1") ? "Pregnant" : "Not Pregnant";
 
         MainApp.memberComplete = completeCount == MainApp.memberCount;
 
@@ -83,34 +79,26 @@ public class FamilyMembersAdapter extends RecyclerView.Adapter<FamilyMembersAdap
 
         fMaritalStatus.setText(marStatus);
 
+        String secStatusString = "";
+        switch (members.getH309())
+        {
+            case "1":
+                secStatusString = "Avaliable";
+                break;
+            case "2":
+                secStatusString = "Not Available";
+
+        }
+
+        secStatus.setText(secStatusString);
+
 
        cloaked.setVisibility(members.getMemCate().equals("")? View.VISIBLE : View.GONE);
         mainIcon.setImageResource((members.getH303().equals("1") ? R.drawable.ic_boy : R.drawable.ic_girl));
-      //  mainIcon.setBackgroundColor((members.getH305().equals("1") ? R.drawable.ic_boy : R.drawable.ic_girl));
       mainIcon.setBackgroundColor(Integer.parseInt(members.getH306()) > 19 && members.getH303().equals("1") ? mContext.getResources().getColor(android.R.color.holo_blue_dark) :
 
               Integer.parseInt(members.getH306()) > 19 && members.getH303().equals("2") ? mContext.getResources().getColor(android.R.color.holo_red_dark)
                       : (members.getH303().equals("1") ? mContext.getResources().getColor(R.color.boy_blue) : mContext.getResources().getColor(R.color.girl_pink)));
-     /*   if (!MainApp.selectedMember.equals("")) {
-            cloaked.setVisibility(members.getIndexed().equals("1") ? View.GONE : View.VISIBLE);
-        }*/
-        //fMaritalStatus.setText("Children: " + familyMember.getH226m() + " boy(s), " + familyMember.getH226f() + " girl(s)");
-      /*  viewHolder.itemView.setOnClickListener(v -> {
-            // Get the current state of the item
-
-            MainApp.familyMember = MainApp.familyMember.get(position);
-            Intent intent = new Intent(mContext, SectionBActivity.class);
-
-            intent.putExtra("position", position);
-
-            MainApp.selectedFemale = position;
-
-            intent.putExtra("position", position);
-
-            ((Activity) mContext).startActivityForResult(intent, 2);
-
-
-        });*/
 
     }
 

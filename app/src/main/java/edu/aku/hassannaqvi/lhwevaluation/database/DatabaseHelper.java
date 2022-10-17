@@ -5,6 +5,9 @@ import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.PROJECT_NAME;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.core.UserAuth.checkPassword;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_FAMILY_MEMBERS_ADD_SNO;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_HHFORM_ADD_DISTRICT;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_LHWFORM_ADD_DISTRICT;
+import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_LHWHHFORM_ADD_DISTRICT;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_MWRALIST_ADD_WRASNO;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_MWRALIST_ADD_WRAUID;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_USERS_DESIGNATION;
@@ -144,6 +147,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 db.execSQL(SQL_ALTER_FAMILY_MEMBERS_ADD_SNO);
                 db.execSQL(SQL_ALTER_MWRALIST_ADD_WRAUID);
                 db.execSQL(SQL_ALTER_MWRALIST_ADD_WRASNO);
+                db.execSQL(SQL_ALTER_LHWHHFORM_ADD_DISTRICT);
+                db.execSQL(SQL_ALTER_HHFORM_ADD_DISTRICT);
+                db.execSQL(SQL_ALTER_LHWFORM_ADD_DISTRICT);
         }
     }
 
@@ -299,6 +305,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.LHWFormsTable.COLUMN_PROJECT_NAME, lhwForm.getProjectName());
         values.put(TableContracts.LHWFormsTable.COLUMN_UID, lhwForm.getUid());
         values.put(TableContracts.LHWFormsTable.COLUMN_CLUSTER, lhwForm.getCluster());
+        values.put(LHWFormsTable.COLUMN_DISTRICT, lhwForm.getDisctrict());
         values.put(TableContracts.LHWFormsTable.COLUMN_USERNAME, lhwForm.getUserName());
         values.put(TableContracts.LHWFormsTable.COLUMN_SYSDATE, lhwForm.getSysDate());
         values.put(LHWFormsTable.COLUMN_SYNCED, lhwForm.getSynced());
@@ -338,6 +345,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         values.put(TableContracts.LHWHHTable.COLUMN_UID, LHWHouseholds.getUid());
         values.put(TableContracts.LHWHHTable.COLUMN_UUID, LHWHouseholds.getLuid());
         values.put(TableContracts.LHWHHTable.COLUMN_CLUSTER, LHWHouseholds.getCluster());
+        values.put(LHWHHTable.COLUMN_DISTRICT, LHWHouseholds.getDisctrict());
         values.put(TableContracts.LHWHHTable.COLUMN_HHID, LHWHouseholds.getHhid());
         values.put(TableContracts.LHWHHTable.COLUMN_USERNAME, LHWHouseholds.getUserName());
         values.put(TableContracts.LHWHHTable.COLUMN_SYSDATE, LHWHouseholds.getSysDate());

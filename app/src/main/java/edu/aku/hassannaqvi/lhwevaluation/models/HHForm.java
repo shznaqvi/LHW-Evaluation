@@ -1669,6 +1669,7 @@ public class HHForm extends BaseObservable implements Observable {
         this.lhwuid = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_LHW_UID));
         this.lhwCode = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_LHW_CODE));
         this.khandandNo = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_KHANDAN_NO));
+        this.district = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_DISTRICT));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_SYSDATE));
         this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(HHFormsTable.COLUMN_DEVICEID));
@@ -1955,6 +1956,7 @@ public class HHForm extends BaseObservable implements Observable {
         json.put(HHFormsTable.COLUMN_LHW_UID, this.lhwuid);
         json.put(HHFormsTable.COLUMN_LHW_CODE, this.lhwCode);
         json.put(HHFormsTable.COLUMN_KHANDAN_NO, this.khandandNo);
+        json.put(HHFormsTable.COLUMN_DISTRICT, this.district);
         json.put(HHFormsTable.COLUMN_USERNAME, this.userName);
         json.put(HHFormsTable.COLUMN_SYSDATE, this.sysDate);
         json.put(HHFormsTable.COLUMN_DEVICEID, this.deviceId);

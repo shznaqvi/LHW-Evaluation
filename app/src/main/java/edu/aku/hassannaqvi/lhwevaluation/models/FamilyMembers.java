@@ -581,15 +581,17 @@ public class FamilyMembers extends BaseObservable {
      * 3 = Male > 19y
      */
     private void updateMemCategory() {
-        if(h303.equals("")|| h305.equals("")|| h306.equals("")|| !h309.equals("1")) return;
+        if(h303.equals("")|| h305.equals("")|| h306.equals("") || h309.equals("")) return;
         String memGender = getH303();
         String memMaritalStatus = getH306();
+        String memStatus = getH309();
         int memAge = Integer.parseInt(getH305());
 
         // MWRA
         if (memGender.equals("2")                // Female
                 && memAge >= 15 && memAge <= 49   // 15 to 49 year old
                 && !memMaritalStatus.equals("2")
+                && memStatus.equals("1")
         ) {
            setMemCate("1");
         }
@@ -599,13 +601,14 @@ public class FamilyMembers extends BaseObservable {
                 (memAge >= 10 && memAge <= 19   // 15 to 49 year old Unmarried girl
                         && memMaritalStatus.equals("2")
                         && memGender.equals("2"))
+                        && memStatus.equals("1")
                         || memAge >= 10 && memAge <= 19   // 15 to 49 year old male
-                        && memGender.equals("1") ) {
+                        && memGender.equals("1") && memStatus.equals("1") ) {
             setMemCate("2");
         }
 
 
-        if (memGender.equals("1") && memAge > 19) {
+        if (memGender.equals("1") && memAge > 19 && memStatus.equals("1")) {
             setMemCate("3");
         }
     }

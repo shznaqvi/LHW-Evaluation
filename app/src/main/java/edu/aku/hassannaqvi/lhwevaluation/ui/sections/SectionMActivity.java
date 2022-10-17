@@ -152,7 +152,12 @@ public class SectionMActivity extends AppCompatActivity {
         if (updateDB()) {
             MainApp.maleFlag = true;
             MainApp.UIDFlag = 2;
-            startActivity(new Intent(this, SectionGB02Activity.class));
+            if(hhForm.getDistrict().equals("218") || hhForm.getDistrict().equals("234")){
+                startActivity(new Intent(this, SectionGB02Activity.class));
+            }else{
+                startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+            }
+
             finish();
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
     }
