@@ -33,138 +33,138 @@
             android:label="@string/gtitle"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize"  />
+            android:windowSoftInputMode="adjustPan"  />
         <activity
             android:name=".ui.sections.SectionGB02Activity"
             android:label="@string/gtitle"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
 
         <activity
             android:name=".ui.sections.SectionGB02BActivity"
             android:label="@string/gtitle"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionGB01BActivity"
             android:label="@string/gtitle"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
 
         <activity
             android:name=".ui.sections.SectionGB01CActivity"
             android:label="@string/gtitle"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.LhwIdentificationActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.IdentificationActivity"
             android:label="@string/sec04title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionL1Activity"
             android:label="@string/section01lhwinformation_mainheading"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionL2Activity"
             android:label="@string/section01lhwinformation_mainheading"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionL3Activity"
             android:label="@string/section01lhwinformation_mainheading"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionL4Activity"
             android:label="@string/sec04title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <activity
             android:name=".ui.sections.SectionLhwHhActivity"
             android:label="@string/sec05title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionH2Activity"
             android:label="@string/sec06title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionH3Activity"
             android:label="@string/sec07title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionW1Activity"
             android:label="@string/secw1title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionW2Activity"
             android:label="@string/secw2title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionW3Activity"
             android:label="@string/secw3title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionW41Activity"
             android:label="@string/secw4title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionW42Activity"
             android:label="@string/secw4title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionW43Activity"
             android:label="@string/secw4title"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionABActivity"
             android:label="@string/secabtitle"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.sections.SectionMActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeEnglish1"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".ui.LoginActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.splashscreen"
-            android:windowSoftInputMode="adjustResize|stateHidden">
+            android:windowSoftInputMode="adjustPan|stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

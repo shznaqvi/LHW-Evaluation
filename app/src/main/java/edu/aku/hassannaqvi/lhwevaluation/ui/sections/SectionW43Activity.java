@@ -84,6 +84,8 @@ public class SectionW43Activity extends AppCompatActivity {
                 } else {
                     startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
                 }
+
+                finish();
             }
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
 

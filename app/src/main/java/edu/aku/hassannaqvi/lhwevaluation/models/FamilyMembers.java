@@ -28,7 +28,7 @@ import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 public class FamilyMembers extends BaseObservable {
 
     private final String TAG = "FamilyMembers";
-    private final transient PropertyChangeRegistry propertyChangeRegistry = new PropertyChangeRegistry();
+    private transient PropertyChangeRegistry propertyChangeRegistry = new PropertyChangeRegistry();
     //Not saving in DB
     private final LocalDate localDate = null;
     private final boolean exist = false;
@@ -133,7 +133,7 @@ public class FamilyMembers extends BaseObservable {
 
     public void setLhwCode(String lhwCode) {
         this.lhwCode = lhwCode;
-        notifyPropertyChanged(BR.lhwCode);
+        notifyChange(BR.lhwCode);
     }
 
     @Bindable
@@ -143,7 +143,7 @@ public class FamilyMembers extends BaseObservable {
 
     public void setkNo(String kNo) {
         this.kNo = kNo;
-        notifyPropertyChanged(BR.kNo);
+        notifyChange(BR.kNo);
     }
 
     @Bindable
@@ -153,7 +153,7 @@ public class FamilyMembers extends BaseObservable {
 
     public void setExpanded(boolean expanded) {
         this.expanded = expanded;
-        notifyPropertyChanged(BR.expanded);
+        notifyChange(BR.expanded);
     }
 
     @Bindable
@@ -164,7 +164,7 @@ public class FamilyMembers extends BaseObservable {
     public void setMwra(boolean mwra) {
         this.mwra = mwra;
 
-        notifyPropertyChanged(BR.mwra);
+        notifyChange(BR.mwra);
     }
 
     public String getMemCate() {
@@ -173,7 +173,7 @@ public class FamilyMembers extends BaseObservable {
 
     public void setMemCate(String memCate) {
         this.memCate = memCate;
-       // notifyPropertyChanged(BR.memCate);
+       // notifyChange(BR.memCate);
     }
 
     public String getUserName() {
@@ -274,7 +274,7 @@ public class FamilyMembers extends BaseObservable {
     public void setH301(String h301) {
         this.h301 = h301;
         setSno(h301);
-        notifyPropertyChanged(BR.h301);
+        notifyChange(BR.h301);
     }
 
     @Bindable
@@ -284,7 +284,7 @@ public class FamilyMembers extends BaseObservable {
 
     public void setH302(String h302) {
         this.h302 = h302;
-        notifyPropertyChanged(BR.h302);
+        notifyChange(BR.h302);
     }
 
     @Bindable
@@ -294,8 +294,8 @@ public class FamilyMembers extends BaseObservable {
 
     public void setH303(String h303) {
         this.h303 = h303;
+        notifyChange(BR.h303);
         updateMemCategory();
-        notifyPropertyChanged(BR.h303);
     }
 
 
@@ -309,8 +309,7 @@ public class FamilyMembers extends BaseObservable {
     public void setH304d(String h304d) {
         this.h304d = h304d;
         CaluculateAge();
-
-        notifyPropertyChanged(BR.h304d);
+        notifyChange(BR.h304d);
     }
 
     @Bindable
@@ -323,8 +322,8 @@ public class FamilyMembers extends BaseObservable {
         if (h304m.equals("98")) {
             setH304d("98");
         }
+        notifyChange(BR.h304m);
         CaluculateAge();
-        notifyPropertyChanged(BR.h304m);
     }
 
     @Bindable
@@ -342,7 +341,7 @@ public class FamilyMembers extends BaseObservable {
         // Calculate age
         CaluculateAge();
 
-        notifyPropertyChanged(BR.h304y);
+        notifyChange(BR.h304y);
     }
 
     @Bindable
@@ -352,8 +351,8 @@ public class FamilyMembers extends BaseObservable {
 
     public void setH305(String h305) {
         this.h305 = h305;
+        notifyChange(BR.h305);
         updateMemCategory();
-        notifyPropertyChanged(BR.h305);
     }
 
     @Bindable
@@ -363,14 +362,8 @@ public class FamilyMembers extends BaseObservable {
 
     public void setH306(String h306) {
         this.h306 = h306;
+        notifyChange(BR.h306);
         updateMemCategory();
-/*        if (!this.a204.equals("") && !this.h305.equals("") && !this.h306.equals("")) {
-            int ageInYears = Integer.parseInt(getH305());
-            boolean genderCheck = getA204().equals("2");
-            boolean maritalCheck = !getH306().equals("2");
-            setMwra(maritalCheck && genderCheck && ageInYears > 14 && ageInYears < 50);
-        }*/
-        notifyPropertyChanged(BR.h306);
     }
 
     @Bindable
@@ -381,7 +374,7 @@ public class FamilyMembers extends BaseObservable {
     public void setH307(String h307) {
         this.h307 = h307;
         setH308(h307.equals("2") ? this.h308 : "");
-        notifyPropertyChanged(BR.h307);
+        notifyChange(BR.h307);
     }
 
     @Bindable
@@ -391,7 +384,7 @@ public class FamilyMembers extends BaseObservable {
 
     public void setH308(String h308) {
         this.h308 = h308;
-        notifyPropertyChanged(BR.h308);
+        notifyChange(BR.h308);
     }
 
     @Bindable
@@ -401,23 +394,10 @@ public class FamilyMembers extends BaseObservable {
 
     public void setH309(String h309) {
         this.h309 = h309;
+        notifyChange(BR.h309);
         updateMemCategory();
-        notifyPropertyChanged(BR.h309);
     }
 
-
-
-/*
-    @Bindable
-    public String getIndexed() {
-        return indexed;
-    }
-
-    public void setIndexed(String Indexed) {
-        this.indexed = Indexed;
-        notifyPropertyChanged(BR.indexed);
-    }
-*/
 
 
     public FamilyMembers Hydrate(Cursor cursor) throws JSONException {
@@ -429,9 +409,6 @@ public class FamilyMembers extends BaseObservable {
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FamilyMembersTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_SYSDATE));
         this.sno = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_SNO));
-/*
-        this.indexed = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_INDEXED));
-*/
         this.deviceId = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_DEVICEID));
         this.deviceTag = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_DEVICETAGID));
         this.appver = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_APPVERSION));
@@ -453,8 +430,6 @@ public class FamilyMembers extends BaseObservable {
             this.h301 = json.getString("h301");
             this.h302 = json.getString("h302");
             this.h303 = json.getString("h303");
-       /*     this.a20396x = json.getString("a20396x");
-            this.a204 = json.getString("a204");*/
             this.h304d = json.getString("h304d");
             this.h304m = json.getString("h304m");
             this.h304y = json.getString("h304y");
@@ -465,12 +440,6 @@ public class FamilyMembers extends BaseObservable {
             this.h309 = json.getString("h309");
 
             updateMemCategory();
-         /*   if (!this.a204.equals("") && !this.h305.equals("") && !this.h306.equals("")) {
-                int ageInYears = Integer.parseInt(getH305());
-                boolean genderCheck = getA204().equals("2");
-                boolean maritalCheck = !getH306().equals("2");
-                setMwra(maritalCheck && genderCheck && ageInYears > 14 && ageInYears < 50);
-            }*/
         }
     }
 
@@ -581,7 +550,7 @@ public class FamilyMembers extends BaseObservable {
      * 3 = Male > 19y
      */
     private void updateMemCategory() {
-        if(h303.equals("")|| h305.equals("")|| h306.equals("") || h309.equals("")) return;
+        if(getH303().equals("")|| getH305().equals("")|| getH306().equals("") || getH309().equals("")) return;
         String memGender = getH303();
         String memMaritalStatus = getH306();
         String memStatus = getH309();
@@ -589,27 +558,55 @@ public class FamilyMembers extends BaseObservable {
 
         // MWRA
         if (memGender.equals("2")                // Female
-                && memAge >= 15 && memAge <= 49   // 15 to 49 year old
+                && (memAge >= 15 && memAge <= 49 )  // 15 to 49 year old
                 && !memMaritalStatus.equals("2")
-                && memStatus.equals("1")
-        ) {
+                && memStatus.equals("1")) {
            setMemCate("1");
+        }else{
+            setMemCate("");
         }
 
         // Adolescent
-        if (
-                (memAge >= 10 && memAge <= 19   // 15 to 49 year old Unmarried girl
+        if ((memAge >= 10 && memAge <= 19   // 15 to 49 year old Unmarried girl
                         && memMaritalStatus.equals("2")
-                        && memGender.equals("2"))
-                        && memStatus.equals("1")
-                        || memAge >= 10 && memAge <= 19   // 15 to 49 year old male
-                        && memGender.equals("1") && memStatus.equals("1") ) {
+                        && memGender.equals("2")
+                        && memStatus.equals("1"))
+                        || (memAge >= 10 && memAge <= 19   // 15 to 49 year old male
+                        && memGender.equals("1") && memStatus.equals("1"))) {
             setMemCate("2");
+        }else{
+            setMemCate("");
         }
 
 
-        if (memGender.equals("1") && memAge > 19 && memStatus.equals("1")) {
+        if (memGender.equals("1") && memAge > 19 && (memStatus.equals("1"))) {
             setMemCate("3");
+        }else{
+            setMemCate("");
         }
     }
+
+    private synchronized void notifyChange(int propertyId) {
+        if (propertyChangeRegistry == null) {
+            propertyChangeRegistry = new PropertyChangeRegistry();
+        }
+        propertyChangeRegistry.notifyChange(this, propertyId);
+    }
+
+    @Override
+    public synchronized void addOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
+        if (propertyChangeRegistry == null) {
+            propertyChangeRegistry = new PropertyChangeRegistry();
+        }
+        propertyChangeRegistry.add(callback);
+
+    }
+
+    @Override
+    public synchronized void removeOnPropertyChangedCallback(OnPropertyChangedCallback callback) {
+        if (propertyChangeRegistry != null) {
+            propertyChangeRegistry.remove(callback);
+        }
+    }
+
 }

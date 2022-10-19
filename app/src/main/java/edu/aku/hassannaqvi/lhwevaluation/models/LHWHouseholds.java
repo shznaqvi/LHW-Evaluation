@@ -363,6 +363,7 @@ public class LHWHouseholds extends BaseObservable implements Observable {
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_UID));
         this.luid = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_UUID));
         this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_CLUSTER));
+        this.disctrict = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_DISTRICT));
         this.hhid = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_HHID));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(LHWHHTable.COLUMN_SYSDATE));
@@ -413,6 +414,7 @@ public class LHWHouseholds extends BaseObservable implements Observable {
         json.put(LHWHHTable.COLUMN_UID, this.uid);
         json.put(LHWHHTable.COLUMN_UUID, this.luid);
         json.put(LHWHHTable.COLUMN_CLUSTER, this.cluster);
+        json.put(LHWHHTable.COLUMN_DISTRICT, this.disctrict);
         json.put(LHWHHTable.COLUMN_HHID, this.hhid);
         json.put(LHWHHTable.COLUMN_USERNAME, this.userName);
         json.put(LHWHHTable.COLUMN_SYSDATE, this.sysDate);

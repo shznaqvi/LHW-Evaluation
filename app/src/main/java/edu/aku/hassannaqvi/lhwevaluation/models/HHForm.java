@@ -515,117 +515,6 @@ public class HHForm extends BaseObservable implements Observable {
         notifyPropertyChanged(BR.h205);
     }
 
-/*
-    @Bindable
-    public String getH301() {
-        return h301;
-    }
-
-    public void setH301(String h301) {
-        this.h301 = h301;
-        notifyPropertyChanged(BR.h301);
-    }
-
-    @Bindable
-    public String getH302() {
-        return h302;
-    }
-
-    public void setH302(String h302) {
-        this.h302 = h302;
-        notifyPropertyChanged(BR.h302);
-    }
-
-    @Bindable
-    public String getH303() {
-        return h303;
-    }
-
-    public void setH303(String h303) {
-        this.h303 = h303;
-        notifyPropertyChanged(BR.h303);
-    }
-
-    @Bindable
-    public String getH304d() {
-        return h304d;
-    }
-
-    public void setH304d(String h304d) {
-        this.h304d = h304d;
-        notifyPropertyChanged(BR.h304d);
-    }
-
-    @Bindable
-    public String getH304m() {
-        return h304m;
-    }
-
-    public void setH304m(String h304m) {
-        this.h304m = h304m;
-        notifyPropertyChanged(BR.h304m);
-    }
-
-    @Bindable
-    public String getH304y() {
-        return h304y;
-    }
-
-    public void setH304y(String h304y) {
-        this.h304y = h304y;
-        notifyPropertyChanged(BR.h304y);
-    }
-
-    @Bindable
-    public String getH305() {
-        return h305;
-    }
-
-    public void setH305(String h305) {
-        this.h305 = h305;
-        notifyPropertyChanged(BR.h305);
-    }
-
-    @Bindable
-    public String getH306() {
-        return h306;
-    }
-
-    public void setH306(String h306) {
-        this.h306 = h306;
-        notifyPropertyChanged(BR.h306);
-    }
-
-    @Bindable
-    public String getH307() {
-        return h307;
-    }
-
-    public void setH307(String h307) {
-        this.h307 = h307;
-        notifyPropertyChanged(BR.h307);
-    }
-
-    @Bindable
-    public String getH308() {
-        return h308;
-    }
-
-    public void setH308(String h308) {
-        this.h308 = h308;
-        notifyPropertyChanged(BR.h308);
-    }
-
-    @Bindable
-    public String getH309() {
-        return h309;
-    }
-
-    public void setH309(String h309) {
-        this.h309 = h309;
-        notifyPropertyChanged(BR.h309);
-    }
-*/
 
     @Bindable
     public String getAb101() {
@@ -1944,6 +1833,7 @@ public class HHForm extends BaseObservable implements Observable {
                 .put("maleUID", maleUID)
                 .put("maleSno", maleSno)
                 .put("maleAge", maleAge)
+                .put("maritalStatus", maritalStatus)
                 .put("m106d", m106d);
         return json.toString();
     }

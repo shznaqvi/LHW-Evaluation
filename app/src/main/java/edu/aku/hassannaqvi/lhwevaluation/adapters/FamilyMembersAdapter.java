@@ -83,7 +83,7 @@ public class FamilyMembersAdapter extends RecyclerView.Adapter<FamilyMembersAdap
         switch (members.getH309())
         {
             case "1":
-                secStatusString = "Avaliable";
+                secStatusString = "Available";
                 break;
             case "2":
                 secStatusString = "Not Available";
@@ -137,8 +137,6 @@ public class FamilyMembersAdapter extends RecyclerView.Adapter<FamilyMembersAdap
             fAge = v.findViewById(R.id.chh05);
             fMatitalStatus = v.findViewById(R.id.chh06);
             secStatus = v.findViewById(R.id.csecStatus);
-            //  addSec = v.findViewById(R.id.cadd_section);
-            //  subItem = v.findViewById(R.id.csubitem);
             fmRow = v.findViewById(R.id.cfmRow);
             mainIcon = v.findViewById(R.id.mainIcon);
            cloak = v.findViewById(R.id.cloaked);

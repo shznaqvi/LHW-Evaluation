@@ -433,7 +433,12 @@
 
 
                 <!--EndButton LinearLayout-->
-                <LinearLayout
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end"
@@ -488,10 +493,6 @@
                 </LinearLayout>
                 <!--EndButton LinearLayout-->
 
-
-            </LinearLayout>
-
-        </ScrollView>
 
 
     </LinearLayout>
