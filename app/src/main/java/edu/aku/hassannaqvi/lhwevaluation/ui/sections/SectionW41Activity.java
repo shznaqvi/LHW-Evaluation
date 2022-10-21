@@ -74,11 +74,24 @@ public class SectionW41Activity extends AppCompatActivity {
         if (updateDB()) {
             mwraCount--;
 
-            if(mwra.getW401().equals("1")){
+            if (mwra.getW401().equals("1") && mwra.getW402().equals("1")) {
                 startActivity(new Intent(this, SectionW42Activity.class));
-            }else if(mwra.getW401().equals("2") && (MainApp.hhForm.getDistrict().equals("218") || hhForm.getDistrict().equals("234"))){
+            } else if (mwra.getW401().equals("1") && mwra.getW402().equals("2"))
+            {
+                if (MainApp.adolList.size() > 0 && !MainApp.adolFlag) {
+                    lhwgbHhForm = new LHWGB_HH();
+                    startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
+
+                } else if (MainApp.maleList.size() > 0 && !MainApp.maleFlag) {
+                    lhwgbHhForm = new LHWGB_HH();
+                    startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+                }
+                    else {
+                        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                    }
+                }else if(mwra.getW401().equals("2") && (MainApp.hhForm.getDistrict().equals("218") || hhForm.getDistrict().equals("234"))){
                 startActivity(new Intent(this, SectionGB02Activity.class));
-            }else{
+            }else if (mwra.getW401().equals("2")){
                 if (MainApp.adolList.size() > 0 && !MainApp.adolFlag) {
                     lhwgbHhForm = new LHWGB_HH();
                     startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
@@ -91,22 +104,6 @@ public class SectionW41Activity extends AppCompatActivity {
                     startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
                 }
             }
-
-           /* if (mwra.getW401().equals("2") && (MainApp.hhForm.getDistrict().equals("218") || hhForm.getDistrict().equals("234"))) {
-                startActivity(new Intent(this, SectionGB02Activity.class));
-            }
-         else {
-            if (mwra.getW405a().equals("1")
-                    || mwra.getW405b().equals("2")
-                    || mwra.getW405c().equals("3")
-                    || mwra.getW405d().equals("4")
-                    || mwra.getW405e().equals("5")
-                    || mwra.getW405f().equals("6")
-                    || mwra.getW405g().equals("7")) {
-                startActivity(new Intent(this, SectionW42Activity.class));
-            } else {
-                startActivity(new Intent(this, SectionW43Activity.class));
-            }*/
 
             finish();
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();

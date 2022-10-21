@@ -129,6 +129,7 @@ public class SectionW1Activity extends AppCompatActivity {
                     MainApp.mwra.setUuid(MainApp.hhForm.getUid());
                     MainApp.mwra.setDeviceId(MainApp.hhForm.getDeviceId());
                     MainApp.mwra.setCluster(MainApp.hhForm.getLhwCode());
+                    mwra.setDist(MainApp.hhForm.getDistrict());
                     MainApp.mwra.setHhid(MainApp.hhForm.getKhandandNo());
                     MainApp.mwra.setUserName(MainApp.hhForm.getUserName());
                     MainApp.mwra.setSysDate(MainApp.hhForm.getSysDate());
@@ -138,6 +139,7 @@ public class SectionW1Activity extends AppCompatActivity {
                     mwra.setWraSno(memberSno.get(position));
                     mwra.setW102(age.get(position));
                     mwra.setMaritalStatus(maritalStatus.get(position));
+
                 }
 
                 bi.w102.setText(age.get(position));

@@ -72,9 +72,7 @@ public class SectionW42Activity extends AppCompatActivity {
                     || mwra.getW405k().equals("11")
                     || mwra.getW405l().equals("12")
                     || mwra.getW405m().equals("13")
-                    || mwra.getW405n().equals("14")
-
-            ) {
+                    || mwra.getW405n().equals("14")) {
                 startActivity(new Intent(this, SectionW43Activity.class));
             }else{
                 if (MainApp.adolList.size() > 0 && !MainApp.adolFlag) {

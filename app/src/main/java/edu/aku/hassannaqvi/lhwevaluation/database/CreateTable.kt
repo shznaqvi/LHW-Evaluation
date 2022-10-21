@@ -101,6 +101,7 @@ object CreateTable {
             + MWRAListTable.COLUMN_UID + " TEXT,"
             + MWRAListTable.COLUMN_UUID + " TEXT,"
             + MWRAListTable.COLUMN_CLUSTER + " TEXT,"
+            + MWRAListTable.COLUMN_DISTRICT + " TEXT,"
             + MWRAListTable.COLUMN_HHID + " TEXT,"
             + MWRAListTable.COLUMN_USERNAME + " TEXT,"
             + MWRAListTable.COLUMN_SYSDATE + " TEXT,"
@@ -249,6 +250,7 @@ object CreateTable {
             + FamilyMembersTable.COLUMN_PROJECT_NAME + " TEXT,"
             + FamilyMembersTable.COLUMN_UID + " TEXT,"
             + FamilyMembersTable.COLUMN_UUID + " TEXT,"
+            + FamilyMembersTable.COLUMN_DISTRICT + " TEXT,"
             + FamilyMembersTable.COLUMN_LHW_CODE + " TEXT,"
             + FamilyMembersTable.COLUMN_KHANDAN_NO + " TEXT,"
             + FamilyMembersTable.COLUMN_USERNAME + " TEXT,"
@@ -307,9 +309,15 @@ object CreateTable {
             ("ALTER TABLE " + HHFormsTable.TABLE_NAME + " ADD COLUMN " +  HHFormsTable.COLUMN_DISTRICT + " TEXT;")
 
     const val SQL_ALTER_LHWHHFORM_ADD_DISTRICT =
-            ("ALTER TABLE " + LHWHHTable.TABLE_NAME + " ADD COLUMN " +  LHWHHTable.TABLE_NAME + " TEXT;")
+            ("ALTER TABLE " + LHWHHTable.TABLE_NAME + " ADD COLUMN " +  LHWHHTable.COLUMN_DISTRICT + " TEXT;")
 
     const val SQL_ALTER_LHWFORM_ADD_DISTRICT =
-            ("ALTER TABLE " + LHWFormsTable.TABLE_NAME + " ADD COLUMN " +  LHWFormsTable.TABLE_NAME + " TEXT;")
+            ("ALTER TABLE " + LHWFormsTable.TABLE_NAME + " ADD COLUMN " +  LHWFormsTable.COLUMN_DISTRICT + " TEXT;")
+
+    const val SQL_ALTER_FAMILYMEMBERS_ADD_DISTRICT =
+        ("ALTER TABLE " + FamilyMembersTable.TABLE_NAME + " ADD COLUMN " +  FamilyMembersTable.COLUMN_DISTRICT + " TEXT;")
+
+    const val SQL_ALTER_MWRA_ADD_DISTRICT =
+        ("ALTER TABLE " + MWRAListTable.TABLE_NAME + " ADD COLUMN " +  MWRAListTable.COLUMN_DISTRICT + " TEXT;")
 
 }
