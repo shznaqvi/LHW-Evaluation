@@ -2014,6 +2014,7 @@ public class LHWForm extends BaseObservable implements Observable {
         json.put(LHWFormsTable.COLUMN_DEVICETAGID, this.deviceTag);
         json.put(LHWFormsTable.COLUMN_ISTATUS, this.iStatus);
         json.put(LHWFormsTable.COLUMN_DISTRICT, this.disctrict);
+        json.put(LHWFormsTable.COLUMN_APPVERSION, this.appver);
         //  json.put(LHWFormsTable.COLUMN_SYNCED, this.synced);
         //  json.put(LHWFormsTable.COLUMN_SYNCED_DATE, this.syncDate);
 

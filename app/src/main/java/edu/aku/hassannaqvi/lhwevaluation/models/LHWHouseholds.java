@@ -422,6 +422,7 @@ public class LHWHouseholds extends BaseObservable implements Observable {
         json.put(LHWHHTable.COLUMN_DEVICETAGID, this.deviceTag);
         json.put(LHWHHTable.COLUMN_ISTATUS, this.iStatus);
         json.put(LHWHHTable.COLUMN_LHW_CODE, this.lhwCode);
+        json.put(LHWHHTable.COLUMN_APPVERSION, this.appver);
 
         json.put(LHWHHTable.COLUMN_H101, this.h101);
         json.put(LHWHHTable.COLUMN_H102, this.h102);

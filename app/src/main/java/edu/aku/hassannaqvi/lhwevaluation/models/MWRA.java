@@ -32,6 +32,7 @@ public class MWRA extends BaseObservable {
     private String uuid = StringUtils.EMPTY;
     private String cluster = StringUtils.EMPTY;
     private String hhid = StringUtils.EMPTY;
+    private String dist = StringUtils.EMPTY;
     private String userName = StringUtils.EMPTY;
     private String sysDate = StringUtils.EMPTY;
     private String indexed = StringUtils.EMPTY;
@@ -409,6 +410,14 @@ public class MWRA extends BaseObservable {
     public void setHhid(String hhid) {
         this.hhid = hhid;
         notifyPropertyChanged(BR.hhid);
+    }
+
+    public String getDist() {
+        return dist;
+    }
+
+    public void setDist(String dist) {
+        this.dist = dist;
     }
 
     @Bindable
@@ -3990,6 +3999,7 @@ public class MWRA extends BaseObservable {
         this.uuid = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_UUID));
         this.cluster = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_CLUSTER));
         this.hhid = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_HHID));
+        this.dist = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_DISTRICT));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_SYSDATE));
         this.indexed = cursor.getString(cursor.getColumnIndexOrThrow(MWRAListTable.COLUMN_INDEXED));
@@ -4686,6 +4696,8 @@ public class MWRA extends BaseObservable {
             json.put(MWRAListTable.COLUMN_ISTATUS, this.iStatus);
             json.put(MWRAListTable.COLUMN_WRAUID, this.wraUID);
             json.put(MWRAListTable.COLUMN_WRA_SNO, this.wraSno);
+            json.put(MWRAListTable.COLUMN_APPVERSION, this.appver);
+            json.put(MWRAListTable.COLUMN_DISTRICT, this.dist);
             //  json.put(MWRAListTable.COLUMN_SYNCED, this.synced);
             //  json.put(MWRAListTable.COLUMN_SYNCED_DATE, this.syncDate);
 

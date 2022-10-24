@@ -4,6 +4,7 @@ import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 import android.database.Cursor;
 import android.util.Log;
+import android.widget.Switch;
 
 import androidx.databinding.BaseObservable;
 import androidx.databinding.Bindable;
@@ -39,6 +40,7 @@ public class FamilyMembers extends BaseObservable {
     private String uid = StringUtils.EMPTY;
     private String uuid = StringUtils.EMPTY;
     private final String lhwuid = StringUtils.EMPTY;
+    private String distCode = StringUtils.EMPTY;
     private String userName = StringUtils.EMPTY;
     private String sysDate = StringUtils.EMPTY;
     private String lhwCode = StringUtils.EMPTY;
@@ -79,6 +81,8 @@ public class FamilyMembers extends BaseObservable {
         setDeviceId(MainApp.deviceid);
         setAppver(MainApp.appInfo.getAppVersion());
         setAppver(MainApp.appInfo.getAppVersion());
+        setDistCode(MainApp.hhForm.getDistrict());
+
 
 
     }
@@ -154,6 +158,14 @@ public class FamilyMembers extends BaseObservable {
     public void setExpanded(boolean expanded) {
         this.expanded = expanded;
         notifyChange(BR.expanded);
+    }
+
+    public String getDistCode() {
+        return distCode;
+    }
+
+    public void setDistCode(String distCode) {
+        this.distCode = distCode;
     }
 
     @Bindable
@@ -405,6 +417,7 @@ public class FamilyMembers extends BaseObservable {
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FamilyMembersTable.COLUMN_UID));
         this.uuid = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_UUID));
         this.lhwCode = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_LHW_CODE));
+        this.distCode = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_DISTRICT));
         this.kNo = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FamilyMembersTable.COLUMN_KHANDAN_NO));
         this.userName = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FamilyMembersTable.COLUMN_USERNAME));
         this.sysDate = cursor.getString(cursor.getColumnIndexOrThrow(FamilyMembersTable.COLUMN_SYSDATE));
@@ -459,7 +472,9 @@ public class FamilyMembers extends BaseObservable {
             json.put(TableContracts.FamilyMembersTable.COLUMN_DEVICEID, this.deviceId);
             json.put(TableContracts.FamilyMembersTable.COLUMN_DEVICETAGID, this.deviceTag);
             json.put(TableContracts.FamilyMembersTable.COLUMN_ISTATUS, this.iStatus);
+            json.put(FamilyMembersTable.COLUMN_DISTRICT, this.distCode);
             json.put(FamilyMembersTable.COLUMN_SNO, this.sno);
+            json.put(FamilyMembersTable.COLUMN_APPVERSION, this.appver);
             //  json.put(FamilyMembersTable.COLUMN_SYNCED, this.synced);
             //  json.put(FamilyMembersTable.COLUMN_SYNCED_DATE, this.syncDate);
 
@@ -550,15 +565,52 @@ public class FamilyMembers extends BaseObservable {
      * 3 = Male > 19y
      */
     private void updateMemCategory() {
-        if(getH303().equals("")|| getH305().equals("")|| getH306().equals("") || getH309().equals("")) return;
+        if (getH303().equals("") || getH305().equals("") || getH306().equals("") || getH309().equals(""))
+            return;
         String memGender = getH303();
         String memMaritalStatus = getH306();
         String memStatus = getH309();
         int memAge = Integer.parseInt(getH305());
 
-        // MWRA
-        if (memGender.equals("2")                // Female
-                && (memAge >= 15 && memAge <= 49 )  // 15 to 49 year old
+
+
+        switch(memGender)
+        {
+            // Male
+            case "1":
+                if(memAge > 19 && (memStatus.equals("1"))) {
+                setMemCate("3");
+                }else if((memAge >= 10 && memAge <= 19          // 10 to 19 year old Adolescent
+                         && memStatus.equals("1"))) {
+                    setMemCate("2");
+                }
+                else{
+                    setMemCate("");
+                }
+
+                break;
+
+            case  "2":
+                // Unmarried Adolescent girl
+                if(memMaritalStatus.equals("2")){
+                    if((memAge >= 10 && memAge <= 19   // 15 to 49 year old Unmarried girl
+                            && memStatus.equals("1"))) {
+                        setMemCate("2");
+                    }
+                // MWRA
+                }else if ((memAge >= 15 && memAge <= 49)
+                    && memStatus.equals("1")) {
+
+                    setMemCate("1");
+                }else{
+                    setMemCate("");
+                }
+
+                    break;
+
+        }
+        /*if (memGender.equals("2")                // Female
+                && (memAge >= 15 && memAge <= 49)  // 15 to 49 year old
                 && !memMaritalStatus.equals("2")
                 && memStatus.equals("1")) {
            setMemCate("1");
@@ -583,7 +635,7 @@ public class FamilyMembers extends BaseObservable {
             setMemCate("3");
         }else{
             setMemCate("");
-        }
+        }*/
     }
 
     private synchronized void notifyChange(int propertyId) {

@@ -1852,6 +1852,7 @@ public class HHForm extends BaseObservable implements Observable {
         json.put(HHFormsTable.COLUMN_DEVICEID, this.deviceId);
         json.put(HHFormsTable.COLUMN_DEVICETAGID, this.deviceTag);
         json.put(HHFormsTable.COLUMN_ISTATUS, this.iStatus);
+        json.put(HHFormsTable.COLUMN_APPVERSION, this.appver);
 
         // Household
         json.put(HHFormsTable.COLUMN_SH2, new JSONObject(sH2toString()));
