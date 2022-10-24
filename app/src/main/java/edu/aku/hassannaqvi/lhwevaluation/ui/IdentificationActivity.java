@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui;
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.familyList;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
 
 import android.content.Intent;
@@ -66,6 +67,10 @@ public class IdentificationActivity extends AppCompatActivity {
             case 1:
                 bi.btnContinue.setText(R.string.open_hh_form);
                 MainApp.hhForm = new HHForm();
+                MainApp.maleFlag = false;
+                MainApp.adolFlag = false;
+                MainApp.UIDFlag = 0;
+
                 openIntent = new Intent(this, SectionH2Activity.class);
                 break;
          /*   case 2:

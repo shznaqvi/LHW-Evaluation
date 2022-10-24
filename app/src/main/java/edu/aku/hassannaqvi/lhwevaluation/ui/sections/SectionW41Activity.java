@@ -74,36 +74,44 @@ public class SectionW41Activity extends AppCompatActivity {
         if (updateDB()) {
             mwraCount--;
 
-            if (mwra.getW401().equals("1") && mwra.getW402().equals("1")) {
-                startActivity(new Intent(this, SectionW42Activity.class));
-            } else if (mwra.getW401().equals("1") && mwra.getW402().equals("2"))
-            {
-                if (MainApp.adolList.size() > 0 && !MainApp.adolFlag) {
-                    lhwgbHhForm = new LHWGB_HH();
-                    startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
+            switch (mwra.getW401()) {
+                case "1":
+                    if (mwra.getW402().equals("1")) {
+                        startActivity(new Intent(this, SectionW42Activity.class));
+                    } else {
+                        if (MainApp.adolList.size() > 0 && !MainApp.adolFlag) {
+                            lhwgbHhForm = new LHWGB_HH();
+                            startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
 
-                } else if (MainApp.maleList.size() > 0 && !MainApp.maleFlag) {
-                    lhwgbHhForm = new LHWGB_HH();
-                    startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
-                }
-                    else {
-                        startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                        } else if (MainApp.maleList.size() > 0 && !MainApp.maleFlag) {
+                            lhwgbHhForm = new LHWGB_HH();
+                            startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+                        } else {
+                            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                        }
                     }
-                }else if(mwra.getW401().equals("2") && (MainApp.hhForm.getDistrict().equals("218") || hhForm.getDistrict().equals("234"))){
-                startActivity(new Intent(this, SectionGB02Activity.class));
-            }else if (mwra.getW401().equals("2")){
-                if (MainApp.adolList.size() > 0 && !MainApp.adolFlag) {
-                    lhwgbHhForm = new LHWGB_HH();
-                    startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
 
-                } else if (MainApp.maleList.size() > 0 && !MainApp.maleFlag) {
-                    lhwgbHhForm = new LHWGB_HH();
-                    startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+                    break;
 
-                } else {
-                    startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
-                }
+                case "2":
+                    if (MainApp.hhForm.getDistrict().equals("218") || hhForm.getDistrict().equals("234")) {
+                        startActivity(new Intent(this, SectionGB02Activity.class));
+                    } else {
+                        if (MainApp.adolList.size() > 0 && !MainApp.adolFlag) {
+                            lhwgbHhForm = new LHWGB_HH();
+                            startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));
+
+                        } else if (MainApp.maleList.size() > 0 && !MainApp.maleFlag) {
+                            lhwgbHhForm = new LHWGB_HH();
+                            startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
+
+                        } else {
+                            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+                        }
+                    }
+                    break;
             }
+
 
             finish();
         } else Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();

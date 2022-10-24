@@ -1,5 +1,6 @@
 package edu.aku.hassannaqvi.lhwevaluation.ui.sections;
 
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.lhwgbHhForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.sharedPref;
@@ -66,6 +67,8 @@ public class SectionW42Activity extends AppCompatActivity {
     public void btnContinue(View view) {
         if (!formValidation()) return;
         if (updateDB()) {
+
+
             if(mwra.getW405h().equals("8")
                     || mwra.getW405i().equals("9")
                     || mwra.getW405j().equals("10")
@@ -74,7 +77,10 @@ public class SectionW42Activity extends AppCompatActivity {
                     || mwra.getW405m().equals("13")
                     || mwra.getW405n().equals("14")) {
                 startActivity(new Intent(this, SectionW43Activity.class));
-            }else{
+            }else if(MainApp.hhForm.getDistrict().equals("218") || hhForm.getDistrict().equals("234")) {
+                startActivity(new Intent(this, SectionGB02Activity.class));
+            }
+            else{
                 if (MainApp.adolList.size() > 0 && !MainApp.adolFlag) {
                     lhwgbHhForm = new LHWGB_HH();
                     startActivity(new Intent(this, SectionABActivity.class).putExtra("complete", true));

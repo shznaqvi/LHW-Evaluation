@@ -4202,6 +4202,15 @@ public class MWRA extends BaseObservable {
             this.w40396 = json.getString("w40396");
             this.w40396x = json.getString("w40396x");
             this.w404 = json.getString("w404");
+
+        }
+    }
+
+    public void sW42Hydrate(String string) throws JSONException {
+        Log.d(TAG, "sW42Hydrate: " + string);
+        if (string != null) {
+            JSONObject json = null;
+            json = new JSONObject(string);
             this.w405 = json.getString("w405");
             this.w405a = json.getString("w405a");
             this.w405b = json.getString("w405b");
@@ -4217,14 +4226,6 @@ public class MWRA extends BaseObservable {
             this.w405l = json.getString("w405l");
             this.w405m = json.getString("w405m");
             this.w405n = json.getString("w405n");
-        }
-    }
-
-    public void sW42Hydrate(String string) throws JSONException {
-        Log.d(TAG, "sW42Hydrate: " + string);
-        if (string != null) {
-            JSONObject json = null;
-            json = new JSONObject(string);
             this.w406a = json.getString("w406a");
             this.w406b = json.getString("w406b");
             this.w406c = json.getString("w406c");
@@ -4549,7 +4550,22 @@ public class MWRA extends BaseObservable {
     public String sW42toString() throws JSONException {
         Log.d(TAG, "sW42toString: ");
         JSONObject json = new JSONObject();
-        json.put("w406a", w406a)
+        json.put("w405", w405)
+                .put("w405a", w405a)
+                .put("w405b", w405b)
+                .put("w405c", w405c)
+                .put("w405d", w405d)
+                .put("w405e", w405e)
+                .put("w405f", w405f)
+                .put("w405g", w405g)
+                .put("w405h", w405h)
+                .put("w405i", w405i)
+                .put("w405j", w405j)
+                .put("w405k", w405k)
+                .put("w405l", w405l)
+                .put("w405m", w405m)
+                .put("w405n", w405n)
+                .put("w406a", w406a)
                 .put("w406b", w406b)
                 .put("w406c", w406c)
                 .put("w406d", w406d)

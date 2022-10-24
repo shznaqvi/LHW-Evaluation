@@ -84,19 +84,15 @@ public class FamilyMembers extends BaseObservable {
         setDistCode(MainApp.hhForm.getDistrict());
 
 
-
     }
-
 
     public String getProjectName() {
         return projectName;
     }
 
-
     public void setProjectName(String projectName) {
         this.projectName = projectName;
     }
-
 
     public String getId() {
         return id;
@@ -204,7 +200,6 @@ public class FamilyMembers extends BaseObservable {
         this.sysDate = sysDate;
     }
 
-
     public String getDeviceId() {
         return deviceId;
     }
@@ -269,7 +264,6 @@ public class FamilyMembers extends BaseObservable {
         this.syncDate = syncDate;
     }
 
-
     public String getsH3() {
         return sH3;
     }
@@ -310,9 +304,6 @@ public class FamilyMembers extends BaseObservable {
         updateMemCategory();
     }
 
-
-
-
     @Bindable
     public String getH304d() {
         return h304d;
@@ -352,7 +343,6 @@ public class FamilyMembers extends BaseObservable {
         }
         // Calculate age
         CaluculateAge();
-
         notifyChange(BR.h304y);
     }
 
@@ -410,8 +400,6 @@ public class FamilyMembers extends BaseObservable {
         updateMemCategory();
     }
 
-
-
     public FamilyMembers Hydrate(Cursor cursor) throws JSONException {
         this.id = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FamilyMembersTable.COLUMN_ID));
         this.uid = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FamilyMembersTable.COLUMN_UID));
@@ -430,7 +418,6 @@ public class FamilyMembers extends BaseObservable {
         this.syncDate = cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FamilyMembersTable.COLUMN_SYNCED_DATE));
 
         sH3Hydrate(cursor.getString(cursor.getColumnIndexOrThrow(TableContracts.FamilyMembersTable.COLUMN_SH3)));
-
 
         return this;
     }
@@ -493,7 +480,6 @@ public class FamilyMembers extends BaseObservable {
         json.put("h301", h301)
                 .put("h302", h302)
                 .put("h303", h303)
-
                 .put("h304d", h304d)
                 .put("h304m", h304m)
                 .put("h304y", h304y)
@@ -609,33 +595,6 @@ public class FamilyMembers extends BaseObservable {
                     break;
 
         }
-        /*if (memGender.equals("2")                // Female
-                && (memAge >= 15 && memAge <= 49)  // 15 to 49 year old
-                && !memMaritalStatus.equals("2")
-                && memStatus.equals("1")) {
-           setMemCate("1");
-        }else{
-            setMemCate("");
-        }
-
-        // Adolescent
-        if ((memAge >= 10 && memAge <= 19   // 15 to 49 year old Unmarried girl
-                        && memMaritalStatus.equals("2")
-                        && memGender.equals("2")
-                        && memStatus.equals("1"))
-                        || (memAge >= 10 && memAge <= 19   // 15 to 49 year old male
-                        && memGender.equals("1") && memStatus.equals("1"))) {
-            setMemCate("2");
-        }else{
-            setMemCate("");
-        }
-
-
-        if (memGender.equals("1") && memAge > 19 && (memStatus.equals("1"))) {
-            setMemCate("3");
-        }else{
-            setMemCate("");
-        }*/
     }
 
     private synchronized void notifyChange(int propertyId) {
