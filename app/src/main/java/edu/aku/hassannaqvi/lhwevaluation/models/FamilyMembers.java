@@ -582,6 +582,8 @@ public class FamilyMembers extends BaseObservable {
                     if((memAge >= 10 && memAge <= 19   // 15 to 49 year old Unmarried girl
                             && memStatus.equals("1"))) {
                         setMemCate("2");
+                    }else{
+                        setMemCate("");
                     }
                 // MWRA
                 }else if ((memAge >= 15 && memAge <= 49)
