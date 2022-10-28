@@ -204,6 +204,7 @@ public class LHWGB_HH extends BaseObservable implements Observable {
         setAppver(MainApp.appInfo.getAppVersion());
         setCluster(MainApp.hhForm.getLhwCode());
         setHhid(MainApp.hhForm.getKhandandNo());
+
         //setMuid(MainApp.selectedMemberUID);
 
 

@@ -66,7 +66,7 @@ public class SectionGB01AActivity extends AppCompatActivity {
             MainApp.lhwgbForm.setDeviceId(MainApp.LHWForm.getDeviceId());
             MainApp.lhwgbForm.setCluster(MainApp.LHWForm.getCluster());
             MainApp.lhwgbForm.setLhwuid(MainApp.LHWForm.getUid());
-            //MainApp.lhwgbForm.setLhwCode(MainApp.LHWForm.get);
+            MainApp.lhwgbForm.setLhwCode(MainApp.LHWForm.getA104c());
             //MainApp.lhwgbForm.setHhid(MainApp.LHWForm.get());
             MainApp.lhwgbForm.setUserName(MainApp.LHWForm.getUserName());
             MainApp.lhwgbForm.setSysDate(MainApp.LHWForm.getSysDate());
