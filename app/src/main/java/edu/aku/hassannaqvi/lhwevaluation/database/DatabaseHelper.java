@@ -2,6 +2,7 @@ package edu.aku.hassannaqvi.lhwevaluation.database;
 
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.IBAHC;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.PROJECT_NAME;
+import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.hhForm;
 import static edu.aku.hassannaqvi.lhwevaluation.core.MainApp.mwra;
 import static edu.aku.hassannaqvi.lhwevaluation.core.UserAuth.checkPassword;
 import static edu.aku.hassannaqvi.lhwevaluation.database.CreateTable.SQL_ALTER_FAMILYMEMBERS_ADD_DISTRICT;
@@ -52,10 +53,14 @@ import org.json.JSONObject;
 
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+import java.util.SimpleTimeZone;
 
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts.EntryLogTable;
@@ -1145,7 +1150,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public JSONArray getUnsyncedLHWHHForms() throws JSONException {
+    public JSONArray getUnsyncedLHWHHForms() throws JSONException, ParseException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
@@ -1179,7 +1184,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Log.d(TAG, "getUnsyncedForms: " + c.getCount());
             LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
             List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getLhwCode());
-            if (lhwhhs.size() >= 5)
+            LHWForm lhwForm = new LHWForm().Hydrate(c);
+            long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
+            if (lhwhhs.size() >= 5 || days >=30)
                 allLHWHHForms.put(lhwHousehold.toJSONObject());
 
 
@@ -1190,7 +1197,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return allLHWHHForms;
     }
 
-    public JSONArray getUnsyncedHHForms() throws JSONException {
+    public JSONArray getUnsyncedHHForms() throws JSONException, ParseException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
@@ -1227,7 +1234,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
             List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getA104c());
-            if (lhwhhs.size() >= 5)
+            LHWForm lhwForm = new LHWForm().Hydrate(c);
+            long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
+            if (lhwhhs.size() >= 10 || days >= 30)
                 allForms.put(HHForm.toJSONObject());
 
 
@@ -1239,7 +1248,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
-    public JSONArray getUnsyncedFamilyMembers() throws JSONException {
+    public JSONArray getUnsyncedFamilyMembers() throws JSONException, ParseException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
         String[] columns = null;
@@ -1278,7 +1287,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
             LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
             List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getA104c());
-            if (checkHHFormStatus(familyMember.getUuid()) && lhwhhs.size() >=5)
+            LHWForm lhwForm = new LHWForm().Hydrate(c);
+            long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
+            if (checkHHFormStatus(familyMember.getUuid()) && lhwhhs.size() >=5 || days>=30)
                 allFamilyMembers.put(familyMember.toJSONObject());
 
 
@@ -2187,6 +2198,43 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return hhForm;
     }
 
+
+    public List<HHForm> getTotalHHFormByLHWCode(String lhwCode) throws JSONException {
+
+        SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
+        Cursor c;
+        String[] columns = null;
+
+        String whereClause;
+        whereClause = HHFormsTable.COLUMN_LHW_CODE + "=?";
+
+
+        String[] whereArgs = {lhwCode};
+
+        String groupBy = null;
+        String having = null;
+
+        String orderBy = TableContracts.HHFormsTable.COLUMN_ID + " ASC";
+
+        ArrayList<HHForm> hhForm = new ArrayList<>();
+
+        c = db.query(
+                TableContracts.HHFormsTable.TABLE_NAME,  // The table to query
+                columns,                   // The columns to return
+                whereClause,               // The columns for the WHERE clause
+                whereArgs,                 // The values for the WHERE clause
+                groupBy,                   // don't group the rows
+                having,                    // don't filter by row groups
+                orderBy                    // The sort order
+        );
+        while (c.moveToNext()) {
+            HHForm hhForm1 = new HHForm().Hydrate(c);
+            hhForm.add(hhForm1);
+
+        }
+
+        return hhForm;
+    }
     public List<FamilyMembers> getMemberBYUID(String uid) throws JSONException {
         SQLiteDatabase db = this.getReadableDatabase(DATABASE_PASSWORD);
         Cursor c = null;
@@ -2424,4 +2472,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 selection,
                 selectionArgs);
     }
+
+    public long daysBetweenTwoDates(String date, String dateToday) throws ParseException {
+        long days = 0;
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        long date1 = sdf.parse(date).getTime();
+        long today = sdf.parse(dateToday).getTime();
+
+        days =  today - date1;
+
+        return days;
+    }
+
+
 }

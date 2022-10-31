@@ -44,6 +44,7 @@ import org.json.JSONObject;
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -172,7 +173,7 @@ public class SyncActivity extends AppCompatActivity {
                 uploadTables.add(new SyncModel(LHWHHTable.TABLE_NAME));
                 try {
                     uploadData.add(db.getUnsyncedLHWHHForms());
-                } catch (JSONException e) {
+                } catch (JSONException | ParseException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "JSONException(LHWHouseholds): " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -181,7 +182,7 @@ public class SyncActivity extends AppCompatActivity {
                 uploadTables.add(new SyncModel(HHFormsTable.TABLE_NAME));
                 try {
                     uploadData.add(db.getUnsyncedHHForms());
-                } catch (JSONException e) {
+                } catch (JSONException | ParseException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "JSONException(HHForms): " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }
@@ -190,7 +191,7 @@ public class SyncActivity extends AppCompatActivity {
                 uploadTables.add(new SyncModel(FamilyMembersTable.TABLE_NAME));
                 try {
                     uploadData.add(db.getUnsyncedFamilyMembers());
-                } catch (JSONException e) {
+                } catch (JSONException | ParseException e) {
                     e.printStackTrace();
                     Toast.makeText(this, "JSONException(FamilyMembers): " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 }

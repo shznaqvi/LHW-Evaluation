@@ -454,6 +454,7 @@
                         android:background="@android:color/transparent"
                         android:onClick="btnEnd"
                         android:text="Cancel"
+                        android:visibility="gone"
                         android:layout_marginStart="12dp"
                         android:textColor="@color/colorPrimary"
                         android:textSize="18sp"

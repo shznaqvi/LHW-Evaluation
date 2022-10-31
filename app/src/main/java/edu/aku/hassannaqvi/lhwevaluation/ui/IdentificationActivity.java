@@ -43,6 +43,7 @@ public class IdentificationActivity extends AppCompatActivity {
     private static final String TAG = "IdentificationActivity";
     ActivityIdentificationBinding bi;
     List<LHWHouseholds> lhwhhs = new ArrayList<>();
+    List<HHForm> hhForms = new ArrayList<>();
     private DatabaseHelper db;
     private Intent openIntent;
     private ArrayList<String> lhwNames;
@@ -122,6 +123,8 @@ public class IdentificationActivity extends AppCompatActivity {
                 if (position == 0) return;
                 try {
                     lhwhhs = db.getKhandanNoByLHW(lhwCodes.get(position));
+                    //hhForms = db.getTotalHHFormByLHWCode(lhwCodes.get(position));
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                     Toast.makeText(IdentificationActivity.this, "JSONException(LHWHouseholds)" + e.getMessage(), Toast.LENGTH_SHORT).show();
@@ -132,15 +135,20 @@ public class IdentificationActivity extends AppCompatActivity {
                 khandanNo.add("...");
                 hhheads.add("...");
 
-                Iterator<LHWHouseholds> i = lhwhhs.iterator();
-                while (i.hasNext()) {
-                    LHWHouseholds lhwhh = i.next();
-                    if (!hhDone(lhwhh.getH102())) {
-                        khandanNo.add(lhwhh.getH102());
-                    } else {
-                        i.remove();
+                //if(hhForms.size() < 5) {
+
+                    Iterator<LHWHouseholds> i = lhwhhs.iterator();
+                    while (i.hasNext()) {
+                        LHWHouseholds lhwhh = i.next();
+                        if (!hhDone(lhwhh.getH102())) {
+                            khandanNo.add(lhwhh.getH102());
+                        } else {
+                            i.remove();
+                        }
                     }
-                }
+                /*}else{
+                    lhwhhs.clear();
+                }*/
 
     /*            for (LHWHouseholds lhwhh : lhwhhs) {
                     if (!hhDone(lhwhh.getH102())){
