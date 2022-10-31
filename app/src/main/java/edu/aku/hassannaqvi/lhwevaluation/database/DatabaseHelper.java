@@ -1185,8 +1185,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
             List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getLhwCode());
             LHWForm lhwForm = new LHWForm().Hydrate(c);
-            long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
-            if (lhwhhs.size() >= 5 || days >=30)
+            //long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
+            if (lhwhhs.size() >= 5 )
                 allLHWHHForms.put(lhwHousehold.toJSONObject());
 
 
@@ -1235,8 +1235,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
             List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getA104c());
             LHWForm lhwForm = new LHWForm().Hydrate(c);
-            long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
-            if (lhwhhs.size() >= 10 || days >= 30)
+            //long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
+            if (lhwhhs.size() >= 10)
                 allForms.put(HHForm.toJSONObject());
 
 
@@ -1288,8 +1288,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
             List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getA104c());
             LHWForm lhwForm = new LHWForm().Hydrate(c);
-            long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
-            if (checkHHFormStatus(familyMember.getUuid()) && lhwhhs.size() >=5 || days>=30)
+            //long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
+            if (checkHHFormStatus(familyMember.getUuid()) && lhwhhs.size() >=5)
                 allFamilyMembers.put(familyMember.toJSONObject());
 
 
