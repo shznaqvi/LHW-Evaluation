@@ -1094,9 +1094,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
              allFC.add(fc.Hydrate(c));*/
             Log.d(TAG, "getUnsyncedForms: " + c.getCount());
             LHW_GB lhwgb = new LHW_GB().Hydrate(c);
-            LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
+            /*LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
             List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getA104c());
-            if (lhwhhs.size() >= 5)
+            if (lhwhhs.size() >= 5)*/
                 allLHWGBForms.put(lhwgb.toJSONObject());
 
 
@@ -1139,9 +1139,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Log.d(TAG, "getUnsyncedForms: " + c.getCount());
             LHWGB_HH lhwgb = new LHWGB_HH().Hydrate(c);
 
-            LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
+            /*LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
             List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getA104c());
-            if (lhwhhs.size() >= 5)
+            if (lhwhhs.size() >= 5)*/
             allLHWGBForms.put(lhwgb.toJSONObject());
 
 
@@ -1183,11 +1183,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
              allFC.add(fc.Hydrate(c));*/
             Log.d(TAG, "getUnsyncedForms: " + c.getCount());
             LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
-            List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getLhwCode());
-            LHWForm lhwForm = new LHWForm().Hydrate(c);
+           /* List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getLhwCode());
+            //LHWForm lhwForm = new LHWForm().Hydrate(c);
             //long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
             if (lhwhhs.size() >= 5 )
-                allLHWHHForms.put(lhwHousehold.toJSONObject());
+           */     allLHWHHForms.put(lhwHousehold.toJSONObject());
 
 
         }
@@ -1232,18 +1232,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             Log.d(TAG, "getUnsyncedForms: " + c.getCount());
             HHForm HHForm = new HHForm().Hydrate(c);
 
-            LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
+            /*LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
             List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getA104c());
-            LHWForm lhwForm = new LHWForm().Hydrate(c);
+            //LHWForm lhwForm = new LHWForm().Hydrate(c);
             //long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
-            if (lhwhhs.size() >= 10)
+            if (lhwhhs.size() >= 10)*/
                 allForms.put(HHForm.toJSONObject());
 
 
         }
 
-        Log.d(TAG, "getUnsyncedLHWHouseholds: " + allForms.toString().length());
-        Log.d(TAG, "getUnsyncedLHWHouseholds: " + allForms);
+        Log.d(TAG, "getUnsyncedHHForms: " + allForms.toString().length());
+        Log.d(TAG, "getUnsyncedHHForms: " + allForms);
         return allForms;
     }
 
@@ -1279,24 +1279,24 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             /** WorkManager Upload
              /*hhForm fc = new hhForm();
              allFC.add(fc.Hydrate(c));*/
-            Log.d(TAG, "getUnsyncedForms: " + c.getCount());
+            Log.d(TAG, "getUnsyncedFamilyMembers: " + c.getCount());
 
 
             FamilyMembers familyMember = new FamilyMembers();
             familyMember = familyMember.Hydrate(c);
 
-            LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
+           /* LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
             List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getA104c());
             LHWForm lhwForm = new LHWForm().Hydrate(c);
-            //long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
-            if (checkHHFormStatus(familyMember.getUuid()) && lhwhhs.size() >=5)
+           */ //long days  = daysBetweenTwoDates(hhForm.getSysDate(), lhwForm.getSysDate());
+            if (checkHHFormStatus(familyMember.getUuid()))
                 allFamilyMembers.put(familyMember.toJSONObject());
 
 
         }
 
-        Log.d(TAG, "getUnsyncedForms: " + allFamilyMembers.toString().length());
-        Log.d(TAG, "getUnsyncedForms: " + allFamilyMembers);
+        Log.d(TAG, "getUnsyncedFamilyMembers: " + allFamilyMembers.toString().length());
+        Log.d(TAG, "getUnsyncedFamilyMembers: " + allFamilyMembers);
         return allFamilyMembers;
     }
 
@@ -1332,12 +1332,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             /** WorkManager Upload
              /*hhForm fc = new hhForm();
              allFC.add(fc.Hydrate(c));*/
-            Log.d(TAG, "getUnsyncedForms: " + c.getCount());
+            Log.d(TAG, "getUnsyncedMWRA: " + c.getCount());
             MWRA mwra = new MWRA().Hydrate(c);
 
-            LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
-            List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getA104c());
-            if (checkHHFormStatus(mwra.getUuid()) && lhwhhs.size() >=5)
+            /*LHWHouseholds lhwHousehold = new LHWHouseholds().Hydrate(c);
+            List<LHWHouseholds> lhwhhs = getKhandanNoByLHW(lhwHousehold.getA104c());*/
+            if (checkHHFormStatus(mwra.getUuid()))
                 allMWRA.put(mwra.toJSONObject());
 
         }

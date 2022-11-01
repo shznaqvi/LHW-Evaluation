@@ -2581,7 +2581,7 @@ This Section will be repeated for Selected MWRA, Adolescent, and Male members of
 
     <string name="Q_istatus"> status </string>
     <string name="istatus"> Result of Household Questionnaire interview </string>
-    <string name="istatusi"> Discuss any result not completed with team leader </string>
+<!--    <string name="istatusi"> Discuss any result not completed with team leader </string>-->
     <string name="istatusa"> Completed </string>
     <string name="istatusb"> No household member at home or no competent respondent at home at time of visit </string>
     <string name="istatusc"> Entire household is absent for extended period </string>
@@ -2590,6 +2590,7 @@ This Section will be repeated for Selected MWRA, Adolescent, and Male members of
     <string name="istatusf"> Dwelling not found </string>
     <string name="istatusg"> No Child or adolescent 18 years or below present in the HH </string>
     <string name="istatush"> No MWRA 18 or above of age live in this household ? </string>
+    <string name="istatusi"> Household not selected for Validation</string>
     <string name="istatus96"> Other (Specify) </string>
 
     <string-array name="langs">

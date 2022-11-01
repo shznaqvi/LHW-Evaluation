@@ -21,6 +21,7 @@ import edu.aku.hassannaqvi.lhwevaluation.contracts.TableContracts;
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.DatabaseHelper;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivitySectionH2Binding;
+import edu.aku.hassannaqvi.lhwevaluation.ui.EndingActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FamilyMambersListActivity;
 
 
@@ -104,8 +105,23 @@ public class SectionH2Activity extends AppCompatActivity {
 
     public void btnEnd(View view) {
 
-        startActivity(new Intent(this, MainActivity.class));
-        finish();
+        //if (!formValidation()) return;
+        hhForm.setH205("");
+        if (!insertNewRecord()) return;
+        // saveDraft();
+        if (updateDB()) {
+            Intent i;
+            //      if (bi.h111a.isChecked()) {
+            i = new Intent(this, EndingActivity.class).putExtra("complete", false);
+           /* } else {
+                i = new Intent(this, EndingActivity.class).putExtra("complete", false);
+            }*/
+
+            startActivity(i);
+            finish();
+        } else {
+            Toast.makeText(this, R.string.fail_db_upd, Toast.LENGTH_SHORT).show();
+        }
     }
 
 

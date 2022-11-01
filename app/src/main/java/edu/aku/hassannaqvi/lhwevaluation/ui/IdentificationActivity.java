@@ -254,7 +254,7 @@ public class IdentificationActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
         if (hhForm != null)
-            return hhForm.getiStatus().equals("1");
+            return hhForm.getiStatus().equals("1") || hhForm.getiStatus().equals("9");
         return false;
     }
 
@@ -265,7 +265,7 @@ public class IdentificationActivity extends AppCompatActivity {
         MainApp.hhForm.setSysDate(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH).format(new Date().getTime()));
         MainApp.hhForm.setDeviceId(MainApp.deviceid);
         MainApp.hhForm.setAppver(MainApp.versionName + "." + MainApp.versionCode);
-        MainApp.hhForm.setDistrict(MainApp.LHWForm.getDisctrict());
+        MainApp.hhForm.setDistrict(MainApp.LHWHouseholds.getDisctrict());
 
         MainApp.hhForm.setLhwCode(MainApp.LHWHouseholds.getA104c());
         MainApp.hhForm.setKhandandNo(MainApp.LHWHouseholds.getH102());

@@ -81,7 +81,7 @@ public class FamilyMembers extends BaseObservable {
         setDeviceId(MainApp.deviceid);
         setAppver(MainApp.appInfo.getAppVersion());
         setAppver(MainApp.appInfo.getAppVersion());
-        setDistCode(MainApp.hhForm.getDistrict());
+        //setDistCode(MainApp.hhForm.getDistrict());
 
 
     }

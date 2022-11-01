@@ -41,6 +41,7 @@ public class SectionH3Activity extends AppCompatActivity {
         bi.setCallback(this);
         bi.setFamilyMember(MainApp.familyMembers);
         MainApp.familyMembers.setH301(String.valueOf(MainApp.memberCount + 1));
+        MainApp.familyMembers.setDistCode(MainApp.hhForm.getDistrict());
 
         // Initialize Database
         db = MainApp.appInfo.getDbHelper();
