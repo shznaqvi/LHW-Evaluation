@@ -254,7 +254,7 @@ public class IdentificationActivity extends AppCompatActivity {
             Toast.makeText(this, getString(R.string.hh_exists_form) + e.getMessage(), Toast.LENGTH_SHORT).show();
         }
         if (hhForm != null)
-            return hhForm.getiStatus().equals("1") || hhForm.getiStatus().equals("9");
+            return hhForm.getiStatus().equals("1") || hhForm.getiStatus().equals("9") || !hhForm.getSyncDate().equals("");
         return false;
     }
 

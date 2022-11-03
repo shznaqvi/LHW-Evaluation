@@ -199,7 +199,7 @@ public class FamilyMambersListActivity extends AppCompatActivity {
             startActivity(new Intent(this, SectionMActivity.class).putExtra("complete", true));
         } else {
 
-            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", true));
+            startActivity(new Intent(this, EndingActivity.class).putExtra("complete", false));
         }
         finish();
 
