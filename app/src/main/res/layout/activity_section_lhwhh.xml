@@ -434,9 +434,6 @@
 
                 <!--EndButton LinearLayout-->
 
-            </LinearLayout>
-
-        </ScrollView>
 
         <LinearLayout
                     android:layout_width="match_parent"
@@ -471,7 +468,6 @@
                         android:onClick="btnContinue"
                         android:text="Save &amp; Close"
                         android:layout_marginStart="12dp"
-
                         android:textColor="@color/white"
                         android:textSize="18sp"
                         android:textStyle="bold" />
@@ -485,7 +481,6 @@
                         android:backgroundTintMode="src_atop"
                         android:onClick="btnContinue"
                         android:layout_marginStart="12dp"
-
                         android:text="Save &amp; Add More"
                         android:textColor="@color/white"
                         android:textSize="18sp"
@@ -494,8 +489,8 @@
                 </LinearLayout>
                 <!--EndButton LinearLayout-->
 
-
-
+    </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
 

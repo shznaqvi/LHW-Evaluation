@@ -18,13 +18,13 @@ buildscript {
 /*plugins {
     id "com.quittle.setup-android-sdk" version "2.1.0"
 }*/
-/*allprojects {
+allprojects {
     repositories {
         google()
         mavenCentral()
         maven { url 'https://jitpack.io' }
     }
-}*/
+}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
