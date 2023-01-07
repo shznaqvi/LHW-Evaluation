@@ -3,21 +3,139 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_ending.xml" value="0.17760416666666667" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_family_list.xml" value="0.17760416666666667" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_household.xml" value="0.26666666666666666" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_identification.xml" value="0.17760416666666667" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_lhw.xml" value="0.17760416666666667" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_lhw_identification.xml" value="0.26666666666666666" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_main.xml" value="0.17760416666666667" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_ab.xml" value="0.17760416666666667" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_l4.xml" value="0.17760416666666667" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_lhwhh.xml" value="0.26666666666666666" />
-        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_w1.xml" value="0.26666666666666666" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/drawable-v24/app_bg_effect.xml" value="0.365" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_change_password.xml" value="0.3025" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_ending.xml" value="0.3466666666666667" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_family_list.xml" value="0.36" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_identification.xml" value="0.25416666666666665" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_lhw.xml" value="0.371875" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_lhw_identification.xml" value="0.29583333333333334" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_login.xml" value="0.209375" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_section_h2.xml" value="0.35333333333333333" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_section_h3.xml" value="0.35333333333333333" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_section_l1.xml" value="0.35625" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_section_lhwhh.xml" value="0.35625" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/activity_sync.xml" value="0.2783333333333333" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/layout/sync_list_adapter.xml" value="0.2783333333333333" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/menu/item_menu.xml" value="0.35625" />
+        <entry key="..\:/Android Office Work/LHW-Evaluation/app/src/main/res/menu/main_menu.xml" value="0.35625" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/ic_girl.xml" value="0.34140625" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/male.xml" value="0.33240740740740743" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/new_form.xml" value="0.34140625" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/search.xml" value="0.5875" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/splash_screen.xml" value="0.34140625" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/sub_labels_separator.xml" value="0.34140625" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/top_round_shape.xml" value="0.34140625" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/drawable/top_round_shape_transparent.xml" value="0.34140625" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_camera.xml" value="0.55" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_ending.xml" value="0.21145833333333333" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_family_list.xml" value="0.53" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_forms_report.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_household.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_identification.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_lhw.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_lhw_identification.xml" value="0.3171875" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_login.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_main.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_mwra.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_a.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_ab.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_b1.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_b2.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_c.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_h1.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_h2.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_h2a.xml" value="0.37552083333333336" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_h3.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_l1.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_l2.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_l3.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_l4.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_lhwhh.xml" value="0.3171875" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_m.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w1.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w2.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w3.xml" value="0.53625" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w41.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w42.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_section_w43.xml" value="0.545" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/activity_sync.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/custom_spinner.xml" value="0.3171875" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/fragment_blank.xml" value="0.3614583333333333" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/lhw_row.xml" value="0.37552083333333336" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/pendingform_layout.xml" value="0.56328125" />
+        <entry key="..\:/Android/LHWEvaluation/app/src/main/res/layout/sync_list_adapter.xml" value="0.3171875" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/drawable/camera.xml" value="0.5828125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/drawable/camera_checked.xml" value="0.5828125" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_camera.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_ending.xml" value="0.42265625" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_identification.xml" value="0.5458015267175572" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_lhw.xml" value="0.52375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_lhw_identification.xml" value="0.505" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_login.xml" value="0.72" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_main.xml" value="0.3140625" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_ab.xml" value="0.6" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_h2.xml" value="0.485" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_h3.xml" value="0.5458015267175572" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_l1.xml" value="0.6" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_l2.xml" value="0.485" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_l4.xml" value="0.5" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_lhwhh.xml" value="0.50875" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_w1.xml" value="0.485" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_w2.xml" value="0.6" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_w3.xml" value="0.6" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_w41.xml" value="0.5458015267175572" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_w42.xml" value="0.4" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/activity_section_w43.xml" value="0.536" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/layout/lhw_row.xml" value="0.5075" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/menu/item_menu.xml" value="0.3140625" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/ANDROID APPS/Android/LHW-Evaluation/app/src/main/res/menu/main_menu.xml" value="0.3140625" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/Android App/LHW-Evaluation/app/src/main/res/drawable-v24/ic_date_error.xml" value="0.5525" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/Android App/LHW-Evaluation/app/src/main/res/layout/activity_change_password.xml" value="0.495" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/Android App/LHW-Evaluation/app/src/main/res/layout/activity_ending.xml" value="0.5458015267175572" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/Android App/LHW-Evaluation/app/src/main/res/layout/activity_sync.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/Android App/LHW-Evaluation/app/src/main/res/layout/date_error_dialog.xml" value="0.55859375" />
+        <entry key="..\:/Users/abdul.sajid/Desktop/Android App/LHW-Evaluation/app/src/main/res/layout/sync_list_adapter.xml" value="0.55859375" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_login.xml" value="0.17578125" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_main.xml" value="0.41171875" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_ab.xml" value="0.13604972375690608" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01.xml" value="0.1" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01A.xml" value="0.1" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01B.xml" value="0.1" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01a.xml" value="0.5766666666666667" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01b.xml" value="0.5" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01c.xml" value="0.6455223880597015" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb02.xml" value="0.3365200764818356" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb02b.xml" value="0.42452830188679247" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_h3.xml" value="0.41171875" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_l4.xml" value="0.4325" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_lhwhh.xml" value="0.4325" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_m.xml" value="0.6641074856046065" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_w1.xml" value="0.3828125" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_w41.xml" value="0.3078125" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_w42.xml" value="0.75" />
+        <entry key="..\:/Users/gul.sanober/StudioProjects/LHW-Evaluation/app/src/main/res/layout/famlily_member_row.xml" value="0.41171875" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_household.xml" value="0.1527777777777778" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_identification.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_lhw.xml" value="0.25277777777777777" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_lhw_identification.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01a.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01b.xml" value="0.1527777777777778" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb01c.xml" value="0.1527777777777778" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb02.xml" value="0.1" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_gb02b.xml" value="0.1527777777777778" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_h3.xml" value="0.1527777777777778" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_l1.xml" value="0.25277777777777777" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_lhwhh.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_w41.xml" value="0.2484375" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_w42.xml" value="0.25833333333333336" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/LHW-Evaluation/app/src/main/res/layout/activity_section_w43.xml" value="0.18861209964412812" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_16" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="16" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
