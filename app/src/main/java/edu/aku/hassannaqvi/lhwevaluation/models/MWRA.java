@@ -3697,16 +3697,16 @@ public class MWRA extends BaseObservable {
         notifyPropertyChanged(BR.w417c);
     }
 
-   /* @Bindable
-    public String getW417d() {
-        return w417d;
-    }
+    /* @Bindable
+     public String getW417d() {
+         return w417d;
+     }
 
-    public void setW417d(String w417d) {
-        this.w417d = w417d;
-        notifyPropertyChanged(BR.w417d);
-    }
-*/
+     public void setW417d(String w417d) {
+         this.w417d = w417d;
+         notifyPropertyChanged(BR.w417d);
+     }
+ */
     @Bindable
     public String getW417e() {
         return w417e;
@@ -4027,7 +4027,7 @@ public class MWRA extends BaseObservable {
         if (string != null) {
             JSONObject json = null;
             json = new JSONObject(string);
-            this.maritalStatus = json.getString("maritalStatus");
+            this.maritalStatus = json.has("maritalStatus") ? json.getString("maritalStatus") : "";
             this.w101 = json.getString("w101");
             this.w102 = json.getString("w102");
             this.w103 = json.getString("w103");
