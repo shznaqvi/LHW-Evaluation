@@ -134,18 +134,18 @@ public class LoginActivity extends AppCompatActivity {
                         Manifest.permission.READ_PHONE_STATE,
                         Manifest.permission.CAMERA
                 ).withListener(new MultiplePermissionsListener() {
-            @Override
-            public void onPermissionsChecked(MultiplePermissionsReport report) {
-                if (report.areAllPermissionsGranted()) {
-                    MainApp.permissionCheck = true;
-                }
-            }
+                    @Override
+                    public void onPermissionsChecked(MultiplePermissionsReport report) {
+                        if (report.areAllPermissionsGranted()) {
+                            MainApp.permissionCheck = true;
+                        }
+                    }
 
-            @Override
-            public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
-                token.continuePermissionRequest();
-            }
-        }).check();
+                    @Override
+                    public void onPermissionRationaleShouldBeShown(List<PermissionRequest> permissions, PermissionToken token) {
+                        token.continuePermissionRequest();
+                    }
+                }).check();
 
         bi = DataBindingUtil.setContentView(this, R.layout.activity_login);
         bi.setCallback(this);
@@ -310,16 +310,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void attemptLogin(View view) {
-        attemptCounter++;
         // Reset errors.
         bi.username.setError(null);
         bi.password.setError(null);
-        Toast.makeText(this, String.valueOf(attemptCounter), Toast.LENGTH_SHORT).show();
-        if (attemptCounter == 7) {
-            Intent iLogin = new Intent(edu.aku.hassannaqvi.lhwevaluation.ui.LoginActivity.this, MainActivity.class);
-            startActivity(iLogin);
+        attemptCounter = 0;
 
-        } else {
+
+        if (attemptCounter < 7) {
             // Store values at the time of the login attempt.
             String username = bi.username.getText().toString();
             String password = bi.password.getText().toString();
@@ -376,9 +373,11 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(this, "This user is inactive.", Toast.LENGTH_SHORT).show();
                     }
                 } else {
+                    attemptCounter++;
                     recordEntry("Failed Login: Incorrect username or password");
                     bi.password.setError(getString(R.string.incorrect_username_or_password));
                     bi.password.requestFocus();
+                    Toast.makeText(this, getString(R.string.incorrect_username_or_password) +": "+ attemptCounter, Toast.LENGTH_SHORT).show();
                     //  Toast.makeText(LoginActivity.this, username + " " + password, Toast.LENGTH_SHORT).show();
                 }
             } catch (InvalidKeySpecException e) {
@@ -390,6 +389,8 @@ public class LoginActivity extends AppCompatActivity {
 
             }
 
+        } else {
+            Toast.makeText(this, "Account Locked", Toast.LENGTH_SHORT).show();
         }
     }
 

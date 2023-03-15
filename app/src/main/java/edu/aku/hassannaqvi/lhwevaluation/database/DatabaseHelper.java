@@ -595,7 +595,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         c.close();
         if (loggedInUser.getPassword().equals("")) {
-            Toast.makeText(mContext, "Stored password is invalid", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(mContext, "Stored password is invalid", Toast.LENGTH_SHORT).show();
             return false;
         }
         if (checkPassword(password, loggedInUser.getPassword())) {
