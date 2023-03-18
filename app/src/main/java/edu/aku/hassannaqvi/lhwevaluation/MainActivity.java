@@ -2,25 +2,31 @@ package edu.aku.hassannaqvi.lhwevaluation;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 import androidx.databinding.DataBindingUtil;
+
+import java.io.File;
 
 import edu.aku.hassannaqvi.lhwevaluation.core.MainApp;
 import edu.aku.hassannaqvi.lhwevaluation.database.AndroidDatabaseManager;
 import edu.aku.hassannaqvi.lhwevaluation.databinding.ActivityMainBinding;
 import edu.aku.hassannaqvi.lhwevaluation.models.HHForm;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHWForm;
-import edu.aku.hassannaqvi.lhwevaluation.models.LHWGB_HH;
 import edu.aku.hassannaqvi.lhwevaluation.models.LHW_GB;
 import edu.aku.hassannaqvi.lhwevaluation.models.MWRA;
 import edu.aku.hassannaqvi.lhwevaluation.ui.ChangePasswordActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.IdentificationActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.LhwIdentificationActivity;
+import edu.aku.hassannaqvi.lhwevaluation.ui.LoginActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.SyncActivity;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportCluster;
 import edu.aku.hassannaqvi.lhwevaluation.ui.lists.FormsReportDate;
@@ -200,12 +206,13 @@ public class MainActivity extends AppCompatActivity {
                 intent = new Intent(MainActivity.this, ChangePasswordActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.sendDB:
+                sendEmail();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
-
-
 
 
     @Override
@@ -215,6 +222,33 @@ public class MainActivity extends AppCompatActivity {
 
         action_database.setVisible(MainApp.admin);
         return true;
+    }
+
+    // Email database to specified email address as attachment
+    private void sendEmail() {
+        Intent emailIntent = new Intent(Intent.ACTION_SEND);
+        emailIntent.setType("text/plain");
+        emailIntent.putExtra(Intent.EXTRA_CC, new String[]{"omar.shoaib@aku.edu", "hussain.siddiqui@aku.edu"});
+        emailIntent.putExtra(Intent.EXTRA_EMAIL, new String[]{"hamza.amir@aku.edu"});
+        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "LHW Evaluation - For Issue Monitoring");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, "LHW Evaluation database upload from the device which has issues while uploading the data." +
+                "This is just for testing/checking purpose.");
+        File file = LoginActivity.dbBackup(MainActivity.this);
+        if (file == null || !file.exists() || !file.canRead()) {
+            Toast.makeText(this, getString(R.string.file_not_found), Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Uri uri;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            emailIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+            uri = FileProvider.getUriForFile(this, "edu.aku.hassannaqvi.lhwevaluation.fileProvider", file);
+        } else {
+            uri = Uri.fromFile(file);
+        }
+        emailIntent.putExtra(Intent.EXTRA_STREAM, uri);
+        emailIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        startActivity(Intent.createChooser(emailIntent, "Pick an email provider"));
     }
 
 }

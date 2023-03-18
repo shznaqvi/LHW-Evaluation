@@ -2593,6 +2593,7 @@ This Section will be repeated for Selected MWRA, Adolescent, and Male members of
     <string name="istatush"> No MWRA 18 or above of age live in this household ? </string>
     <string name="istatusi"> Household not selected for Validation</string>
     <string name="istatus96"> Other (Specify) </string>
+    <string name="file_not_found">File not found</string>
 
     <string-array name="langs">
         <item> English </item>
